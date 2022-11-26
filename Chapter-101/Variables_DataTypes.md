@@ -125,8 +125,8 @@ class A {
 	{
 
 		// Object Creation
-		A name = new A();
-		System.out.println("Geek name is: " + name.geek);
+		A a = new A();
+		System.out.println("Geek name is: " + a.name);
 	}
 }
 ```
@@ -146,7 +146,7 @@ class A {
 
 public static String name = "Kumar Y";		 //Declared static variable
 	public static void main (String[] args) {
-		System.out.println(" Name is : "+A.geek);
+		System.out.println(" Name is : "+A.name);
 	}
 }
 ```
