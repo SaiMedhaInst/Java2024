@@ -4,21 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d7006db-9fcb-4666-bd9a-60ccf26f9c82" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Basics/DataTypes.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Basics/DataTypes2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Basics/HelloWorld.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Basics/Input.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Basics/TypeCasting.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Basics/TypesOfVariables.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Basics/Variable.java" afterDir="false" />
-    </list>
+    <list default="true" id="4d7006db-9fcb-4666-bd9a-60ccf26f9c82" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -32,7 +18,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -51,13 +37,13 @@
     &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.TypeCasting">
-    <configuration name="DataTypes" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Basics.DataTypes" />
+  <component name="RunManager" selected="Application.BitWise">
+    <configuration name="BitWise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Operators.BitWise" />
       <module name="Chapter101-Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Basics.*" />
+          <option name="PATTERN" value="Operators.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -65,12 +51,25 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DataTypes2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Basics.DataTypes2" />
+    <configuration name="Op" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Operators.Op" />
       <module name="Chapter101-Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Basics.*" />
+          <option name="PATTERN" value="Operators.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Relational" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Operators.Relational" />
+      <module name="Chapter101-Code" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Operators.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -91,25 +90,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TypesOfVariables" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Basics.TypesOfVariables" />
+    <configuration name="logical" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Operators.logical" />
       <module name="Chapter101-Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Basics.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Variable" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Basics.Variable" />
-      <module name="Chapter101-Code" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Basics.*" />
+          <option name="PATTERN" value="Operators.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -119,11 +105,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.BitWise" />
+        <item itemvalue="Application.logical" />
+        <item itemvalue="Application.Op" />
+        <item itemvalue="Application.Relational" />
         <item itemvalue="Application.TypeCasting" />
-        <item itemvalue="Application.DataTypes2" />
-        <item itemvalue="Application.DataTypes" />
-        <item itemvalue="Application.TypesOfVariables" />
-        <item itemvalue="Application.Variable" />
       </list>
     </recent_temporary>
   </component>
