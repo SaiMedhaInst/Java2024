@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4d7006db-9fcb-4666-bd9a-60ccf26f9c82" name="Changes" comment="" />
+    <list default="true" id="4d7006db-9fcb-4666-bd9a-60ccf26f9c82" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/../Chapter-201/Arrays.md" beforeDir="false" afterPath="$PROJECT_DIR$/../Chapter-201/Arrays.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../syallabus.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../syallabus.txt" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -29,21 +32,21 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/SaiMedha/Java-ECET/Chapter101-Code&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;editor.preferences.fonts.default&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "last_opened_file_path": "D:/SaiMedha/Java-ECET/Chapater-201-Code",
+    "settings.editor.selected.configurable": "editor.preferences.fonts.default"
   }
-}</component>
-  <component name="RunManager" selected="Application.BitWise">
-    <configuration name="BitWise" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Operators.BitWise" />
+}]]></component>
+  <component name="RunManager" selected="Application.StringBuilderExample">
+    <configuration name="Methods" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StringPractice.Methods" />
       <module name="Chapter101-Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Operators.*" />
+          <option name="PATTERN" value="StringPractice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -51,12 +54,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Op" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Operators.Op" />
+    <configuration name="OutputExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="InputOutput.OutputExample" />
       <module name="Chapter101-Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Operators.*" />
+          <option name="PATTERN" value="InputOutput.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -64,12 +67,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Relational" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Operators.Relational" />
+    <configuration name="StringBuffereExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StringPractice.StringBuffereExample" />
       <module name="Chapter101-Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Operators.*" />
+          <option name="PATTERN" value="StringPractice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -77,12 +80,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TypeCasting" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Basics.TypeCasting" />
+    <configuration name="StringBuilderExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StringPractice.StringBuilderExample" />
       <module name="Chapter101-Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Basics.*" />
+          <option name="PATTERN" value="StringPractice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -90,12 +93,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="logical" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Operators.logical" />
+    <configuration name="StringTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="StringPractice.StringTest" />
       <module name="Chapter101-Code" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Operators.*" />
+          <option name="PATTERN" value="StringPractice.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -105,11 +108,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.BitWise" />
-        <item itemvalue="Application.logical" />
-        <item itemvalue="Application.Op" />
-        <item itemvalue="Application.Relational" />
-        <item itemvalue="Application.TypeCasting" />
+        <item itemvalue="Application.StringBuilderExample" />
+        <item itemvalue="Application.StringBuffereExample" />
+        <item itemvalue="Application.Methods" />
+        <item itemvalue="Application.StringTest" />
+        <item itemvalue="Application.OutputExample" />
       </list>
     </recent_temporary>
   </component>

@@ -1,0 +1,98 @@
+STRINGS in IN JAVA. 
+===================
+GROUP OF CHARACTERS-- letters(a-z A-Z 0-9 special symbols)
+	String name = "Kumar"
+	String greet = "नमस्ते"
+--> String is non primitive 
+---> String belongs to java.lang.String
+--> String immutable 
+
+--> IN Java Strings are represented using UNICODE (16bit) 65,536.
+
+## WAYS TO Declare the Strings##
+	- using string literals 
+		String s1 = "hello";
+		String s3 = "hello";
+		
+		--> Stored inside String constant pool.
+		--> reference variables/objects stored in STACK area
+	
+	- using new string 
+		String s2 = new String("Hello");
+		String s4 = new String("Hello");
+		- created inside HEAP memory allocation.
+	
+	s.o.pln(s1==s3) //true
+	s.o.pln(s2==s4) //false
+	
+## CONCAT
+	str+str --> str
+	str+any datatype--> str
+	
+##INDEXING
+	- postive 
+		0 --LEN-1
+	- Invalid Index --> Exception
+	
+###Methods 
+	- length() 
+	- toUpperCase()
+	- toLowerCase()
+	- charAt()
+	- isEmpty() isBlank() 
+	- indexOf()
+	- trim() 
+	- equals() equalsIgnoreCase()  
+   -  hashCode()
+   -  replace()
+   - startsWith() endsWith() 
+   - valueOf() 
+   - toString() 
+   - compareTo() 
+   - split()
+   - matches()
+   
+ #StringBuffer
+ - Mutable Version 
+ - StringBuffer s = new StringBuffer("hello")
+ - java.lang
+ - Stored in HEAP location.
+ #methods
+	append()
+	insert()
+	delete()
+	replace()
+	length()
+	
+ StringBuffer s = new StringBuffer(); 
+ StringBuffer s = new StringBuffer(20); 
+ StringBuffer s = new StringBuffer("GeeksforGeeks");
+ 
+ 
+## STRINGBUILDER
+	- Mutable version. 
+	- java.lang.StringBuilder.
+	StringBuilder sb = new StringBuilder("Hello");
+	- Stores inside Heap allocation
+	- They are not thread safe 
+	- Efficient than StringBuffer and String
+	
+## 	Read a string from keyboard ,
+	Do the reverse.
+	1. using loops
+	2. Convert -> SB 
+		apply reverse()	method.
+		
+	
+	for(int i=0;i<10^6;i++){
+		String s1 = "hello"; 
+	}	
+	
+	for(int i=0;i<10^6;i++){
+		String s2 = new String("hello");
+	}
+	
+   
+	
+	
+	
