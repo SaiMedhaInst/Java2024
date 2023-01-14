@@ -261,10 +261,136 @@ do{
 - It breaks the current flow of the program at specified condition. In case of inner loop, it breaks only inner loop.
 
 - We can use Java break statement in all types of loops such as for loop, while loop and do-while loop.
+- 
+```java
+
+for (int i = 0; i < 100; i++) {
+  if (i == 4) {
+    break;
+  }
+  System.out.println(i);
+}
+
+```
+
+#### Try these?
+
+```java
+
+for(int i=0;i<100;i++){
+    System.out.println("inside for loop..");
+    break;
+}
+
+for(int i=0;i<100;i++){
+    break;
+    System.out.println("inside for loop..");
+}
+
+```
+
+#### continue
+- The continue statement breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
+```java
+
+for (int i = 0; i < 10; i++) {
+  if (i == 4) {
+    continue;
+  }
+  System.out.println(i);
+}
+
+int i = 0;
+while (i < 10) {
+  if (i == 4) {
+    i++;
+    continue;
+  }
+  System.out.println(i);
+  i++;
+}
+
+```
+
+### Try these?
+```java
+
+for(int i=0;i<100;i++){
+    System.out.println("inside for loop..");
+    continue;
+    System.out.println(i);
+}
 
 
+for(int i=0;i<100;i++){
+   continue;
+    System.out.println("inside for loop..");
+}
+
+```
 
 
+## NESTED LOOPS
+- A nested loop has one loop inside of another. 
+- Needed for transvering 2D arrays/Lists/Matrices.
+- Accessing / Updating 2D data.
+- For one ITERATION of OUTER LOOP , INNER LOOP has to execute all it's ITERATIONS/BODY.
+- 
+
+#### NESTED FOR LOOP
+```java
+
+for ( initialization; condition; increment ) {
+
+   for ( initialization; condition; increment ) {
+      
+      // statement of inside loop
+   }
+
+   // statement of outer loop
+}
+
+```
+
+#### NESTED WHILE
+```java
+
+while(condition) {
+
+   while(condition) {
+      
+      // statement of inside loop
+   }
+
+   // statement of outer loop
+}
+
+```
+
+#### NESTED DO WHILE
+
+```java
+
+do{
+
+   do{
+      
+      // statement of inside loop
+   }while(condition);
+
+   // statement of outer loop
+}while(condition);
+
+```
+
+`NOTE`:
+    There is no rule that a loop must be nested inside its own type. In fact, there can be any type of loop nested inside any type and to any level.
+    
+#### EXAMPLES
+```java
+
+
+```
 
 
 

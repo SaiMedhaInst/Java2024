@@ -291,6 +291,115 @@ switch (day) {
 - A break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.
 - If we skip break statement , all true cases will be printed.
 
+## NESTED CONDITIONAL STATEMENTS.
+### NESTED IF
+```java
+	
+	if(condition){
+	    //statements
+	    if(condition2){
+	        //statements
+		    if(condition3){
+			    //statements
+	    	}
+    	}
+    }
+    
+    
+    
+int num = 3;
+if(num-- > 0){
+    System.out.println("at Level-1 value is: "+ num);
+    if(--num > 0){
+        System.out.println("at Level-2 value is: "+num);
+        if(--num > 0){
+            System.out.println("at Level-3 value is: "+num);
+        }
+    }
+}
+```
+
+### NESTED IF ELSE 
+```java
+
+if(condition1){
+	if(condition2){
+		//statements
+	}
+	else{
+		//statements
+	}
+}
+else{
+	
+	if(condition3){
+		//statements
+	}
+	else{
+		//statements
+	}
+}
+
+// FINDING THE LARGEST OF 3 NUMBERS.
+int a=10,b=25,c=20;
+if(a>b){
+    if(a>c){
+        System.out.println(a+ "is greater");
+    }else{
+        System.out.println(c+ "is greater");
+    }
+}else{
+    if(b>c){
+        System.out.println(b+ "is greater");
+    }else{
+        System.out.println(c+ "is greater");
+    }
+}
+
+
+```
+
+### NESTED  ELSE IF
+
+```java
+
+if(condition1){
+	//stmns
+}else if(condition2){
+	if(condition3){
+		//statements
+	}else if(condition4){
+		//statements
+	}
+}else{
+	//smtns
+}
+```
+
+### NESTED SWITCH 
+```java
+int year = 3;
+int marks = 80;
+
+switch(year) //Switch expression
+{
+	//Case statements
+	case 1: System.out.println("First year students");
+		break;
+	case 2: System.out.println("Second year students");
+		break;
+	case 3: switch(marks) {
+				case 50: System.out.println("You are not eligible for scholarship");
+					break;
+				case 80: System.out.println("Congrats!!!!! you are eligible for scholarship");
+					break;
+			}
+		break;
+	//Default case statement
+	default: System.out.println("Please enter valid year");
+}
+
+```
 
 ## License
 
