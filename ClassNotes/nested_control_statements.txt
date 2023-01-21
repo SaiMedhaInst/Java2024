@@ -2,52 +2,47 @@ NESTED CONDITIONAL STATEMENTS
 ===========================
 NESTED IF 
 ================================
-	if(condition){
-		//stmnts
-		if(cond2){
-		//stmnts
-			if(cond3){
-				//stmnts
+	if(conditionition){
+		//statements
+		if(condition2){
+		//statements
+			if(condition3){
+				//statements
 			}
 		}
 	}
 	
 NESTED IF ELSE 
 ===============================
-	if(cond1){
-		if(cond2){
-			//stmnts
+	if(condition1){
+		if(condition2){
+			//statements
 		}
 		else{
-			//stmnts
+			//statements
 		}
 	}
 	else{
 		
-		if(cond2){
-			//stmnts
+		if(condition2){
+			//statements
 		}
 		else{
-			//stmnts
+			//statements
 		}
 	}
 	
 NESTED IF ELSE IF ELSE IF 
 ===================================
-	if(cond1){
+	if(condition1){
 		//stmns
-	}
-	
-	else if(cond2){
-		if(cond3){
-			//stmnts
+	}else if(condition2){
+		if(condition3){
+			//statements
+		}else if(condition4){
+			//statements
 		}
-		else if(cond4){
-			//stmnts
-		}
-	}
-	
-	else{
+	}else{
 		//smtns
 	}
 
@@ -93,4 +88,28 @@ switch(n){
   
    // code to be executed if n doesn't match any cases
    default: 
+}
+
+
+######EXAMPLES ############
+
+int year = 3;
+int marks = 80;
+
+switch(year) //Switch expression
+{
+	//Case statements
+	case 1: System.out.println("First year students");
+		break;
+	case 2: System.out.println("Second year students");
+		break;
+	case 3: switch(marks) {
+				case 50: System.out.println("You are not eligible for scholarship");
+					break;
+				case 80: System.out.println("Congrats!!!!! you are eligible for scholarship");
+					break;
+			}
+		break;
+	//Default case statement
+	default: System.out.println("Please enter valid year");
 }

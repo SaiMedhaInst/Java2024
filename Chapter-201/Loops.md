@@ -389,6 +389,17 @@ do{
 #### EXAMPLES
 ```java
 
+    int i=1;
+    int j;
+    do{
+        j=1;
+        do{
+            System.out.printf("%d * %d = %d\n",i,j,(i*j));
+            j++;
+        }while(j<=10);
+        i++;
+        System.out.println();
+    }while(i<=5);
 
 ```
 
