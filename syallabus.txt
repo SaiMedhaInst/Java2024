@@ -57,15 +57,19 @@
 												for each
 												
 											=>Arrays 
+												1D
+												2D
+												types 
+												operations
 											
 										
 										################################################
 													CHAPTER-3
 										################################################
 											=> Methods 
-											=> Functions
-											=> Packages'
+											=> Types Of Methods
 											=> Access Modifiers
+											=>Packages
 
 
 										################################################
