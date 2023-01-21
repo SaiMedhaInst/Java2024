@@ -403,11 +403,84 @@ do{
 
 ```
 
+## LABELED LOOP
+- A label is a valid variable name that denotes the name of the loop to where the control of execution should jump. 
+- To label a loop, place the label before the loop with a colon at the end.
+- It is a good practise to label a loop when using a nested loop.
+- We can also use labels with continue and break statements.
 
+`Syntax:`
+```java
+    labelname:    
+    for(initialization; condition; incr/decr)  
+    {    
+    //loop body  
+    }   
+    
+    
+    
+     int i, j;
+    //outer loop
+    outer:     //label
+    for(i=1;i<=5;i++)
+    {
+        System.out.println();
+        //inner loop
+        inner:      //label
+        for(j=1;j<=10;j++)
+        {
+            if(i==3)
+                break outer;
+            System.out.print(j + " ");
+    
+        }
+    }
+```
+
+```java
+
+        int i = 0;
+        whilelabel:
+        while (i < 5)
+        {
+            System.out.println("outer value of i= " + i);
+            i++;
+            forlabel:
+            for (int j = 0; j < 5; j++)
+            {
+                if (j > 0)
+                {
+                    //execution transfer to the for loop      
+                    continue forlabel;
+                }  
+                if (i > 1)
+                {
+                    //execution transfer to the while loop      
+                    continue whilelabel;
+                }    
+                System.out.println("inner value of i= " + i + ", j= " + j);
+            }  //end of for  
+        } 
+
+```
+
+### OBSERVATIONS
+- Conditions in for ,while , do while loops should be always boolean either true or false
+- for(;;) will raise infinite loop.
+- Not Incrementing/Decrementing of index variables will raise while infinite loop.
+- Choose FOR LOOP , when no of iterations are known in advance
+- Choose WHILE LOOP , when we don't know no of iterations.
+- {} curly brackets for block of scope is not mandatory when we have only one statement/instruction inside body of for/while/dowhile loops.
+- In Nested LOOPS , for one each iteration of OUTER LOOP , the INNER LOOP has to complete all it's iterations.
+- LOOPS will fall into following  time complexities
+                - Big-Oh(n)
+                - Big-Oh(n^2)
+                - Big-Oh(n*logN)
+                - Big-Oh(n^3)
+            
 
 ## License
 
 MIT
 
 **Anil K Rajamoni!**
-
