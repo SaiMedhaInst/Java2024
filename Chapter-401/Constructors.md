@@ -91,4 +91,72 @@ public class Main{
 
 ```
 
+**NOTE**
+**Does constructor return any value?**
+>There are no “return value” statements in the constructor, but the constructor returns the current class instance. We can write ‘return’ inside a constructor.
+
 ### Default Constructor
+
+- A constructor that has no parameters and no body is known as default the constructor. 
+- A default constructor is invisible. 
+- And if we write a constructor with arguments or no arguments then the compiler does not create a default constructor. It is taken out. 
+- It is being overloaded and called a parameterized constructor. - The default constructor changed into the parameterized constructor. But Parameterized constructor can’t change the default constructor.
+
+```java
+
+import java.io.*;
+class Simple {
+	Simple {  }
+	public static void main(String[] args)
+	{
+
+		GFG hello = new GFG();
+	}
+}
+
+```
+
+### CONSTRUCTOR OVERLOADING
+- Constructor overloading refers to the use of more than one constructor in an instance class.
+- Each overloaded constructor must have different signatures
+
+```java
+
+import java.io.*;
+
+class Simple {
+
+	Simple(String name)
+	{
+		System.out.println("Constructor with one "	+ "argument - String : " + name);
+	}
+
+	// constructor with two arguments
+	Simple(String name, int age)
+	{
+		System.out.println(	"Constructor with two arguments : "
+			+ " String and Integer : " + name + " " + age);
+	}
+
+	// Constructor with one argument but with different
+	// type than previous..
+	Simple(long id)
+	{
+		System.out.println(	"Constructor with one argument : "
+			+ "Long : " + id);
+	}
+}
+
+class Test {
+	public static void main(String[] args)
+	{
+		Simple s1 = new Simple("Kumar");
+		Simple s2 = new Simple("Avan", 26);
+		Simple s3 = new Simple(325614567);
+	}
+}
+
+
+
+```
+

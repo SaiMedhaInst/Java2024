@@ -16,18 +16,26 @@ public class LeapYear {
     System.out.println("Enter YEAR: ");
     long year = in.nextLong();
 
-    if(year%400 == 0){
-      System.out.printf("%d is a leap year.", year);
-    }
-    else if(year%100 == 0){
-      System.out.printf("%d is not a leap year.", year);
-    }
-    else if(year%4 == 0){
-      System.out.printf("%d is a leap year.", year);
-    }
-    else {
-      System.out.printf("%d is not a leap year.", year);
+  //   if(year%400 == 0){
+  //     System.out.printf("%d is a leap year.", year);
+  //   }
+  //   else if(year%100 == 0){
+  //     System.out.printf("%d is not a leap year.", year);
+  //   }
+  //   else if(year%4 == 0){
+  //     System.out.printf("%d is a leap year.", year);
+  //   }
+  //   else {
+  //     System.out.printf("%d is not a leap year.", year);
+  //  }
+
+   if((year%400 ==0) || (year%100!=0 && year%4==0)){
+    System.out.println("leap year");
    }
+   else{
+    System.out.println("not leap year");
+   }
+
 
    in.close();
 
