@@ -20,10 +20,10 @@ class <class_name>{
 ```
 
 - Variables 
--- **instance variables**
+- **instance variables**
         declared inside class outside method/block/constructor
         memory allocation happens at object creation
--- **class variables** 
+- **class variables** 
     delcared with static keyword
     memory allocation happens during runtime 
 
