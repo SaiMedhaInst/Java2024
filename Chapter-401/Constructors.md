@@ -38,9 +38,9 @@ class Student {
 - Each time an object is created using a new() keyword, at least one constructor (it could be the default constructor) is invoked to assign initial values to the data members of the same class. 
 
 - Rules for writing constructors are as follows:
-1.The constructor(s) of a class must have the same name as the class name in which it resides.
-2.A constructor in Java can not be abstract, final, static, or Synchronized.
-3.Access modifiers can be used in constructor declaration to control its access i.e which other class can call the constructor.
+- 1.The constructor(s) of a class must have the same name as the class name in which it resides.
+- 2.A constructor in Java can not be abstract, final, static, or Synchronized.
+- 3.Access modifiers can be used in constructor declaration to control its access i.e which other class can call the constructor.
 
 ### Types of Constructors in Java
 
