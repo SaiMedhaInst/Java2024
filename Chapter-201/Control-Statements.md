@@ -308,11 +308,13 @@ switch (day) {
     
     
 int num = 3;
-if(num-- > 0){
+if(num > 0){
     System.out.println("at Level-1 value is: "+ num);
-    if(--num > 0){
+    num-=1;
+    if(num > 0){
+      num-=1;
         System.out.println("at Level-2 value is: "+num);
-        if(--num > 0){
+        if(num > 0){
             System.out.println("at Level-3 value is: "+num);
         }
     }
