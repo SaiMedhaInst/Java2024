@@ -7,7 +7,7 @@
 
 A class in Java can contain:
 -- Fields
- -- Methods
+-- Methods
 -- Constructors
 -- Blocks
 -- Nested class and interface
