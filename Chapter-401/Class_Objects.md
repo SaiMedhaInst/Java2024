@@ -6,11 +6,11 @@
 - A class is a group of objects which have common properties.
 
 A class in Java can contain:
--- Fields
--- Methods
--- Constructors
--- Blocks
--- Nested class and interface
+- Fields
+- Methods
+- Constructors
+- Blocks
+- Nested class and interface
 
 ```java
 class <class_name>{  
