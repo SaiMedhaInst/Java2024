@@ -30,8 +30,8 @@ class <class_name>{
 
 - *In Java, a method is like a function which is used to expose the behavior of an object.and perform specific task/job*
     Advantage of Method
-        ->Code Reusability
-        ->Code Optimization
+    Code Reusability
+    Code Optimization
 
 ### OBJECT 
 - Object is a run-time entity. 
@@ -40,9 +40,9 @@ class <class_name>{
 
 **An object has three characteristics:**
 
-**State:** represents the data (value) of an object.
-**Behavior:** represents the behavior (functionality) of an object such as deposit, withdraw, etc.
-**Identity:** An object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user. However, it is used internally by the JVM to identify each object uniquely.
+- **State:** represents the data (value) of an object.
+- **Behavior:** represents the behavior (functionality) of an object such as deposit, withdraw, etc.
+- **Identity:** An object identity is typically implemented via a unique ID. The value of the ID is not visible to the external user. However, it is used internally by the JVM to identify each object uniquely.
 
 ex: *For Example, Pen is an object. Its name is Reynolds; color is white, known as its state. It is used to write, so writing is its behavior.*
 
