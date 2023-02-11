@@ -13,6 +13,7 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
@@ -36,7 +37,33 @@
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.Driver">
+  <component name="RunManager" selected="Application.Test">
+    <configuration name="A" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS4.A" />
+      <module name="Chapter401-CodeExamples" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="OOPS4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CommonInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS4.CommonInterface" />
+      <module name="Chapter401-CodeExamples" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="OOPS4.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="OOPS2.Driver" />
       <module name="Chapter401-CodeExamples" />
@@ -63,8 +90,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS5.Test" />
+      <module name="Chapter401-CodeExamples" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="OOPS5.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Test" />
+        <item itemvalue="Application.A" />
+        <item itemvalue="Application.CommonInterface" />
         <item itemvalue="Application.Driver" />
         <item itemvalue="Application.Pen" />
       </list>
