@@ -1,8 +1,5 @@
 package OOPS3;
 
-
-
-
  class Address {
     String city,state,country;
 
