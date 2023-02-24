@@ -1,11 +1,9 @@
 package OOPS5;
 
 
-
-class A{
-    protected  String name;
-    abstract public A(){
-        System.out.println("a constructors...");
+class Student{
+    public String toString(){
+        return "hello world object";
     }
 }
 class OverloadingCalculation3{
@@ -17,8 +15,7 @@ public class MethodLoadingTest {
 
     public static void main(String args[]){
         OverloadingCalculation3 obj=new OverloadingCalculation3();
-        //obj.sum(20,20);//now ambiguity
-        new A();
-        System.out.println(new A().name);
+        Student s = new Student();
+        System.out.println(s);
     }
 }

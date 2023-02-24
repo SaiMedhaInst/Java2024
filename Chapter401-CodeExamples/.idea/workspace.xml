@@ -13,8 +13,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -41,13 +41,13 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.MethodLoadingTest">
-    <configuration name="CommonInterface" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OOPS4.CommonInterface" />
+  <component name="RunManager" selected="Application.ArrayListExample">
+    <configuration name="ArrayListExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CollectionsPracticse.ArrayListExample" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="OOPS4Abstraction.*" />
+          <option name="PATTERN" value="CollectionsPracticse.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,12 +81,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Mobile" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OOPS1.Mobile" />
+    <configuration name="OOPS2.Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS2.Test" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="OOPS1.*" />
+          <option name="PATTERN" value="OOPS2.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,25 +94,20 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OOPS5.Test" />
+    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Test" />
       <module name="Chapter401-CodeExamples" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="OOPS5.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.ArrayListExample" />
+        <item itemvalue="Application.OOPS2.Test" />
+        <item itemvalue="Application.Test (1)" />
         <item itemvalue="Application.MethodLoadingTest" />
         <item itemvalue="Application.Interest" />
-        <item itemvalue="Application.Mobile" />
-        <item itemvalue="Application.Test" />
       </list>
     </recent_temporary>
   </component>
