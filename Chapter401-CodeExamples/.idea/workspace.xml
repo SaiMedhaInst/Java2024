@@ -41,13 +41,13 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.ArrayListExample">
-    <configuration name="ArrayListExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CollectionsPracticse.ArrayListExample" />
+  <component name="RunManager" selected="Application.TestNestedInterface1">
+    <configuration name="CalssCode.Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CalssCode.Driver" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CollectionsPracticse.*" />
+          <option name="PATTERN" value="CalssCode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -55,12 +55,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Interest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OOPS1.Interest" />
+    <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS4Abstraction.Driver" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="OOPS1.*" />
+          <option name="PATTERN" value="OOPS4Abstraction.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,12 +68,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="MethodLoadingTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OOPS5.MethodLoadingTest" />
+    <configuration name="InheritanceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CalssCode.InheritanceTest" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="OOPS5.*" />
+          <option name="PATTERN" value="CalssCode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,12 +81,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OOPS2.Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OOPS2.Test" />
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CalssCode.Main" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="OOPS2.*" />
+          <option name="PATTERN" value="CalssCode.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,20 +94,26 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Test (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Test" />
+    <configuration name="TestNestedInterface1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="CalssCode.TestNestedInterface1" />
       <module name="Chapter401-CodeExamples" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="CalssCode.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ArrayListExample" />
-        <item itemvalue="Application.OOPS2.Test" />
-        <item itemvalue="Application.Test (1)" />
-        <item itemvalue="Application.MethodLoadingTest" />
-        <item itemvalue="Application.Interest" />
+        <item itemvalue="Application.TestNestedInterface1" />
+        <item itemvalue="Application.CalssCode.Driver" />
+        <item itemvalue="Application.Driver" />
+        <item itemvalue="Application.InheritanceTest" />
+        <item itemvalue="Application.Main" />
       </list>
     </recent_temporary>
   </component>
