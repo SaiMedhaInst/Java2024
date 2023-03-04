@@ -529,5 +529,12 @@ public class TestThrow3  {
         }  
     }  
 }
-
 ```
+
+
+#### NOTE 
+- If we throw a checked exception using throw keyword, it is must to handle the exception using catch block or the **method must declare it using throws declaration.**
+
+-  Every subclass of **Error and RuntimeException is an unchecked exception** in Java. A checked exception is everything else under the Throwable class.
+
+
