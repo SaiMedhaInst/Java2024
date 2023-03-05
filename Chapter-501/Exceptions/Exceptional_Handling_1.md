@@ -100,9 +100,11 @@ public class JavaExceptionExample{
 ```java
 public class JavaExceptionExample{  
   public static void main(String args[]){  
+    
+   int data = 100;
    try{  
       //code that may raise exception  
-      int data = 100;
+     
       int result = data/0;  
    }catch(ArithmeticException e){
         System.out.println(e);
@@ -186,8 +188,8 @@ try{
 public class TryCatchExample3 {  
   
     public static void main(String[] args) {  
+         int data = 50;
         try  {  
-        int data = 50;
         int res=data/0; //may throw exception if exception occurs, the remaining statement will not exceute  
           System.out.println("data is: "+ data);
           System.out.println("Addition is:  "+ (data+data));
@@ -206,8 +208,8 @@ public class TryCatchExample3 {
 public class TryCatchExample4 {  
   
     public static void main(String[] args) {  
+       int data = 50;
         try  {  
-        int data = 50;
         int res=50/0; //may throw exception   
         }  
         // handling the exception by using Exception class      
