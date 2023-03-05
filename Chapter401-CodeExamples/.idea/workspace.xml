@@ -41,13 +41,13 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;
   }
 }</component>
-  <component name="RunManager" selected="Application.TestNestedInterface1">
-    <configuration name="CalssCode.Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CalssCode.Driver" />
+  <component name="RunManager" selected="Application.RunTimePolyExample">
+    <configuration name="CovariantTypeExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS6.CovariantTypeExample" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CalssCode.*" />
+          <option name="PATTERN" value="OOPS6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -55,12 +55,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Driver" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="OOPS4Abstraction.Driver" />
+    <configuration name="InstanceIntializerExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS6.InstanceIntializerExample" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="OOPS4Abstraction.*" />
+          <option name="PATTERN" value="OOPS6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -68,12 +68,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="InheritanceTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CalssCode.InheritanceTest" />
+    <configuration name="OverriddingExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS6.OverriddingExample" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CalssCode.*" />
+          <option name="PATTERN" value="OOPS6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -81,12 +81,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CalssCode.Main" />
+    <configuration name="RunTimePolyExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS6.RunTimePolyExample" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CalssCode.*" />
+          <option name="PATTERN" value="OOPS6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -94,12 +94,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="TestNestedInterface1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="CalssCode.TestNestedInterface1" />
+    <configuration name="SuperExample" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="OOPS6.SuperExample" />
       <module name="Chapter401-CodeExamples" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="CalssCode.*" />
+          <option name="PATTERN" value="OOPS6.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -109,11 +109,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.TestNestedInterface1" />
-        <item itemvalue="Application.CalssCode.Driver" />
-        <item itemvalue="Application.Driver" />
-        <item itemvalue="Application.InheritanceTest" />
-        <item itemvalue="Application.Main" />
+        <item itemvalue="Application.RunTimePolyExample" />
+        <item itemvalue="Application.InstanceIntializerExample" />
+        <item itemvalue="Application.SuperExample" />
+        <item itemvalue="Application.CovariantTypeExample" />
+        <item itemvalue="Application.OverriddingExample" />
       </list>
     </recent_temporary>
   </component>
