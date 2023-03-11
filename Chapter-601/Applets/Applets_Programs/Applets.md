@@ -130,8 +130,9 @@ public class First extends Applet{
 - height: It sets the height of an applet.
 
 
-**compiling**: javac <FileName>.java
-**running**: appletviewer <FileName>.html
+**compiling**: javac FileName.java
+
+**running**: appletviewer FileName.html
 
 **2. Using an Applet Viewer to run the applet:**
 - It is a java application that allows you to view applets
