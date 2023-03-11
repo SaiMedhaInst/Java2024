@@ -12,7 +12,7 @@
 
 ##### Java AWT Hierarchy
 
-![N|Solid](https://i.imgur.com/EBseTqR.png)
+![N|Solid](https://i.imgur.com/87LKbeG.png)
 
 **Components**
 - All the elements like the button, text fields, scroll bars, etc. are called components. In Java AWT, there are classes for each component
@@ -125,4 +125,148 @@ public void addItemListener(ItemListener a){}
 **List**
 - public void addActionListener(ActionListener a){}
 - public void addItemListener(ItemListener a){}
+
+**Action Listener Example**
+```java
+import java.awt.*;  
+import java.awt.event.*;  
+class AEvent extends Frame implements ActionListener{  
+TextField tf;  
+AEvent(){  
+    tf=new TextField();  
+    tf.setBounds(60,50,170,20);  
+    Button b=new Button("click me");  
+    b.setBounds(100,120,80,30);  
+      
+    //register listener  
+    b.addActionListener(this);//passing current instance  
+ 
+    add(b);add(tf);  
+    setSize(300,300);  
+    setLayout(null);  
+    setVisible(true);  
+}  
+public void actionPerformed(ActionEvent e){  
+    tf.setText("Welcome");  
+}  
+    public static void main(String args[]){  
+        new AEvent();  
+    }  
+} 
+```
+
+** Java event handling by anonymous class**
+```java
+import java.awt.*;  
+import java.awt.event.*;  
+class AEvent3 extends Frame{  
+TextField tf;  
+AEvent3(){  
+    tf=new TextField();  
+    tf.setBounds(60,50,170,20);  
+    Button b=new Button("click me");  
+    b.setBounds(50,120,80,30);  
+      
+    b.addActionListener(new ActionListener(){  
+        public void actionPerformed(){  
+        tf.setText("hello");  
+        }  
+        });  
+    add(b);add(tf);  
+    setSize(300,300);  
+    setLayout(null);  
+    setVisible(true);  
+}  
+public static void main(String args[]){  
+    new AEvent3();  
+}  
+}  
+```
+
+#### AWT Button
+- A button is basically a control component with a label that generates an event when pushed. 
+- The Button class is used to create a labeled button that has platform independent implementation. 
+- The application result in some action when the button is pushed.
+
+- To perform an action on a button being pressed and released, the ActionListener interface needs to be implemented. 
+- The registered new listener can receive events from the button by calling addActionListener method of the button. 
+
+**syntax**
+
+```java
+public class Button extends Component implements Accessible  
+```
+
+**Constructors**
+- Button( ): It constructs a new button with an empty string i.e. it has no label.
+- Button (String text) : It constructs a new button with given string as its label.
+
+**Methods**
+- void setText (String text)
+- String getText()
+- void setLabel (String label)
+- String getLabel()
+- void addActionListener(ActionListener l)
+- void removeActionListener (ActionListener l)
+
+**NOTE**: The Button class inherits methods from java.awt.Component and java.lang.Object classes.
+
+```java
+import java.awt.*;    
+public class ButtonExample {    
+public static void main (String[] args) {   
+  
+    // create instance of frame with the label   
+    Frame f = new Frame("Button Example");    
+  
+    // create instance of button with label  
+    Button b = new Button("Click Here");   
+  
+    // set the position for the button in frame   
+    b.setBounds(50,100,80,30);    
+  
+    // add button to the frame  
+    f.add(b);    
+    // set size, layout and visibility of frame  
+    f.setSize(400,400);    
+    f.setLayout(null);    
+    f.setVisible(true);     
+}    
+}  
+```
+
+**AWT Button Example with ActionListener**
+
+```java
+// importing necessary libraries  
+import java.awt.*;    
+import java.awt.event.*;    
+public class ButtonExample3 {    
+public static void main(String[] args) {    
+    // create instance of frame with the label   
+    Frame f = new Frame("Button Example");    
+    final TextField tf=new TextField();    
+    tf.setBounds(50,50, 150,20);  
+    // create instance of button with label  
+    Button b=new Button("Click Here");    
+    // set the position for the button in frame   
+    b.setBounds(50,100,60,30);   
+    b.addActionListener(new ActionListener() {    
+    public void actionPerformed (ActionEvent e) {    
+            tf.setText("Welcome to Javatpoint.");    
+        }    
+    });  
+// adding button the frame  
+    f.add(b);  
+// adding textfield the frame  
+    f.add(tf);    
+// setting size, layout and visibility   
+    f.setSize(400,400);    
+    f.setLayout(null);    
+    f.setVisible(true);     
+}    
+}
+
+```
+
 
