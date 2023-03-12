@@ -2,12 +2,9 @@ import java.awt.*;
 import java.applet.*;  
 
 /*
- <html>  
-<body>  
+ 
 <applet code="AnimationExample.class" width="300" height="300">  
 </applet>  
-</body>  
-</html>  
  */
 public class AnimationExample extends Applet {  
   

@@ -230,7 +230,7 @@ public static void main(String argvs[]) {
 
 **Time of Arrival:** If two threads has same priority we have to consider Time of Arrival factor.
 
-##### **Thread Scheduler Algorithms**
+#### **Thread Scheduler Algorithms**
 
 **First Come First Serve Scheduling:**
 - In this scheduling algorithm, the scheduler picks the threads thar arrive first in the runnable queue
@@ -253,7 +253,7 @@ public static void main(String argvs[]) {
 ![N|Solid](https://i.imgur.com/mYX2AnQ.png)
 
 
-#### **Thread.sleep()**
+## Thread.sleep()
 - The method sleep() is being used to halt the working of a thread for a given amount of time.
 - The time up to which the thread remains in the sleeping state is known as the sleeping time of the thread. 
 - After the sleeping time is over, the thread starts its execution from where it has left.
@@ -321,6 +321,18 @@ public class TestSleepMethod2 {
 
 ### Try these?
 - Can we start a thread twice?
+```java
+public class TestThreadTwice1 extends Thread{  
+ public void run(){  
+   System.out.println("running...");  
+ }  
+ public static void main(String args[]){  
+  TestThreadTwice1 t1=new TestThreadTwice1();  
+  t1.start();  
+  t1.start();  
+ }  
+} 
+```
 
 **we call Java run() method directly instead start() method?**
 - Each thread starts in a separate call stack. 
@@ -359,7 +371,242 @@ class TestCallRun2 extends Thread{
 
 ```
 
+**As we can see in the above program that there is no context-switching because here t1 and t2 will be treated as normal object not thread object.**
 
+## Java join() method
+- java.lang.Thread class provides the join() method which allows one thread to wait until another thread completes its execution..
+-  If t is a Thread object whose thread is currently executing, then t.join() will make sure that t is terminated before the next instruction is executed by the program.
+-  If there are multiple threads calling the join() methods that means overloading on join allows the programmer to specify a waiting period.
+-  However, as with sleep, join is dependent on the OS for timing, so you should not assume that join will wait exactly as long as you specify
+
+**There are three overloaded join function**
+
+**1. join():** 
+- It will put the current thread on wait until the thread on which it is called is dead. 
+- If thread is interrupted then it will throw InterruptedException.
+Syntax:
+```java
+public final void join() throws InterruptedException  
+```
+
+**2. join(long millis)**
+- It will put the current thread on wait until the thread on which it is called is dead or wait for specified time (milliseconds).
+Syntax:
+```java
+public final synchronized void join(long millis) throws InterruptedException,
+```
+**join(long millis, int nanos):** 
+- It will put the current thread on wait until the thread on which it is called is dead or wait for specified time (milliseconds + nanos).
+
+```java
+public final synchronized void join(long millis, int nanos) throws InterruptedException,
+```
+
+```java
+import java.io.*;  
+class ThreadJoin extends Thread  {  
+	public void run(){  
+		for (int j = 0; j < 2; j++){  
+			try {  
+					Thread.sleep(300);  
+					System.out.println("The current thread name is: " + Thread.currentThread().getName());  
+				}  
+			catch(Exception e){  
+					System.out.println("The exception has been caught: " + e);  
+				}  
+			System.out.println( j );  
+			}  
+		}  
+	}  
+public class ThreadJoinExample  {  
+	public static void main (String argvs[]){  
+		ThreadJoin th1 = new ThreadJoin();  
+		ThreadJoin th2 = new ThreadJoin();  
+		ThreadJoin th3 = new ThreadJoin();  
+		
+		th1.start();  
+		try {  
+			System.out.println("The current thread name is: "+ Thread.currentThread().getName());
+			th1.join();  
+		} catch(Exception e){  
+			System.out.println("The exception has been caught " + e);  
+		}  
+ 
+		th2.start();
+		try{  
+			System.out.println("The current thread name is: " + Thread.currentThread().getName());  
+			th2.join();  
+			} catch(Exception e){  
+			System.out.println("The exception has been caught " + e);
+			}  
+		th3.start();  
+	}  
+}  
+
+```
+
+**Join() Method: InterruptedException**
+
+```java
+class ABC extends Thread {  
+	Thread threadToInterrupt; 
+	public void run(){  
+	threadToInterrupt.interrupt();  
+	}  
+}  
+public class ThreadJoinExample1  {  
+	public static void main(String[] argvs) {  
+
+		try{  
+			ABC th1 = new ABC();  
+			th1.threadToInterrupt = Thread.currentThread();  
+			th1.start();  
+			th1.join();  
+		}catch (InterruptedException ex) {  
+			System.out.println("The exception has been caught. " + ex);  
+		}  
+	}  
+}  
+
+```
+
+**Example-3**
+```java
+class TestJoinMethod1 extends Thread{ 
+	public void run(){ 
+		for(int i=1;i<=5;i++){
+			try{    
+				Thread.sleep(500);    
+			}catch(Exception e){System.out.println(e);}    
+			System.out.println(i);    
+		}    
+	}    
+	public static void main(String args[]){    
+		TestJoinMethod1 t1=new TestJoinMethod1();    
+		TestJoinMethod1 t2=new TestJoinMethod1();    
+		TestJoinMethod1 t3=new TestJoinMethod1();    
+		t1.start();    
+		try{    
+			t1.join();    
+		}catch(Exception e){System.out.println(e);}    
+		t2.start();    
+		t3.start();    
+ }    
+}  
+```
+
+**Example-4: join(long miliseconds) Method**
+```java
+class TestJoinMethod2 extends Thread{
+	public void run(){    
+		for(int i=1;i<=5;i++){    
+			try{    
+				Thread.sleep(500);    
+			}catch(Exception e){System.out.println(e);}    
+		System.out.println(i);    
+	}    
+ }    
+public static void main(String args[]){    
+	TestJoinMethod2 t1=new TestJoinMethod2();    
+	TestJoinMethod2 t2=new TestJoinMethod2();    
+	TestJoinMethod2 t3=new TestJoinMethod2();    
+	t1.start();    
+	try{    
+		t1.join(1500);    
+	}catch(Exception e){System.out.println(e);}    
+    
+	t2.start();    
+	t3.start();    
+ }    
+}   
+```
+
+
+### Naming Thread
+
+- The Thread class provides methods to change and get the name of a thread. By default, each thread has a name, i.e. thread-0, thread-1 and so on.
+
+```java
+public String getName(): //is used to return the name of a thread.  
+public void setName(String name):// is used to change the name of a thread.  
+```
+
+```java
+class TestMultiNaming1 extends Thread{  
+  public void run(){  
+   System.out.println("running...");  
+  }  
+ public static void main(String args[]){  
+  TestMultiNaming1 t1=new TestMultiNaming1();  
+  TestMultiNaming1 t2=new TestMultiNaming1();  
+  System.out.println("Name of t1:"+t1.getName());  
+  System.out.println("Name of t2:"+t2.getName());  
+   
+  t1.start();  
+  t2.start();  
+  
+  t1.setName("Sai Medha..");  
+  System.out.println("After changing name of t1:"+t1.getName());  
+ }  
+}
+
+```
+
+
+**Without Using setName() Method**
+- One can also set the name of a thread at the time of the creation of a thread, without using the setName() method
+
+```java
+import java.io.*;  
+class ThreadName extends Thread{  
+	ThreadName(String threadName){ 
+		super(threadName);  
+	}  
+ 
+	public void run(){  
+		System.out.println(" The thread is executing....");  
+	}  
+}  
+  
+public class ThreadNamingExample {  
+
+public static void main (String argvs[]) {  
+ 
+	ThreadName th1 = new ThreadName("SaiMedha ECET");  
+	ThreadName th2 = new ThreadName("SaiMedha GATE");  
+
+	System.out.println("Thread - 1: " + th1.getName());  
+	System.out.println("Thread - 2: " + th2.getName());  
+    
+	th1.start();  
+	th2.start();  
+	}  
+} 
+
+```
+
+
+**Current Thread**
+- The currentThread() method returns a reference of the currently executing thread.
+
+```java
+public static Thread currentThread()    
+```
+
+```java
+class TestMultiNaming2 extends Thread{  
+ public void run(){  
+  System.out.println(Thread.currentThread().getName());  
+ }  
+ public static void main(String args[]){  
+  TestMultiNaming2 t1=new TestMultiNaming2();  
+  TestMultiNaming2 t2=new TestMultiNaming2();  
+  
+  t1.start();  
+  t2.start();  
+ }  
+} 
+```
 
 
  

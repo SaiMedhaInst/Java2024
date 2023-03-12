@@ -1,11 +1,5 @@
-/*
-<html>  
-<body>  
-<applet code="DisplayImage.class" width="300" height="300">  
-</applet>  
-</body>  
-</html>  
-*/
+
+
 import java.awt.*;  
 import java.applet.*;  
 public class DisplayImage extends Applet {  
@@ -20,3 +14,8 @@ public class DisplayImage extends Applet {
     g.drawImage(picture, 30,30, this);  
   }  
   } 
+  /*
+<applet code="DisplayImage.class" width="300" height="300">  
+</applet>  
+  
+*/
