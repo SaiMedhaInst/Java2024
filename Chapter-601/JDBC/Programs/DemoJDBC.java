@@ -1,19 +1,30 @@
 import java.sql.*;
 public class DemoJDBC {
     public static void main(String args[]) {
+
+        String dburl = "jdbc:mysql://localhost:3306/students";
+        String username = "root";
+        String passwd = "SqlAk@18";
         try {
+
+            //register the driver -1
             Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/students", "root", "SqlAk@18");
 
-            System.out.println(DriverManager.getDriver("jdbc:mysql://localhost:3306/"));
+            //create connection -2
+            Connection con = DriverManager.getConnection(dburl, username , passwd);
 
+        
+            //create statement - 3
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("select * from emp");
+
+            //execute the query - 4
+            ResultSet rs = stmt.executeQuery("select id,name from emp");
+
             while (rs.next()){
-                System.out.println("OUTPUT:");
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2) + "  " + rs.getString(3));
+                System.out.println(rs.getInt(1) + "  " + rs.getString(2));
             }
+
+            //close - 5
             con.close();
         } catch (Exception e) {
             System.out.println(e);
