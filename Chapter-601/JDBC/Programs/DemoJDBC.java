@@ -17,6 +17,8 @@ public class DemoJDBC {
             //create statement - 3
             Statement stmt = con.createStatement();
 
+            DatabaseMetaData d = con.getMetaData();
+
             //execute the query - 4
             ResultSet rs = stmt.executeQuery("select id,name from emp");
 

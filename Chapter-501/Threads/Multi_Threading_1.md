@@ -522,6 +522,15 @@ public static void main(String args[]){
 ```
 
 
+### Thread wait() 
+
+
+
+### Thread Notify ()
+
+
+### Thread yeild()
+
 ### Naming Thread
 
 - The Thread class provides methods to change and get the name of a thread. By default, each thread has a name, i.e. thread-0, thread-1 and so on.

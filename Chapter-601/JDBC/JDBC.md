@@ -269,3 +269,298 @@ con.close();
 - TRANSACTION_REPEATABLE_READ: It is a constant which shows that the non-repeatable reads and dirty reads are not allowed. However, phantom reads and can occurr.
 
 - TRANSACTION_SERIALIZABLE: It is a constant which shows that the non-repeatable reads, dirty reads as well as the phantom reads are not allowed.
+
+### Statement interface
+- The Statement interface provides methods to execute queries with the database. 
+- The statement interface is a factory of ResultSet i.e. it provides factory method to get the object of ResultSet.
+
+**methods**
+- 1) public ResultSet executeQuery(String sql): is used to execute SELECT query. It returns the - object of ResultSet.
+- 2) public int executeUpdate(String sql): is used to execute specified query, it may be create, drop, insert, update, delete etc.
+- 3) public boolean execute(String sql): is used to execute queries that may return multiple results.
+- 4) public int[] executeBatch(): is used to execute batch of commands.
+
+```java
+import java.sql.*;
+class FetchRecord {
+    public static void main(String args[]) throws Exception {
+
+        String dburl = "jdbc:mysql://localhost:3306/students";
+        String username = "root";
+        String passwd = "SqlAk@18";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(dburl, username , passwd);
+            Statement stmt = con.createStatement();
+            
+            // stmt.executeUpdate("insert into emp values(33,'Kumar',50000)");  
+            //int result=stmt.executeUpdate("update emp set name='AKR',salary=10000 where id=33");  
+            int result = stmt.executeUpdate("delete from emp where id=33");
+            System.out.println(result + " records affected");
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            con.close();
+        }
+    }
+}
+```
+
+### ResultSet interface
+- The object of ResultSet maintains a cursor pointing to a row of a table. Initially, cursor points to before the first row.
+- By default, ResultSet object can be moved forward only and it is not updatable.
+
+**methods**
+- public boolean next():	is used to move the cursor to the one row next from the current position
+- public boolean previous():	is used to move the cursor to the one row previous from the current position.
+- public boolean first():	is used to move the cursor to the first row in result set object.
+-  public boolean last():	is used to move the cursor to the last row in result set object.
+-   public boolean absolute(int row):	is used to move the cursor to the specified row number in the ResultSet object.
+-   public int getInt(int columnIndex):	is used to return the data of specified column index of the current row as int.
+-   public int getInt(String columnName):	is used to return the data of specified column name of the current row as int.
+-   public String getString(int columnIndex):	is used to return the data of specified column index of the current row as String.
+-   public String getString(String columnName):	is used to return the data of specified column name of the current row as String.
+
+```java
+import java.sql.*;
+class FetchRecord {
+    public static void main(String args[]) throws Exception {
+
+        String dburl = "jdbc:mysql://localhost:3306/students";
+        String username = "root";
+        String passwd = "SqlAk@18";
+
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(dburl, username, passwd);
+            Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+            ResultSet rs = stmt.executeQuery("select * from emp");
+
+            rs.absolute(3);
+            System.out.println(rs.getString(1) + " " + rs.getString(2) + " " + rs.getString(3));
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            con.close();
+        }
+    }
+}
+```
+
+## PreparedStatement interface
+- The PreparedStatement interface is a subinterface of Statement. It is used to execute parameterized query.
+- Improves performance: The performance of the application will be faster 
+- if we use - PreparedStatement interface because query is compiled only once.
+```java
+String sql="insert into emp values(?,?,?)";  
+```
+- As you can see, we are passing parameter (?) for the values. Its value will be set by calling the setter methods of PreparedStatement.
+
+- The prepareStatement() method of Connection interface is used to return the object of PreparedStatement. 
+```java
+    public PreparedStatement prepareStatement(String query)throws SQLException{}  
+```
+**Methods**
+- public void setInt(int paramIndex, int value)	: sets the integer value to the given parameter index.
+- public void setString(int paramIndex, String value) :	sets the String value to the given parameter index.
+- public void setFloat(int paramIndex, float value)	: sets the float value to the given parameter index.
+- public void setDouble(int paramIndex, double value) :	sets the double value to the given parameter index.
+- public int executeUpdate()  :	executes the query. It is used for create, drop, insert, update, delete etc.
+- public ResultSet executeQuery() :	executes the select query. It returns an instance of ResultSet.
+
+```java
+import java.sql.*;
+class InsertPrepared {
+    public static void main(String args[]) {
+
+        String dburl = "jdbc:mysql://localhost:3306/students";
+        String username = "root";
+        String passwd = "SqlAk@18";
+        try {
+            //register the driver -1
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            //create connection -2
+            Connection con = DriverManager.getConnection(dburl, username, passwd);
+            PreparedStatement stmt = con.prepareStatement("insert into Emp values(?,?)");
+            stmt.setInt(1, 101); //1 specifies the first parameter in the query  
+            stmt.setString(2, "Kumar");
+
+            int i = stmt.executeUpdate();
+            System.out.println(i + " records inserted");
+            
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+```
+
+**Examples**
+```java
+ //update
+PreparedStatement stmt = con.prepareStatement("update emp set name=? where id=?");
+stmt.setString(1, "Sonoo"); //1 specifies the first parameter in the query i.e. name  
+stmt.setInt(2, 101);
+
+int i = stmt.executeUpdate();
+System.out.println(i + " records updated");
+
+//delete
+PreparedStatement stmt=con.prepareStatement("delete from emp where id=?");  
+stmt.setInt(1,101);  
+  
+int i=stmt.executeUpdate();  
+System.out.println(i+" records deleted");  
+
+//select
+PreparedStatement stmt=con.prepareStatement("select * from emp");  
+ResultSet rs=stmt.executeQuery();  
+while(rs.next()){  
+System.out.println(rs.getInt(1)+" "+rs.getString(2));  
+}  
+```
+
+**Example-2 with user input**
+```java
+import java.sql.*;
+import java.io.*;
+class RS {
+    public static void main(String args[]) throws Exception {
+        String dburl = "jdbc:mysql://localhost:3306/students";
+        String username = "root";
+        String passwd = "SqlAk@18";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(dburl, username, passwd);
+            PreparedStatement ps = con.prepareStatement("insert into emp130 values(?,?,?)");
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+            do {
+                System.out.println("enter id:");
+                int id = Integer.parseInt(br.readLine());
+                System.out.println("enter name:");
+                String name = br.readLine();
+                System.out.println("enter salary:");
+                float salary = Float.parseFloat(br.readLine());
+
+                ps.setInt(1, id);
+                ps.setString(2, name);
+                ps.setFloat(3, salary);
+                int i = ps.executeUpdate();
+                System.out.println(i + " records affected");
+
+                System.out.println("Do you want to continue: y/n");
+                String s = br.readLine();
+                if (s.startsWith("n")) {
+                    break;
+                }
+            } while (true);
+        } catch (Exception e) {
+            System.out.println(e);
+        } finally {
+            con.close();
+        }
+    }
+}
+```
+
+## ResultSetMetaData Interface
+- The metadata means data about data i.e. we can get further information from the data
+- If we have to get metadata of a table like total number of column, column name, column type etc. , 
+- ResultSetMetaData interface is useful because it provides methods to get metadata from the ResultSet object.
+- The getMetaData() method of ResultSet interface returns the object of ResultSetMetaData. Syntax:
+```java
+public ResultSetMetaData getMetaData()throws SQLException  
+```
+**Methods**
+- public int getColumnCount()throws SQLException	it returns the total number of columns in the ResultSet object.
+- public String getColumnName(int index)throws SQLException	it returns the column name of the specified column index.
+- public String getColumnTypeName(int index)throws SQLException	it returns the column type name for the specified index.
+- public String getTableName(int index)throws SQLException	it returns the table name for the specified column index.
+
+```java
+import java.sql.*;
+class Rsmd {
+    public static void main(String args[]) {
+        String dburl = "jdbc:mysql://localhost:3306/students";
+        String username = "root";
+        String passwd = "SqlAk@18";
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection(dburl, username, passwd);
+            PreparedStatement ps = con.prepareStatement("select * from emp");
+            ResultSet rs = ps.executeQuery();
+            ResultSetMetaData rsmd = rs.getMetaData();
+
+            System.out.println("Total columns: " + rsmd.getColumnCount());
+            System.out.println("Column Name of 1st column: " + rsmd.getColumnName(1));
+            System.out.println("Column Type Name of 1st column: " + rsmd.getColumnTypeName(1));
+
+            con.close();
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+    }
+}
+```
+
+## DatabaseMetaData interface
+- DatabaseMetaData interface provides methods to get meta data of a database such as database product name, database product version, driver name, name of total number of tables, name of total number of views etc.
+- The getMetaData() method of Connection interface returns the object of DatabaseMetaData. Syntax:
+```javaa
+public DatabaseMetaData getMetaData()throws SQLException  
+```
+**methods**
+- **public String getDriverName()throws SQLException:** it returns the name of the JDBC driver.
+- **public String getDriverVersion()throws SQLException:** it returns the version number of the JDBC driver.
+- **public String getUserName()throws SQLException:** it returns the username of the database.
+- **public String getDatabaseProductName()throws SQLException:** it returns the product name of the database.
+- **public String getDatabaseProductVersion()throws SQLException:** it returns the product version of the database.
+- **public ResultSet getTables(String catalog, String schemaPattern, String tableNamePattern, String[] types)throws SQLException:** it returns the description of the tables of the specified catalog. The table type can be TABLE, VIEW, ALIAS, SYSTEM TABLE, SYNONYM etc.
+
+```java
+import java.sql.*;
+
+public class DataBaseMetaDataExample {
+    public static void main(String args[]){  
+        String dburl = "jdbc:mysql://localhost:3306/company";
+             String username = "root";
+             String passwd = "SqlAk@18";
+     try{  
+    //register the driver -1
+    Class.forName("com.mysql.cj.jdbc.Driver");
+
+    //create connection -2
+    Connection con = DriverManager.getConnection(dburl, username , passwd); 
+     DatabaseMetaData dbmd=con.getMetaData();  
+       
+     System.out.println("Driver Name: "+dbmd.getDriverName());  
+     System.out.println("Driver Version: "+dbmd.getDriverVersion());  
+     System.out.println("UserName: "+dbmd.getUserName());  
+     System.out.println("Database Product Name: "+dbmd.getDatabaseProductName());  
+     System.out.println("Database Product Version: "+dbmd.getDatabaseProductVersion());  
+
+    // print all tables
+     String table[]={"TABLE"};  
+    ResultSet rs=dbmd.getTables(null,null,null,table);  
+    
+    while(rs.next()){  
+    System.out.println(rs.getString(3));  
+    }  
+    // print all views
+    String views[]={"VIEW"};  
+    ResultSet rs1=dbmd.getTables(null,null,null,views);  
+    
+    while(rs1.next()){  
+    System.out.println(rs1.getString(3));  
+    }  
+       
+     con.close();  
+     }catch(Exception e){ System.out.println(e);}  
+     } 
+}
+
+```
+
