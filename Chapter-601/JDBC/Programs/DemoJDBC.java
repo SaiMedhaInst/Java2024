@@ -2,7 +2,7 @@ import java.sql.*;
 public class DemoJDBC {
     public static void main(String args[]) {
 
-        String dburl = "jdbc:mysql://localhost:3306/students";
+        String dburl = "jdbc:mysql://localhost:3306/company";
         String username = "root";
         String passwd = "SqlAk@18";
         try {
@@ -17,13 +17,13 @@ public class DemoJDBC {
             //create statement - 3
             Statement stmt = con.createStatement();
 
-            DatabaseMetaData d = con.getMetaData();
+            // DatabaseMetaData d = con.getMetaData();
 
             //execute the query - 4
-            ResultSet rs = stmt.executeQuery("select id,name from emp");
+            ResultSet rs = stmt.executeQuery("select ename from emp");
 
             while (rs.next()){
-                System.out.println(rs.getInt(1) + "  " + rs.getString(2));
+                System.out.println(rs.getString(1));
             }
 
             //close - 5

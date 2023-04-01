@@ -1,0 +1,16 @@
+
+- com.mysql.cj.jdbc.Driver --> mysql 
+- oracle.jdbc.driver.OracleDriver -- > oracle
+
+- we need to have ..jar (set of .classes file)
+- drive jar path : D:\Java\Java-8\jre\lib\ext
+
+- object to move forward and backward direction
+
+Statement stmt = con.createStatement(ResultSet.TYPE_SCROLL_INSENSITIVE,  
+ ResultSet.CONCUR_UPDATABLE);   
+ 
+ 
+ NOTES:
+ 
+ https://github.com/SaiMedhaInst/JAVA

@@ -26,12 +26,12 @@ public class DataBaseMetaDataExample {
     System.out.println(rs.getString(3));  
     }  
 
-    String views[]={"VIEW"};  
-    ResultSet rs1=dbmd.getTables(null,null,null,views);  
+    // String views[]={"VIEW"};  
+    // ResultSet rs1=dbmd.getTables(null,null,null,views);  
     
-    while(rs1.next()){  
-    System.out.println(rs1.getString(3));  
-    }  
+    // while(rs1.next()){  
+    // System.out.println(rs1.getString(3));  
+    // }  
        
      con.close();  
      }catch(Exception e){ System.out.println(e);}  

@@ -375,7 +375,7 @@ class TestCallRun2 extends Thread{
 
 ## Java join() method
 - java.lang.Thread class provides the join() method which allows one thread to wait until another thread completes its execution..
--  If t is a Thread object whose thread is currently executing, then t.join() will make sure that t is terminated before the next instruction is executed by the program.
+-  If it is a Thread object whose thread is currently executing, then t.join() will make sure that t is terminated before the next instruction is executed by the program.
 -  If there are multiple threads calling the join() methods that means overloading on join allows the programmer to specify a waiting period.
 -  However, as with sleep, join is dependent on the OS for timing, so you should not assume that join will wait exactly as long as you specify
 
@@ -522,14 +522,6 @@ public static void main(String args[]){
 ```
 
 
-### Thread wait() 
-
-
-
-### Thread Notify ()
-
-
-### Thread yeild()
 
 ### Naming Thread
 
