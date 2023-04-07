@@ -4,6 +4,7 @@ public class OddEvenExample {
     public void displayOddNumber() {
         synchronized(this) {
             while (contr < NUM) {
+                System.out.println("while odd ");
                 while (contr % 2 == 1) {
                     try {
                         wait();
@@ -11,7 +12,7 @@ public class OddEvenExample {
                         ex.printStackTrace();
                     }
                 }
-                System.out.print(contr + " ");
+                System.out.println(contr + " ");
                 contr = contr + 1;
                 notify();
             }
@@ -21,6 +22,7 @@ public class OddEvenExample {
     public void displayEvenNumber() {
         synchronized(this) {
             while (contr < NUM) {
+                System.out.println("while even ");
                 while (contr % 2 == 0) {
                     try {
                         wait();
@@ -28,7 +30,7 @@ public class OddEvenExample {
                         ex.printStackTrace();
                     }
                 }
-                System.out.print(contr + " ");
+                System.out.println(contr + " ");
                 contr = contr + 1;
                 notify();
             }
