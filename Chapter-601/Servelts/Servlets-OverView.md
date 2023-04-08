@@ -461,10 +461,6 @@ rd.forward(request, response);
 public void sendRedirect(String URL)throws IOException;  
 ```
 
-**Syntax**
-```java
-response.sendRedirect("http://www.javatpoint.com");  
-```
 
 **Example**
 ```java

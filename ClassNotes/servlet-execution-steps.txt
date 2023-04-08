@@ -1,0 +1,36 @@
+STEPS TO RUN WEB-SERVLET
+============================
+1. Download Tomcat & Eclipse from offical website.
+	a. links 
+		 tomcat: https://tomcat.apache.org/download-90.cgi
+		 eclipse: https://www.eclipse.org/downloads/packages/release/neon/3
+	
+	b. extract it and store in some location.
+	
+2. Launch Eclipse 
+	a. create  a workspace 
+	b. add tomcat server by going to server-tab and browser the installed path of tomcat.
+	c. after adding tomcat and double click on server-name
+		- under server-location choose "use Tomcatcat installation"
+	d. start the server by right-clicking and choose start
+	
+3. Write the servlet program 
+	a. write a java file under 
+		java-resources/src 
+	b. create a servlet mapping in web.xml file
+	
+	<servlet>  
+		<servlet-name>unique-name</servlet-name>  
+		<servlet-class>fully-classfied path of servelt</servlet-class>  
+	</servlet> 
+	  
+	<servlet-mapping>  
+		<servlet-name>unique-name</servlet-name>  
+		<url-pattern>/url</url-pattern>  
+	</servlet-mapping>
+	
+4. Verification
+	a. open browser hit 
+		https://localhost:8080 ---> server welcome page
+	b. to run the servlet 
+		https://localhost:8080/project-name/url-pattern
