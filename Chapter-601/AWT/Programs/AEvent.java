@@ -21,7 +21,7 @@ class AEvent extends Frame implements ActionListener{
         add(b);  
         add(tf);  
         add(l);   
-        setSize(400,400);    
+        setSize(600,600);    
         setLayout(null);    
         setVisible(true);    
   }

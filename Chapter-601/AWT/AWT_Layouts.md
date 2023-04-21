@@ -126,9 +126,9 @@ public class GridLayoutExample {
 
 
 **Constructors**
-**FlowLayout():** creates a flow layout with centered alignment and a default 5 unit horizontal and vertical gap.
-**FlowLayout(int align):** creates a flow layout with the given alignment and a default 5 unit horizontal and vertical gap.
-**FlowLayout(int align, int hgap, int vgap):** creates a flow layout with the given alignment and the given horizontal and vertical gap
+- **FlowLayout():** creates a flow layout with centered alignment and a default 5 unit horizontal and vertical gap.
+- **FlowLayout(int align):** creates a flow layout with the given alignment and a default 5 unit horizontal and vertical gap.
+- **FlowLayout(int align, int hgap, int vgap):** creates a flow layout with the given alignment and the given horizontal and vertical gap
 
 
 **Example**
@@ -189,7 +189,7 @@ public class FlowLayoutExample {
 - public static final int PAGE_AXIS
 
 **Construtors**
-**BoxLayout(Container c, int axis):** creates a box layout that arranges the components with the given axis.
+- **BoxLayout(Container c, int axis):** creates a box layout that arranges the components with the given axis.
 
 
 **Example**

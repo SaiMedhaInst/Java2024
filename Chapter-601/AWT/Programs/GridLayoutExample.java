@@ -25,7 +25,7 @@ public class GridLayoutExample {
         frameObj.add(btn9);
 
         // setting the grid layout using the parameterless constructor    
-        frameObj.setLayout(new GridLayout(3,3,20,25));
+        frameObj.setLayout(new GridLayout());
 
 
         frameObj.setSize(300, 300);
