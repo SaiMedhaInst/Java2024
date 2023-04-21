@@ -556,3 +556,51 @@ public class TestInterruptingThread4 extends Thread {
     }
 }   
 ```
+
+
+### Thread yield method()
+   
+- The yield() method of thread class causes the currently executing thread object to temporarily pause and allow other threads to execute.
+
+syntax:
+```java
+   public static void yield()  
+``` 
+
+**Example**
+
+- Suppose there are three threads t1, t2, and t3. 
+- Thread t1 gets the processor and starts its execution and thread t2 and t3 are in Ready/Runnable state. 
+- The completion time for thread t1 is 5 hours and the completion time for t2 is 5 minutes.
+- Since t1 will complete its execution after 5 hours,t2 has to wait for 5 hours to just finish 5 minutes job. 
+- In such scenarios where one thread is taking too much time to complete its execution, 
+-  we need a way to prevent the execution of a thread in between if something important is pending. 
+- yield() helps us in doing.
+
+```java
+public class JavaYieldExp extends Thread  
+{  
+    public void run()  
+    {  
+        for (int i=0; i<2 ; i++)  
+            System.out.println(Thread.currentThread().getName() + " in control");  
+    }  
+    public static void main(String[]args)  
+    {  
+        JavaYieldExp t1 = new JavaYieldExp();  
+        JavaYieldExp t2 = new JavaYieldExp();  
+        // this will call run() method  
+        t1.start();  
+        t2.start();  
+        for (int i=0; i<2; i++)  
+        {  
+            // Control passes to child thread  
+            t1.yield();  
+            System.out.println(Thread.currentThread().getName() + " in control");  
+        }  
+    }  
+} 
+```
+
+
+   
