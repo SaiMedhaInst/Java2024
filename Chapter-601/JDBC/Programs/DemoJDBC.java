@@ -20,10 +20,10 @@ public class DemoJDBC {
             // DatabaseMetaData d = con.getMetaData();
 
             //execute the query - 4
-            ResultSet rs = stmt.executeQuery("select ename from emp");
+            ResultSet rs = stmt.executeQuery("select ename , job from emp");
 
             while (rs.next()){
-                System.out.println(rs.getString(1));
+                System.out.println(rs.getString(1) + " : "+ rs.getString(2));
             }
 
             //close - 5
