@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<modules>
+  <module moduleId="org.eclipse.jst.jee.server:ServletHandsOn" serverId="Tomcat v9.0 Server at localhost"/>
+</modules>

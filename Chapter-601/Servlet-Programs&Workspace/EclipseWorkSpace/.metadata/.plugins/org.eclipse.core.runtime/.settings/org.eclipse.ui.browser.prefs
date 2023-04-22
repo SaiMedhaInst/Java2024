@@ -1,0 +1,4 @@
+browser-choice=1
+browsers=<?xml version\="1.0" encoding\="UTF-8"?>\r\n<web-browsers current\="3">\r\n<system/>\r\n<external location\="C\:\\Program Files\\Mozilla Firefox\\firefox.exe" name\="Firefox"/>\r\n<external location\="C\:\\Program Files\\Internet Explorer\\iexplore.exe" name\="Internet Explorer"/>\r\n<external location\="C\:\\Program Files\\Google\\Chrome\\Application\\chrome.exe" name\="Chrome"/>\r\n</web-browsers>
+eclipse.preferences.version=1
+internalWebBrowserHistory=http\://localhost\:8080/ServletHandsOn/addition.html|*|http\://localhost\:8080/ServletHandsOn/add|*|http\://localhost\:8080/ServletHandsOn/add?num1\=10&num2\=30|*|http\://localhost\:8080/ServletHandsOn/add?num1\=0&num2\=2|*|http\://localhost\:8080/ServletHandsOn/index.html|*|http\://localhost\:8080/Servelt-Demo/home.html|*|http\://localhost\:8080/Servelt-Demo/WEB-INF/home.html|*|

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>WelcomeApplication</display-name>
+   
+   <servlet>  
+    <servlet-name>welcomeServlet</servlet-name>  
+    <servlet-class>com.concept101.FirstServlet</servlet-class>  
+  </servlet> 
+  
+  
+	<servlet-mapping>  
+    	<servlet-name>welcomeServlet</servlet-name>  
+    	<url-pattern>/welcome</url-pattern>  
+	</servlet-mapping> 
+	
+<servlet>  
+    <servlet-name>GenericServletExample</servlet-name>  
+    <servlet-class>com.concept101.GenericServletExample</servlet-class>  
+ </servlet> 
+  
+  
+<servlet-mapping>  
+    <servlet-name>GenericServletExample</servlet-name>  
+    <url-pattern>/generic</url-pattern>  
+</servlet-mapping> 
+
+
+
+<servlet>  
+    <servlet-name>LoginServlet</servlet-name>  
+    <servlet-class>com.concept101.LoginServlet</servlet-class>  
+</servlet>
+
+
+<servlet-mapping>  
+    <servlet-name>LoginServlet</servlet-name>  
+    <url-pattern>/loginuser</url-pattern>  
+</servlet-mapping> 
+
+<servlet>  
+    <servlet-name>WelcomeServlet</servlet-name>  
+    <servlet-class>com.concept101.WelcomeServlet</servlet-class>  
+</servlet>  
+
+
+  <servlet-mapping>  
+    <servlet-name>WelcomeServlet</servlet-name>  
+    <url-pattern>/welcomeuser</url-pattern>  
+  </servlet-mapping>
+
+
+</web-app>

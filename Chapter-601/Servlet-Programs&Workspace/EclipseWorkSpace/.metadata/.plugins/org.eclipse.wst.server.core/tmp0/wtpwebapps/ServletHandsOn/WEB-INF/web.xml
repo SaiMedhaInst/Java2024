@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+<servlet>
+	<servlet-name>addition-servlet</servlet-name>
+	<servlet-class>com.learn101.AddServlets</servlet-class>
+</servlet>
+
+
+ <servlet>  
+    <servlet-name>Login</servlet-name>  
+    <servlet-class>com.learnRequestDispatcher.Login</servlet-class>  
+  </servlet>  
+  <servlet>  
+    <servlet-name>WelcomeServlet</servlet-name>  
+    <servlet-class>com.learnRequestDispatcher.WelcomeServlet</servlet-class>  
+  </servlet>  
+
+  <servlet-mapping>  
+    <servlet-name>Login</servlet-name>  
+    <url-pattern>/servlet1</url-pattern>  
+  </servlet-mapping>  
+  <servlet-mapping>  
+    <servlet-name>WelcomeServlet</servlet-name>  
+    <url-pattern>/servlet2</url-pattern>  
+  </servlet-mapping> 
+  
+<servlet>
+  <servlet-name>first-servlet</servlet-name>
+  <servlet-class>com.learn102.First</servlet-class>
+</servlet>
+
+<servlet>
+	<servlet-name>square-servlet</servlet-name>
+	<servlet-class>com.learn101.SquareServlet</servlet-class>
+</servlet>
+
+<servlet-mapping>
+	<servlet-name>square-servlet</servlet-name>
+	<url-pattern>/sq</url-pattern>
+</servlet-mapping>
+
+
+<servlet-mapping>
+	<servlet-name>first-servlet</servlet-name>
+	<url-pattern>/welcome</url-pattern>
+</servlet-mapping>
+
+  
+    
+<servlet-mapping>
+	<servlet-name>addition-servlet</servlet-name>
+	<url-pattern>/add</url-pattern>
+</servlet-mapping>
+
+  <servlet>  
+    <servlet-name>google-searcher</servlet-name>  
+    <servlet-class>com.learnRequestDispatcher.GoogleSearcher</servlet-class>  
+  </servlet> 
+  
+  
+<servlet-mapping>  
+<servlet-name>google-searcher</servlet-name>  
+<url-pattern>/gsearcher</url-pattern>  
+</servlet-mapping> 
+
+ <servlet>  
+    <servlet-name>servlet-config-example</servlet-name>  
+    <servlet-class>com.learnRequestDispatcher.ServeltConfigExample</servlet-class>  
+    <init-param>  
+		<param-name>username</param-name>  
+		<param-value>kumar</param-value>  
+	</init-param>  
+  
+<init-param>  
+<param-name>password</param-name>  
+<param-value>DB@April</param-value>  
+</init-param> 
+  </servlet> 
+  
+  
+<servlet-mapping>  
+<servlet-name>servlet-config-example</servlet-name>  
+<url-pattern>/servletconfig-example</url-pattern>  
+</servlet-mapping>  
+
+</web-app>

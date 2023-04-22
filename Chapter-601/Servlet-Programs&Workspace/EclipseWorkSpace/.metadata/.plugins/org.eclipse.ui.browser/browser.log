@@ -1,0 +1,7 @@
+
+Apr 02, 2023 16:05:45.38 NEW SESSION
+Apr 02, 2023 16:05:45.38 [14168:14776:0402/160545.134:ERROR:device_event_log_impl.cc(222)] [16:05:45.134] USB: usb_device_handle_win.cc:1046 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Apr 02, 2023 16:05:45.78 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Apr 02, 2023 16:06:05.89 [12072:8844:0402/160605.891:ERROR:device_event_log_impl.cc(222)] [16:06:05.892] USB: usb_device_handle_win.cc:1046 Failed to read descriptor from node connection: A device attached to the system is not functioning. (0x1F)
+Apr 02, 2023 16:06:06.13 INFO: Created TensorFlow Lite XNNPACK delegate for CPU.
+Apr 02, 2023 17:11:53.65 [12072:8844:0402/171152.841:ERROR:device_event_log_impl.cc(222)] [17:11:52.842] USB: usb_service_win.cc:104 SetupDiGetDeviceProperty({{A45C254E-DF1C-4EFD-8020-67D146A850E0}, 6}) failed: Element not found. (0x490)
