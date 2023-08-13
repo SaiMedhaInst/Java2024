@@ -237,13 +237,16 @@ Runtime Exception.
 
 
 🔥 It is Possible to have **multiple classes in one file , it will create multiple .class files.**
+
 🔥  Whenever we have multiple .class files while running , execute with individual names.
 				
 				java A
 				java B
 
 🔥 **Mark & Sweep is an algorithm** used by garbage collector to delete unused variables.
+
 🔥 **HashCode** : Unique identification number allocated to objects by JVM.
+
 🔥 JAVA is **case sensitive** and follows **UNICODE character representation.**
 
 ----------------------------
@@ -264,6 +267,725 @@ char myLetter = 'D';
 boolean myBool = true;
 String myText = "Hello";
 ```
+**Rules**
+1. Variable Can have Alpha+numeric characters such as 
+	- LoweCase(a-z) 
+	- UpperCase(A-Z) 
+	- numbers(0-9) 
+	- **Symbols ($, _)**
+		```java
+		String instution_Name = "SAIMEDHA ECET";
+		String instution_Name2 = "SPACE GATE";
+		```
+2. Must not start with digit or number.
+	```java
+	int 9Number = 100; //Error
+	```
+3.  Java keywords cannot be used as variable names.
+	```java
+	long for = 10000L; //Error
+	```
+
+4. Blank spaces cannot be used in variable names.
+	```java
+	int student rank = 242; //Error
+	```
+5. Variable names are case-sensitive.
+	```java
+	int age= 10;
+	int Age= 20;
+	int AGE= 56;
+	```
+
+🔥NEW🔥
+- There is no limit on the length of a variable name but by convention, it should be between 4 to 15 chars.
 
 
 
+
+----------------------------
+### Types Of Variables
+--------------------------------------
+***Local Variables***
+- Declared inside method or block
+- scope will be only within block/method, 
+- **Initialization of the local variable is mandatory** before using it in the defined scope.
+- We can access directly without object creation and class Name.
+```java
+import java.io.*;
+
+class Variable {
+	public static void main(String[] args)
+	{
+		int var = 10; // Declared a Local Variable
+		System.out.println("Local Variable: " + var); // This variable is local to this main method only
+	}
+}
+```
+
+***Instance Variables***
+- Instance variables are non-static variables and are declared in a class outside of any method, constructor, or block.
+- These variables are **created when an object of the class is created and destroyed when the object is destroyed.**
+- We can use access specifiers for instance variables like (private,public,protected)
+- ***Initialization of an instance variable is not mandatory , will have default values***
+- Instance variables can be accessed only by **creating objects.**
+```java
+import java.io.*;
+class A {
+	public String name; // Declared Instance Variable
+	public A() // Default Constructor
+	{ 
+		this.name = "Groot"; // initializing Instance Variable
+	}
+	public static void main(String[] args)
+	{
+		A a = new A();  // Object Creation
+		System.out.println("my name is: " + a.name);
+	}
+}
+```
+***static Variables***
+> Static variables are also known as class variables.
+1. declared same as instance variables, the only difference is static keyword in declaration.
+2. Unlike instance variables, ***we can only have one copy of a static variable per class, irrespective of how many objects we create.*** 
+3. Static variables are **created at the start of program execution and destroyed automatically when execution** ends
+4. `Initialization of a static variable is not mandatory, it will have default values.
+5. We have to **use class name for accessing static variable** and methods.
+
+	```java
+	import java.io.*;
+	class A {
+		public static String count;		 //Declared static variable
+		
+		public static void main (String[] args) {
+			System.out.println(" count is : "+A.count);
+		}
+	}
+	```
+
+---------------------------
+## DATA TYPES
+---------------------------------------
+
+![enter image description here](https://camo.githubusercontent.com/ec759a52ff5e884a628c05e3846c819c68ebafd073f512bbf5f9190245b42ae2/68747470733a2f2f692e696d6775722e636f6d2f757661756d70452e706e67)
+-  Defines the types of data to hold in variables.
+-   Data types are divided into two groups:
+    
+    - Primitive data types(8) 
+	    - includes `byte, short, int, long, float, double, boolean and char` 
+	- Non-primitive data types 
+		- such as `String, Arrays and Classes`
+
+
+🔴IMPORTANT❗🔴
+
+🔥By default all **precious or fractional numbers** are double in JAVA
+
+🔥By default all **numbers(whole numbers) are integers** in JAVA.
+
+🔥 To Declare float values use f or F at end of value.
+
+```java
+ float salary = 10002.2323f;
+```
+
+🔥 To Declare Long type value use l or L at end of value.	
+```java
+long num = 10000000000L;
+```
+
+🔥 Each and Every data type will have its own size/range
+	
+	-2^(n-1) to +2^(n-1)-1 
+
+🔥 For Declaring other number system formats we use following prefix,
+		- Binary : 0B
+		- Octal : 0
+		- Hex-decimal: 0x
+
+```java
+    public static void main(String[] args) {
+        int n1 = 0B101;
+        int n2 = 010;
+        int n3 = 0x13;
+    }
+```
+
+🔴 **byte data type follow chain process** after maximum positive reached, again it will start from max negative number.
+
+```java
+   public static void main(String[] args) {
+        byte b = 126;
+        b++;
+        b++;
+        System.out.println(b);
+    }
+``` 
+
+🔥 byte or short data types while doing arithmetic with individual integer values always raises errors.
+```java
+      public static void main(String[] args) {
+        
+        byte b = 126;
+        b = b+1;
+        System.out.println(b);
+
+        short s = 5;
+        s = s*25;
+        System.out.println(s);
+    }
+```  
+
+
+🔥Guess the output🔥
+```java
+    public static void main(String[] args) {
+        short s = 32766;
+        s++;
+        s++;
+        System.out.println(s);
+    }
+```
+
+---------------------------------
+### Type Casting 
+---------------------
+- casting/converting one datatype to another datatype.
+- Two Types of type casting we have in java
+
+**Widening Casting (automatically)**
+ - Done by JVM
+- converting a smaller type to a larger type size
+- byte -> short -> char -> int -> long -> float -> double
+- No loss of data.
+```java
+     public static void main(String[] args) {
+       char ch = 'A';
+        int i = ch;
+        byte b = 123;
+        double d = b;
+        
+        System.out.println(i);
+        System.out.println(d);
+    }
+```
+
+**Narrowing Casting (manually)**
+- Done by programmer/user.
+- converting a larger type to a smaller size type
+- double -> float -> long -> int -> char -> short -> byte.
+- Possibility for loss of data.
+- syntax: **(type)**
+
+```java
+    public static void main(String[] args) {
+        
+        float f = 10.232f;
+        int i = 193732;
+        // int i = f; //error
+        int num = (int)f;
+        byte b = (byte)i;
+        System.out.println(num);
+        System.out.println(b);
+    }
+```
+
+**🔥GUESS THE OUTPUT🔥**
+
+```java
+  public static void main(String[] args) {
+        
+        byte b;
+        int i = 257;
+        b = (byte)i;
+        System.out.println("int to byte: "+ b);
+
+        double d = 300.142;
+        b = (byte)d;
+        System.out.println("double to byte : "+b);
+
+    }
+```
+
+
+**Type Promotion.**
+1.  Java automatically promotes each byte, short, or char operand to int when evaluating an expression.
+2.  If one operand is long, float or double the whole expression is promoted to long, float, or double respectively.
+
+```java
+     public static void main(String[] args) {        
+           byte b = 42;
+           char c = 'a';
+           short s = 1024;
+           int i = 50000;
+           float f = 5.67f;
+           double d = .1234;
+    
+           // The Expression
+           double result = (f * b) + (i / c) - (d * s);
+
+           System.out.println("result = " + result);
+    }
+```
+
+
+**🔥GUESS THE OUTPUT🔥**
+
+```java
+	byte b = 50; 
+	b = (byte)(b * 2);
+```
+
+----------------------------------------
+
+## OPERATORS
+--------------------------------------------------
+- Operators are used to perform operations on variables and values
+-  Types 
+1. **Arithmetic operators**
+```java
+		int add = a+b;
+        int difference = a-b;
+        int multiplication = a*b;
+        int quotient = a/b;
+        int remainder = a%b;
+        ++a; //post increment 
+        a--; // pre increment
+        
+        b--; //post decrement
+        --b; //post decrement
+```
+
+**2.Assignment operators**
+
+```java
+int price;
+price = 10;
+price = price+5;
+
+price+=7; //compound assigment operator combines both + & =
+
+price = price - 2;
+price-=5;
+
+System.out.println(price);
+```
+
+**3.Comparison operators**: Will always give boolean result true or false
+
+```java
+     int a = 10;
+     int b = 6;
+     System.out.println(a>b);
+     System.out.println(a<b);
+     System.out.println(a>=10);
+     System.out.println(b<=6);
+     System.out.println(a==b);
+     System.out.println(b != b);
+```
+
+**4. Logical operators** : will always give boolean result 
+
+![enter image description here](https://camo.githubusercontent.com/fefb84f42bae71c8d113934b34d1f28d7d2fec0884c7d45e64c4bc1270766d68/68747470733a2f2f692e696d6775722e636f6d2f784f7948786b332e706e67)
+```java
+     int rank=10;
+     String college = "JNTU";
+     
+     System.out.println(rank == 10 && college == "jntu");
+     System.out.println(rank == 11 || college=="JNTU");
+     System.out.println(!(rank == 10 && college == "JNTU"));
+```
+
+**🔥GUESS THE OUTPUT🔥**
+
+```java
+int  a=10;
+boolean  exp  =  a>5  ||  a++ >=10;
+System.out.println(exp  +  " "+a);
+
+
+boolean  exp2  =  a>20  ||  a++ >=10;
+System.out.println(exp2  +  " "+a);
+```
+
+```java
+int  num=5;
+boolean  exp  =  num>10  &&  num++ >  5;
+System.out.println(exp  +  " "+num);
+
+boolean  exp2  = ++num>4  &&  num>=5;
+System.out.println(exp2  +  " "+num);
+```
+ 
+**5. Bitwise operators** : 
+- operates on bit/binary values.
+- fastest among all operators.
+**Bitwise OR (|)**
+```java
+a = 5 = 0101 (In Binary)
+b = 7 = 0111 (In Binary)
+
+Bitwise OR Operation of 5 and 7
+  0101
+| 0111
+ ________
+  0111  = 7 (In decimal) 
+```
+
+**Bitwise AND (&)**
+
+```java
+a = 5 = 0101 (In Binary)
+b = 7 = 0111 (In Binary)
+
+Bitwise AND Operation of 5 and 7
+  0101
+& 0111
+ ________
+  0101  = 5 (In decimal)
+```
+
+**Bitwise XOR (^)**
+```java
+a = 5 = 0101 (In Binary)
+b = 7 = 0111 (In Binary)
+
+Bitwise XOR Operation of 5 and 7
+  0101
+^ 0111
+ ________
+  0010  = 2 (In decimal)
+```
+ **Bitwise Complement (~)**
+```java
+a = 5 = 0101 (In Binary)
+
+Bitwise Complement Operation of 5
+
+~ 0101
+ ________
+  1010  = 10 (In decimal) 
+  
+  Note: Compiler will give 2’s complement of that number, i.e., 2’s complement of 10 will be -6.
+  
+    // bitwise not
+     int a = 5;
+    // ~00000000 00000000 00000000 00000101=11111111 11111111 11111111 11111010
+    // will give 2's complement (32 bit) of 5 = -6
+    System.out.println("~a = " + ~a);
+```
+
+
+#### 6.Ternary Operator
+
+![enter image description here](https://camo.githubusercontent.com/9d97e0b02e3eec3876d88cfe183fc38c4adefe8f52672879ba90390e9024a6b3/68747470733a2f2f6d656469612e6765656b73666f726765656b732e6f72672f77702d636f6e74656e742f75706c6f6164732f32303139313132323137313035392f436f6e646974696f6e616c2d6f722d5465726e6172792d4f70657261746f722d5f5f2d696e2d4a6176612e6a7067)
+```java
+num1 = 10;
+num2 = 20;
+
+res=(num1>num2) ? (num1+num2):(num1-num2)
+```
+
+#### 7.Shift Operator in Java
+
+ **Signed Left Shift**
+ This operator is represented by a symbol <<, read as double less than. `
+-  formula: n*2^bits` 
+	 - 2*2^2 = 8
+```java
+        int number = 2;
+        // 2 bit left shift operation
+        int Ans = number << 2;
+        System.out.println(Ans);
+```
+
+ **Signed Right Shift**
+The >> sign represents the right shift operator, which is understood as double greater than `
+- formula: n/2^bits`
+```java
+        int number = 8;
+        // 2 bit signed right shift
+        int Ans = number >> 2;
+        System.out.println(Ans);
+```
+**Unsigned Right Shift** / **Zero fill shift operator**
+The sign bit was filled with 0s. The Bitwise Zero Fill Right Shift Operator is represented by the symbol >>>.
+```java
+        byte num1 = 8;
+        byte num2 = -8;
+      
+        System.out.println(num1 >>> 2);    //2
+        System.out.println(num2 >>> 2);   //1073741822
+```
+-----------------------------------------------------------
+### PRECEDENCE & ASSOCIATIVITY
+
+----------------------------------------------------------------
+
+![enter image description here](https://ecomputernotes.com/images/Operator-Precedence.jpg)
+- The operator precedence represents how two expressions are bind together.
+-  In an expression, it determines the grouping of operators with operands and decides how an expression will evaluate.
+
+
+**QUESTIONS GUESS THE OUTPUT**
+
+1.
+```java
+    	int a = 10, b = 5, c = 1, result;
+    	result = a-++c-++b;
+    	
+    	System.out.println(result);
+```
+
+2.
+```java
+        int var1 = 5; 
+        int var2 = 6;
+        int var3;
+
+        var3 = ++ var2 * var1 / var2 + var2;
+        System.out.print(var3);
+				
+				
+```
+
+3. 
+```java
+			int x = 10, y = 20, z = 5;
+			int ans = x + --y - ++z;
+			System.out.println(ans); 
+			       
+			int x = 2, y = 3, z = 4;
+			int ans2 = ++x + ++y + 5 << 1 | 2;
+			System.out.println(ans2); 
+
+			boolean x = false, y = true, z = false;
+			boolean  ans3 = x == y == z;
+			System.out.println(ans3); 
+			
+			int x = 5;
+			int ans4 = ++++x;
+			System.out.println(ans4); 
+```
+
+
+-----------------------------------------------
+
+## INPUT / OUTPUT IN JAVA
+---------------------------------------------------------------------
+
+### **Scanner class**
+●allows the user to take input from the console
+●Belongs to java.util package
+●Used to read the input of primitive types like int, double, long,
+short, float, and byte.
+● 
+	- nextInt()
+	- nextFloat() 
+	- nextDouble() 
+	- nextByte()
+	- nextLong() 
+	- next() ,nextLine()
+
+**Scanner obj = new Scanner(System.in);**
+
+```java
+    int num = in.nextInt();
+     float salary = in.nextFloat();
+     String name = in.nextLine();
+
+     System.out.println(num+" "+salary + " "+ name);
+```
+
+
+### **Buffered Reader**
+●Used to read a sequence of characters
+●InputStreamReader() :
+◆ converts the input stream of bytes into a stream of characters.
+```java
+BufferedReader bfn = new BufferedReader(new InputStreamReader(System.in));
+```
+●Integer.parseInt() , Float.parseFloat() , Double.parseDouble()
+●**Integer, Float , Double are wrapper classes**
+
+----------------------------------
+
+### **OUTPUT** methods
+
+**System.out.print(parameter);**
+	◆ used to display a text on the console
+	◆ prints the text on the console and the cursor remains at
+	the end of the text at the console.
+
+**System.out.println(parameter);**
+◆ prints the text on the console and the cursor moves to
+the start of the next line at the console
+◆ The next printing takes place from the next line.
+
+**System.out.printf(parameter);**
+◆ Easiest of all methods as this is similar to printf in C.
+◆ Uses format specifiers like %d %s %t %n %x %o
+
+```java
+	int rank = 10;
+    short marks = 147;
+    String name = "Ram";
+    
+    System.out.print(rank);
+    System.out.print(marks);
+    System.out.print(name);
+
+    System.out.println();
+
+    System.out.println(rank);
+    System.out.println(marks);
+    System.out.println(name);
+
+    System.out.printf("%d %d %s",rank,marks,name);
+```
+
+--------------------------------------------------------------------------------------------
+
+## **STRINGS**
+
+- Collection of characters(letters,symbols,other lang letters) surrounded by
+double quotes
+- String doesn't support indexing
+
+```java
+String s1 = "SaiMedha";
+String s2 = "demo@123";
+String phoneNumber = "998877665522";
+String email = "saiMedha@ecet2023.com";
+```
+- Non-Primitive Type belongs to java.lang.String
+
+
+**CREATION**
+
+***1. Using literals***
+```java
+String s1 = "Hello Java, Learning Strings";
+```
+●Creates in string constant pool
+●**Each time we create a string literal, the JVM checks the "string
+constant pool" first.**
+●If the string already exists in the pool, a reference to the pooled
+instance is returned.
+●If the string doesn't exist in the pool, a new string instance is
+created and placed in the pool.
+
+***2.Using new operator***
+
+**Created inside Heap Memory location.**
+```java
+String s = new String("Hello All, am NoBody :) ");
+```
+- Each time, it will create multiple string instance even though string already present in heap location.
+- Every String instance Object will have different address.
+
+**CONCATENATION.**
+■ + operator can be used between strings to combine them
+■ str + str —> str , str + int —> str
+■ str + float —> str
+
+
+**METHODS**
+■length() , toUpperCase(), toLowerCase() , charAt() , isEmpty() ,
+indexOf()
+■trim() , equals() , hashCode() , replace() , startsWidth() , endsWidth()
+■valueOf() , toString() , compareTo() , split() , matches()
+
+---------------------------
+### StringBuffer
+
+➢ StringBuffer represents growable and writable character sequences.
+➢ StringBuffer s = new StringBuffer("SaiMedha Students");
+➢ **Is synchronized and Thread Safe.**
+➢ Methods: 
+	- append() , insert() , replace() ,reverse() , delete()
+➢ **Created inside Heap Memory location.**
+➢ Belongs to **java.lang.StringBuffer**
+
+**CONSTRUCTORS**
+```java
+  public java.lang.StringBuffer();
+  public java.lang.StringBuffer(int);
+  public java.lang.StringBuffer(java.lang.String);
+  public java.lang.StringBuffer(java.lang.CharSequence);
+```
+--------------------------------------------------
+ ### StringBuilder
+ ➢Represents a mutable sequence of character
+➢ **non-synchronized and not a Thread Safe.**
+➢ It’s more efficient than StringBuffer.
+➢ StringBuilder builder=new StringBuilder("hello");
+➢ Created inside Heap Memory location.
+➢ Belongs to **java.lang.StringBuffer**
+
+**CONSTRUCTORS**
+
+```java
+  public java.lang.StringBuilder();
+  public java.lang.StringBuilder(int);
+  public java.lang.StringBuilder(java.lang.String);
+  public java.lang.StringBuilder(java.lang.CharSequence);
+```
+
+
+
+------------------------------------------------
+
+## Arrays 
+------------------------------
+
+ - *Arrays are used to store multiple values in a single variable,
+   instead of declaring separate variables for each value.*
+
+◆ Arrays are stored in contagious memory [consecutive memory locations.
+◆ implements the interfaces **Cloneable and java.io.Serializable.**
+◆ direct superclass of an array type is Object.
+◆ The size of an array must be specified b**y int or short value and not long.**
+◆ An array can contain primitives (int, char, etc.) and object (or
+non-primitive)
+
+**CREATION & INITIALIZING & ACCESSING**
+array declaration has two components: **the type and the name**
+```java
+type var-name[];
+type[] var-name;
+```
+
+➔ When an array is declared, only a reference of an array is created.
+➔ To create or give memory to the array, you create an array like this:
+◆ **var-name = new type [size];**
+➔ 2 Ways to create an array.
+	◆ Using new operator
+	◆ Using literals ({data1,data2,data3..})
+```java
+       int num[];
+       num = new int[10]; // using new 
+
+       float decimals[] = {102.2f, 2.2f}; // literals
+```
+➔ Each element in the array is accessed via its index.
+➔ The index begins with **0 and ends at (total array size)-1**
+➔ Invalid index : ArrayIndexOutBound Exception.
+➔ **When an array created with size , it will initialise with default values.**
+
+--------------------------------------------
+### **2D Array | Multidimensional**
+
+data is stored in row and column based index (also known as matrix
+form).
+
+```java
+dataType[][] arrayRefVar;
+dataType [][]arrayRefVar; dataType arrayRefVar[][];
+dataType []arrayRefVar[];
+int[][] arr=new int[3][3]
+```
+
+
+### **Jagged Array :** creating odd number of columns in a 2D array
+◆ It is an array of arrays with different no. of columns
