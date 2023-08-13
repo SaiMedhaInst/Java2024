@@ -875,10 +875,13 @@ String email = "saiMedha@ecet2023.com";
 String s1 = "Hello Java, Learning Strings";
 ```
 ●Creates in string constant pool
+
 ●**Each time we create a string literal, the JVM checks the "string
 constant pool" first.**
+
 ●If the string already exists in the pool, a reference to the pooled
 instance is returned.
+
 ●If the string doesn't exist in the pool, a new string instance is
 created and placed in the pool.
 
@@ -893,25 +896,34 @@ String s = new String("Hello All, am NoBody :) ");
 
 **CONCATENATION.**
 ■ + operator can be used between strings to combine them
+
 ■ str + str —> str , str + int —> str
+
 ■ str + float —> str
 
 
 **METHODS**
 ■length() , toUpperCase(), toLowerCase() , charAt() , isEmpty() ,
 indexOf()
+
 ■trim() , equals() , hashCode() , replace() , startsWidth() , endsWidth()
+
 ■valueOf() , toString() , compareTo() , split() , matches()
 
 ---------------------------
 ### StringBuffer
 
 ➢ StringBuffer represents growable and writable character sequences.
+
 ➢ StringBuffer s = new StringBuffer("SaiMedha Students");
+
 ➢ **Is synchronized and Thread Safe.**
+
 ➢ Methods: 
 	- append() , insert() , replace() ,reverse() , delete()
+
 ➢ **Created inside Heap Memory location.**
+
 ➢ Belongs to **java.lang.StringBuffer**
 
 **CONSTRUCTORS**
@@ -924,10 +936,15 @@ indexOf()
 --------------------------------------------------
  ### StringBuilder
  ➢Represents a mutable sequence of character
+
 ➢ **non-synchronized and not a Thread Safe.**
+
 ➢ It’s more efficient than StringBuffer.
+
 ➢ StringBuilder builder=new StringBuilder("hello");
+
 ➢ Created inside Heap Memory location.
+
 ➢ Belongs to **java.lang.StringBuffer**
 
 **CONSTRUCTORS**
@@ -950,9 +967,13 @@ indexOf()
    instead of declaring separate variables for each value.*
 
 ◆ Arrays are stored in contagious memory [consecutive memory locations.
+
 ◆ implements the interfaces **Cloneable and java.io.Serializable.**
+
 ◆ direct superclass of an array type is Object.
+
 ◆ The size of an array must be specified b**y int or short value and not long.**
+
 ◆ An array can contain primitives (int, char, etc.) and object (or
 non-primitive)
 
@@ -964,11 +985,15 @@ type[] var-name;
 ```
 
 ➔ When an array is declared, only a reference of an array is created.
+
 ➔ To create or give memory to the array, you create an array like this:
+
 ◆ **var-name = new type [size];**
+
 ➔ 2 Ways to create an array.
 	◆ Using new operator
-	◆ Using literals ({data1,data2,data3..})
+	
+  ◆ Using literals ({data1,data2,data3..})
 ```java
        int num[];
        num = new int[10]; // using new 
@@ -976,8 +1001,11 @@ type[] var-name;
        float decimals[] = {102.2f, 2.2f}; // literals
 ```
 ➔ Each element in the array is accessed via its index.
+
 ➔ The index begins with **0 and ends at (total array size)-1**
+
 ➔ Invalid index : ArrayIndexOutBound Exception.
+
 ➔ **When an array created with size , it will initialise with default values.**
 
 --------------------------------------------
