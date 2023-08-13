@@ -1,6 +1,8 @@
 ### INTRODUCTION TO PROGRAMMING
 ◆ Machine/Binary/Low Level Lang - Writing Instructions in 0's ,1's
+
 ◆ Assembly Level Lang - Writing Instructions in Mnemonics
+
 ◆ High Level Lang - Writing Instructions in English like statements
 
 
@@ -214,9 +216,12 @@ strictfp  final  public  static  void  main(String[] args)
 - We can use any meaning variable name as part of **args**
 ➢ static keyword tells us that this **method is accessible without instantiating the
 class.**
+
 ➢ System.in & System.out are **Standard Input & Output Streams.**
+
 ➢ System is a class belonging to **java.lang** and in & out objects belong to
 **PrintStream** class.
+
 ➢ String []args : used for reading the command line args/values while running
 the program.
 
@@ -231,7 +236,9 @@ Runtime Exception.
 
 🔥 When a class is public **, java fileName must be the same as className.**- 
 - When class is not public.
+
 ➢ **compile with fileName**
+
 ➢**run with className**
  🔴By default it will generate a bytecode with className having main() method
 
