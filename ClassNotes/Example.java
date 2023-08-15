@@ -1,8 +1,14 @@
+import java.text.NumberFormat;
+import java.util.*;
+
 public class Example {
 
     public static void main(String[] args) {
-        String s = "Hello";
-        System.out.println(s.charAt(0));
+        
+        NumberFormat obj = NumberFormat.getNumberInstance();
+        
+
+
 
     }
 
