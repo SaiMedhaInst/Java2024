@@ -369,7 +369,9 @@ class C extends A,B{//suppose if it were
 - But a class can **implement more than one interface at a time.**
 
 **class -- extends -- class
+
 class -- implements -- interface
+
 interface -- extends -- interface** 
 
 --------------------------------------------------------
