@@ -1,23 +1,29 @@
+class A{
+    
+    final float pi;
+    final static int studentCount = 10;
+    A() {
+        pi = 2.2f;
+    }
+
+  
+    Exception processException() {
+        System.out.println("processing Exception.class");
+        return new Exception();
+    }
+}
+
+class B extends A{
+    @Override
+    NullPointerException processException() {
+        System.out.println("processing NullPointerException.class");
+        return new NullPointerException();
+    }
+}
+
 public class OOPExample {
-
-    int num;
-    private OOPExample(int num) {
-        System.out.println("OOPS example constructor");
-        this.num = num;
-    }
-
-    public void hi() {
-        System.out.println("greeted hiii...");
-    }
-
-    public static OOPExample getInstance() { //factory method.
-        return new OOPExample(10);
-    }
     public static void main(String[] args) {
-        
-        //System.out.println(new OOPExample(10).num);
-        getInstance().hi();
-
-
+       A a = new B();
+       a.processException();
     }
 }
