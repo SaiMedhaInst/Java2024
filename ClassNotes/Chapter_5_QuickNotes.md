@@ -547,4 +547,382 @@ public class TestThrow3  {
     
 🔴  Every subclass of **Error and RuntimeException is an unchecked exception** in Java. A checked exception is everything else under the Throwable class.
 
+-----------------------------------
+
+### JAVA EXCEPTION PROPAGATION
+
+-   ***An exception is first thrown from the top of the stack and if it is not caught, it drops down the call stack to the previous method.***
+-   If not caught there, the exception again drops down to the previous method, and so on until they are caught or until they reach the very bottom of the call stack. This is called exception propagation.
+
+
+🔴 By default Unchecked Exceptions are forwarded in calling chain (propagated).
+🔴 By default, Checked Exceptions are not forwarded in calling chain (propagated).
+
+
+**unchecked exception**
+```java
+class TestExceptionPropagation1{  
+  void m(){  
+    int data=50/0;  
+  }  
+  void n(){  
+    m();  
+  }  
+  void p(){  
+   try{  
+    n();  
+   }catch(Exception e){System.out.println("exception handled");}  
+  }  
+  public static void main(String args[]){  
+   TestExceptionPropagation1 obj=new TestExceptionPropagation1();  
+   obj.p();  
+   System.out.println("normal flow...");  
+  }  
+}
+```
+
+
+**checked exception**
+```java
+class TestExceptionPropagation2{  
+  void m(){  
+    throw new java.io.IOException("device error");//checked exception 
+  }  
+  void n(){  
+    m();  
+  }  
+  void p(){  
+   try{  
+    n();  
+   }catch(Exception e){System.out.println("exception handeled");}  
+  }  
+  public static void main(String args[]){  
+   TestExceptionPropagation2 obj=new TestExceptionPropagation2();  
+   obj.p();  
+   System.out.println("normal flow");  
+  }  
+}
+```
+
+
+### JAVA THROWS KEYWORD.
+
+- The Java throws keyword is used to declare an exception.
+
+**syntax**
+
+```java
+return_type method_name() throws exception_class_name{  
+//method code 
+}
+```
+
+**Which exception should be declared?**
+
+-   Ans: Checked exception only, because: **unchecked exception**: under our control so we can correct our code. 
+
+**error**: beyond our control. For example, we are unable to do anything if there occurs VirtualMachineError or StackOverflowError.
+
+🔥 **NOTE** 🔥
+
+- *If we are calling a method that declares an exception, we must either caught or declare the exception.*
+
+**Case 1: Handle Exception Using try-catch block**
+```java
+import java.io.*;  
+class M{  
+ void method()throws IOException{  
+  throw new IOException("device error");  
+ }  
+}  
+public class Testthrows2{  
+   public static void main(String args[]){  
+    try{  
+     M m=new M();  
+     m.method();  
+    }catch(Exception e){System.out.println("exception handled");}     
+  
+    System.out.println("normal flow...");  
+  }  
+} 
+```
+
+**Case 2: Declare Exception**
+
+```java
+import java.io.*;  
+class M{  
+ void method()throws IOException{  
+  System.out.println("device operation performed");  
+ }  
+}  
+class Test{  
+   public static void main(String args[])throws IOException{//declare exception 
+     M m=new M();  
+     m.method();  
+  
+    System.out.println("normal flow...");  
+  }  
+}
+```
+
+
+### THROW VS THROWS
+![enter image description here](https://camo.githubusercontent.com/04967c54a7e3b2fa96374ce1396bd930665b221876af267cf941b0ca9905d3c9/68747470733a2f2f692e696d6775722e636f6d2f346a34745147682e706e67)
+
+**Java throw Example**
+
+```java
+public class Test {  
+    //defining a method  
+    public static void checkNum(int num) {  
+        if (num < 1) {  
+            throw new ArithmeticException("\nNumber is negative, cannot calculate square");  
+        }  
+        else {  
+            System.out.println("Square of " + num + " is " + (num*num));  
+        }  
+    }  
+    //main method  
+    public static void main(String[] args) {  
+            Test obj = new Test();  
+            obj.checkNum(-3);  
+            System.out.println("Rest of the code..");  
+    }  
+}  
+```
+
+**Java throws Example** 
+
+```java
+
+public class Test {  
+    //defining a method  
+    public static int divideNum(int m, int n) throws ArithmeticException {  
+        int div = m / n;  
+        return div;  
+    }  
+    //main method  
+    public static void main(String[] args) {  
+        Test obj = new Test();  
+        try {  
+            System.out.println(obj.divideNum(45, 0));  
+        }  
+        catch (ArithmeticException e){  
+            System.out.println("\nNumber cannot be divided by 0");  
+        }  
+        System.out.println("Rest of the code..");  
+    }  
+}
+
+```
+
+-------------------------------------
+#### FINAL, FINALLY AND FINALIZE
+
+-   The final, finally, and finalize are keywords in Java that are used in exception handling. Each of these keywords has a different functionality.
+-   The basic difference between final, finally and finalize is that the
+    -   **final** is an access modifier
+    -   **finally** is the block in Exception Handling
+    -   **finalize** is the method of object class.
+![enter image description here](https://camo.githubusercontent.com/38712b126947015b60ea7f5d2487712ad80db560be912b9a60d70f3ef2ba997a/68747470733a2f2f692e696d6775722e636f6d2f6e4844424e6d662e706e67)
+----------------------------------
+### EXCEPTION HANDLING WITH METHOD OVERRIDING.
+
+
+**case-1**
+**- If the super class method does not declare an exception**, 
+	- subclass overridden method cannot declare the checked exception 
+	- But it can declare unchecked exception.
+
+```java
+import java.io.*;    
+class Parent{   
+  
+  // defining the method   
+  void msg() {  
+    System.out.println("parent method");  
+    }    
+}    
+    
+public class Child extends Parent{    
+  
+  // overriding the method in child class  
+  // gives compile time error  
+  void msg() throws IOException {    
+    System.out.println("TestExceptionChild");    
+  }  
+  
+  public static void main(String args[]) {    
+   Parent p = new Child();    
+   p.msg();    
+  }    
+}
+```
+
+***sub class overridden method can declare unchecked exception.***
+
+
+```java
+import java.io.*;    
+class Parent{    
+  void msg() {  
+    System.out.println("parent method");  
+  }    
+}    
+    
+class Child1 extends Parent{    
+  void msg()throws ArithmeticException {    
+    System.out.println("child method");    
+  }    
+  
+  public static void main(String args[]) {    
+   Parent p = new Child1();    
+   p.msg();    
+  }    
+} 
+
+```
+
+**CASE-2**
+
+- If the super class method declares an exception,
+	- **subclass overridden method can declare 
+		- Same Exception 
+		- Subclass exception  OR **no exception**
+	-  **But cannot declare parent exception.**
+
+
+**subclass overridden method declares parent exception** 
+
+```java
+import java.io.*;    
+class Parent{    
+  void msg()throws ArithmeticException {  
+    System.out.println("parent method");  
+  }    
+}    
+    
+public class TestExceptionChild2 extends Parent{    
+  void msg()throws Exception {  
+    System.out.println("child method");  
+  }    
+    
+  public static void main(String args[]) {    
+   Parent p = new TestExceptionChild2();    
+   try {    
+   p.msg();    
+   }  
+   catch (Exception e){}   
+  }    
+}
+```
+
+**subclass overridden method declares same exception**
+
+```java
+import java.io.*;    
+class Parent{    
+  void msg() throws Exception {  
+    System.out.println("parent method");  
+  }    
+}    
+    
+public class Child3 extends Parent {    
+  void msg()throws Exception {  
+    System.out.println("child method");  
+  }    
+    
+  public static void main(String args[]){    
+   Parent p = new Child3();    
+     
+   try {    
+   p.msg();    
+   }  
+   catch(Exception e) {}    
+  }    
+}
+```
+
+**subclass overridden method declares no exception**
+```java
+import java.io.*;    
+class Parent {    
+  void msg()throws Exception{  
+    System.out.println("parent method");  
+  }    
+}    
+    
+class Child5 extends Parent{    
+  void msg() {  
+    System.out.println("child method");  
+  }    
+    
+  public static void main(String args[]){    
+   Parent p = new Child5();    
+     
+   try {    
+   p.msg();    
+   }  
+   catch(Exception e) {}  
+       
+  }    
+} 
+
+```
+
+
+### JAVA CUSTOM EXCEPTIONS.
+
+-   In Java, we can create our own exceptions that are derived classes of the Exception class Or RuntimeException class. **Creating our own Exception is known as custom exception or user-defined exception.**
+- 
+-   Basically, Java custom exceptions are used to customize the exception according to user need.
+- 
+-   In order to create custom exception, we need to **extend Exception class that belongs to java.lang package.**
+
+
+**syntax** 
+
+```java
+public class StudentNotFound extends Exception {  
+    public StudentNotFound(String errorMessage) {  
+        super(errorMessage);  
+    }  
+}
+```
+
+**Example**
+```java
+ 
+class InvalidAgeException  extends Exception  {  
+    public InvalidAgeException (String str)  {  
+        super(str);  
+    }  
+}  
+
+public class TestCustomException1  {  
+    static void validate (int age) throws InvalidAgeException{    
+       if(age < 18){  
+        throw new InvalidAgeException("age is not valid to vote");    
+    } else {   
+        System.out.println("welcome to vote");   
+        }   
+     }    
+    public static void main(String args[]){  
+        try {  
+            validate(13);  
+        }  
+        catch (InvalidAgeException ex) {  
+            System.out.println("Caught the exception");
+            System.out.println("Exception occured: " + ex);  
+        } 
+        System.out.println("rest of the code...");    
+    }  
+} 
+```
+
+
+🔥 User Defined Exceptions are ***checked*** when it **extends Exception class** , 
+
+🔥  User Defined Exceptions **acts as unchecked when it extends  RunTimeException.**
 
