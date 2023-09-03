@@ -1,8 +1,35 @@
+MYSQL COMMUNITY SERVER
+------------------------
+LINK:  https://dev.mysql.com/downloads/installer/
 
-- com.mysql.cj.jdbc.Driver --> mysql 
-- oracle.jdbc.driver.OracleDriver -- > oracle
 
-- we need to have ..jar (set of .classes file)
-- drive jar path : D:\Java\Java-8\jre\lib\ext
 
-https://dev.mysql.com/downloads/installer/
+
+IMP LINKS:
+---------------------------
+https://dev.mysql.com/downloads/connector/j/?os=26
+
+https://www.mysqltutorial.org/mysql-cheat-sheet.aspx
+
+
+
+
+Two ways to load the jar file:
+--------------------------------------------
+1. Paste the mysqlconnector.jar file in jre/lib/ext folder
+2. Set classpath
+
+Driver class name 
+---------------------------
+	MYSQL
+========================
+	- old : com.mysql.jdbc.Driver
+	- new : com.mysql.cj.jdbc.Driver
+ORACLE
+==================
+ - oracle.jdbc.driver.OracleDriver -- > oracle
+
+
+==> Command to see content of jar file 
+
+jar tf mysql-connector-j-8.0.32.jar
