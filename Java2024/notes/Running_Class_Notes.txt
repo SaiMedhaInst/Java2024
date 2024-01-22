@@ -1,0 +1,41 @@
+FUNDAMENTALS
+==================
+- OS fundamentals
+- How to use Terminals (command prompt(cmd), powershell,bash/terminal)
+	GUI: graphical user interface
+	CLI: command line interface
+	
+	cd path 
+	cd ..
+	mkdir foldername
+	rmdir flodername 
+	dir 
+	mv
+	cp
+	notepad
+	type
+	
+- Installation & Uninstallation of softwares
+
+ 3 main components 
+	- JDK:
+		- JRE
+			- JVM
+			
+
+- Compile
+	javac filename.java
+	
+- Running 
+	java bytecode or .classname 
+	
+	
+- if class is public , filename must be same as class name 
+- java file contains N no of java class and it will generate N .class files 
+
+- main() is always checked at Runtime time.
+
+
+
+
+	

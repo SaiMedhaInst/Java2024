@@ -33,3 +33,14 @@ ORACLE
 ==> Command to see content of jar file 
 
 jar tf mysql-connector-j-8.0.32.jar
+
+
+shell commands
+======================
+mysql --version
+mysql -u root -p 
+
+show databases;
+use databaseName
+show tables;
+describe students;

@@ -2,7 +2,7 @@ import java.sql.*;
 public class DemoJDBC {
     public static void main(String args[]) {
 
-        String dburl = "jdbc:mysql://localhost:3306/coursedb";
+        String dburl = "jdbc:mysql://localhost:3306/saimedhadb";
         String username = "root";
         String passwd = "DbAk@18";
         try {
@@ -11,7 +11,7 @@ public class DemoJDBC {
             Class.forName("com.mysql.cj.jdbc.Driver");
 
             //create connection -2
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/coursedb", username , passwd);
+            Connection con = DriverManager.getConnection(dburl, username , passwd);
 
         
             //create statement - 3
@@ -20,16 +20,16 @@ public class DemoJDBC {
             // DatabaseMetaData d = con.getMetaData();
 
             //execute the query - 4
-            ResultSet rs = stmt.executeQuery("select studentName , enrolledCourse, studentAddress, courseFee from students");
+            ResultSet rs = stmt.executeUpdate("select name, college , fee from students where fee > 100000");
 
             while (rs.next()){
-                System.out.println(rs.getString(1) + " : "+ rs.getString(2)+ " : "+ rs.getString(3) + ": "+ rs.getFloat(4));
+                System.out.println(rs.getString(1)+ " : "+ rs.getString(2)+ " : "+ rs.getFloat(3));
             }
 
             //close - 5
             con.close();
-        } catch (Exception e) {
-            System.out.println(e);
+        } catch (Exception ex) {
+            System.out.println(ex);
         }
     }
 }
