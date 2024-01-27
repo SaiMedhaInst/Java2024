@@ -41,7 +41,7 @@ public class VariablesType {
 
         System.out.println(VariablesType.college_fee);
         System.out.println(VariablesType.personName);
-
+        
     
     } // end
     
