@@ -36,6 +36,159 @@ FUNDAMENTALS
 - main() is always checked at Runtime time.
 
 
-
+SUMMARY 
+-------------------
+- What is OS, & different types 
+- How to Interact with OS.
+	1. GUI (graphical user interface)
+	2. CLI (command line interface) : interacting with os through commands
+		tools:
+			- command prompt
+			- powershell
+			- terminal
+			- bash 
+- Popular commands
+	- dir : list all files inside current path
+	- cd : change the directory(floder)
+	- mkdir : creates new dir
+	- rmdir : removes dir
+	- notepad filename.extension : create new file 
+	- type filename : show the content 
+	
+- JDK installation [JRE + JVM]
+	- download latest jdk and install 
+	- copy the path upto /bin of jdk floder and set the path in env system variables [Path] 
+	- create new user variable
+		JAVA_HOME
+		C:\Program Files\Java\jdk-21
+		
 
 	
+- What is Java & Where we can use Java?
+- History
+- JAVA terminologies 
+- JDK vs JRE vs JVM 
+- What is bytecode 
+- Java important features 
+
+Compile 
+----------------
+	javac filename.java  ========> .class file or bytecode 
+
+Running
+---------------------
+	java bytecode or .classname 
+	
+
+RULES
+---------------------
+- main() must be always 
+	public static void main(String[] args) {} 
+
+- class names should be pascal case & singular 
+
+- if class name is public & filename must be same as class name 
+
+- A java file can contain one or more classes but only one public class is allowed.
+
+- what is default package in JAVA?
+	java.lang 
+		- System
+		- Integer 
+		- Float 
+		- Exception
+		- Object 
+		- Thread
+		- Runnable 
+		- Math 
+		
+	java.util 
+	java.util.Date 
+	java.text 
+	java.io
+	
+##### VARIABLES ##############
+- name asisgned to memory location/address which hold values(integer,float,string,object)
+- JAVA IS STATIC LANG & STRONGLY TYPED LANG 
+syntax:
+	dataType variableName = value;
+
+==> Types 
+	- Local variables 
+	- Instance variables
+	- Static variables 
+ex:
+	String name = "Prakash";
+	char grade = 'A';
+	int age = 27;
+	float collegeFee = 137832.2772F;
+	
+	int price_of_apple = 25;
+	int price = 16;
+	int Price = 20;
+	int for = 200; // Erro for is keyword 
+	String public = "Hi Bye"; // Error 
+	
+	
+	
+ex: python [ Dynamic Language & Weekly Typed Lang]
+	name = "kumar"
+	grade = 'B'
+	age = 25
+	collegeFee = 1732683.289238
+	
+	
+	
+OBJECT CREATION
+--------------------
+ClasName objname = new ClasName();
+
+ex: 
+	A a = new A();
+	
+==> Difference Instance vs Static variables?
+	- keyword 
+		public String name;
+		public static String name;
+	- accessing 
+		objectname.variableName
+		classname.variable 
+	- scope 
+		- till object destruction/deletion
+		- entire execution time
+		
+	- storage
+		- one copy per one object 
+		- only one copy for all objects
+		
+	
+	
+
+## DATA TYPES #############
+- Defines the type of data for a variables 
+=> PRIMITIVE DATA TYPES
+		- byte, short,int, long 
+		- float,double,
+		- char, boolean
+		
+==> NON PRIMITIVE DATA TYPES
+		- Strings 
+		- Classes 
+		- Enums 
+		- Records
+		
+		
+
+
+- PL (CORE + ADJAVA)
+	- java 8 FEATURES
+		- Collections Framework 
+		- Streams API 
+		- Lambda Function
+	- JDBC 
+	- Servlets & JSP 
+	
+- ONE DB (MYSQL, MONGODB)
+- ONE FRAMEWORK (Spring,SpringBoot)
+
+  
