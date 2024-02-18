@@ -31,5 +31,8 @@ public class Example {
         
         // Accessing static variable with ClassName 
         System.out.println(Example.collegeName);
+
+
+        
     }
 }
