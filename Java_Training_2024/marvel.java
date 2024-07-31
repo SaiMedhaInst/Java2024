@@ -1,6 +1,18 @@
 class Avengers {
 	public static void main(String[] args) {
-		System.out.println("I'm fan of marvel movies");
-		System.out.println("Recently Watched Deadpool-2");
+		System.out.println("Executing .. main method of Avengers class");
+	}
+}
+
+
+class DeadPool {
+	public static void main(String[] args) {
+		System.out.println("Executing .. main method of DeadPool class");
+	}
+}
+
+class InfinityWar {
+	public static void main(String[] args) {
+		System.out.println("Executing .. main method of InfinityWar class");
 	}
 }

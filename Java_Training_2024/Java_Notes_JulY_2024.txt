@@ -86,18 +86,94 @@
 	ans: .classname will be always same as class name in which main() is present.
 
 8. Can we write more than one class in a single java file.
+	ans: Yes, (but we can write only atmost one public class) 
+		- it will generate .class files for all the defined class
+		- To run specific class, use the .classname of that specific class 
+		
+		
 
 
 ## QUESTIONS 
 -----------------
 1. What is ASCII and UNICODE and How Characters are stored in programming?
+	- for every character there will be one decimal is mapped (ASCII, UNICODE) 
+	- A: 65, a: 97 
+	- ASCII ( American Standard code used to Information Interchange) 
+		- It is 8 bit length  
+		- It will support 256 characters ( 0-255)
+	- UNICODE: 
+		- It is 16 bit length
+		- It will support 65,536 characters (0-65535)  
+		- We can also represent regional lang letters (telugu, hindi, german, arabic)
+		String name = "సూర్య";
+		String msg = "शुभ प्रभात"; 
+		
 2. Diff compiler vs interpreter. 
 3. What are various datatypes in JAVA. 
+	- Primitive Data Type: boolean, byte, char, int, short, long, float, double.
+	- Class Data Types: String, String Buffered 
+	- User Defined Types: Class, Enum, Interface 
+	
+
+
+
+### QUESTIONS 
+1. What are different java keywords. 
+2. What's importance of native, synchronized, voliate, transient keywords
+3. Try this 
+	float salary = 250000.2726; 
+	
 
 ## EVERY DAY 
 Solve 2-3 in hacker-rank of java. 
 
+## VARIABLES 
+---------------------
+- Variables are containers for storing data values. 
+- In Simple words, Variable is name to the memory location in which data is stored. 
 
+syntax: 
+	typename variablename = value;
+ex: 
+	int age = 25;
+	String name = "Surya";
+	char grade = 'A'; 
+	
+	
+RULES 
+----------
+- Can consists of letters(uppercase, lowercase), digits(0-9) , symbols (_, $) 
+	float employees_1stSalary = 290237826.2272f;
+- Must not starts with digit (0-9)
+	int 10thclassRollNumber = 1262821927; // in valid 
+- Blanks spaces and java keywords are not allowed 
+	String employee name = "Lokesh"; // invalid 
+	int do = 67; // invalid 
+- variables are case sensitive.
+	int marks = 78;
+	int Marks = 88; 
+	
+KEYWORDS 
+#############################
+- java keywords will have specific functionality and job, users shouldnot ovveride it. 
+- we have 48-51 keywords in java 
+- DATA TYPES: boolean, byte, char, short, int, long, float, double ( 8 primitive data types)
+- CONDITIONAL: if, else, switch, case, default, break, continue (7 keywords)
+- LOOPING: for, while, do (3 keywords) 
+- PACKAGES: package, import  (3 keywords)
+- CLASS & INHERTIANCE: class, interface, extends, implements, this, super, instance of, enum, new (9 keywords)
+- EXCEPTIONS: try, catch, finally, throw, throws (5)
+- ACCESS & NON ACCESS MODIFIERS: public, protected, private, final, static, abstract (6)
+- THREADING: synchronized, voliate, transient, native (4) 
+- NEW JAVA version keyword: var, module, exports, assert, requires : (5 keywords)
+- LEGACY version keywords: strictfp  (1 keyword) 
+
+DATA TYPES
+##############################
+- Defines Type of data to be stored in a variable. 
+- Primitive Types: 
+
+	
 
 
 
