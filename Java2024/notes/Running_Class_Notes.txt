@@ -171,8 +171,9 @@ ex:
 		- float,double,
 		- char, boolean
 		
-==> NON PRIMITIVE DATA TYPES
+==> NON PRIMITIVE DATA TYPES / User defined
 		- Strings 
+		- arrays
 		- Classes 
 		- Enums 
 		- Records
@@ -191,4 +192,33 @@ ex:
 - ONE DB (MYSQL, MONGODB)
 - ONE FRAMEWORK (Spring,SpringBoot)
 
-  
+ 
+####################
+
+
+1. Write a java program which takes two integers as input , perform all arthmetic operations (+, -, *, / , %)
+
+#### EXPLORE
+- why build tools? where we can use ? what are difference?
+	- Ant 2002
+	- Maven
+	- Gradle
+- create one gradle project in IntelliJ (community edition)
+ 
+- What is an API, different implementations?
+
+
+
+## QUESTIONS
+	- Given a String, remove the duplicates, print the result
+		ex: Java 
+		output: Jav 
+		
+		ex: necessary 
+		output: necsary
+		
+Student
+
+	Student student1 = new Student();
+	Student student2 = new Student();
+	
