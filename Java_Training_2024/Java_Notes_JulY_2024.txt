@@ -111,8 +111,7 @@
 2. Diff compiler vs interpreter. 
 3. What are various datatypes in JAVA. 
 	- Primitive Data Type: boolean, byte, char, int, short, long, float, double.
-	- Class Data Types: String, String Buffered 
-	- User Defined Types: Class, Enum, Interface 
+	- Non Primitive Data Types: String, Class, Enum, Array etc
 	
 
 
