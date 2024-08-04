@@ -117,14 +117,16 @@ Sample Program
 --------------------
 package com.example.helloworld; // Package declaration
 
-import java.util.*; // Imports all classes from the java.util package
+import java.io.*; // Imports all classes from the java.util package
+import java.util.Date;  // Imports only Date class from java.util 
+import static java.example.calculate; // import static method 
 
-// Class definition
-public class HelloWorld {
-
+public class HelloWorld { // Class definition
     // Main method
     public static void main(String[] args) {
         System.out.println("Hello, World!");
+		new Date(); // util
+		new java.sql.Date(); // sql inline package declaration 
     }
 }
 
@@ -177,6 +179,7 @@ QUESTIONS
 7.What will be name bytecode or .classname, will it depends on filename or class name?
 
 8.Can we write more than one class in a single java file?
+	no of .class files == no classes 
 
 9. if static block and main() method is used, which will be executed first?
 
@@ -412,8 +415,7 @@ Data Types
     finally - Block that executes after try and catch, regardless of exception.
     throw - Throws an exception manually.
     throws - Indicates that a method can throw exceptions.
-    exception - Generic keyword used for handling exceptions (not actually a keyword but refers to the concept).
-
+   
 7. Threads
     synchronized - Ensures that a block of code or method is accessed by only one thread at a time.
     volatile - Indicates that a variable’s value will be modified by different threads.
@@ -461,12 +463,12 @@ OBSERVATIONS
 		Floating-Point / Floating-Point: Performs floating-point division (retains remainder).
 		Integer / Floating-Point: Converts integer to floating-point and performs floating-point division.
 		Division by Zero: Throws ArithmeticException for integer division; 
-						  results in infinity or NaN for floating-point division.
+						  results in infinity  for floating-point division.
 	Try this?
-		5.0/ 0 --> 
-		-5.0/0 -->
-		5.0/-0 --> 
-		-5/0 --> 
+		5.0/ 0 --> Infinity
+		-5.0/0 --> -Inf
+		5.0/-0 --> Inf
+		-5/0 -->  AE 
 	MODULUS Operation 
 	-----------------------
 		Integer % Integer: Returns the remainder of the division. The result’s sign matches the dividend.
@@ -478,14 +480,16 @@ OBSERVATIONS
 		Integer Modulus Zero: Modulus with zero in integer results in an ArithmeticException
 		Floating-Point Modulus with Zero: If the divisor is zero in floating-point arithmetic, 
 				the result is NaN (Not a Number), as division by zero in floating-point arithmetic doesn't throw an exception but instead results in undefined behavior
+	
+	dividen - (divisor * (int) quotient)
 	Try this?
-		10%3 -->
-		-10%3 -->
-		10%-3  -->
-		10.5 % 3.2 --> 
-		-10.5 % 3.2 --> 
-		10 % 0 --> 
-		10.0/ 0.0 --> 
+		10%3 --> 1
+		-10%3 --> - 1
+		10%-3  --> 1
+		10.5 % 3.2 --> 0.9
+		-10.5 % 3.2 --> -0.9
+		10 % 0 --> ArithmeticException
+		10.5%0.0 --> NaN
 		
 2.Relational Operators
 Relational operators are used to compare two values
@@ -502,7 +506,8 @@ Observation
 	Floating-Point Types (float, double): Supported
 	Character Type (char): Supported
 	Boolean Type (boolean): Not supported for relational operations
-	Reference Types (e.g., String, custom objects): Use .equals() or compareTo() instead
+	Reference Types (e.g., String, custom objects): 
+							Use .equals() or compareTo() 
 
 
 3.Logical Operators
@@ -529,28 +534,45 @@ Observations
 		boolean result = true || (someExpensiveMethod());  // someExpensiveMethod() is not called
 
 4.Bitwise Operators
+----------------------------
 Bitwise operators operate on the binary representation of numbers
-	& (Bitwise AND): Performs a bitwise AND operation.
+	1.& (Bitwise AND): Performs a bitwise AND operation.
 	int result = 5 & 3; // result is 1 (binary 0101 & 0011 = 0001)
 	
-	| (Bitwise OR): Performs a bitwise OR operation
+	2.| (Bitwise OR): Performs a bitwise OR operation
 	int result = 5 | 3; // result is 7 (binary 0101 | 0011 = 0111)
 
-	^ (Bitwise XOR): Performs a bitwise XOR operation.
+	3.^ (Bitwise XOR): Performs a bitwise XOR operation.
 	int result = 5 ^ 3; // result is 6 (binary 0101 ^ 0011 = 0110)
 
-	~ (Bitwise NOT): Inverts all the bits of the operand.
+	4.~ (Bitwise NOT): Inverts all the bits of the operand.
 	int result = ~5; // result is -6 (binary 0101 becomes 1010 and interpreted as negative)
 	
-	<< (Left shift): Shifts bits to the left
+	5.<< (Left shift): Shifts bits to the left
+
 	int result = 5 << 1; // result is 10 (binary 0101 << 1 = 1010)
 
-	>> (Right shift): Shifts bits to the right.
+	6.>> (Right shift): Shifts the bits of the integer to the right.
+        It performs an arithmetic shift, which means it maintains the sign of the original number.
+        For positive numbers, it fills the new bits on the left with zeros.
+        For negative numbers, it fills the new bits on the left with ones, preserving the sign bit (i.e., the most significant bit).
+	
 	int result = 5 >> 1; // result is 2 (binary 0101 >> 1 = 0010)
+	int a = -16 >> 2; 
+		binary of -16 (32-bit signed integer) is 11111111 11111111 11111111 11110000.
+		Applying -16 >> 2 results in 11111111 11111111 11111111 11111100 (which is -4 in decimal).
 
-	>>> (Unsigned right shift): Shifts bits to the right without sign extension.
-	int result = -5 >>> 1; // result is a large positive number due to unsigned shift
+	7. >>> (Unsigned right shift): Shifts bits to the right without sign extension.
+		It performs an unsigned shift, meaning it does not preserve the sign of the original number.
+		It fills the new bits on the left with zeros, regardless of the original sign bit.
+	
+	int result = -16 >>> 2; // result is a large positive number due to unsigned shift
+	-16, which in binary is 11111111 11111111 11111111 11110000.
+	Applying -16 >>> 2 results in 00111111 11111111 11111111 11111100 (which is 1073741820 in decimal).
+	
 
+
+	
 Observations
 --------------
 	1.int, long, short, byte: Supported for bitwise operations. 
@@ -559,8 +581,13 @@ Observations
 	Try this? 
 		short s1 = 10; // 00000000 00001010 in binary
 		short s2 = 4; // // 00000000 00000100 in binary
-		short andResult = (s1 & s2); 
-		short orResult =  (s1 | s2);
+		short andResult = (short)(s1 & s2);  // throws error without (short)
+		short orResult =  (short)(s1 | s2); // throws error without (short)
+	4. For postive numbers the result of >>> and >> will be same.
+	5. << will be same as n * 2^bits 
+	6. >> will be same as n / 2^bits 
+	
+	
 		
 5. Assignment Operators
 	= (Simple assignment): Assigns a value to a variable.
@@ -605,11 +632,11 @@ Observations
 	int a = (5 > 3) ? 10 : 20; // a is 10
 	
 8. Instanceof Operator
-	instanceof (Type check): Returns true if the object is an instance of the specified class or subclass.
+	instanceof (Type check): 
+	Returns true if the object is an instance of the specified class or subclass.
 	boolean result = (myObject instanceof String); // true if myObject is an instance of String
 	
 	
-
 Operator Precedence
 =======================
 - In Java, operator precedence and associativity determine the order in which operators are evaluated in expressions.
@@ -641,9 +668,11 @@ Operator Associativity
 	
 	a = b = c = 10; // evaluated as a = (b = (c = 10))
 	
-	int result = 5 + 3 * 2 - 8 / 4;
 	
-	int result = (5 + 3) * (2 - 8) / 4;
+	int result = 5 + 3 * 2 - 8 / 4; // 5 + 6 - 2 --> 9
+	
+	int result = (5 + 3) * (2 - 8) / 4; // 8 * -6/4 -- -48/4 --> 12
+
 
 
 

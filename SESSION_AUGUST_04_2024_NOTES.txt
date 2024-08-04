@@ -1,0 +1,366 @@
+						############################
+						      STRINGS in JAVA 
+						############################
+- A String variable contains a collection of characters surrounded by double quotes:
+- Strings are used for storing text.
+- Non Primitive DataType.
+- Stores group of characters
+- In Java, string is basically an object that represents sequence of char values. 
+	An array of characters works same as Java string
+- Strings in Java are immutable, which means once a String object is created, it cannot be changed. 
+	Any operation that seems to modify a string actually creates a new string.
+Example:
+	String greeting = "Hello";
+
+	char[] ch={'b', 'y', 'e'};  
+	String s=new String(ch); 
+	
+Constructors:
+	- public String()
+	- public String(String original)
+	- public String(char[] value)
+	- public String(char[] value, int offset, int count)
+	- public String(byte[] bytes)
+	- public String(byte[] bytes, int offset, int length)
+	- public String(byte[] bytes, String charsetName) throws UnsupportedEncodingException
+	- public String(byte[] bytes, int offset, int length, String charsetName) throws UnsupportedEncodingException
+	- public String(StringBuilder builder)
+	- public String(StringBuffer buffer)
+
+
+ 
+	
+TWO WAYS TO CREATE 
+-----------------------
+Using Literals:
+ - Each time when we create a string literal, the JVM checks the "string constant pool" first. 
+  If the string already exists in the pool, a reference to the pooled instance is returned. 
+  If the string doesn't exist in the pool, a new string instance is created and placed in the pool.
+
+ Example:
+	String s="welcome";  
+	
+	String s1="Welcome";  
+	String s2="Welcome";//It doesn't create a new instance  
+	
+	Try this?
+	s1 == s2 
+	s2 == s3
+	s1.equals(s2) 
+	s2.equals(s3) 
+	
+Using new keyword:
+  This creates a new String object in heap memory, even if the same string literal exists in the pool.
+  
+  Examples:
+	String s4 = new String("Hello, World!"); // creates new instance
+	String s5 = new String("Hello, World!"); //create new instance. 
+	String s6 = new String("Hi, World"); // creates new instance 
+	
+	Try this?
+	s4 == s5 
+	s5 == s6 
+	
+	s4.equals(s5)
+	s5.equals(s6) 
+
+Methods
+--------------
+String str1 = "Hello, World!";
+Length:
+	int length = str1.length();
+	
+Concatenation:
+	String str3 = str1 + " How are you?";
+
+Substring:
+	String substr = str1.substring(7, 12); // "World"
+
+Character at a Position:
+	char ch = str1.charAt(6); // 'W'
+
+Index of a Substring:
+	int index = str1.indexOf("World"); // 7
+
+Replace Characters or Substrings:
+	String replaced = str1.replace("World", "Java");
+
+Convert to Upper/Lower Case:
+	String upper = str1.toUpperCase();
+	String lower = str1.toLowerCase();
+	
+Trim Whitespace:
+	String trimmed = str1.trim();
+
+Equality:
+	boolean isEqual = str1.equals("Hello, World!");
+
+Ignoring Case:
+	boolean isEqualIgnoreCase = str1.equalsIgnoreCase("hello, world!");
+
+Converts different types of values into string:
+	 int number = 123;
+	boolean boolValue = true;
+	char singleChar = 'A';
+	char[] charArray = {'J', 'a', 'v', 'a'};
+	
+	// Using valueOf with primitive types
+	String str1 = String.valueOf(number);  // "123"
+	String str2 = String.valueOf(boolValue);  // "true"
+	String str3 = String.valueOf(singleChar);  // "A"
+	String str4 = String.valueOf(charArray);  // "Java"
+
+	// Using valueOf with a character array with offset and count
+	String str5 = String.valueOf(charArray, 1, 3);  // "ava"
+
+Compare Strings:
+	compareTo() compares two strings lexicographically. 
+	The comparison is based on the Unicode value of each character in the strings.
+	
+	    String str1 = "apple";
+        String str2 = "banana";
+        String str3 = "apple";
+
+        System.out.println(str1.compareTo(str2)); // Negative value (-1)
+        System.out.println(str2.compareTo(str1)); // Positive value (1)
+        System.out.println(str1.compareTo(str3)); // Zero (0)
+
+HashCode:
+	- For a String object, the hashCode method is computed based on the contents of the string. 
+	
+	    String str1 = "hello";
+        String str2 = "world";
+        
+        System.out.println("Hash code of 'hello': " + str1.hashCode());
+        System.out.println("Hash code of 'world': " + str2.hashCode());
+
+
+==========
+						############################
+						      StringBuffer in JAVA 
+						############################
+	
+- Mutable version of String 
+-  StringBuffer allows you to modify the string without creating new objects each time
+-  Thread-Safe: StringBuffer methods are synchronized, meaning they are safe to use in a multi-threaded environment
+- Capacity: StringBuffer starts with an initial capacity and automatically grows as needed
+
+Constructors:
+	- public StringBuffer()
+	- public StringBuffer(int capacity)
+	- public StringBuffer(String string)
+
+
+Examples:
+	StringBuffer sb = new StringBuffer(); // Creates an empty buffer with default capacity
+	StringBuffer sb = new StringBuffer("Hello"); // Creates a buffer initialized with "Hello"
+
+Methods:
+----------------
+Appending String:
+	sb.append(" World"); // Adds " World" to the end of the current buffer
+
+Inserting String:
+	sb.insert(5, " Java"); // Inserts " Java" at position 5
+	
+Deleting String:
+	sb.delete(5, 10); // Removes characters from position 5 to 10
+
+Replacing String:
+	sb.replace(5, 10, "New"); // Replaces characters from position 5 to 10 with "New"
+
+Reversing  String:
+	sb.reverse(); // Reverses the entire content of the buffer
+
+Getting the Length and Capacity:
+	int length = sb.length(); // Gets the length of the current content
+	int capacity = sb.capacity(); // Gets the total capacity of the buffer
+
+Converting to String:
+	String str = sb.toString(); // Converts the StringBuffer content to a String
+
+Summary:
+    StringBuffer is used when you need to modify a string multiple times.
+    Mutable: You can change its content directly.
+    Thread-Safe: Suitable for use in multi-threaded environments.
+    Dynamic Capacity: Adjusts its size as needed.
+
+
+						############################
+						   StringBuilder in JAVA 
+						############################
+- In Java, StringBuilder is a class designed to handle mutable sequences of characters.
+- StringBuffer, StringBuilder is used for creating and modifying strings
+- Mutable
+- Not Thread Safe: Non-Synchronized
+- Dynamic Capacity
+- StringBuilder is generally faster than StringBuffer
+
+Constructors:
+	- public StringBuilder()
+	- public StringBuilder(int capacity)
+	- public StringBuilder(String string)
+
+
+Methods: 
+----------------
+
+Append
+	StringBuilder sb = new StringBuilder("Hello");
+	sb.append(" World"); // Adds " World" to the end of the current content
+
+Insert:
+	sb.insert(5, " Java"); // Inserts " Java" at index 5
+
+Delete:
+	sb.delete(5, 10); // Deletes characters from index 5 to 10
+
+Replace:
+	sb.replace(5, 10, "New"); // Replaces characters from index 5 to 10 with "New"
+
+Reverse:
+	sb.reverse(); // Reverses the content of the StringBuilder
+
+Length:
+	int length = sb.length(); // Returns the length of the current content
+
+Capacity:
+	int capacity = sb.capacity(); // Returns the current capacity
+
+Substring:
+	String substr = sb.substring(5, 10); // Extracts a substring from index 5 to 10
+
+
+						############################
+						   Input in JAVA 
+						############################
+						
+- In Java we can take input from user/outside world in 3 ways 
+	=> Using Scanner class 
+	=> Using BufferReader class 
+	=> Using CommandLine Arguments 
+	
+	
+- System.in:
+	standard input stream that is used to read characters from the keyboard or any other standard input device.
+- System.out:
+	  standard output stream that is used to produce the result of a program on an output device like the computer screen.
+	  
+Using Scanner class 
+------------------------
+    - Java Scanner class allows the user to take input from the console.
+    - It belongs to java.util package.
+    - It is used to read the input of primitive types like int, double, long, short, float, and byte.
+    - It is the easiest way to read input in Java program.
+
+Methods:
+-------------
+next() : Reads the next token from the input as a String. Tokens are separated by whitespace.
+	Scanner scanner = new Scanner("Hello World");
+	String word = scanner.next(); // "Hello"
+
+nextLine(): Reads the next line of input as a String, including any whitespace.
+	Scanner scanner = new Scanner("Hello World\nNext Line");
+	String line = scanner.nextLine(); // "Hello World"
+
+nextInt(): Reads the next token as an int.
+	Scanner scanner = new Scanner("42");
+	int number = scanner.nextInt(); // 42
+
+nextFloat():  Reads the next token as a float
+	Scanner scanner = new Scanner("2.718f");
+	float e = scanner.nextFloat(); // 2.718
+
+
+nextDouble():  Reads the next token as a double.
+	Scanner scanner = new Scanner("3.14");
+	double pi = scanner.nextDouble(); // 3.14
+
+nextBoolean(): Reads the next token as a boolean
+	Scanner scanner = new Scanner("true");
+	boolean flag = scanner.nextBoolean(); // true
+
+nextByte():
+	Scanner scanner = new Scanner("127");
+	byte b = scanner.nextByte(); // 127
+
+
+others methods:
+	- nextShort() 
+	- nextLong()
+	- hasNext() 
+	- hasNextLine() 
+	- skip() 
+	
+	
+Usin BufferedReader
+========================
+- It is a simple class that is used to read a sequence of characters.
+- BufferedReader is a class in Java used for reading text from a character-based input stream
+- Character-Based: It operates on character data, which is suitable for text file reading.
+- Efficient Line Reading: It provides a method to read an entire line of text, 
+						  which simplifies reading lines from a file or input stream.
+- InputStreamReader() : converts the input stream of bytes into a stream of characters 
+						so that it can be read as BufferedReader expects a stream of character
+		
+
+Methods:
+read() : Reads a single character from the input stream and returns it as an integer. 
+		Returns -1 when the end of the stream is reached.
+		
+readLine(): Reads a line of text. Returns null when the end of the stream is reached. 
+			This method is useful for reading lines of text efficiently.
+			
+			
+Examples:
+    BufferedReader bfn = new BufferedReader(
+        new InputStreamReader(System.in));
+
+    // String reading internally
+    String str = bfn.readLine();
+
+    
+    int it = Integer.parseInt(bfn.readLine());
+	
+	float ft = Float.parseFloat(bfn.readLine());
+	
+    // Printing String
+    System.out.println("Entered String : " + str);
+
+    // Printing Integer
+    System.out.println("Entered Integer : " + it);
+
+
+==============
+
+					############################
+						   Ouput in JAVA 
+					############################
+					
+- System.out is a standard output stream that prints text to the console. 
+- It is the most straightforward way to produce output in Java
+Methods:
+	System.out.print(): Prints text without a newline at the end
+		System.out.print("Hello");
+		System.out.print(" World"); // Output: Hello World
+	
+	System.out.println(): Prints text with a newline at the end.
+		System.out.println("Hello");
+	System.out.println("World"); // Output: Hello
+                             //         World
+							 
+	System.out.printf(): Formats text using format specifiers
+		int age = 25;
+		String name = "John";
+		System.out.printf("Name: %s, Age: %d%n", name, age); // Output: Name: John, Age: 25
+	Format Specifiers:
+    %s for strings
+    %d for integers
+    %f for floating-point numbers
+    %n for a new line (platform-independent)
+
+System.out.print() and System.out.println(): Basic methods for printing to the console.
+System.out.printf(): For formatted text output.
+PrintWriter: For advanced text output to files or other streams.
+StringBuilder: Useful for constructing and outputting large or complex strings.
+Logger: For more advanced logging needs, especially in larger applications.

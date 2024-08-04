@@ -100,86 +100,8 @@ Type Casting
 9.a) instanceof – This operator can be used to check if an object is an instance of a specific class before casting.
 10.b) 11 – Math.round(d) rounds 10.5 to the nearest integer, which is 11.
 
-STRINGS 
---------------------
-Which of the following methods is used to find the length of a string in Java?
-a) length()
-b) size()
-c) getLength()
-d) length
-
-What will be the output of the following code?
-
-java
-
-String str = "Hello";
-System.out.println(str.concat(" World"));
-
-a) Hello
-b) World
-c) Hello World
-d) HelloWorld
-
-How can you check if a string starts with a specific prefix in Java?
-a) startsWith()
-b) beginsWith()
-c) hasPrefix()
-d) prefixOf()
-
-Which method would you use to convert a string to lowercase in Java?
-a) toLower()
-b) lowerCase()
-c) toLowerCase()
-d) convertToLower()
-
-What is the result of the following code?
-
-java
-
-String str = "Java Programming";
-System.out.println(str.substring(5, 11));
-
-a) Progra
-b) Program
-c) Progr
-d) ogram
-
-Which method is used to replace all occurrences of a specified character in a string?
-a) replace()
-b) replaceAll()
-c) substitute()
-d) change()
-
-What will be the output of the following code?
-
-java
-
-String str1 = "hello";
-String str2 = "hello";
-System.out.println(str1 == str2);
-
-a) true
-b) false
-c) Compilation error
-d) Runtime error
-
-How do you split a string into an array of substrings based on a delimiter in Java?
-a) split()
-b) divide()
-c) tokenize()
-d) cut()
-
-Which method is used to trim leading and trailing whitespace from a string?
-a) trim()
-b) strip()
-c) clean()
-d) removeSpaces()
-
-What does the equalsIgnoreCase() method do?
-a) Compares two strings for equality, ignoring case
-b) Compares two strings for equality, considering case
-c) Checks if one string is a substring of another, ignoring case
-d) Converts a string to lowercase and compares it to another string
+Strings
+------------
 
 1.a) length() – The length() method is used to find the length of a string.
 2.c) Hello World – The concat() method combines "Hello" and " World" into "Hello World".
@@ -191,4 +113,31 @@ d) Converts a string to lowercase and compares it to another string
 8.a) split() – The split() method splits a string into an array of substrings based on a delimiter.
 9.a) trim() – The trim() method removes leading and trailing whitespace from a string.
 10.a) Compares two strings for equality, ignoring case – The equalsIgnoreCase() method compares two strings for equality, ignoring case differences.
+
+String Buffer
+-----------------
+1.c) The StringBuffer class has a method called reverse() to reverse the content.
+2. a) delete()
+3. a) Hello World
+4. a) It will convert the StringBuffer to a String object.
+5. a) 16 characters
+6. d) sb.setLength(20) where sb has a length of 5.
+7. c) append()
+8. b) By calling new StringBuilder(sb.toString()).
+9. b) The maximum number of characters that can be held before resizing.
+10. a) HiWorld
+
+String Builders
+--------------------
+1.a) reverse()
+2.a) Java LanguageProgramming
+3.b) delete()
+4.c) The maximum number of characters the StringBuilder can hold without resizing.
+5.a) HiWorld
+6.b) substring()
+7.c) 20
+8.b) StringBuilder is not synchronized, while StringBuffer is synchronized.
+9.a) new StringBuilder("YourString")
+10.a) The content will be truncated to "Hello".
+
 
