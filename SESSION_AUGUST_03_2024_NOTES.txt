@@ -117,7 +117,7 @@ Sample Program
 --------------------
 package com.example.helloworld; // Package declaration
 
-import java.io.*; // Imports all classes from the java.util package
+import java.io.*; // Imports all classes from the java.io package
 import java.util.Date;  // Imports only Date class from java.util 
 import static java.example.calculate; // import static method 
 
@@ -155,7 +155,6 @@ Comments:
 
     - // Single line comment
     - /* Multi line comments*/
-
 
 
 QUESTIONS
@@ -196,14 +195,17 @@ syntax:
 RULES
 -----------
 1. Variable names can consists of letter (a-z, A-Z), digits (0-9), symbols (_, $).
-2. 	Variable names (identifiers) must start with a letter (a-z, A-Z), underscore (_), or dollar sign ($). They cannot start with a digit.
+2. 	Variable names (identifiers) must start with a letter (a-z, A-Z), underscore (_), or dollar sign ($). 
+	They cannot start with a digit.
 		Valid: age, _height, $value, num1
 		Invalid: 1stPlace, @value, #data
 3.	Variable names are case-sensitive. value, Value, and VALUE are considered different variables.
 4.	Identifiers cannot be Java reserved keywords (e.g., int, class, public, static).
 5.  Variables cannot have blank spaces 
 	Invalid: String student name = "Surya"
-	Valid: String studentName = "Surya"
+	Valid: String studentName = "Surya"; //camel case for variables, methods
+			String StudentName = "surya"; // pascal case for classes
+			String student_name = "surya"; // snake case for constants
 	
 -> Java is a statically typed language, meaning the type of a variable is determined at compile-time and cannot change at runtime.
 	Primitive Data Types:
@@ -225,11 +227,17 @@ RULES
 
 Types:
 =============
+- Where we declare?
+- What is Scope?
+- What is LifeTime?
+- How to access ?
+
 Local Variables: 
 	Declared within a method or a block and can only be accessed within that method or block.
 Instance Variables: 
 	Declared within a class but outside any method. 
 	They are accessible to all non-static methods of the class and have a lifespan corresponding to the instance of the class.
+	They are bounded to object
 Class Variables (Static Variables): 
 	Declared with the static keyword and are shared among all instances of the class. 
 	They belong to the class rather than any particular object.
@@ -258,6 +266,7 @@ JAVA DATA TYPES
 	- Primitive data types are the most basic data types provided by Java. 
 	- They represent simple values and are not objects. 
 	- Java has eight primitive data types:
+	formula: -2^n-1  --> + (2^n-1 ) -1, here n is numbers of bits
   1. byte 
 		Size: 8 bits (1 byte)
 		Range: -128 to 127
@@ -317,33 +326,42 @@ JAVA DATA TYPES
 
 ** NOTE ***
 	-  All integer literals (whole numbers) are treated as int by default.
-	- To explicitly specify a long literal, use the L or l suffix. If you don't include a suffix, the literal is considered an int.
+	- To explicitly specify a long literal, use the L or l suffix. 
+			If you don't include a suffix, the literal is considered an int.
 	- By default, all floating-point literals (decimal numbers) are treated as double in Java.
-	- To explicitly specify a float literal, use the f or F suffix. If you don't include a suffix, the literal is considered a double.
+	- To explicitly specify a float literal, use the f or F suffix. 
+			If you don't include a suffix, the literal is considered a double.
 	
+	Try this?
 	
+		float res = 5.0/2 ;
+		s.o.pln(res)
+		
 JAVA TYPE CASTING
 -------------------------                                                                                                                                                                                
 	In Java, there are two types of casting
 =>Primitive Type Casting
-	1. Widening Casting (automatically) - 
+	1. Widening Casting (automatically) | Implicit :
 		converting a smaller type to a larger type size 
 		byte -> short -> char -> int -> long -> float -> double
+		- Done by Jvm
 		- No loss of data
 		
 		int myInt = 10;
 		double myDouble = myInt; // Implicit casting from int to double
 
-	2. Narrowing Casting (manually)
+	2. Narrowing Casting (manually) | Explicit TypeCasting : 
 		converting a larger type to a smaller size type 
 		double -> float -> long -> int -> char -> short -> byte
+		- Done by users
 		- There will be loss of data. 
 		
 		double myDouble = 9.78;
 		int myInt = (int) myDouble; // Explicit casting from double to int
 
 =>Reference Type Casting
-	- Reference type casting is used for converting between different reference types, typically involving inheritance. 
+	- Reference type casting is used for converting between different reference types, 
+			typically involving inheritance. 
 	- This involves casting objects to different types within an inheritance hierarchy.
 	
 	Upcasting: 
@@ -454,6 +472,11 @@ Operators in JAVA
 	int product = 5 * 3; // product is 15
 	int quotient = 15 / 3; // quotient is 5
 	int remainder = 15 % 4; // remainder is 3
+		N > D : get remainder using division method 
+		N == D : 0 
+		N < D  : N
+		Integer Numerator / 0 : ArithmeticException
+		
 	
 OBSERVATIONS
 --------------------
@@ -471,25 +494,34 @@ OBSERVATIONS
 		-5/0 -->  AE 
 	MODULUS Operation 
 	-----------------------
-		Integer % Integer: Returns the remainder of the division. The result’s sign matches the dividend.
-		Floating-Point % Floating-Point: Returns the remainder based on floating-point arithmetic rules.
-		
-		Integer Negative modulus: sign of the result depends on the sign of the (the numerator)
-		Floating-Point Negative modulus: sign of the result depends on the sign of the (the numerator)
-		
-		Integer Modulus Zero: Modulus with zero in integer results in an ArithmeticException
-		Floating-Point Modulus with Zero: If the divisor is zero in floating-point arithmetic, 
-				the result is NaN (Not a Number), as division by zero in floating-point arithmetic doesn't throw an exception but instead results in undefined behavior
+	Integer % Integer: Returns the remainder of the division. The result’s sign matches the dividend.
+	Floating-Point % Floating-Point: Returns the remainder based on floating-point arithmetic rules.
 	
-	dividen - (divisor * (int) quotient)
+	Integer Negative modulus: sign of the result depends on the sign of the (the numerator)
+	Floating-Point Negative modulus: sign of the result depends on the sign of the (the numerator)
+	
+	Integer Modulus Zero: Modulus with zero in integer results in an ArithmeticException
+	Floating-Point Modulus with Zero: If the divisor is zero in floating-point arithmetic, 
+			the result is NaN (Not a Number), as division by zero in floating-point arithmetic doesn't throw an exception but instead results in undefined behavior
+
+	
+	=> Remainder = dividend - (divisor * (int) quotient)
+	
+
+	
+	ex 10.5 % 3.2 
+		=10.5 / 3.2 --> 3.28125 (Q)
+		= 10.5 - (3.2 * 3) 
+		= 0.8999
+		
 	Try this?
-		10%3 --> 1
-		-10%3 --> - 1
+		10%3 -->  1
+		-10%3 --> -1
 		10%-3  --> 1
-		10.5 % 3.2 --> 0.9
-		-10.5 % 3.2 --> -0.9
-		10 % 0 --> ArithmeticException
-		10.5%0.0 --> NaN
+		10.5 % 3.2 --> 0.89 
+		-10.5 % 3.2 --> -0.89
+		10 % 0 --> AE
+		10.5%0.0 --> NaN 
 		
 2.Relational Operators
 Relational operators are used to compare two values
@@ -499,13 +531,14 @@ Relational operators are used to compare two values
 	boolean result = (5 >= 3); // result is true
 	boolean result = (5 < 3); // result is false
 	boolean result = (5 <= 3); // result is false
+	boolean result = ('a' > 'A'); // result is true , 97 > 65 
 
 Observation
 ----------------
 	Integral Types (int, long, short, byte): Supported
 	Floating-Point Types (float, double): Supported
 	Character Type (char): Supported
-	Boolean Type (boolean): Not supported for relational operations
+	Boolean Type (boolean): Not supported for relational operations (only we can apply ==, !=)
 	Reference Types (e.g., String, custom objects): 
 							Use .equals() or compareTo() 
 
@@ -587,7 +620,46 @@ Observations
 	5. << will be same as n * 2^bits 
 	6. >> will be same as n / 2^bits 
 	
-	
+Bitwise NOT or Complement
+------------------------------------
+	Positive numbers:
+		1. apply complement take the sign 
+			0 : +ve 
+			1 : -ve 
+		2. Again apply 2s complement on step-1 result 
+		
+		ex: int a = 9; 
+			binary of 9: 01001
+		
+			- 01001 after complement is 10110 , here MSB :1 , it's negative 
+			- again apply 2's complement on 10110 
+				1's : 01001 
+				+ 		 1
+				----------------
+					  01010  == 10 in decimal 
+				----------------
+		
+		formula: -(n+1) 
+				: - (9+1) : -10 
+				
+	Negative numbers:
+	-------------------------
+		int a = -9
+		1. take the binary of +ve number 
+			9: 0000 1001 
+		2. convert into negative (apply 2's complement) 
+			~ : 1111 0110 
+			+ : 		1
+			----------------
+				1111 0111
+			
+			1111 0111 is representation of -9 
+		3. apply invert 
+			~ 1111 0111 --> 0000 1000 : 8 in decimal 
+		
+		formula: -(n - 1)
+				=-(-9-1) 
+				= 9-1 -> 8
 		
 5. Assignment Operators
 	= (Simple assignment): Assigns a value to a variable.

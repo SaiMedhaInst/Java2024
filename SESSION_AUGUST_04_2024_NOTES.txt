@@ -364,3 +364,59 @@ System.out.printf(): For formatted text output.
 PrintWriter: For advanced text output to files or other streams.
 StringBuilder: Useful for constructing and outputting large or complex strings.
 Logger: For more advanced logging needs, especially in larger applications.
+
+							
+					############################
+						   Arrays in Java 
+					############################
+					
+- Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
+- Arrays are stored in contagious memory [consecutive memory locations].
+- Java array can also be used as a static field, a local variable, or a method parameter
+- The size of an array must be specified by int or short value and not long.
+- Every array type implements the interfaces Cloneable and java.io.Serializable.
+- The size of the array cannot be altered(once initialized). However, an array reference can be made to point to another array
+
+syntax:
+
+	dataType[] arrayName; // declaration
+	arrayName = new dataType[arraySize]; // Instantiation
+	
+
+example: 
+	int[] numbers; 
+	numbers = new int[5]; // Creates an array of 5 integers
+
+Array Literals 
+-------------------
+	int[] numbers = {1, 2, 3, 4, 5}; // Array of integers with initial values
+
+Accessing Elements:
+	int firstNumber = numbers[0]; // arrayName[index]
+
+
+
+============================
+Multidimensional Arrays
+==============================
+- Java supports multidimensional arrays, which are arrays of arrays. 
+- The most common is the two-dimensional array.
+
+syntax: 
+	dataType[][] arrayName; // declaration
+	arrayName = new dataType[rows][columns]; // Instantiation
+
+examples:
+	int[][] matrix;
+	matrix = new int[3][4]; // Creates a 3x4 matrix
+
+
+Using Literal:
+	int[][] matrix = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
+
+Accessing Elements::
+	Access elements using two indices: arrayName[rowIndex][columnIndex]
+	int value = matrix[1][2]; // Accesses the element in the 2nd row and 3rd column (6 in this case)
+
+	
+
