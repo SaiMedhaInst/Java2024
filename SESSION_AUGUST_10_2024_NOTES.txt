@@ -1,0 +1,648 @@
+				#################################################
+					CONDITIONAL OR CONTROL-STATEMENTS IN JAVA 
+				#################################################
+
+
+TYPES OF STATEMENTS:
+-------------------------	
+1. SEQUENTIAL STATEMENTS
+	
+    Linear Execution of a program or line by line execution of program.
+    The flow of the program will interrupted when there's error or exception.
+	
+		int a = 10,b=20;
+		System.out.print("Addition");
+		System.out.println(a+b);
+		System.out.println(a-b);
+		System.out.println(a/10);
+		System.out.println("Ternary")
+		System.out.println(a>b?a:b)
+
+2. CONTROL STATEMENTS.
+	
+    Flow of Execution of the program is decided based on control expression value.
+    If TRUE , some block will be executed . If False some other block will be executed.
+	
+		int age = 26;
+		if (age>=18){
+			  System.out.println("Eligible to Vote");
+		}
+		else{
+			  System.out.println("Not Eligible to Vote");
+		}
+
+3. LOOPING STATEMENTS.
+	The Flow of the program is a process of repeative statements or iterations to do particular task.
+	
+
+CONTROL STATEMENTS.
+--------------------
+	
+    - Control statements also called as decision making statements
+    - Based on the value of control expression the flow of the program will be decided.
+
+	Java has the following conditional statements:
+
+    Use if to specify a block of code to be executed, if a specified condition is true
+    Use else to specify a block of code to be executed, if the same condition is false
+    Use else if to specify a new condition to test, if the first condition is false
+    Use switch to specify many alternative blocks of code to be executed
+
+1. if Statement: Executes a block of code if a specified condition evaluates to true.
+	if (condition) {
+		// Code to execute if condition is true
+	}
+	
+2. if else Statement: Provides an alternative block of code that executes 
+					 if the condition in the if statement evaluates to false.
+	if (condition) {
+		// Code to execute if condition is true
+	} else {
+		// Code to execute if condition is false
+	}
+
+3.	else if Statement: Allows for multiple conditions to be tested. 
+						It executes the block of code corresponding to the first condition that evaluates to true. 
+						If none of the conditions are true, the else block is executed.
+						Atmost one true codition block will be execute. 
+	if (condition1) {
+		// Code to execute if condition1 is true
+	} else if (condition2) {
+		// Code to execute if condition2 is true
+	} else {
+		// Code to execute if none of the above conditions are true
+	}
+
+4. multiple if Statements: 
+	if (condition1) {
+    // Code to execute if condition1 is true
+	}
+
+	if (condition2) {
+		// Code to execute if condition2 is true
+	}
+
+
+
+SWITCH CASE/STATEMENT
+----------------------
+	
+    - Instead of writing many if..else statements, you can use the switch statement.
+    - The switch statement selects one of many code blocks to be executed:
+    - The Java switch expression must be of byte, short, int, long (with its Wrapper type), enums and string.
+    - The case values must be unique. In case of duplicate value, it renders compile-time error.
+    - The case value must be of switch expression type only. 
+	- The case value must be literal or constant. It doesn't allow variables.
+	- default statement is used as the last statement in a switch block, it does not need a break
+	- break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.
+	- If we skip break statement , all true cases will be printed.
+
+syntax:
+	switch (expression) {
+		case value1:
+			// Code to execute if expression equals value1
+			break;
+		case value2:
+			// Code to execute if expression equals value2
+			break;
+		// Add more cases as needed
+		default:
+			// Code to execute if none of the above cases match
+			break;
+	}
+
+example:
+
+	int day = 4;
+	switch (day) {
+	  case 6:
+		System.out.println("Today is Saturday");
+		break;
+	  case 7:
+		System.out.println("Today is Sunday");
+		break;
+	  default:
+		System.out.println("Looking forward to the Weekend");
+	}
+	
+NESTED CONDITIONAL STATEMENTS.
+--------------------------------
+	- nested if 
+	- nested if else 
+	- nested else if 
+	- nested switch 
+	
+
+				#################################################
+							LOOPS IN JAVA 
+				#################################################
+				
+- In computer programming, a loop is a sequence of instructions that is continually repeated until a certain condition is reached.
+- In Java we have 3 loops 
+		- for loop 
+			=> Used to iterate part of program several times. 
+			=> If number of iterations is fixed. It's recommended to use for loop 
+		- while loop 
+			=> Used to iterate part of program several times. 
+			=> If number of iterations is not fixed. It's recommended to use while loop 
+		- do while loop
+			=> Used to iterate part of program several times. 
+			=> If number of iterations is not fixed. 
+			=> If you must execute the loop atleast once. It's recommended to use do while loop 
+			
+		
+for loop:
+------------------
+
+	for (initialization; condition; update) {
+		// Code to execute
+	}
+	- initialization, condition, update are optional 
+	- condition must be boolean either true or false
+	
+	Try this:
+		for(int i=0, j=1; i<=10 && j<=10; i+=2, j+=2) {
+            System.out.println("i = " + i + ", j = " + j);
+        }
+        
+        for( ; ; ){  
+            System.out.println("infinitive loop");  
+        } 
+        
+while loop:
+-----------------    
+        while (condition) {
+            // Code to execute
+        }
+        
+    example:
+        int i = 0;
+        while (i < 5) {
+            System.out.println("i = " + i);
+            i++;
+        }
+
+do-while Loop: 
+--------------------------
+    do {
+        // Code to execute
+    } while (condition);
+    
+    do{ 
+          snoozeWakeupAlarm(); 
+    } while(reallyNotThatLoud(voiceOfMom)); 
+
+    example:
+        int i = 0;
+        do {
+            System.out.println("i = " + i);
+            i++;
+        } while (i < 5);
+
+For-Each Loop
+---------------------
+- The enhanced for loop is used to iterate over arrays and collections. 
+- It simplifies iterating through elements without needing to use an index.
+    for (type element : collection) {
+        // Code to execute with element
+    }   
+    
+    example:
+        int[] numbers = {1, 2, 3, 4, 5};
+        for (int number : numbers) {
+            System.out.println("number = " + number);
+        }
+
+
+Nested Loops:
+-------------------
+- nested loops are loops placed inside other loops. 
+- This allows you to perform more complex iterations, such as iterating over multi-dimensional data structures like matrices 
+- performing repeated tasks with multiple levels of iteration.
+    - Matrix Operations
+    - Generating Patterns 
+    - Searching in Multi-Dimensional Data
+    - Simulating Real-World Systems
+    
+    
+    - nested for loop 
+    - nested while loop 
+    - nested do while loop 
+    = nested for each 
+    
+example:
+        String[] tasks = {"Task1", "Task2", "Task3", "Task4"};
+        String[] servers = {"Server1", "Server2"};
+
+        // Assign tasks to servers
+        for (int i = 0; i < tasks.length; i++) {
+            for (int j = 0; j < servers.length; j++) {
+                System.out.println(tasks[i] + " assigned to " + servers[j]);
+            }
+        }
+
+            ####################################
+                        LOOPING STATEMENTS 
+            ####################################
+            
+1. break Statement
+-----------------------
+    - The break statement is used to exit from a loop (or a switch statement) prematurely. 
+    - When break is encountered, the loop is terminated immediately.
+    - Statements after break are not reachable.
+   example:
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) {
+                break;
+            }
+            System.out.println("i = " + i);
+        }
+        System.out.println("Loop exited");
+        
+        
+2. continue Statement
+-------------------------
+- The continue statement is used to skip the current iteration of a loop and proceed to the next iteration. 
+    
+        for (int i = 0; i < 10; i++) {
+            if (i % 2 == 0) {
+                continue;
+            }
+            System.out.println("i = " + i);
+        }
+        
+3. return Statement
+--------------------------
+- The return statement is used to exit a method and optionally return a value.
+  
+examples:
+   return; // for methods with no return value
+   return value; // for methods with a return value
+
+    public static void main(String[] args) {
+        printNumbers();
+    }
+    
+    public static void printNumbers() {
+        for (int i = 0; i < 10; i++) {
+            if (i == 5) {
+                return; // Exit the method when i is 5
+            }
+            System.out.println("i = " + i);
+            }
+        }
+
+ 
+
+IMP POINTS:
+--------------------
+- Conditions in for ,while , do while loops should be always boolean either true or false
+- for(;;) will raise infinite loop.
+- Not Incrementing/Decrementing of index variables will raise while infinite loop.
+- Choose FOR LOOP , when no of iterations are known in advance
+- Choose WHILE LOOP , when we don't know no of iterations.
+- {} curly brackets for block of scope is not mandatory when we have only one statement/instruction inside body of for/while/dowhile loops.
+- In Nested LOOPS , for one each iteration of OUTER LOOP , the INNER LOOP has to complete all it's iterations.
+- LOOPS will fall into following time complexities 
+    - Big-Oh(n) 
+    - Big-Oh(n^2) 
+    - Big-Oh(n*logN) 
+    - Big-Oh(n^3)
+    
+######################################################
+                METHODS in JAVA 
+######################################################
+- A method is a way to perform some task.
+- A method is a block of code or collection of statements grouped together to perform a certain task or operation
+- It provides the easy modification and readability
+- The method is executed only when we call or invoke it.
+- TWO PHASES for methods i.e Declaration and Calling
+
+Method Declaration:    
+- The method declaration provides information about method 
+        attributes, visibility, return-type, name, arguments.
+- It has six components that are known as method header
+    public int sum (int a, int b) {
+        // body 
+        return a+b ;
+       }
+- Method Signature: 
+    Every method has a method signature. 
+    It includes the method name and parameter list.
+
+- Access Specifier: Access specifier or modifier is the access type of the method. 
+                    It specifies the visibility of the method. 
+    Java provides four types of access specifier:
+        public: The method is accessible by all classes when we use public specifier.
+        private: The method is accessible only inside same class.
+        protected: The method is accessible within the same package or subclasses in a different package.
+        default: When we do not use any access specifier in the method declaration, Java uses default access specifier by default
+    Non-access Modifiers: static, final, abstract, synchronized, transient, volatile, native.
+ 
+Types of Methods:
+--------------------
+- Predefined Method
+    predefined methods are the method that is already defined in the Java class libraries
+    Also known as the standard library method or built-in method.
+    ex: length(), equals(), compareTo(), sqrt(),power(),max(),min()
+    
+    // using the max() method of Math class  
+    System.out.print("The maximum number is: " + Math.max(9,7));  
+
+- User-defined Method:
+    - It can Static Method or Instance Method or Abstract Method 
+    public static void findEvenOdd(int num){  
+        if(num%2==0)   
+            System.out.println(num+" is even");   
+        else   
+            System.out.println(num+" is odd");  
+    }
+
+###########################################
+                OOPS 
+############################################
+- OOP is a programming paradigm that uses "objects" to design software. 
+- It focus on grouping of data and methods into classes, which represent real-world entities.
+- OOP is designed to manage and organize code by grouping related properties and methods into objects, 
+    making it easier to model real-world entities and their interactions.
+    
+Advantages :
+    - Modularity ( Encapsulation , Code Reusability) 
+    - Maintainability (Code Organization)
+    - Extensibility ( Inheritance, Polymorphism)
+    - Abstraction
+    
+Prinicipals:
+    Class: Class is specification or blueprint for the class
+    Object: Object is a run-time entity.
+    Encapsulation: Bundles data and methods into a class and restricts access.
+    Inheritance: Allows classes to inherit properties and methods from other classes.
+    Polymorphism: Enables methods to do different things based on the object’s type.
+    Abstraction: Hides complex details and exposes only the necessary parts.
+        
+                                                                                                                                                                                                                                                                       
+
+CLASS 
+------------
+- Class is a user-defined data type which defines its properties and its functions.
+- Class is the only logical representation of the data
+- Class is specification or blueprint for the class
+- we use class keyword to declare classes in java
+- A class in Java can contain:
+    Fields
+    Methods
+    Constructors
+    Blocks
+    Nested class and interface
+
+syntax:
+    class <class_name> {  
+        fields;  
+        methods;  
+        // others
+    }  
+
+OBJECT
+------------
+- Object is a run-time entity.
+- It is an instance of the class.
+- An object can represent a person, place or any other item. 
+- An object can operate on both data members and member functions.
+- An object has three characteristics
+        - State
+        - Behaviour 
+        - Identity 
+    ex: Pen is an object. 
+        Its name is Reynolds; color is white, known as its state. 
+        It is used to write, so writing is its behavior.
+        
+- Creating a object to a class is called instantiation 
+- It occupies the initial memory for the object and returns a reference.
+- The new keyword is used to allocate memory at runtime.
+- All objects get memory in Heap memory
+
+Syntax:
+    ClassName objectName = new ClassName();
+
+    ex: Student student = new Student(); 
+    
+
+    public class Car {
+        // Fields
+        private String color;
+        private String model;
+
+        public Car() {} 
+        
+        // Constructor
+        public Car(String color, String model) {
+            this.color = color;
+            this.model = model;
+        }
+
+        // Method
+        public void displayInfo() {
+            System.out.println("Model: " + model + ", Color: " + color);
+        }
+    }
+
+
+3 Ways to initialize an object:
+    1.  By reference variable
+    2.  By method (setters, getters) 
+    3.  By constructor
+
+Try this:
+    What are the different ways to create an object in Java?
+    
+Anonymous object:
+    - Anonymous simply means nameless. 
+    - An object which has no reference is known as an anonymous object. 
+    - It can be used at the time of object creation only.
+    ex: 
+        new Pen().price;
+    
+
+Types of Classes:
+------------------------
+1.Concrete Class:
+    - A standard class that can be instantiated and used to create objects. 
+    - It provides full implementation of its methods.
+    
+    public class ConcreteClass {
+        public void display() {
+            System.out.println("This is a concrete class.");
+        }
+    }
+
+2.Abstract Class: 
+    - A class that cannot be instantiated on its own and is intended to be extended by other classes. 
+    - It can have abstract methods (methods without implementation) as well as concrete methods (methods with implementation).
+    - Act as base class with common functionality that subclasses can build upon.
+    
+    public abstract class AbstractClass {
+        public abstract void abstractMethod(); // Must be implemented by subclasses
+
+        public void concreteMethod() {
+            System.out.println("Concrete method in abstract class.");
+        }
+    }
+
+3.Interface:
+    - A reference type in Java that can contain only constants, method signatures, default methods, static methods, and nested types. 
+    - Interfaces cannot contain instance fields or constructors.
+    - Defines a contract that classes can implement
+    
+    public interface Drawable {
+        void draw(); // Abstract method
+
+        default void defaultMethod() {
+            System.out.println("Default method in interface.");
+        }
+    }
+
+4.Enum Class:
+    - A special class that represents a group of constants (unchangeable variables). 
+    - Enums are used to define a collection of related constants.
+    
+    public enum Day {
+        SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+    }
+
+5.Inner Class:
+    - A class defined within another class.
+    Member Inner Class: 
+        Non-static inner class that has access to all members of the outer class.
+    Static Nested Class: 
+        Static inner class that does not have access to instance variables of the outer class.
+    Local Inner Class: 
+        Defined within a block of code, such as a method.
+    Anonymous Inner Class: 
+        A class without a name, typically used for implementing interfaces or extending classes in a concise manner
+
+example:
+public class OuterClass {
+    private String outerField = "Outer";
+
+    // Member Inner Class
+    public class InnerClass {
+        public void display() {
+            System.out.println("Inner class accessing: " + outerField);
+        }
+    }
+
+    // Static Nested Class
+    public static class StaticNestedClass {
+        public void display() {
+            System.out.println("Static nested class.");
+        }
+    }
+
+    public void method() {
+        // Method Local Inner Class
+        class LocalInnerClass {
+            public void display() {
+                System.out.println("Local inner class.");
+            }
+        }
+        LocalInnerClass local = new LocalInnerClass();
+        local.display();
+    }
+    }
+
+
+    public class Test {
+        public static void main(String[] args) {
+            Runnable runnable = new Runnable() { // Anonymous Inner Class
+                @Override
+                public void run() {
+                    System.out.println("Anonymous inner class.");
+                }
+            };
+            runnable.run();
+        }
+    }
+
+
+6. Singleton Class:
+    - A design pattern that restricts the instantiation of a class to one single instance. 
+    - It provides a global point of access to the instance.
+    - Used to ensure that only one instance of a class is created throughout the application.
+    
+    public class Singleton {
+        private static Singleton instance;
+
+        private Singleton() {
+            // private constructor to prevent instantiation
+        }
+
+        public static Singleton getInstance() {
+            if (instance == null) {
+                instance = new Singleton();
+            }
+            return instance;
+        }
+    }
+
+Summary
+----------------
+    Concrete Class: Standard, instantiable class.
+    Abstract Class: Cannot be instantiated, may contain abstract methods.
+    Interface: Defines a contract that classes can implement, supports multiple inheritance.
+    Enum Class: Represents a fixed set of constants.
+    Inner Class: Defined within another class, includes member, static nested, local, and anonymous inner classes.
+    Singleton Class: Ensures a single instance of a class throughout the application.
+    Abstract Data Types/Data Structures: Classes representing data structures or abstract data types.
+    
+IMPORTANT POINTS:
+-----------------------
+- Object references will be created in Stack Memory 
+- Objects memory(data+method) will be created in Heap Area.
+
+Variables & Methods: 
+     =>Access Modifiers
+        public: Accessible from anywhere.
+        protected: Accessible within the same package and by subclasses.
+        default (Package-Private): Accessible only within the same package.
+        private: Accessible only within the same class.
+        
+    =>Non-Access Modifiers
+        static: Belongs to the class rather than instances.
+        final: Constants, prevents overriding, or inheritance.
+        abstract: Cannot be instantiated; requires implementation by subclasses.
+        synchronized: Controls thread access to code.
+        volatile: Ensures visibility of changes across threads.
+        transient: Excludes fields from serialization.
+        native: Indicates methods implemented in native code.
+        strictfp: Enforces strict floating-point calculations.
+
+Outer Class:
+    =>Access Modifiers
+        public: Accessible from any class or package.
+        default (Package-Private): Accessible only within the same package.
+
+    =>Non-Access Modifiers
+        abstract: The class cannot be instantiated directly and may contain abstract methods.
+        final: The class cannot be subclassed.
+        strictfp: Enforces strict floating-point calculations
+
+Inner Classes:
+    =>Access Modifiers
+        public: Accessible from any class or package.
+        protected: Accessible within the same package and by subclasses.
+        default (Package-Private): Accessible only within the same package.
+        private: Accessible only within the enclosing class.
+
+    =>Non-Access Modifiers 
+        static: Does not access instance members of the enclosing class; can be instantiated without an instance of the outer class.
+        final: Cannot be subclassed.
+        abstract: Cannot be instantiated directly; may contain abstract methods.
+        strictfp: Ensures floating-point calculations adhere to the IEEE 754 standard.
+ 
+Interfaces:
+    public, default 
+    abstract, default, static, strictfp
+Enums:
+    public, default
+    abstract, final, static, strictfp
+    

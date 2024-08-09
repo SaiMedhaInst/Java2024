@@ -9,6 +9,8 @@
 	An array of characters works same as Java string
 - Strings in Java are immutable, which means once a String object is created, it cannot be changed. 
 	Any operation that seems to modify a string actually creates a new string.
+	
+- - Its implements Serializable , Comparable, CharSequence
 Example:
 	String greeting = "Hello";
 
@@ -126,7 +128,8 @@ Compare Strings:
         System.out.println(str1.compareTo(str3)); // Zero (0)
 
 HashCode:
-	- For a String object, the hashCode method is computed based on the contents of the string. 
+	- For a String object, 
+	the hashCode method is computed based on the contents of the string. 
 	
 	    String str1 = "hello";
         String str2 = "world";
@@ -144,11 +147,12 @@ HashCode:
 -  StringBuffer allows you to modify the string without creating new objects each time
 -  Thread-Safe: StringBuffer methods are synchronized, meaning they are safe to use in a multi-threaded environment
 - Capacity: StringBuffer starts with an initial capacity and automatically grows as needed
-
+- Its implements Serializable , Comparable, CharSequence
 Constructors:
 	- public StringBuffer()
 	- public StringBuffer(int capacity)
 	- public StringBuffer(String string)
+	- pubic StringBuffer(java.lang.CharSequence)
 
 
 Examples:
@@ -189,18 +193,21 @@ Summary:
 						############################
 						   StringBuilder in JAVA 
 						############################
-- In Java, StringBuilder is a class designed to handle mutable sequences of characters.
+- In Java, StringBuilder is a class designed to 
+   handle mutable sequences of characters.
 - StringBuffer, StringBuilder is used for creating and modifying strings
 - Mutable
 - Not Thread Safe: Non-Synchronized
 - Dynamic Capacity
 - StringBuilder is generally faster than StringBuffer
+- Its implements Serializable , Comparable, CharSequence
+- It's final class. 
 
 Constructors:
 	- public StringBuilder()
 	- public StringBuilder(int capacity)
 	- public StringBuilder(String string)
-
+	- public StringBuilder(java.lang.CharSequence)
 
 Methods: 
 ----------------
@@ -284,7 +291,9 @@ nextByte():
 	Scanner scanner = new Scanner("127");
 	byte b = scanner.nextByte(); // 127
 
-
+For character use
+	next().charAt(0) --> reads first character only.
+	
 others methods:
 	- nextShort() 
 	- nextLong()
@@ -324,6 +333,8 @@ Examples:
 	
 	float ft = Float.parseFloat(bfn.readLine());
 	
+	double salary = Double.parseDouble(bfn.readLine());
+	
     // Printing String
     System.out.println("Entered String : " + str);
 
@@ -346,7 +357,7 @@ Methods:
 	
 	System.out.println(): Prints text with a newline at the end.
 		System.out.println("Hello");
-	System.out.println("World"); // Output: Hello
+	    System.out.println("World"); // Output: Hello
                              //         World
 							 
 	System.out.printf(): Formats text using format specifiers
@@ -358,7 +369,7 @@ Methods:
     %d for integers
     %f for floating-point numbers
     %n for a new line (platform-independent)
-
+    
 System.out.print() and System.out.println(): Basic methods for printing to the console.
 System.out.printf(): For formatted text output.
 PrintWriter: For advanced text output to files or other streams.
@@ -376,28 +387,96 @@ Logger: For more advanced logging needs, especially in larger applications.
 - The size of an array must be specified by int or short value and not long.
 - Every array type implements the interfaces Cloneable and java.io.Serializable.
 - The size of the array cannot be altered(once initialized). However, an array reference can be made to point to another array
+- A method can accept array as paramter and return array as value [ return must be array ] 
 
-syntax:
+- Arrays are pass by value or reference ?
+
+SYNTAX:
 
 	dataType[] arrayName; // declaration
 	arrayName = new dataType[arraySize]; // Instantiation
+
+PROPERTIES:
+-----------------
 	
+    - Declaration and intialisation of array is different. - On Declaration only reference Var is created - On intialisation space is created for all arr elements.
+    - We can pass array as a parameter
+    - we can declared Anonymous array
+	- we can return an array from function.
+    - The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException , [if index is invalid]
+    Array base address:
+        - The address of the first array element is called the array base address.
+        - Each element will occupy the memory space required to accommodate the values for its type, i.e.;
+        - Depending on the data type of the elements, 1, 4, or 8 bytes of memory are allocated for each element
+
+
 
 example: 
 	int[] numbers; 
 	numbers = new int[5]; // Creates an array of 5 integers
 
+	byte byteArray[];
+	short shortsArray[];
+	boolean booleanArray[];
+	long longArray[];
+	float floatArray[];
+	double doubleArray[];
+	char charArray[];
+	
+	MyClass myClassArray[]; 
+
+	Object[]  ao,        // array of Object
+	Collection[] ca;
+
+VALID DECLARATIONS:
+	int[] numbers = new int[10];
+	int []numbers = new int[10];
+	int numbers[] = new int[10];
+	int numbers[] = { 10,20, 30}; // Array literal 
+	int numbers[] = new int[] {10,20,30,50}
+	
+INVALID DECLARATIONS:
+	int[10] numbers = new int[];
+	int numbers[] = new int[10] {10,20,30,50}
+	
+	
 Array Literals 
 -------------------
 	int[] numbers = {1, 2, 3, 4, 5}; // Array of integers with initial values
-
+	
+	or 
+	int[] numbers = new int[] {10,20,30,40,50};
+	
+	String[] cars = {"Volvo", "BMW", "Ford", "Mazda"};
+	cars[0] = "Opel";
+	
 Accessing Elements:
+-------------------------
 	int firstNumber = numbers[0]; // arrayName[index]
+	
+	int someNumber = numbers[6]; // ArrayIndexOutBoundsException, 6 is invalid index
+	
+	TRY THIS?
+	System.out.println(cars.length);
+	System.out.println(cars[0]);
+	System.out.println(cars[2]);
+	System.out.print(cars[-1]);
 
+Advantages
+------------------
+
+    - Code Optimization: It makes the code optimized, we can retrieve or sort the data efficiently.
+    - Random access: We can get any data located at an index position.
+
+Disadvantages:
+--------------------
+	
+    - Size Limit: We can store only the fixed size of elements in the array. It doesn't grow its size at runtime.
+    - To solve this problem, collection framework is used in Java which grows automatically.
 
 
 ============================
-Multidimensional Arrays
+MULTIDIMENSIONAL ARRAYS
 ==============================
 - Java supports multidimensional arrays, which are arrays of arrays. 
 - The most common is the two-dimensional array.
@@ -410,6 +489,17 @@ examples:
 	int[][] matrix;
 	matrix = new int[3][4]; // Creates a 3x4 matrix
 
+VALID DECLARATIONS:
+---------------------
+	int[][] matrix= new int[3][4];
+	int [][]matrix= new int[3][4];
+	int matrix[][]= new int[3][4];
+	int []matrix[]= new int[3][4];
+	int[][] matrix = new int[3][]; // Jagged array 
+	
+INVALID DECLARATION:
+--------------------------
+int[][] matrix = new int[][4];
 
 Using Literal:
 	int[][] matrix = { {1, 2, 3}, {4, 5, 6}, {7, 8, 9} };
@@ -418,5 +508,27 @@ Accessing Elements::
 	Access elements using two indices: arrayName[rowIndex][columnIndex]
 	int value = matrix[1][2]; // Accesses the element in the 2nd row and 3rd column (6 in this case)
 
+
+============================
+		JAGGED ARRAYS
+==============================
+- If we are creating odd number of columns in a 2D array, it is known as a jagged array. 
+- In other words, it is an array of arrays with different number of columns.
+
+example:
+		//declaring a 2D array with odd columns  
+		int arr[][] = new int[3][];  
+		arr[0] = new int[3];  
+		arr[1] = new int[4];  
+		arr[2] = new int[2];  
 	
+
+==> We can copy an array to another by the arraycopy() method of System class.
+==> Cloning an Array:
+	- Java array implements the Cloneable interface,
+	- we can create the clone of the Java array. 
+		=> If we clone of a 1D array, it creates the deep copy of the Java array, means it will copy the actual value.
+		=> If we clone of a  N dimensional array, it creates the shallow copy which means it copies the references
+		
+
 
