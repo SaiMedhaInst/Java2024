@@ -10,7 +10,7 @@
 - Strings in Java are immutable, which means once a String object is created, it cannot be changed. 
 	Any operation that seems to modify a string actually creates a new string.
 	
-- - Its implements Serializable , Comparable, CharSequence
+- Its implements Serializable , Comparable ( have compareTo() method) , CharSequence
 Example:
 	String greeting = "Hello";
 

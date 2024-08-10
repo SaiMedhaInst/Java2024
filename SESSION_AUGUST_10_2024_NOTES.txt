@@ -365,13 +365,36 @@ Types of Methods:
 - It focus on grouping of data and methods into classes, which represent real-world entities.
 - OOP is designed to manage and organize code by grouping related properties and methods into objects, 
     making it easier to model real-world entities and their interactions.
-    
+- Simula is considered the first object-oriented programming language.
+- Smalltalk is considered the first truly object-oriented programming language.
+- The popular object-oriented languages are Java, C#, PHP, Python, C++, etc.
+
 Advantages :
     - Modularity ( Encapsulation , Code Reusability) 
     - Maintainability (Code Organization)
     - Extensibility ( Inheritance, Polymorphism)
     - Abstraction
+
+Different Programming paradigms:
+---------------------------------------
+1. Imperative Programming
+    Focuses on describing how a program operates by specifying a sequence of commands or statements that change the program’s state.
+    ex: C, C++, Java, Python (supports multiple paradigms, including imperative).
     
+2. Procedural Programming
+    A subtype of imperative programming that organizes code into procedures or functions.
+    Focuses on code reuse through functions and procedures, organizing operations into reusable blocks.
+   ex: C, Pascal, Fortran
+   
+3. Object-Oriented Programming (OOP)
+    Organizes code around objects and classes that encapsulate data and behavior.
+    ex:  Java, C++, Python, C#.
+ 
+4. Functional Programming
+     Emphasizes the use of functions as first-class citizens and focuses on immutability and statelessness.
+     ex:  Haskell, Scala, Lisp, Erlang, and functional features in Python and JavaScript.
+     
+     
 Prinicipals:
     Class: Class is specification or blueprint for the class
     Object: Object is a run-time entity.
@@ -594,6 +617,108 @@ Summary
     Singleton Class: Ensures a single instance of a class throughout the application.
     Abstract Data Types/Data Structures: Classes representing data structures or abstract data types.
     
+    
+    
+OOP's other prinicipals
+-----------------------------
+1. Coupling:
+- Coupling refers to how dependent different classes or modules are on each other. 
+- The goal is to have low coupling, which means classes are mostly independent and changes in one class do not heavily impact others.
+Example:
+- Imagine you have a Car class and an Engine class. 
+- If the Car class directly creates an instance of Engine, it means Car is tightly coupled with Engine.
+- This means any change in Engine might force changes in Car.
+- Instead of creating an Engine directly in the Car class
+    you can pass an Engine object to Car via its constructor or a setter method. 
+    This way, Car can work with any Engine implementation without knowing the details.
+    
+  class Engine {
+        void start() {
+            System.out.println("Engine started");
+        }
+    }
+
+    class Car {
+        private Engine engine;
+
+        public Car(Engine engine) {
+            this.engine = engine;
+        }
+
+        public void start() {
+            engine.start();
+            System.out.println("Car is running");
+        }
+    }
+
+
+2. Cohesion:
+- Cohesion refers to how closely related and focused the responsibilities of a single class. 
+- High cohesion means a class has a well-defined purpose and all its methods and variables are related to that purpose.
+- Ex: A Car class with methods like start(), stop(), and accelerate() is highly cohesive 
+     because all these methods relate to the concept of a car’s operation.
+    
+    class Car {
+        void start() {
+            System.out.println("Car started");
+        }
+
+        void stop() {
+            System.out.println("Car stopped");
+        }
+
+        void accelerate() {
+            System.out.println("Car accelerating");
+        }
+    }
+    
+3.Association: 
+- represents a relationship between two classes. 
+- It indicates that one class uses or interacts with another class. 
+- There are different types of association like one-to-one, one-to-many, and many-to-many.
+Ex:
+    A Driver class and a Car class can be associated with a one-to-many relationship 
+    if one driver can drive multiple cars.
+    
+    class Car {
+        // Car properties and methods
+    }
+
+    class Driver {
+        private List<Car> cars = new ArrayList<>();
+
+        public void addCar(Car car) {
+            cars.add(car);
+        }
+    }
+
+4. Aggregation:
+- It is a type of association that represents a "whole-part" relationship 
+- But with weaker coupling compared to composition. 
+- In aggregation, the part can exist independently of the whole.
+- HAS-A relationship
+
+Ex: Consider Library and Book relationship. A Library can contain many Book objects.
+    But books can exist outside the library and be part of different libraries.
+
+5. Composition:
+- It is a type of association where the relationship is stronger than aggregation. 
+- The part cannot exist independently of the whole. 
+- If the whole is destroyed, the parts are also destroyed.
+- PART-OF relationship
+
+Ex: Consider a House and Room relationship. 
+    A Room cannot exist without a House, and 
+    if the House is destroyed, the Room should also be considered as destroyed.
+   
+
+In summary:
+    Coupling: Degree of dependency between classes.
+    Cohesion: How well the responsibilities of a class are related.
+    Association: General relationship between classes.
+    Aggregation: Whole-part relationship with weaker coupling (part can exist independently).
+    Composition: Whole-part relationship with strong coupling (part cannot exist independently).
+    
 IMPORTANT POINTS:
 -----------------------
 - Object references will be created in Stack Memory 
@@ -646,3 +771,134 @@ Enums:
     public, default
     abstract, final, static, strictfp
     
+    
+###########################################################################
+                CONSTRUCTORS in JAVA
+###########################################################################
+- It's special method same name as class name, used to construct something for program.
+- A constructor in Java is a special method that is used to initialize objects.
+- It can be used to set initial values for object attributes.
+- Every time an object is created using the new() keyword, at least one constructor is called.
+- By default JVM will invoke default constructor( which has empty body) when class doesn't have any constructors declared.
+
+NOTE: It is not necessary to write a constructor for a class. 
+    It's because java compiler creates a default constructor (constructor with no-arguments) if your class doesn’t have any.
+    
+=> How Constructors are Different From Methods in Java?   
+    
+- Constructors must have the same name as the class within which it is defined  
+    it is not necessary for the method in Java.
+- Constructors do not return any type while 
+    method(s) have the return type or void if does not return any value.
+- Constructors are called only once at the time of Object creation 
+    while method(s) can be called any number of times.
+
+Example:
+    
+    import java.io.*;
+
+    class Student {
+        String name = "ram";
+        int rollNumber = 172972625;
+        
+        Student() { super(); }
+        
+        public static void main(String[] args)
+        {
+            Student ram = new Student();
+        }
+    }
+=> The first line of a constructor is a call to super() or this(), (a call to a constructor of a super-class or an overloaded constructor),
+=> Every class in java is the subclass of a class object even if we don’t say extends object in our class definitio
+
+RULES FOR WRITING CONSTRUCTORS
+------------------------------------
+1.The constructor(s) of a class must have the same name as the class name in which it resides.
+
+2.A constructor in Java can not be abstract, final, static, or synchronized.
+
+3.Access modifiers can be used in constructor declaration to control its access
+    i.e which other class can call the constructor.
+
+TYPES OF CONSTRUCTORS IN JAVA
+------------------------------------
+
+1. Default Constructor:
+- A constructor that has no parameters and no body is known as default the constructor.
+- A default constructor is invisible.
+
+2. No-argument constructor:
+
+- A constructor that has no parameter is known as the No-argument or Zero argument constructor.
+- If we don’t define a constructor in a class, then the compiler creates a constructor(with no arguments and empty body) for the class.
+- And if we write a constructor with arguments or no arguments then the compiler does not create a default constructor.
+ex:
+    
+    class Student {
+        int rollno;
+        String name;
+        
+        public Student(){
+            System.out.println("No-Args Constructor called"); 
+        }
+    }
+    public class Main{
+        public static void main(String[] args){
+            Student s = new Student();
+            System.out.println(s.rollno);
+            System.out.println(s.name);
+        }
+    }
+
+3. Parameterized Constructor:
+- A constructor that has parameters is known as parameterized constructor.
+- If we want to initialize fields of the class with our own values, then use a parameterized constructor.
+
+ex:
+    
+    class Student {
+        int rollno;
+        String name;
+        public Student(int rollno, String name) {
+            this.rollno = rollno;
+            this.name = name;
+        }
+    }
+    public class Main{
+        public static void main(String[] args){
+            Student s = new Student(1,"kumar");
+            Student s1 = new Student(2,"Ram");
+        }
+    }
+
+CONSTRUCTOR OVERLOADING
+-----------------------------
+- Constructor overloading refers to the use of more than one constructor in an instance class.
+- Each overloaded constructor must have different signatures
+
+Ex:
+    
+    class Simple {
+
+        Simple(String name) {
+            System.out.println("Constructor with one "	+ "argument - String : " + name);
+        }
+
+        Simple(String name, int age) { // constructor with two arguments
+            System.out.println(	"Constructor with two arguments : "
+                + " String and Integer : " + name + " " + age);
+        }
+
+        Simple(long id) {
+            System.out.println(	"Constructor with one argument : "
+                + "Long : " + id);
+        }
+    }
+
+    class Test {
+        public static void main(String[] args) {
+            Simple s1 = new Simple("Kumar");
+            Simple s2 = new Simple("Avan", 26);
+            Simple s3 = new Simple(325614567);
+        }
+    }

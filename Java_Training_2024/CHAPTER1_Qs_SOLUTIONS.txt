@@ -141,3 +141,77 @@ String Builders
 10.a) The content will be truncated to "Hello".
 
 
+INPUT In JAVA 
+---------------------
+1.a) Scanner
+2.c) Scanner sc = new Scanner(System.in);
+3.a) nextInt()
+4.c) scanner.nextLine();
+5.b) readLine()
+6.b) InputStreamReader
+7.a) scanner.nextDouble();
+8.a) IOException
+9.b) Number is: 5
+10.a) nextBoolean() 
+
+OUTPUT IN JAVA 
+---------------------
+1.d) System.out
+2.b) println()
+3.b) HelloWorld!
+4.b) printf()
+5.a) System.out.printf("%d %s", 10, "hello");
+6.a) PrintWriter
+7.a) Prints: The result is: 45
+8.b) Number: 3 with a newline
+9.a) System.out.write()
+10.a) System.out.println("Hello\nWorld");
+ 
+Arrays 
+--------------
+d) int[] arr;
+a) 0
+d) Both a and b
+a) The number of elements it can hold
+d) arr.length
+c) 0
+a) arr[2]
+b) 5
+c) A ArrayIndexOutOfBoundsException will be thrown
+d) Both a and c
+ 
+ 
+ND Arrays 
+-----------------
+1.d) Both a and c
+2.d) Both a and b
+3.a) 6 arr[0][0] is 1 and arr[1][1] is 5, so their sum is 6.
+4.a) 0
+5.b) arr[1][2]
+6.a) 3
+7.a) 5
+8.b) arr.length
+9.a) 0
+10.b) A 2D array in Java is essentially an array of arrays.
+
+Selection statements
+--------------------
+1. b) -30
+
+arr[0] is 10, which is not divisible by 20, so sum -= 10 → sum = -10.
+arr[1] is 20, which is divisible by 20, so sum += 20 → sum = 10.
+arr[2] is 30, which is not divisible by 20, so sum -= 30 → sum = -20.
+arr[3] is 40, which is divisible by 20, so sum += 40 → sum = 20.
+arr[4] is 50, which is not divisible by 20, so sum -= 50 → sum = -30.
+
+2. a) 5
+max starts as 1.
+When i = 1, arr[1] (2) is greater than max, so max becomes 2.
+When i = 2, arr[2] (3) is greater than max, so max becomes 3.
+When i = 3, arr[3] (4) is greater than max, so max becomes 4.
+When i = 4, arr[4] (5) is greater than max, so max becomes 5.
+
+Answer: d) 4
+Explanation:
+    Array length is 5.
+    Elements less than 5 are 4, 3, 2, and 1, so count becomes 4.

@@ -653,7 +653,7 @@ Bitwise NOT or Complement
 			----------------
 				1111 0111
 			
-			1111 0111 is representation of -9 
+			1111 0111 is representation of -9 in binary
 		3. apply invert 
 			~ 1111 0111 --> 0000 1000 : 8 in decimal 
 		
@@ -690,10 +690,14 @@ Bitwise NOT or Complement
 	int a = -5; // a is -5
 
 	++ (Increment): Increases the value by one. Can be prefix (++a) or postfix (a++).
+		- Pre Increment: first increment, then use the value 
+		- Post Increment: first use the value. then increment
 	int a = 5;
 	a++; // a is now 6
 	
 	-- (Decrement): Decreases the value by one. Can be prefix (--a) or postfix (a--).
+		- Pre Decrement: first decrement, then use the value 
+		- Post Decrement: first use the value. then decrement
 	int a = 5;
 	a--; // a is now 4
 	
@@ -701,6 +705,9 @@ Bitwise NOT or Complement
 	
 7. Conditional (Ternary) Operator
 	? : (Ternary): Evaluates a condition and returns one of two values.
+	syntax:
+		(exp1) ? exp2 : exp3
+		
 	int a = (5 > 3) ? 10 : 20; // a is 10
 	
 8. Instanceof Operator
