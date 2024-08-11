@@ -1,0 +1,651 @@
+#################################
+	INHERITANCE IN JAVA 
+################################
+- Inheritance is the mechanism by which one class (the child or subclass) acquires the 
+	properties (fields) and behaviors (methods) of another class (the parent or superclass).
+- Inheritance represents the IS-A relationship which is also known as a parent-child relationship.
+
+Why Inheritance?
+- Code Reusability.
+- Method Overriding ( runtime polymorphism) 
+- Abstraction 
+
+Terms used in Inheritance:
+Class:
+    A class is a group of objects which have common properties.
+    It is a template or blueprint from which objects are created.
+
+Sub Class/Child Class:
+    Subclass is a class which inherits the other class.
+    It is also called a derived class, extended class, or child class.
+
+Super Class/Parent Class:
+    Superclass is the class from where a subclass inherits the features.
+    It is also called a base class or a parent class.
+
+Syntax:
+-------------
+class SubclassNName extends SuperclassName{  
+   //methods and fields  
+}  
+
+example:
+	class Parent {
+    // fields and methods
+	}
+
+	class Child extends Parent {
+		// additional fields and methods
+	}
+	
+Try this?
+---------------------
+    Can we extend more than one class at the same time?
+
+
+example-1
+---------------	
+	class Employee{  
+	 float salary=40000;  
+	}  
+	
+	class Programmer extends Employee{  
+	 int bonus=10000;  
+	 public static void main(String args[]){  
+	   Programmer p=new Programmer();  
+	   System.out.println("Programmer salary is:"+p.salary);  
+	   System.out.println("Bonus of Programmer is:"+p.bonus);  
+		}  
+	} 
+
+example-2
+---------------
+
+	class Animal {
+	   
+		protected String name;
+		
+		public Animal(String name) {
+			this.name = name;
+		}
+		
+		public void eat() {
+			System.out.println(name + " is eating.");
+		}
+
+		public void sleep() {
+			System.out.println(name + " is sleeping.");
+		}
+
+		public void makeSound() {
+			System.out.println(name + " makes a sound.");
+		}
+	}
+
+
+	class Dog extends Animal { // Subclass (Child class)
+
+
+		public Dog(String name) {
+			super(name); // Call the superclass constructor
+		}
+
+	   
+		@Override
+		public void makeSound() {  // Method overriding
+			System.out.println(name + " barks.");
+		}
+
+		public void fetch() {  // Additional method specific to Dog
+			System.out.println(name + " is fetching a ball.");
+		}
+	}
+
+
+	class Cat extends Animal {
+
+		public Cat(String name) {
+			super(name); 
+		}
+
+		@Override
+		public void makeSound() {
+			System.out.println(name + " meows.");
+		}
+
+		public void scratch() {     // Additional method specific to Cat
+			System.out.println(name + " is scratching.");
+		}
+	}
+
+
+	public class Example {
+
+		public static void main(String[] args) {
+		   
+			Dog myDog = new Dog("Rover");
+			Cat myCat = new Cat("Whiskers");
+
+			// Call methods on Dog instance
+			myDog.eat();        // Inherited from Animal
+			myDog.sleep();      // Inherited from Animal
+			myDog.makeSound();  // Overridden in Dog
+			myDog.fetch();      // Specific to Dog
+
+			// Call methods on Cat instance
+			myCat.eat();        // Inherited from Animal
+			myCat.sleep();      // Inherited from Animal
+			myCat.makeSound();  // Overridden in Cat
+			myCat.scratch();    // Specific to Cat
+
+			// Demonstrate polymorphism
+			Animal myAnimal;
+
+			myAnimal = new Dog("Buddy");
+			myAnimal.makeSound();  // Calls Dog's makeSound() method
+
+			myAnimal = new Cat("Luna");
+			myAnimal.makeSound();  // Calls Cat's makeSound() method
+		}
+	}
+
+
+Types of Inheritance:
+1. Single Inheritance: A subclass inherits from a single superclass.
+2. Multilevel Inheritance: A class inherits from a superclass, and 
+	then another class inherits from that subclass.
+3. Hierarchical Inheritance: 
+	Multiple subclasses inherit from a single superclass.
+4.Multiple Inheritance (through Interfaces): 
+	Java does not support multiple inheritance of classes to avoid complexity and ambiguity. 
+	However, a class can implement multiple interfaces.
+	
+	
+1. Single Inheritance
+----------------------------
+- In single inheritance, a class inherits from only one other class. 
+- This is the most straightforward form of inheritance.
+ex:
+	class Vehicle {
+		protected String brand;
+
+		public Vehicle(String brand) {
+			this.brand = brand;
+		}
+
+		public void start() {
+			System.out.println(brand + " vehicle is starting.");
+		}
+	}	
+
+	class Car extends Vehicle {
+		private int doors;
+
+		public Car(String brand, int doors) {
+			super(brand);
+			this.doors = doors;
+		}
+
+		public void honk() {
+			System.out.println(brand + " car is honking.");
+		}
+	}
+
+2. Multilevel Inheritance:
+- A class inherits from another class, which in turn inherits from another class. 
+- This creates a chain of inheritance.
+
+	class Employee {
+		protected String name;
+
+		public Employee(String name) {
+			this.name = name;
+		}
+
+		public void work() {
+			System.out.println(name + " is working.");
+		}
+	}
+
+	class Manager extends Employee {
+		public Manager(String name) {
+			super(name);
+		}
+
+		public void manage() {
+			System.out.println(name + " is managing the team.");
+		}
+	}
+
+	class TeamLead extends Manager {
+		public TeamLead(String name) {
+			super(name);
+		}
+
+		public void leadTeam() {
+			System.out.println(name + " is leading the team.");
+		}
+	}
+
+3. Hierarchical Inheritance
+--------------------------------------
+- In hierarchical inheritance, multiple subclasses inherit from a single superclass.
+ex:
+	class Person {
+		protected String name;
+
+		public Person(String name) {
+			this.name = name;
+		}
+
+		public void introduce() {
+			System.out.println("Hi, I am " + name + ".");
+		}
+	}
+
+	class Student extends Person {
+		public Student(String name) {
+			super(name);
+		}
+
+		public void study() {
+			System.out.println(name + " is studying.");
+		}
+	}
+
+	class Teacher extends Person {
+		public Teacher(String name) {
+			super(name);
+		}
+
+		public void teach() {
+			System.out.println(name + " is teaching.");
+		}
+	}
+
+4. Multiple Inheritance (via Interfaces):
+- Java does not support multiple inheritance of classes but allows a class to implement multiple interfaces. 
+- This is a form of multiple inheritance where a class can inherit from more than one source, but only through interfaces.
+
+example:
+	interface Drivable {
+		void drive();
+	}
+
+	interface Flyable {
+		void fly();
+	}
+
+	class FlyingCar implements Drivable, Flyable {
+		private String model;
+
+		public FlyingCar(String model) {
+			this.model = model;
+		}
+
+		@Override
+		public void drive() {
+			System.out.println(model + " is driving.");
+		}
+
+		@Override
+		public void fly() {
+			System.out.println(model + " is flying.");
+		}
+	}
+	
+Summary
+------------------
+Single Inheritance: 
+	Extending one class (e.g., Car extends Vehicle).
+Multilevel Inheritance: 
+	Chain of inheritance (e.g., TeamLead extends Manager, which extends Employee).
+Hierarchical Inheritance: 
+	Multiple subclasses inherit from one superclass (e.g., Student and Teacher extend Person).
+Multiple Inheritance (Interfaces): 
+	A class implements multiple interfaces (e.g., FlyingCar implements Drivable and Flyable).
+
+
+WHAT ALL ARE INHERITABLE FROM SUPERCLASS TO SUB CLASS 
+=============================================================
+1. Fields
+
+    Inherited: Subclasses inherit all non-private fields from the superclass. 
+			Protected and public fields are directly accessible in the subclass.
+    Not Inherited: 
+		Private fields are not directly accessible in the subclass. 
+		They are encapsulated within the superclass.
+2. Instance Methods
+    Inherited: Subclasses inherit all non-private instance methods from the superclass. 
+		Protected and public instance methods are accessible and can be overridden in the subclass.
+    Not Inherited: 
+		Private instance methods are not accessible directly in the subclass
+
+3. Static Methods
+    Inherited: 
+		Subclasses inherit static methods from the superclass. 
+		However, static methods are not polymorphic. 
+		This means that if a subclass defines a static method with the same name as in the superclass, 
+		it hides the superclass's method (not overrides it).
+4. Instance Blocks
+    Not Inherited: 
+	 -Instance initialization blocks (instance blocks) are not inherited by subclasses. 
+	 -Each class has its own instance blocks that run when an instance of that class is created. 
+	 -However, if a superclass has an instance block, it executes before the subclass’s instance block when creating an object of the subclass.
+	 
+5. Static Blocks
+    Not Inherited:  Static initialization blocks are not inherited. 
+	- They are executed when the class is first loaded
+	- And each class has its own static blocks which are executed in the order they appear. 
+	- Static blocks from the superclass execute before those in the subclass when the subclass is loaded.
+
+6. Static Field:
+	Inherited: Yes, but they are not polymorphic. 
+		They are shared among all instances of the class.
+	Hiding: A subclass can hide a superclass’s static field by declaring 
+			a static field with the same name
+7. Constructors:
+	Inherited: No, constructors are not inherited.
+	Calling Superclass Constructor: Subclasses can call a superclass constructor using super().
+Summary
+	Fields: Inherited except private fields.
+	Instance Methods: Inherited except private methods.
+	Static Methods: Inherited but hidden if redefined.
+	Instance Blocks: Not inherited; each class has its own instance blocks.
+	Static Blocks: Not inherited; executed when the class is loaded, 
+			superclass blocks execute before subclass blocks.
+			
+###########################################################
+			this keyword in JAVA 
+###########################################################
+- The this keyword in Java is a special reference variable that refers to the current instance of the class.
+- It is commonly used,
+	=>  Distinguishing Between Instance Variables and Parameters
+	=> Invoking Other Constructors in the Same Class
+	=> Passing the Current Object as a Parameter
+	=> Returning the Current Object from a Method
+- We can't use this in static context
+- It is used to refer current class’s instance as well as static members.
+
+Example:
+	class Person {
+		private String name;
+		private int age;
+
+
+		public Person() {
+			this("Unknown", 0); // Calls the constructor with two parameters
+		}
+
+		public Person(String name, int age) {
+			this.name = name; // 'this.name' distinguishes the instance variable from the parameter
+			this.age = age;   // 'this.age' distinguishes the instance variable from the parameter
+		}
+
+		public Person setName(String name) {
+			this.name = name; // 'this.name' refers to the instance variable
+			return this;      // Returns the current instance for method chaining
+		}
+
+		public Person setAge(int age) {
+			this.age = age;   
+			return this;     
+		}
+
+
+		public void printDetails(Printer printer) {
+			printer.printPerson(this); // Passes the current instance to the Printer class
+		}
+
+		@Override
+		public String toString() {
+			return "Name: " + name + ", Age: " + age;
+		}
+	}
+
+		
+	class Printer {
+		public void printPerson(Person person) {
+			System.out.println("Printing details from Printer:");
+			System.out.println(person); // Uses the toString() method of Person class
+		}
+	}
+	
+
+###########################################################
+			super keyword in JAVA 
+###########################################################
+- The super keyword in Java is used to refer to the immediate superclass of the current object.
+- It provides a way to access superclass members (fields, methods, and constructors) that are hidden or overridden in the subclass.
+- super is used to refer super-class’s instance as well as static members.
+Uses of the super Keyword
+    - Accessing Superclass Methods
+    - Accessing Superclass Fields
+    - Calling Superclass Constructor
+    - Invoking Superclass Methods Overridden in Subclass
+
+example:
+	class Base {
+		public void show() {
+			System.out.println("Base class show()");
+		}
+	}
+
+	class Derived extends Base {
+		@Override
+		public void show() {
+			super.show(); // Calls the Base class method
+			System.out.println("Derived class show()");
+		}
+	}
+
+	public class Example {
+		public static void main(String[] args) {
+			Derived d = new Derived();
+			d.show();
+		}
+	}
+
+Summary
+- Accessing Superclass Methods: To call overridden methods from the superclass.
+- Accessing Superclass Fields: 
+	To refer to fields in the superclass that are hidden by subclass fields.
+- Calling Superclass Constructor: To invoke a constructor from the superclass.
+- Invoking Superclass Methods: 
+	To ensure that the superclass version of an overridden method is executed.
+	
+#############################################
+			INTERFACE IN JAVA
+###############################################
+- An interface in Java is a reference type, similar to a class.
+- It can contain only 
+	constants
+	method signatures
+	default methods
+	static methods and nested types
+- An interface in Java is a blueprint of a class. (provide contract of methods to be implemented)
+- The interface in Java is a mechanism to achieve [100% till java8]abstraction
+- Java Interface also represents the IS-A relationship.
+- It cannot be instantiated just like the abstract class.
+- Since Java 8, we can have default and static methods in an interface.
+- Since Java 9, we can have private methods in an interface.
+
+Why we use Java interface?
+    - It is used to achieve abstraction.
+    - By interface, we can support the functionality of multiple inheritance.
+    - It can be used to achieve loose coupling.
+
+Syntax:
+	- An interface is declared by using the interface keyword.
+	- It provides total abstraction; means 
+		all the methods in an interface are declared with the empty body, 
+		and all the fields are public, static and final by default.
+	- A class that implements an interface must implement all the methods declared in the interface
+	
+
+interface <interface_name>{  
+    // declare constant fields  
+    // declare methods that abstract   
+    // by default.  
+}  
+
+
+**NOTE**:
+	The Java compiler adds public and abstract keywords before the interface method. 
+	And it adds public, static and final keywords before data members.
+	
+Example-1:
+	interface Bank{  
+		float rateOfInterest();  
+	}  
+
+	class SBI implements Bank{  
+		public float rateOfInterest(){
+			return 9.15f;
+		}  
+		
+	}  
+		
+	class PNB implements Bank{  
+		public float rateOfInterest(){
+			return 9.7f;
+		}  
+
+	}  
+
+	class TestInterface2{  
+		public static void main(String[] args){  
+		 Bank b = new SBI();  
+			System.out.println("ROI: "+b.rateOfInterest());  
+		}
+	} 
+	
+Example-2:
+	interface PaymentMethod {
+		void processPayment(double amount);
+	}
+
+	class CreditCard implements PaymentMethod {
+		private String cardNumber;
+
+		public CreditCard(String cardNumber) {
+			this.cardNumber = cardNumber;
+		}
+
+		@Override
+		public void processPayment(double amount) {
+			System.out.println("Processing credit card payment of Rs" + amount 
+									+ " with card number " + cardNumber);
+		}
+	}
+
+	class PayPal implements PaymentMethod {
+		private String email;
+
+		public PayPal(String email) {
+			this.email = email;
+		}
+
+		@Override
+		public void processPayment(double amount) {
+			System.out.println("Processing PayPal payment of Rs" + amount 
+					+ " with email " + email);
+		}
+	}
+
+	public class Example {
+		public static void main(String[] args) {
+			PaymentMethod creditCard = new CreditCard("1234-5678-9876-5432");
+			PaymentMethod payPal = new PayPal("user@example.com");
+
+			creditCard.processPayment(100.00);
+			payPal.processPayment(50.00);
+		}
+	}
+	
+	
+Java 8 Default Method in Interface
+--------------------------------------
+- Since Java 8, we can have method body in interface. But we need to make it default method
+- Backward Compatibility:  
+	To allow new methods to be added to interfaces without breaking existing implementations
+	This is particularly useful for evolving libraries and frameworks.
+	
+example:
+	interface Animal {
+		default void eat() {
+			System.out.println("Animal is eating.");
+		}
+	}
+
+	class Dog implements Animal {
+		// Dog class inherits the default implementation of eat()
+	}
+
+	public class Example {
+		public static void main(String[] args) {
+			Dog dog = new Dog();
+			dog.eat(); 
+		}
+	}
+
+Java 8 Static Method in Interface
+---------------------------------------
+- static methods in interfaces are used for utility or helper methods that are related to the interface 
+- Static methods belong to the interface itself and can be called without creating an instance of the implementing class.
+
+Example:
+	interface MathOperations {
+	
+		static int add(int a, int b) {
+			return a + b;
+		}
+	}
+
+	public class Example {
+		public static void main(String[] args) {
+			
+			int result = MathOperations.add(5, 10); // Call static method using the interface name
+			System.out.println("Sum: " + result); 
+		}
+	}
+
+Java 9 Private Methods:
+-------------------------------
+- Private methods in interfaces allow for encapsulation of common code that should not be exposed to implementing classes. 
+- They help avoid code duplication within default methods.
+- Code Organization: Private methods enable better organization of code within an interfac
+
+Example:
+	interface Vehicle {
+		
+		private void startEngine() { // Private method
+			System.out.println("Engine started.");
+		}
+		
+		default void drive() { // Default method
+			startEngine(); // Calls the private method
+			System.out.println("Vehicle is driving.");
+		}
+	}
+
+	class Car implements Vehicle {
+		
+	}
+
+	public class Example {
+		public static void main(String[] args) {
+			Car car = new Car();
+			car.drive();
+		}
+	}
+
+Summary:
+-----------------
+Default Methods: 
+	Provide a default implementation for methods in interfaces, 
+	facilitating backward compatibility and code reuse.
+Static Methods: 
+	Offer utility methods related to the interface that can be called without instantiating the interface.
+Private Methods: 
+	Allow encapsulation of common code within the interface, improving code organization and reducing duplication.
