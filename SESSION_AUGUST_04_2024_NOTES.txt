@@ -3,12 +3,12 @@
 						############################
 - A String variable contains a collection of characters surrounded by double quotes:
 - Strings are used for storing text.
-- Non Primitive DataType.
+- Non Primitive DataType or Reference DataType belongs to java.lang package and it is final class.
 - Stores group of characters
 - In Java, string is basically an object that represents sequence of char values. 
 	An array of characters works same as Java string
 - Strings in Java are immutable, which means once a String object is created, it cannot be changed. 
-	Any operation that seems to modify a string actually creates a new string.
+	Any operation that seems to modify a string actually creates a new string object.
 	
 - Its implements Serializable , Comparable ( have compareTo() method) , CharSequence
 Example:
@@ -35,24 +35,31 @@ Constructors:
 TWO WAYS TO CREATE 
 -----------------------
 Using Literals:
- - Each time when we create a string literal, the JVM checks the "string constant pool" first. 
+ - Each time when we create a string literal, the JVM checks the "STRING CONSTANT POOL" first. 
   If the string already exists in the pool, a reference to the pooled instance is returned. 
   If the string doesn't exist in the pool, a new string instance is created and placed in the pool.
 
  Example:
-	String s="welcome";  
+	String s1="welcome";  
 	
-	String s1="Welcome";  
-	String s2="Welcome";//It doesn't create a new instance  
+	String s2="Welcome";  
+	String s3="Welcome";//It doesn't create a new instance  
 	
 	Try this?
-	s1 == s2 
-	s2 == s3
-	s1.equals(s2) 
-	s2.equals(s3) 
+	s1 == s2  // false 
+	s2 == s3 // true
+	s1.equals(s2) // false 
+	s2.equals(s3) // true 
+	s1.equalsIgnoreCase(s2) // true
+
+**NOTE** 
+-> == will compare address of reference variables 
+-> .equals() method compares content
 	
 Using new keyword:
-  This creates a new String object in heap memory, even if the same string literal exists in the pool.
+---------------------------
+  This creates a new String object in HEAP MEMORY, 
+  even if the same string literal exists in the pool.
   
   Examples:
 	String s4 = new String("Hello, World!"); // creates new instance
@@ -72,8 +79,11 @@ String str1 = "Hello, World!";
 Length:
 	int length = str1.length();
 	
-Concatenation:
+Concatenation: (concat)
 	String str3 = str1 + " How are you?";
+	
+	String + anything : String 
+	anything + String : String 
 
 Substring:
 	String substr = str1.substring(7, 12); // "World"
@@ -101,7 +111,7 @@ Ignoring Case:
 	boolean isEqualIgnoreCase = str1.equalsIgnoreCase("hello, world!");
 
 Converts different types of values into string:
-	 int number = 123;
+	int number = 123;
 	boolean boolValue = true;
 	char singleChar = 'A';
 	char[] charArray = {'J', 'a', 'v', 'a'};
@@ -138,17 +148,37 @@ HashCode:
         System.out.println("Hash code of 'world': " + str2.hashCode());
 
 
+OTHER METHODS 
+------------------------
+split()
+starsWith()
+endsWith()
+replaceAll() 
+lastIndexOf() 
+getBytes() 
+match() 
+
+Explore 
+-----------------
+What is Comparable and Comparator ?
+
+
 ==========
 						############################
 						      StringBuffer in JAVA 
 						############################
 	
 - Mutable version of String 
--  StringBuffer allows you to modify the string without creating new objects each time
--  Thread-Safe: StringBuffer methods are synchronized, meaning they are safe to use in a multi-threaded environment
+- StringBuffer allows you to modify the string without creating new objects each time
+- Thread-Safe: StringBuffer methods are synchronized, meaning they are safe to use in a multi-threaded environment
 - Capacity: StringBuffer starts with an initial capacity and automatically grows as needed
+- Default capacity is 16 locations 
+	new capacity: (old capacity * 2) + 2
 - Its implements Serializable , Comparable, CharSequence
+- StringBuffer is also final class and belongs java.lang package
+
 Constructors:
+
 	- public StringBuffer()
 	- public StringBuffer(int capacity)
 	- public StringBuffer(String string)
@@ -158,6 +188,8 @@ Constructors:
 Examples:
 	StringBuffer sb = new StringBuffer(); // Creates an empty buffer with default capacity
 	StringBuffer sb = new StringBuffer("Hello"); // Creates a buffer initialized with "Hello"
+	StringBuffer sb = new StringBuffer(32); // creates a buffer with capacity 32 characters 
+	
 
 Methods:
 ----------------

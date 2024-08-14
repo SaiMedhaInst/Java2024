@@ -19,13 +19,13 @@ Sub Class/Child Class:
     Subclass is a class which inherits the other class.
     It is also called a derived class, extended class, or child class.
 
-Super Class/Parent Class:
+Super Class/Parent Class/Base Class:
     Superclass is the class from where a subclass inherits the features.
     It is also called a base class or a parent class.
 
 Syntax:
 -------------
-class SubclassNName extends SuperclassName{  
+class SubclassName extends SuperclassName{  
    //methods and fields  
 }  
 
@@ -40,21 +40,24 @@ example:
 	
 Try this?
 ---------------------
-    Can we extend more than one class at the same time?
+    Can we extend more than one class at the same time? no
+	Can we implement more than one interface at a time? yes
+	Can A interface extends multiple interfaces at a time? yes
+	
 
 
 example-1
 ---------------	
 	class Employee{  
-	 float salary=40000;  
+	  float salary=40000;  
 	}  
 	
 	class Programmer extends Employee{  
-	 int bonus=10000;  
-	 public static void main(String args[]){  
-	   Programmer p=new Programmer();  
-	   System.out.println("Programmer salary is:"+p.salary);  
-	   System.out.println("Bonus of Programmer is:"+p.bonus);  
+	   int bonus=10000;  
+	   public static void main(String args[]){  
+		  Programmer p=new Programmer();  
+	      System.out.println("Programmer salary is:"+p.salary);  
+	      System.out.println("Bonus of Programmer is:"+p.bonus);  
 		}  
 	} 
 
@@ -89,7 +92,6 @@ example-2
 		public Dog(String name) {
 			super(name); // Call the superclass constructor
 		}
-
 	   
 		@Override
 		public void makeSound() {  // Method overriding
@@ -649,3 +651,128 @@ Static Methods:
 	Offer utility methods related to the interface that can be called without instantiating the interface.
 Private Methods: 
 	Allow encapsulation of common code within the interface, improving code organization and reducing duplication.
+	
+	
+	
+###########################################################
+		ABSTRACTION IN JAVA
+############################################################
+- Abstraction in Java is a fundamental concept in object-oriented programming 
+- It helps to manage complexity by hiding the implementation details of an object and exposing only the essential features. 
+- It allows you to focus on what an object does instead of how it does it. 
+- This is achieved through abstract classes and interfaces.
+
+- Data abstraction is the process of hiding certain details and showing only essential information to the user.
+- The abstract keyword is a non-access modifier, used for classes and methods
+
+- Two ways to achieve Abstraction
+	
+    a) Abstract class (0 to 100%)
+    b) Interface (100%) till JAVA 7
+	
+ABSTRACT CLASS & METHODS 
+------------------------------
+- An abstract class in Java is a class that cannot be instantiated on its own 
+- And can contain abstract methods (methods without a body) as well as concrete methods (methods with a body).
+- Subclasses must provide implementations for the abstract methods.
+- It can have constructors and static methods also.
+- It can have final methods which will force the subclass not to change the body of the method.
+
+
+	abstract class Animal {
+		abstract void makeSound();
+	
+		void eat() {
+			System.out.println("This animal eats food.");
+		}
+	}
+
+
+	class Dog extends Animal {
+		@Override
+		void makeSound() {
+			System.out.println("Woof!");
+		}
+	}
+
+
+	class Cat extends Animal {
+		@Override
+		void makeSound() {
+			System.out.println("Meow!");
+		}
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			Animal myDog = new Dog();
+			myDog.makeSound(); 
+			myDog.eat();       
+			
+			Animal myCat = new Cat();
+			myCat.makeSound();  
+			myCat.eat();        
+		}
+	}
+
+NOTE:	
+	- Can an abstract class can have Zero or more abstract methods?
+	- When the constructor of the abstract class will executed/invoked?
+	
+INTERFACES
+---------------------------------
+- Interface is blueprint for class specification.
+- Interface defines contract of methods to be implemented by class 
+- Interfaces will contains till JAVA7
+	public static final constants 
+	public abstract methods 
+- Interfaces cannot be instantiated and cannot have constructor 
+- From JAVA future versions, it has 
+	JAVA 8: default , static methods 
+	JAVA 9: private methods 
+	
+- We can use access modifiers: public, default
+
+Example:
+	
+	interface Animal {
+	
+		void makeSound();
+		
+		default void eat() {
+			System.out.println("This animal eats food.");
+		}
+	}
+
+	class Dog implements Animal {
+		@Override
+		public void makeSound() {
+			System.out.println("Woof!");
+		}
+	}
+	
+	class Cat implements Animal {
+		@Override
+		public void makeSound() {
+			System.out.println("Meow!");
+		}
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			Animal myDog = new Dog();
+			myDog.makeSound();  
+			myDog.eat();       
+			
+			Animal myCat = new Cat();
+			myCat.makeSound();  
+			myCat.eat();        
+		}
+	}
+
+Try this?
+-------------------
+	Can we override abstract method of interface?
+	Can we override default method of interface?
+	Can we override static method of interface?
+	
