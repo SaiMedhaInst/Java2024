@@ -1,0 +1,443 @@
+########################################
+		PACKAGES IN JAVA
+########################################
+- In Java, packages are used to group related classes and interfaces into namespaces, helping to organize and manage your code more effectively. 
+- Packages provide a way to 
+	- avoid naming conflicts
+	- control access
+	- improve code modularity
+	
+- Package in java can be categorized in two form,
+    - built-in package
+    - user-defined package
+	
+- To create a package, you use the package keyword at the very beginning of your Java source file.
+
+- java is the base package for all sub packages
+- Popular Packages 
+	- java.lang
+		-- Object: The root class from which all other classes derive. 
+		It provides methods like equals(), hashCode(), and toString(), wait(), notify(), notifyAll().
+	  String, Math, System, Integer, Double, Character
+	  Thread, Exception, RuntimeException, Error: Classes related to error handling and exceptions.
+	
+	- java.io 
+		File
+		FileInputStream, FileOutputStream
+		BufferedReader, BufferedWriter
+		ObjectInputStream, ObjectOutputStream
+		PrintWriter
+		InputStreamReader, OutputStreamWriter
+		DataInputStream, DataOutputStream
+		FileReader, FileWriter
+		PushbackInputStream, PushbackReader
+		CharArrayReader, CharArrayWriter
+		StringReader, StringWriter
+	- java.util
+		- Scanner
+		- List (interface)
+		- Set (interface)
+		- Map (interface)
+		- Collections (utility class)
+		- Arrays (utility class)
+
+Example:
+	// File: src/com/example/Simple.java
+	package com.example;
+
+	public class Simple {
+		public void display() {
+			System.out.println("Hello from Simple!");
+		}
+	}
+
+COMPILE:
+-----------------
+	javac -d directory javafilename
+	javac -d . Simple.java
+
+	different directory
+		javac -d "C:\Users\akraj\Desktop\Java_2024_Training" Simple.java
+		Java -cp "C:\Users\akraj\Desktop\Java_2024_Training" com.example.Simple     
+		
+RUNNING:
+-----------------
+	java com.example.Simple 
+	
+	
+DIFFERENT WAYS OF IMPORTING 
+----------------------------
+1. Importing a Single Class :
+	syntax: import packageName.ClassName;
+
+Example:
+	import java.util.ArrayList;
+
+	public class Example {
+		public static void main(String[] args) {
+			ArrayList<String> list = new ArrayList<>();
+		}
+	}
+2. Importing All Classes from a Package:
+   syntax: import packageName.*;
+   
+   import java.util.*;
+	public class Example {
+		public static void main(String[] args) {
+			ArrayList<String> list = new ArrayList<>();
+			HashMap<String, Integer> map = new HashMap<>();
+		}
+	}
+
+
+3. Using Fully Qualified Name:
+ When two or more classes with the same name exist in different packages, 
+ we can use the fully qualified name to resolve ambiguities.
+ 
+	import java.sql.Date;
+
+	public class Example {
+		public static void main(String[] args) {
+			java.util.Date utilDate = new java.util.Date();
+			Date sqlDate = new Date(System.currentTimeMillis());
+			
+			System.out.println("Util Date: " + utilDate);
+			System.out.println("SQL Date: " + sqlDate);
+		}
+	}
+
+
+4. Static Imports:
+	- Static imports allow you to import static members (fields and methods) of a class 
+	- so you can use them without qualifying them with the class name.
+	- This is useful for constants or utility methods.
+	syntax: import static packageName.ClassName.staticMember;
+
+	import static java.lang.Math.PI;
+	import static java.lang.Math.sqrt;
+
+	public class Example {
+		public static void main(String[] args) {
+			System.out.println("Value of PI: " + PI);
+			System.out.println("Square root of 16: " + sqrt(16));
+		}
+	}
+
+
+EXPLORING IO PACKAGE
+-------------------------
+- The java.io package in Java provides classes and interfaces for system input and output through data streams, serialization, and the file system. 
+- It is essential for handling reading from and writing to files, managing data streams, and object serialization
+
+Classes and Interfaces:
+------------------------------
+1. File:
+- Represents a file or directory path in the filesystem.
+- Key Methods:
+    exists(): Checks if the file or directory exists.
+    createNewFile(): Creates a new file.
+    delete(): Deletes the file or directory.
+    length(): Returns the size of the file.
+    listFiles(): Lists files and directories in a directory.
+	
+	import java.io.File;
+
+	public class FileExample {
+		public static void main(String[] args) {
+			File file = new File("example.txt");
+			if (file.exists()) {
+				System.out.println("File exists, size: " + file.length() + " bytes");
+			} else {
+				System.out.println("File does not exist.");
+			}
+		}
+	}
+
+2. InputStream and OutputStream
+	- Abstract base classes for reading and writing binary data.
+    Key Subclasses:
+        FileInputStream: Reads bytes from a file.
+        FileOutputStream: Writes bytes to a file.
+        BufferedInputStream: 
+					Provides buffering for efficient reading.
+        BufferedOutputStream: 
+					Provides buffering for efficient writing.
+
+public class FileExample {
+  public static void main(String[] args) {
+	try (FileOutputStream fos = new FileOutputStream("example.txt");
+		 FileInputStream fis = new FileInputStream("example.txt")) {
+		fos.write("Hello, World!".getBytes());
+
+		int ch;
+		while ((ch = fis.read()) != -1) {
+			System.out.print((char) ch);
+		}
+	} catch (IOException e) {
+		e.printStackTrace();
+	}
+  }
+}
+	
+3.Reader and Writer
+- Abstract base classes for reading and writing character data.
+- Key Subclasses:
+	FileReader: Reads characters from a file.
+	FileWriter: Writes characters to a file.
+	BufferedReader: Reads text efficiently using a buffer.
+	BufferedWriter: Writes text efficiently using a buffer.
+	
+	public class FileExample {
+		public static void main(String[] args) {
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter("example.txt"))) {
+				writer.write("Hello, BufferedWriter!");
+				writer.newLine();
+				writer.write("Reading this with BufferedReader.");
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+
+			try(BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
+				String line;
+				while ((line = reader.readLine()) != null) {
+					System.out.println(line);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+4. The java.io package in Java provides classes and interfaces for system input and output through data streams, serialization, and the file system. It is essential for handling reading from and writing to files, managing data streams, and object serialization. Here's an exploration of the java.io package, highlighting its key components:
+Key Classes and Interfaces
+
+1. File
+-----------------
+
+    Purpose: Represents a file or directory path in the filesystem.
+    Key Methods:
+        exists(): Checks if the file or directory exists.
+        createNewFile(): Creates a new file.
+        delete(): Deletes the file or directory.
+        length(): Returns the size of the file.
+        listFiles(): Lists files and directories in a directory.
+
+Example:
+
+	import java.io.File;
+
+	public class FileExample {
+		public static void main(String[] args) {
+			File file = new File("example.txt");
+			if (file.exists()) {
+				System.out.println("File exists, size: " + file.length() + " bytes");
+			} else {
+				System.out.println("File does not exist.");
+			}
+		}
+}
+
+2. InputStream and OutputStream
+------------------------------------
+
+    Purpose: Abstract base classes for reading and writing binary data.
+    Key Subclasses:
+        FileInputStream: Reads bytes from a file.
+        FileOutputStream: Writes bytes to a file.
+        BufferedInputStream: Provides buffering for efficient reading.
+        BufferedOutputStream: Provides buffering for efficient writing.
+
+Example:
+
+	public class StreamExample {
+		public static void main(String[] args) {
+			try (FileOutputStream fos = new FileOutputStream("example.txt");
+				 FileInputStream fis = new FileInputStream("example.txt")) {
+				fos.write("Hello, World!".getBytes());
+
+				int ch;
+				while ((ch = fis.read()) != -1) {
+					System.out.print((char) ch);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+3. Reader and Writer:
+---------------------------
+    Purpose: Abstract base classes for reading and writing character data.
+    Key Subclasses:
+        FileReader: Reads characters from a file.
+        FileWriter: Writes characters to a file.
+        BufferedReader: Reads text efficiently using a buffer.
+        BufferedWriter: Writes text efficiently using a buffer.
+
+Example:
+
+	public class CharacterStreamExample {
+		public static void main(String[] args) {
+			try (BufferedWriter writer = new BufferedWriter(new FileWriter("example.txt"));
+				 BufferedReader reader = new BufferedReader(new FileReader("example.txt"))) {
+				writer.write("Hello, BufferedWriter!");
+				writer.newLine();
+				writer.write("Reading this with BufferedReader.");
+
+				String line;
+				while ((line = reader.readLine()) != null) {
+					System.out.println(line);
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+
+4. ObjectInputStream and ObjectOutputStream:
+    Purpose: For serializing and deserializing objects to and from streams.
+    Key Methods:
+        ObjectOutputStream:
+            writeObject(Object obj): Serializes an object.
+        ObjectInputStream:
+            readObject(): Deserializes an object.
+Example:
+	
+	class Person implements Serializable {
+		private String name;
+		private int age;
+
+		public Person(String name, int age) {
+			this.name = name;
+			this.age = age;
+		}
+
+		@Override
+		public String toString() {
+			return "Person{name='" + name + "', age=" + age + "}";
+		}
+	}
+
+	public class FileExample {
+		public static void main(String[] args) {
+			try (ObjectOutputStream oos = 
+				new ObjectOutputStream(new FileOutputStream("person.ser"));
+				 ObjectInputStream ois = 
+				 new ObjectInputStream(new FileInputStream("person.ser"))) {
+
+				Person person = new Person("John Doe", 30);
+				oos.writeObject(person);
+
+				Person deserializedPerson = (Person) ois.readObject();
+				System.out.println("Deserialized Person: " + deserializedPerson);
+			} catch (IOException | ClassNotFoundException e) {
+				e.printStackTrace();
+			}
+		}
+	}
+	
+Summary:
+------------------
+File: Represents file and directory paths and provides methods for file operations.
+InputStream/OutputStream: Base classes for reading and writing binary data.
+Reader/Writer: Base classes for reading and writing character data.
+ObjectInputStream/ObjectOutputStream: For serializing and deserializing objects.
+PrintWriter: For convenient formatted text output.
+DataInputStream/DataOutputStream: For reading and writing primitive data types in a portable way.
+
+	
+	
+EXPLORING UTIL PACKAGE & COLLECTION FRAMEWORK
+----------------------------------------------------
+Interfaces: 
+		Collection, List, 
+		Set, SortedSet, NavigableSet, 
+		Queue, Deque, 
+		Map, SortedMap, NavigableMap.
+		
+Classes: 
+		AbstractCollection, AbstractList, AbstractSet, AbstractQueue, AbstractMap, 
+		ArrayList, LinkedList, Vector, Stack, HashSet, LinkedHashSet, TreeSet, 
+		PriorityQueue, ArrayDeque, HashMap, LinkedHashMap, TreeMap, Hashtable, Properties, 
+		ConcurrentHashMap, ConcurrentSkipListSet, ConcurrentLinkedQueue.
+
+THREAD-SAFE CLASSES:
+    Vector
+    Stack
+    Hashtable
+    Properties
+    ConcurrentHashMap
+    ConcurrentSkipListSet
+    ConcurrentLinkedQueue
+
+######################################	
+		WRAPPER CLASSES
+######################################
+- In Java, wrapper classes are used to wrap primitive data types into objects.
+- This allows primitives to be treated as objects, 
+	which is useful for working with collections that can only store objects, such as ArrayList or HashMap. 
+- Each primitive data type has a corresponding wrapper class in the java.lang package.
+- All Wrapper classes are final classes.
+
+Byte
+    Primitive Type: byte
+    Description: Wraps a byte value.
+    Methods: compare(byte x, byte y), parseByte(String s), valueOf(byte b), etc.
+
+Short
+    Primitive Type: short
+    Description: Wraps a short value.
+    Methods: compare(short x, short y), parseShort(String s), valueOf(short s), etc.
+
+Integer
+    Primitive Type: int
+    Description: Wraps an int value.
+    Methods: compare(int x, int y), parseInt(String s), valueOf(int i), MAX_VALUE, MIN_VALUE, etc.
+
+Long
+    Primitive Type: long
+    Description: Wraps a long value.
+    Methods: compare(long x, long y), parseLong(String s), valueOf(long l), MAX_VALUE, MIN_VALUE, etc.
+
+Float
+    Primitive Type: float
+    Description: Wraps a float value.
+    Methods: compare(float x, float y), parseFloat(String s), valueOf(float f), MAX_VALUE, MIN_VALUE, etc.
+
+Double
+    Primitive Type: double
+    Description: Wraps a double value.
+    Methods: compare(double x, double y), parseDouble(String s), valueOf(double d), MAX_VALUE, MIN_VALUE, etc.
+
+Character
+    Primitive Type: char
+    Description: Wraps a char value.
+    Methods: isDigit(char ch), isLetter(char ch), valueOf(char c), MAX_VALUE, MIN_VALUE, etc.
+
+Boolean
+    Primitive Type: boolean
+    Description: Wraps a boolean value.
+    Methods: parseBoolean(String s), valueOf(boolean b), TRUE, FALSE, etc.
+	
+	
+1. Boxing:
+----------------------
+- Boxing is the process of converting a primitive type into its corresponding wrapper class. 
+- This is done automatically by the Java compiler.
+
+Example:
+	    int primitiveInt = 10; // Primitive type
+        Integer wrapperInt = primitiveInt; // Autoboxing
+
+        System.out.println("Wrapper Integer: " + wrapperInt);
+
+2. Unboxing: 
+----------------
+- Unboxing is the reverse process, where a wrapper class object is converted back into its corresponding primitive type. 
+- This is also done automatically by the Java compiler.
+
+Example:
+	    Integer wrapperInt = 20; // Wrapper class object
+        int primitiveInt = wrapperInt; // Autounboxing
+
+        System.out.println("Primitive int: " + primitiveInt);

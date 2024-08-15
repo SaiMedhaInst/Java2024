@@ -225,8 +225,7 @@ Summary:
 						############################
 						   StringBuilder in JAVA 
 						############################
-- In Java, StringBuilder is a class designed to 
-   handle mutable sequences of characters.
+- In Java, StringBuilder is a class designed to handle mutable sequences of characters.
 - StringBuffer, StringBuilder is used for creating and modifying strings
 - Mutable
 - Not Thread Safe: Non-Synchronized

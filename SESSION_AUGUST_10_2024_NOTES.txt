@@ -337,7 +337,8 @@ Method Declaration:
         private: The method is accessible only inside same class.
         protected: The method is accessible within the same package or subclasses in a different package.
         default: When we do not use any access specifier in the method declaration, Java uses default access specifier by default
-    Non-access Modifiers: static, final, abstract, synchronized, transient, volatile, native.
+    Non-access Modifiers: static, final, abstract, synchronized, transient, 
+                            volatile, native.
  
 Types of Methods:
 --------------------
@@ -351,6 +352,7 @@ Types of Methods:
 
 - User-defined Method:
     - It can Static Method or Instance Method or Abstract Method 
+    
     public static void findEvenOdd(int num){  
         if(num%2==0)   
             System.out.println(num+" is even");   
@@ -358,12 +360,18 @@ Types of Methods:
             System.out.println(num+" is odd");  
     }
 
+observations
+---------------------
+- we can call static methods from instance method 
+- we cannot call instance methods from static methods
+
 ###########################################
                 OOPS 
 ############################################
 - OOP is a programming paradigm that uses "objects" to design software. 
 - It focus on grouping of data and methods into classes, which represent real-world entities.
-- OOP is designed to manage and organize code by grouping related properties and methods into objects, 
+- OOP is designed to manage and organize code by 
+    grouping related properties and methods into objects, 
     making it easier to model real-world entities and their interactions.
 - Simula is considered the first object-oriented programming language.
 - Smalltalk is considered the first truly object-oriented programming language.
@@ -425,6 +433,8 @@ syntax:
         // others
     }  
 
+- class names should be pascal case and singular
+
 OBJECT
 ------------
 - Object is a run-time entity.
@@ -455,7 +465,7 @@ Syntax:
         private String color;
         private String model;
 
-        public Car() {} 
+        public Car() {}  // default no args constructor.
         
         // Constructor
         public Car(String color, String model) {
@@ -470,7 +480,7 @@ Syntax:
     }
 
 
-3 Ways to initialize an object:
+3 Ways to initialize an object attributes:
     1.  By reference variable
     2.  By method (setters, getters) 
     3.  By constructor
@@ -525,7 +535,8 @@ Types of Classes:
     }
 
 4.Enum Class:
-    - A special class that represents a group of constants (unchangeable variables). 
+    - A special class that represents a group of constants 
+				(unchangeable variables). 
     - Enums are used to define a collection of related constants.
     
     public enum Day {
@@ -534,14 +545,24 @@ Types of Classes:
 
 5.Inner Class:
     - A class defined within another class.
-    Member Inner Class: 
-        Non-static inner class that has access to all members of the outer class.
-    Static Nested Class: 
-        Static inner class that does not have access to instance variables of the outer class.
-    Local Inner Class: 
-        Defined within a block of code, such as a method.
-    Anonymous Inner Class: 
-        A class without a name, typically used for implementing interfaces or extending classes in a concise manner
+Member Inner Class: 
+	Non-static inner class that has 
+	access to all members of the outer class.
+	
+	=> OuterClass.InnerClass oc = new OuterClass.new InnerClass() 
+	
+Static Nested Class: 
+	Static inner class that does not have access to 
+	instance variables of the outer class.
+	
+	=> OuterClass.InnerClass oc = OuterClass.new InnerClass() 
+	
+Method Local Inner Class: 
+	Defined within a block of code, such as a method.
+
+Anonymous Inner Class: 
+	A class without a name, typically used 
+	for implementing interfaces or extending classes in a concise manner
 
 example:
 public class OuterClass {
@@ -570,7 +591,7 @@ public class OuterClass {
         }
         LocalInnerClass local = new LocalInnerClass();
         local.display();
-    }
+      }
     }
 
 
@@ -582,6 +603,8 @@ public class OuterClass {
                     System.out.println("Anonymous inner class.");
                 }
             };
+			or 
+			Runnable runnable2 = () -> System.out.println("Anonymous inner class.");
             runnable.run();
         }
     }
@@ -623,7 +646,8 @@ OOP's other prinicipals
 -----------------------------
 1. Coupling:
 - Coupling refers to how dependent different classes or modules are on each other. 
-- The goal is to have low coupling, which means classes are mostly independent and changes in one class do not heavily impact others.
+- The goal is to have low coupling, which means classes are mostly independent and 
+		changes in one class do not heavily impact others.
 Example:
 - Imagine you have a Car class and an Engine class. 
 - If the Car class directly creates an instance of Engine, it means Car is tightly coupled with Engine.
@@ -766,7 +790,8 @@ Inner Classes:
  
 Interfaces:
     public, default 
-    abstract, default, static, strictfp
+    abstract, default, static, strictfp, private 
+	
 Enums:
     public, default
     abstract, final, static, strictfp
@@ -779,7 +804,8 @@ Enums:
 - A constructor in Java is a special method that is used to initialize objects.
 - It can be used to set initial values for object attributes.
 - Every time an object is created using the new() keyword, at least one constructor is called.
-- By default JVM will invoke default constructor( which has empty body) when class doesn't have any constructors declared.
+- By default JVM will invoke default constructor( which has empty body) 
+		when class doesn't have any constructors declared.
 
 NOTE: It is not necessary to write a constructor for a class. 
     It's because java compiler creates a default constructor (constructor with no-arguments) if your class doesn’t have any.
@@ -801,14 +827,15 @@ Example:
         String name = "ram";
         int rollNumber = 172972625;
         
-        Student() { super(); }
+        Student() { super(); } // No args 
         
         public static void main(String[] args)
         {
             Student ram = new Student();
         }
     }
-=> The first line of a constructor is a call to super() or this(), (a call to a constructor of a super-class or an overloaded constructor),
+=> The first line of a constructor is a call to super() 
+	or this(), (a call to a constructor of a super-class or an overloaded constructor),
 => Every class in java is the subclass of a class object even if we don’t say extends object in our class definitio
 
 RULES FOR WRITING CONSTRUCTORS
@@ -897,8 +924,8 @@ Ex:
 
     class Test {
         public static void main(String[] args) {
-            Simple s1 = new Simple("Kumar");
-            Simple s2 = new Simple("Avan", 26);
-            Simple s3 = new Simple(325614567);
+            Simple s1 = new Simple("Kumar"); // first 
+            Simple s2 = new Simple("Avan", 26); // second
+            Simple s3 = new Simple(325614567); // third
         }
     }

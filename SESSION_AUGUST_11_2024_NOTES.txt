@@ -68,7 +68,7 @@ example-2
 	   
 		protected String name;
 		
-		public Animal(String name) {
+		public Animal(String name) { // doesn't inherit
 			this.name = name;
 		}
 		
@@ -150,6 +150,8 @@ example-2
 			myAnimal.makeSound();  // Calls Cat's makeSound() method
 		}
 	}
+- A parent class reference variable can hold child class objects 
+- A child class reference variables cannot hold parent class objects 
 
 
 Types of Inheritance:
@@ -276,6 +278,7 @@ example:
 
 	interface Flyable {
 		void fly();
+		void drive();
 	}
 
 	class FlyingCar implements Drivable, Flyable {
@@ -308,38 +311,41 @@ Multiple Inheritance (Interfaces):
 	A class implements multiple interfaces (e.g., FlyingCar implements Drivable and Flyable).
 
 
-WHAT ALL ARE INHERITABLE FROM SUPERCLASS TO SUB CLASS 
+WHAT ALL ARE INHERITABLE FROM SUPERCLASS TO SUBCLASS 
 =============================================================
 1. Fields
 
-    Inherited: Subclasses inherit all non-private fields from the superclass. 
-			Protected and public fields are directly accessible in the subclass.
-    Not Inherited: 
-		Private fields are not directly accessible in the subclass. 
-		They are encapsulated within the superclass.
+Inherited: Subclasses inherit all non-private fields from the superclass. 
+		Protected and public fields are directly accessible in the subclass.
+Not Inherited: 
+	Private fields are not directly accessible in the subclass. 
+	They are encapsulated within the superclass.
+
 2. Instance Methods
-    Inherited: Subclasses inherit all non-private instance methods from the superclass. 
-		Protected and public instance methods are accessible and can be overridden in the subclass.
-    Not Inherited: 
-		Private instance methods are not accessible directly in the subclass
+Inherited: Subclasses inherit all non-private instance methods from the superclass. 
+	Protected and public instance methods are accessible and can be overridden in the subclass.
+Not Inherited: 
+	Private instance methods are not accessible directly in the subclass
 
 3. Static Methods
-    Inherited: 
-		Subclasses inherit static methods from the superclass. 
-		However, static methods are not polymorphic. 
-		This means that if a subclass defines a static method with the same name as in the superclass, 
-		it hides the superclass's method (not overrides it).
-4. Instance Blocks
-    Not Inherited: 
-	 -Instance initialization blocks (instance blocks) are not inherited by subclasses. 
-	 -Each class has its own instance blocks that run when an instance of that class is created. 
-	 -However, if a superclass has an instance block, it executes before the subclass’s instance block when creating an object of the subclass.
-	 
+Inherited: 
+	Subclasses inherit static methods from the superclass. 
+	However, static methods are not polymorphic. 
+	This means that if a subclass defines a static method with the same name 
+	as in the superclass, it hides the superclass's method (not overrides it).
+	
+4. Instance Blocks:
+Not Inherited: 
+ -Instance initialization blocks (instance blocks) are not inherited by subclasses. 
+ -Each class has its own instance blocks that run when an instance of that class is created. 
+ -However, if a superclass has an instance block, it executes before the subclass’s instance block when creating an object of the subclass.
+ 
 5. Static Blocks
     Not Inherited:  Static initialization blocks are not inherited. 
 	- They are executed when the class is first loaded
 	- And each class has its own static blocks which are executed in the order they appear. 
-	- Static blocks from the superclass execute before those in the subclass when the subclass is loaded.
+	- Static blocks from the superclass execute before those in the subclass 
+			when the subclass is loaded.
 
 6. Static Field:
 	Inherited: Yes, but they are not polymorphic. 
@@ -349,6 +355,7 @@ WHAT ALL ARE INHERITABLE FROM SUPERCLASS TO SUB CLASS
 7. Constructors:
 	Inherited: No, constructors are not inherited.
 	Calling Superclass Constructor: Subclasses can call a superclass constructor using super().
+
 Summary
 	Fields: Inherited except private fields.
 	Instance Methods: Inherited except private methods.
@@ -362,7 +369,7 @@ Summary
 ###########################################################
 - The this keyword in Java is a special reference variable that refers to the current instance of the class.
 - It is commonly used,
-	=>  Distinguishing Between Instance Variables and Parameters
+	=> Distinguishing Between Instance Variables and Parameters
 	=> Invoking Other Constructors in the Same Class
 	=> Passing the Current Object as a Parameter
 	=> Returning the Current Object from a Method
@@ -373,7 +380,6 @@ Example:
 	class Person {
 		private String name;
 		private int age;
-
 
 		public Person() {
 			this("Unknown", 0); // Calls the constructor with two parameters
@@ -393,7 +399,6 @@ Example:
 			this.age = age;   
 			return this;     
 		}
-
 
 		public void printDetails(Printer printer) {
 			printer.printPerson(this); // Passes the current instance to the Printer class
@@ -417,9 +422,11 @@ Example:
 ###########################################################
 			super keyword in JAVA 
 ###########################################################
-- The super keyword in Java is used to refer to the immediate superclass of the current object.
+- The super keyword in Java is used to refer to the 
+		immediate superclass of the current object.
 - It provides a way to access superclass members (fields, methods, and constructors) that are hidden or overridden in the subclass.
 - super is used to refer super-class’s instance as well as static members.
+
 Uses of the super Keyword
     - Accessing Superclass Methods
     - Accessing Superclass Fields
@@ -448,7 +455,7 @@ example:
 		}
 	}
 
-Summary
+Summary:  
 - Accessing Superclass Methods: To call overridden methods from the superclass.
 - Accessing Superclass Fields: 
 	To refer to fields in the superclass that are hidden by subclass fields.
@@ -456,9 +463,9 @@ Summary
 - Invoking Superclass Methods: 
 	To ensure that the superclass version of an overridden method is executed.
 	
-#############################################
-			INTERFACE IN JAVA
-###############################################
+				#############################################
+							INTERFACE IN JAVA
+				###############################################
 - An interface in Java is a reference type, similar to a class.
 - It can contain only 
 	constants
@@ -637,10 +644,11 @@ Example:
 
 	public class Example {
 		public static void main(String[] args) {
-			Car car = new Car();
+			Car car = new Car(); or Vehicle car = new Car();
 			car.drive();
 		}
 	}
+=> interface reference varibles will hold objects of implementation classes
 
 Summary:
 -----------------
@@ -677,6 +685,9 @@ ABSTRACT CLASS & METHODS
 - Subclasses must provide implementations for the abstract methods.
 - It can have constructors and static methods also.
 - It can have final methods which will force the subclass not to change the body of the method.
+- Abstract methods can be non-private(no access modifier, protected, public)
+ and non-abstract methods can be private.
+- Implementation class overriden method must be higher visibility access modifier.
 
 
 	abstract class Animal {
@@ -775,4 +786,572 @@ Try this?
 	Can we override abstract method of interface?
 	Can we override default method of interface?
 	Can we override static method of interface?
+
+
+
+		############################################################
+					POLYMORPHISM IN JAVA
+		#############################################################
+		
+- Polymorphism in Java is a concept by which we can perform a single action in different ways.
+- Polymorphism is derived from 2 Greek words: poly and morphs.
+- The word "poly" means many and "morphs" means forms. So polymorphism means many forms.
+- Two Types:
+	1. Compile-Time/Static Polymorphism (Method Overloading)
+	2. Runtime/Dynamic Polymorphism (Method Overriding)
+
+METHOD OVERLOADING : 
+===========================
+- Compile-time polymorphism occurs when multiple methods have the same name but different parameters 
+	(different type, number, or both) within the same class.
+- Method overloading increases the readability of the program.
+- Multiple Ways to Overload the methods 
+- Key Points for Method Overloading:
+    Method Name: The method names must be the same.
+    Parameter List: The parameter lists must differ (different number, type, or order of parameters).
+    Return Type: The return type alone cannot be used to differentiate overloaded methods. 
+				The compiler needs the parameter list to resolve method calls.
+
+
+1. Different Number of Parameters:
+- You can overload methods by changing the number of parameters.
+
+Example:
+	class Display {
+   
+		void show(int a) {  // Method with one parameter
+			System.out.println("Value: " + a);
+		}
+
+		void show(int a, int b) { // Overloaded method with two parameters
+			System.out.println("Values: " + a + " and " + b);
+		}
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			Display display = new Display();
+			display.show(10);        // Calls show(int)
+			display.show(10, 20);    // Calls show(int, int)
+		}
+	}
+
+
+
+2. Different Types of Parameters:
+- You can overload methods by changing the type of parameters.
+
+Example:
+	class Printer {
 	
+		void print(int a) { 	// Method with int parameter
+			System.out.println("Integer: " + a);
+		}
+
+		void print(double a) { // Overloaded method with double parameter
+			System.out.println("Double: " + a);
+		}
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			Printer printer = new Printer();
+			printer.print(10);       // Calls print(int)
+			printer.print(10.5);     // Calls print(double)
+		}
+	}
+
+3. Different Order of Parameters
+- You can overload methods by changing the order of parameters.
+
+Example:
+	class Calculator {
+		void calculate(int a, double b) {
+			System.out.println("Int and Double: " + a + ", " + b);
+		}
+		
+		void calculate(double a, int b) {
+			System.out.println("Double and Int: " + a + ", " + b);
+		}
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			Calculator calculator = new Calculator();
+			calculator.calculate(10, 20.5);  // Calls calculate(int, double)
+			calculator.calculate(20.5, 10);  // Calls calculate(double, int)
+		}
+	}
+	
+	
+4. Incorrect Overloading:
+
+Example:
+	class Test {
+		int getValue() {
+			return 1;
+		}
+
+		double getValue() {
+			return 1.0;
+		}
+	}
+- both methods have the same name and parameter list, so this will result in a compile-time error.
+
+TRY THIS?
+
+	class ExampleTest{  
+		public static void main(String[] args){
+			System.out.println("main with String[]");
+		}  
+		public static void main(String args){
+			System.out.println("main with String");
+		}  
+		public static void main(){
+			System.out.println("main without args");
+		}  
+	}
+	
+Type Promotion In Method Overloading
+--------------------------------------
+- Type Promotion is a process where a smaller data type is automatically converted to a larger data type to match the method parameters
+- Type promotion occurs in method overloading when you pass an argument that doesn't exactly match any of the method parameter types.
+Example:
+If a method parameter is double, and you pass an int value, 
+		Java will promote the int to a double for method matching.
+This automatic promotion happens according to the following hierarchy: 
+byte → short → char → int → long → float → double.
+
+Example 1: Promotion to a Larger Type
+	class Calculator {
+		void add(int a, int b) {
+			System.out.println("int, int");
+		}
+
+		void add(double a, double b) {
+			System.out.println("double, double");
+		}
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			Calculator calc = new Calculator();
+			calc.add(5, 10);         // Calls add(int, int)
+			calc.add(5.0, 10.0);     // Calls add(double, double)
+			calc.add(5, 10.0);       // Calls add(double, double) due to promotion
+		}
+	}
+	
+Example 2: Promotion with Different Types
+	class Test {
+		void display(int a, double b) {
+			System.out.println("int, double");
+		}
+
+		void display(double a, int b) {
+			System.out.println("double, int");
+		}
+		
+		void sum(int a,long b){ 
+			System.out.println("int long arg method invoked");
+		}  
+
+		void sum(long a,int b) {
+			System.out.println("long int arg method invoked");
+		}   
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			Test test = new Test();
+			test.display(5, 10.5);   // Calls display(int, double)
+			test.display(10.5, 5);   // Calls display(double, int)
+			test.display(5, 10);    
+			
+			test.sum(20,20);
+		}
+	}
+
+Method Selection Order:
+- When Java selects an overloaded method, it uses the following rules:
+Exact Match: If there is an exact match, it is chosen.
+Type Promotion: If there is no exact match, Java will use the method with the 
+		parameter types that best match through type promotion.
+Varargs: If there is no exact match or suitable promotion, 
+	Java will consider varargs (variable-length argument lists).
+
+METHOD OVERRIDING
+====================
+- Runtime polymorphism occurs when a subclass provides a specific implementation of a method that is already defined in its superclass. 
+- The method in the subclass overrides the method in the superclass.
+
+- Method overriding is used to provide the specific implementation of a method which is already provided by its superclass.
+- Method overriding is used for runtime polymorphism
+
+Rules:
+    - The method must have the same name as in the parent class
+    - The method must have the same parameter as in the parent class.
+    - There must be an IS-A relationship (inheritance).
+    - Overriden methods always must have greater or equal scope access modifier.(never assign weaker access modifier)
+
+Example:
+	class Bank {  
+		double getRateOfInterest()	{
+			return 5.6;
+		}  
+	}  
+	 
+	class SBI extends Bank {  
+		double getRateOfInterest()	{ // overridden Bank getRateOfInterest() 
+			return 8.5;
+		}  
+	}  
+	  
+	class ICICI extends Bank {  
+		double getRateOfInterest()	{
+			return 7.9;
+		}  
+	}  
+	class AXIS extends Bank {  
+		double getRateOfInterest() {
+			return 9.2;
+		}  
+	}
+	
+
+TRY THIS?
+    Can we override static method? yes, it is method hiding 
+    Can we override java main method? // yes 
+
+Covariant Return Type:
+------------------------------
+- The covariant return type specifies that the 
+		return type may vary in the same direction as the subclas
+- In Java, when you override a method, 
+	the return type of the overriding method can be a subclass of the 
+	return type declared in the superclass method.
+
+- Before Java5, it was not possible to override any method by changing the return type.
+- Applicable only to Non-Primitive.
+- When to Use Covariant Return Types ?
+	Enhanced Flexibility: Provide more flexibility and specificity in method implementations.
+    Method Chaining: Often used in fluent APIs to allow method chaining and more expressive code.
+Example:
+	class Animal {
+		public Animal getAnimal() { // Method with return type of Animal
+			return new Animal();
+		}
+	}
+
+	class Dog extends Animal {
+		@Override
+		public Dog getAnimal() { // Overriding method with return type of Dog (a subclass of Animal)
+			return new Dog();
+		}
+	}
+
+	public class Example {
+		public static void main(String[] args) {
+			Dog myDog = new Dog();
+			Animal animal = myDog.getAnimal(); // Returns a Dog object, but of type Animal
+			System.out.println("Returned object: " 
+			+ animal.getClass().getSimpleName());
+		}
+	}
+
+METHOD HIDING
+--------------------
+- It occurs when a subclass defines a static method with the same name and parameter list as a static method in its superclass.
+- In Java, static methods are associated with the class, not instances of the class.
+- It doesn't override the superclass method but hides it. 
+- This means that the method call is resolved based on the reference type, not the actual object type.
+- Method resolution happens at compile type based on reference type not on runtime object.
+
+- Are these declarartion are valid?
+	static void display() // in parent class
+	void display() // in child class 
+	
+	void display() // in parent class
+	static void display() // in child class 
+	
+Example:
+	class SuperClass {
+		static void staticMethod() {
+			System.out.println("Static method in SuperClass");
+		}
+	}
+
+	class SubClass extends SuperClass {
+		static void staticMethod() {
+			System.out.println("Static method in SubClass");
+		}
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			SuperClass.staticMethod();
+			SubClass.staticMethod(); 
+
+			SuperClass obj = new SubClass();
+			obj.staticMethod();
+		}
+	}
+
+Visibility and Access: 
+- While you can indeed access the hidden static method using the class name (e.g., SuperClass.staticMethod() or SubClass.staticMethod()), 
+	this does not change the fact that the method in the subclass is hiding the one in the superclass. 
+- The term "hiding" describes the fact that if you use a reference of the superclass type, 
+	you won’t see the subclass’s version of the method—it’s as though it’s been "hidden" from view
+
+
+Key Points
+--------------
+- Static methods are not polymorphic
+- Method hiding is resolved at compile time
+- Static methods can be accessed using the class name
+
+=> Difference between Method overriding and Method hiding:
+- MH: both parent and child methods should be static 
+- MOR: both parent and child methods should be non-static 
+
+- MH: method resolution taken care by compiler based on reference  type
+- MOR: method resolution taken care by JVM based on run time object 
+
+- MH: it is compile or static polymorphism or early binding 
+- MOR: it is runtime or dynamic polymorphism or late binding
+
+
+STATIC BINDING AND DYNAMIC BINDING
+===========================================
+- Connecting a method call to the method body is known as binding
+There are two types of binding
+    Static Binding (also known as Early Binding). 
+				type of object is determined at compile time
+    Dynamic Binding (also known as Late Binding). 
+				type of object is determined at run-time
+
+
+Static binding:
+------------------
+	- When type of the object is determined at compiled time(by the compiler), it is known as static binding.
+    - If there is any private, final or static method in a class, 
+	there is static binding.
+
+	class Dog {
+	  private void eat() {
+		System.out.println("dog is eating...");
+	  }
+
+	  public static void main(String args[]) {
+		Dog d1 = new Dog();
+		d1.eat();
+	  }
+	}
+	
+Dynamic binding:
+--------------------
+    When type of the object is determined at run-time, it is known as dynamic binding.
+	class Animal {
+	  void eat() {
+		System.out.println("animal is eating...");
+	  }
+	}
+
+	class Dog extends Animal {
+	  void eat() {
+		System.out.println("dog is eating...");
+	  }
+	  
+	}
+	
+	class Cat extends Animal {
+		void eat() {
+		System.out.println("cat is eating...");
+	  }
+	}
+
+	  public static void main(String args[]) {
+		Animal a;
+		a = new Dog();
+		a.eat();
+		
+		a = new Cat();
+		a.eat();
+		
+		a = null;
+		a.eat(); // will throw NPE 
+		
+	  }
+	}
+
+INSTANCE INITIALIZER BLOCK
+============================================
+- Instance Initializer block is used to initialize the instance data member. 
+It run each time when object of the class is created.
+- There are three places in java where you can perform operations:
+    method
+    constructor
+    block
+	
+Syntax:
+		{
+			// block of code 	
+		}	
+		
+Example:
+	class Bike{  
+		int speed;  
+		  
+		Bike(){ 
+			System.out.println("Bike Constructor invoked.");
+			System.out.println("speed is "+speed);
+		}  
+	   
+		{
+			speed = 100; // instance block
+		}  
+		   
+		public static void main(String args[]){  
+			Bike b1=new Bike();  
+			Bike b2=new Bike();  
+		}      
+	}
+
+
+WHICH ONE IS INVOKED FIRST, INSTANCE INITIALIZER BLOCK OR CONSTRUCTOR?
+Example:
+	
+	class Bike {  
+		int speed;  
+		  
+		Bike() { 
+			System.out.println("constructor is invoked");
+		}  
+	   
+		static {
+			System.out.println("static blocked invoked");
+		}
+
+		{
+			System.out.println("instance initializer block invoked");
+		}  
+	}
+
+RULES:
+- The instance initializer block is created when instance of the class is created.
+- The instance initializer block is invoked after the parent class constructor is invoked (i.e. after super() constructor call).
+- The instance initializer block comes in the order in which they appear.
+
+Example:
+	class A {
+		A() {
+		  System.out.println("parent class constructor invoked");
+		}
+		{
+		  System.out.println(" A class instance initializer block is invoked");
+		}
+	}
+  
+  class B extends A {
+		B() {
+		  System.out.println("child class constructor invoked");
+		}
+	  
+		B(int a) {
+		  System.out.println("child class constructor invoked " + a);
+		}
+	  
+		{
+		  System.out.println("B class instance initializer block is invoked");
+		}
+	  
+		public static void main(String args[]) {
+		  B b1 = new B();
+		  B b2 = new B(10);
+		}
+  } 
+  
+  
+FINAL KEYWORD IN JAVA
+============================
+- The final keyword in Java is a modifier that can be applied to variables, methods, and classes 
+	to enforce specific constraints and behaviors
+
+1) Java final variable: 
+    If we make any variable as final, you cannot change the value of final variable(It will be constant).
+	Ex:
+		final double PI = 3.14;
+		PI = 3.15; // Error 
+		
+	TRY THIS?
+		 final StringBuilder sb = new StringBuilder("Hello");
+		  sb.append(" World");
+		  sb = new StringBuilder("New");
+		   System.out.println(sb);
+- final instance variables must be initialized at declarartion or 
+	in constructor 
+- final static variables must be initailized at declarartion or 
+		in static block
+
+2) Final Methods: 
+- A method declared as final cannot be overridden by subclasses. 
+- This is useful when you want to prevent changing the behavior of a method in a subclass.
+Example:
+	class Parent {
+		public final void display() {
+			System.out.println("Final method in Parent");
+		}
+	}
+
+	class Child extends Parent {
+	   
+		public void display() { // // Attempting to override will result in a compile-time error
+			System.out.println("Trying to override");
+		}
+	}
+
+3) Final Classes:
+
+- A class declared as final cannot be subclassed. 
+- This is useful when you want to create a class that cannot be extended, ensuring its behavior remains consistent.
+- Immutability
+- Security
+
+Example:
+	final class FinalClass {
+		// Class implementation
+	}
+
+	// Attempting to subclass will result in a compile-time error
+	class SubClass extends FinalClass {
+	}
+
+	TRY THIS?
+	
+	class Test extends StringBuffer {
+		// Implementation  
+	}
+	
+	
+4) Final Parameters:
+You can also use final for method parameters to ensure that the parameter value cannot be modified within the method.
+
+Example:
+	public class Example {
+		public void method(final int num) {
+			num = 10; // Error: Cannot assign a value to final variable 'num'
+			System.out.println(num);
+		}
+
+		public static void main(String[] args) {
+			Example example = new Example();
+			example.method(5);
+		}
+	}
+	
+class A{
+	final int num; // final instance variable
+	A() {
+		this.num = 0;
+	}
+}
