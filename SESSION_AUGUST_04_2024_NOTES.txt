@@ -160,7 +160,7 @@ match()
 
 Explore 
 -----------------
-What is Comparable and Comparator ?
+What is Comparable and Comparator Interfaces?
 
 
 ==========
@@ -232,7 +232,8 @@ Summary:
 - Dynamic Capacity
 - StringBuilder is generally faster than StringBuffer
 - Its implements Serializable , Comparable, CharSequence
-- It's final class. 
+- It's final class belongs to java.lang 
+
 
 Constructors:
 	- public StringBuilder()
@@ -291,6 +292,8 @@ Using Scanner class
     - It is used to read the input of primitive types like int, double, long, short, float, and byte.
     - It is the easiest way to read input in Java program.
 
+Syntax:
+	Scanner scan = new Scanner(System.in);
 Methods:
 -------------
 next() : Reads the next token from the input as a String. Tokens are separated by whitespace.
