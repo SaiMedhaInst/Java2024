@@ -1,18 +1,65 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
 import java.util.Scanner;
 
 public class InputInJavaExample {
-    public static void main(String[] args) {
+    public static void main(String[] args)  throws IOException {
 
         // Command Line Arguments 
+        //inputUsingCommandLineArgs(args);
+
+        // using scanner class 
+        //inputUsingScannerClass();
+
+        
+        // using BufferReader
+        inputUsingBufferedReaderClass();
+
+        
+    }
+
+    private static void inputUsingBufferedReaderClass() throws IOException {
+    
+        BufferedReader bfn = new BufferedReader(new InputStreamReader(System.in));
+
+        // String reading internally
+        String str = bfn.readLine();
+
+        int it = Integer.parseInt(bfn.readLine());
+        
+        float ft = Float.parseFloat(bfn.readLine());
+        
+        double salary = Double.parseDouble(bfn.readLine());
+
+        int res = bfn.read();
+        
+        // Printing String
+        System.out.println("Entered String : " + str);
+
+        // Printing Integer
+        System.out.println("Entered Integer : " + it);
+
+        // Printing Float
+        System.out.println("Entered Float : " + ft);
+
+        // Printing Double 
+        System.out.println("Entered Double : " + salary);
+
+        // Printing read() method var 
+        System.out.println(res);
+
+    }
+
+    private static void inputUsingCommandLineArgs(String[] args) {
         System.out.println(args.length);
         System.out.println(args[0] + args[1] + args[2]);
         System.out.println(Integer.parseInt(args[0]) + Integer.parseInt(args[1]) + Integer.parseInt(args[2]));
 
+    }
 
-        
-        /*
+    private static void inputUsingScannerClass() {
         Scanner scan = new Scanner(System.in);
-
         System.out.println("Enter College Name: ");
         
         // String without whitespace
@@ -59,9 +106,5 @@ public class InputInJavaExample {
         System.out.println("isStudent: " + isStudent);
         System.out.println("fee: " + fee);
         System.out.println("grade: " + grade);
-
-        */
-
-        
     }
 }
