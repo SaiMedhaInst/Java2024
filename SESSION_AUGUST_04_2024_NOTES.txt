@@ -294,6 +294,7 @@ Using Scanner class
 
 Syntax:
 	Scanner scan = new Scanner(System.in);
+	
 Methods:
 -------------
 next() : Reads the next token from the input as a String. Tokens are separated by whitespace.
@@ -415,7 +416,8 @@ Logger: For more advanced logging needs, especially in larger applications.
 						   Arrays in Java 
 					############################
 					
-- Arrays are used to store multiple values in a single variable, instead of declaring separate variables for each value.
+- Arrays are used to store multiple values in a single variable, 
+	instead of declaring separate variables for each value.
 - Arrays are stored in contagious memory [consecutive memory locations].
 - Java array can also be used as a static field, a local variable, or a method parameter
 - The size of an array must be specified by int or short value and not long.
@@ -423,7 +425,7 @@ Logger: For more advanced logging needs, especially in larger applications.
 - The size of the array cannot be altered(once initialized). However, an array reference can be made to point to another array
 - A method can accept array as paramter and return array as value [ return must be array ] 
 
-- Arrays are pass by value or reference ?
+- Arrays are pass by value or reference In JAVA?
 
 SYNTAX:
 
@@ -432,18 +434,19 @@ SYNTAX:
 
 PROPERTIES:
 -----------------
-	
-    - Declaration and intialisation of array is different. - On Declaration only reference Var is created - On intialisation space is created for all arr elements.
-    - We can pass array as a parameter
-    - we can declared Anonymous array
-	- we can return an array from function.
-    - The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException , [if index is invalid]
-    Array base address:
-        - The address of the first array element is called the array base address.
-        - Each element will occupy the memory space required to accommodate the values for its type, i.e.;
-        - Depending on the data type of the elements, 1, 4, or 8 bytes of memory are allocated for each element
+- Declaration and intialisation of array is different. 
+- On Declaration only reference Var is created 
+- On intialisation space is created for all arr elements.
+- We can pass array as a parameter
+- we can declared Anonymous array
+- we can return an array from function.
+- The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException , [if index is invalid]
+Array base address:
+	- The address of the first array element is called the array base address.
+	- Each element will occupy the memory space required to accommodate the values for its type, i.e.;
+	- Depending on the data type of the elements, 1, 4, or 8 bytes of memory are allocated for each element
 
-
+- Reference Variable: address of the data  
 
 example: 
 	int[] numbers; 
@@ -466,7 +469,7 @@ VALID DECLARATIONS:
 	int[] numbers = new int[10];
 	int []numbers = new int[10];
 	int numbers[] = new int[10];
-	int numbers[] = { 10,20, 30}; // Array literal 
+	int numbers[] = {10, 20, 30}; // Array literal 
 	int numbers[] = new int[] {10,20,30,50}
 	
 INVALID DECLARATIONS:
