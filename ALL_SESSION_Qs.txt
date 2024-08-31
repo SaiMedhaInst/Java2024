@@ -1,0 +1,3622 @@
+STRINGS 
+--------------------
+Which of the following methods is used to find the length of a string in Java?
+a) length()
+b) size()
+c) getLength()
+d) length
+
+What will be the output of the following code?
+
+String str = "Hello";
+System.out.println(str.concat(" World"));
+
+a) Hello
+b) World
+c) Hello World
+d) HelloWorld
+
+How can you check if a string starts with a specific prefix in Java?
+a) startsWith()
+b) beginsWith()
+c) hasPrefix()
+d) prefixOf()
+
+Which method would you use to convert a string to lowercase in Java?
+a) toLower()
+b) lowerCase()
+c) toLowerCase()
+d) convertToLower()
+
+What is the result of the following code?
+
+
+String str = "Java Programming";
+System.out.println(str.substring(5, 11));
+
+a) Progra
+b) Program
+c) Progr
+d) ogram
+
+Which method is used to replace all occurrences of a specified character in a string?
+a) replace()
+b) replaceAll()
+c) substitute()
+d) change()
+
+What will be the output of the following code?
+
+java
+
+String str1 = "hello";
+String str2 = "hello";
+System.out.println(str1 == str2);
+
+a) true
+b) false
+c) Compilation error
+d) Runtime error
+
+How do you split a string into an array of substrings based on a delimiter in Java?
+a) split()
+b) divide()
+c) tokenize()
+d) cut()
+
+Which method is used to trim leading and trailing whitespace from a string?
+a) trim()
+b) strip()
+c) clean()
+d) removeSpaces()
+
+What does the equalsIgnoreCase() method do?
+a) Compares two strings for equality, ignoring case
+b) Compares two strings for equality, considering case
+c) Checks if one string is a substring of another, ignoring case
+d) Converts a string to lowercase and compares it to another string
+
+#########################
+String Buffer
+###########################
+1. Which of the following statements about StringBuffer is true?
+
+	a) StringBuffer is immutable like String.
+
+	b) StringBuffer objects can be used in a multithreaded environment without synchronization.
+
+	c) The StringBuffer class has a method called reverse() to reverse the content.
+
+	d) StringBuffer does not provide any method to insert data into a specific position.
+
+2. Which method of StringBuffer is used to remove characters from a specific range?
+
+	a) delete()
+
+	b) deleteCharAt()
+
+	c) remove()
+
+	d) truncate()
+
+
+3. Given the following code snippet, what will be the output?
+
+	StringBuffer sb = new StringBuffer("Hello");
+	sb.append("World");
+	sb.insert(5, " ");
+	System.out.println(sb);
+
+	a) Hello World
+
+	b) HelloWorld
+
+	c) Hello WorldWorld
+
+	d) Hello W orld
+
+
+4. What will be the result of calling toString() on a StringBuffer object?
+
+	a) It will convert the StringBuffer to a String object.
+
+	b) It will return the original StringBuffer object.
+
+	c) It will delete the contents of the StringBuffer.
+
+	d) It will convert the StringBuffer to a StringBuilder object.
+
+
+5. What is the initial capacity of a StringBuffer object created with the no-argument constructor?
+
+	a) 16 characters
+
+	b) 32 characters
+
+	c) 64 characters
+
+	d) 0 characters
+
+
+
+6. Which of the following operations will not throw an IndexOutOfBoundsException?
+
+	a) sb.charAt(10) where sb has a length of 5.
+
+	b) sb.delete(10, 20) where sb has a length of 15.
+
+	c) sb.insert(10, "text") where sb has a length of 8.
+
+	d) sb.setLength(20) where sb has a length of 5.
+
+
+
+7. Which of the following StringBuffer methods modifies the buffer in place?
+
+	a) substring()
+
+	b) toString()
+
+	c) append()
+
+	d) charAt()
+
+
+8. How can you convert a StringBuffer to a StringBuilder?
+
+	a) By using the toStringBuilder() method.
+
+	b) By calling new StringBuilder(sb.toString()).
+
+	c) By invoking convertToBuilder().
+
+	d) By using StringBuilder.valueOf(sb).
+
+
+
+9. What does the method capacity() of StringBuffer return?
+
+	a) The number of characters in the StringBuffer.
+
+	b) The maximum number of characters that can be held before resizing.
+
+	c) The number of characters that can be inserted without resizing.
+
+	d) The total length of the string represented by the StringBuffer.
+
+
+10.Given the following code, what will be the result after executing sb.replace(0, 5, "Hi")?
+
+	StringBuffer sb = new StringBuffer("HelloWorld");
+
+	a) HiWorld
+
+	b) HiWorldWorld
+
+	c) HelloHi
+
+	d) HiWorldWorld
+
+
+#############################
+String Builder 
+####################################
+1.Which of the following methods is used to reverse the content of a StringBuilder object?
+
+	a) reverse()
+
+	b) invert()
+
+	c) flip()
+
+	d) reverseContent()
+
+2.What will be the output of the following code?
+
+
+	StringBuilder sb = new StringBuilder("Java");
+	sb.append("Programming");
+	sb.insert(4, " Language");
+	System.out.println(sb);
+
+	a) Java LanguageProgramming
+
+	b) JavaLanguageProgramming
+
+	c) Java ProgrammingLanguage
+
+	d) Java Programming
+
+3.Which of the following methods of StringBuilder can be used to remove a substring?
+
+	a) remove()
+
+	b) delete()
+
+	c) erase()
+
+	d) subtract()
+
+4.What does the capacity() method of StringBuilder return?
+
+	a) The number of characters currently in the StringBuilder.
+
+	b) The initial size of the StringBuilder.
+
+	c) The maximum number of characters the StringBuilder can hold without resizing.
+
+	d) The total length of the StringBuilder content.
+
+5.What will be the result of the following code snippet?
+
+
+	StringBuilder sb = new StringBuilder("HelloWorld");
+	sb.replace(0, 5, "Hi");
+	System.out.println(sb);
+
+	a) HiWorld
+
+	b) HiHelloWorld
+
+	c) HiWorldWorld
+
+	d) HelloHiWorld
+
+6.Which method in StringBuilder would you use to retrieve a substring?
+
+	a) subSequence()
+
+	b) substring()
+
+	c) getSubstring()
+
+	d) extract()
+
+7.Given the following code, what will be the result of sb.capacity() if sb was initially created with new StringBuilder(10) and later had 15 characters added to it?
+
+	a) 10
+
+	b) 15
+
+	c) 20
+
+	d) 30
+
+8.Which of the following statements is true about StringBuilder compared to StringBuffer?
+
+	a) StringBuilder is synchronized, while StringBuffer is not.
+
+	b) StringBuilder is not synchronized, while StringBuffer is synchronized.
+
+	c) Both StringBuilder and StringBuffer are synchronized.
+
+	d) StringBuilder cannot be used in multithreaded environments, but StringBuffer can.
+
+9.How can you create a StringBuilder object initialized with a specific string?
+
+	a) new StringBuilder("YourString")
+
+	b) StringBuilder.create("YourString")
+
+	c) StringBuilder.with("YourString")
+
+	d) StringBuilder.initialize("YourString")
+
+10.What will be the effect of calling setLength(5) on a StringBuilder object with the content "HelloWorld"?
+
+	a) The content will be truncated to "Hello".
+
+	b) The content will be extended to "HelloWorld" with padding.
+
+	c) The content will be reversed.
+
+	d) The content will be cleared.
+	
+
+########################
+INPUT In JAVA 
+################################
+
+1. Which class is commonly used for reading user input from the console in Java?
+
+a) Scanner
+b) InputStream
+c) BufferedReader
+d) PrintWriter
+
+
+2. How do you create an instance of the Scanner class to 
+		read input from the standard input stream?
+
+a) Scanner sc = new Scanner();
+b) Scanner sc = new Scanner(System.out);
+c) Scanner sc = new Scanner(System.in);
+d) Scanner sc = new Scanner(FileInputStream);
+
+
+3. Which method of the Scanner class is used to read an integer input from the user?
+
+a) nextInt()
+b) readInt()
+c) getInt()
+d) readInteger()
+
+
+4. How can you read a line of text from the user using the Scanner class?
+
+a) scanner.readLine();
+b) scanner.next();
+c) scanner.nextLine();
+d) scanner.read();
+
+
+5. Which method of the BufferedReader class is used to read a line of text from the user?
+
+a) read()
+b) readLine()
+c) nextLine()
+d) inputLine()
+
+
+6. To use the BufferedReader class for input, 
+   which other class needs to be used in conjunction for reading from the console?
+
+a) PrintWriter
+b) InputStreamReader
+c) FileReader
+d) StringReader
+
+
+7. What is the correct way to read a double value using Scanner?
+
+a) scanner.nextDouble();
+b) scanner.readDouble();
+c) scanner.getDouble();
+d) scanner.readFloat();
+
+
+8. Which exception might be thrown when using BufferedReader's readLine() method?
+
+a) IOException
+b) FileNotFoundException
+c) NumberFormatException
+d) EOFException
+
+
+9. What is the output of the following code if the user inputs 5?
+
+	Scanner sc = new Scanner(System.in);
+	int num = sc.nextInt();
+	System.out.println("Number is: " + num);
+
+	a) Number is: 0
+	b) Number is: 5
+	c) Number is: 5.0
+	d) Number is: 5.5
+
+
+10. Which method of the Scanner class is used to read a boolean value from the user?
+
+a) nextBoolean()
+b) readBoolean()
+c) getBoolean()
+d) boolean()
+
+##########################
+OUTPUT IN JAVA 
+#########################
+1. Which class is commonly used for outputting data to the console in Java?
+
+	a) PrintStream
+	b) OutputStream
+	c) PrintWriter
+	d) System.out
+
+
+2. Which method of the System.out object is used to print a string to the console?
+
+	a) printString()
+	b) println()
+	c) write()
+	d) display()
+
+
+3. What is the output of the following code?
+
+	System.out.print("Hello ");
+	System.out.print("World!");
+
+	a) Hello World!
+	b) HelloWorld!
+	c) Hello
+	d) World!
+
+
+4. Which method would you use to format output in Java?
+
+	a) format()
+	b) printf()
+	c) printFormatted()
+	d) display()
+
+
+5. What is the correct way to print an integer and a string 
+			together using System.out.printf()?
+
+	a) System.out.printf("%d %s", 10, "hello");
+	b) System.out.printf("%s %d", 10, "hello");
+	c) System.out.printf("%d %d", "hello", 10);
+	d) System.out.printf("%s %s", 10, "hello");
+
+
+6. Which class is used for writing formatted text to a file?
+
+	a) PrintWriter
+	b) FileWriter
+	c) BufferedWriter
+	d) FileOutputStream
+
+
+7. What does the following code do?
+	System.out.println("The result is: " + 45);
+
+	a) Prints: The result is: 45
+	b) Prints: The result is: 45.0
+	c) Prints: The result is: 45 without a newline
+	d) Prints: The result is 45
+
+8. What is the output of the following code if number is 3?
+
+	int number = 3;
+	System.out.printf("Number: %d%n", number);
+
+	a) Number: 3
+	b) Number: 3 with a newline
+	c) Number: 3%
+	d) Number: 3%n
+
+
+9. Which of the following methods is used to write a single character to the console?
+
+	a) System.out.write(int a)
+		System.out.write(byte[] buf)
+				
+	b) System.out.print()
+	c) System.out.println()
+	d) System.out.printf()
+
+
+10. How would you append a new line character to a string before printing it?
+
+	a) System.out.println("Hello\nWorld");
+	b) System.out.print("Hello\nWorld");
+	c) System.out.printf("Hello\nWorld");
+	d) System.out.write("Hello\nWorld");
+
+###########################
+Arrays 
+###########################
+1. How do you declare a one-dimensional array of integers in Java?
+
+	a) int arr[];
+	b) int arr;
+	c) int arr = new int[];
+	d) int[] arr;
+
+
+2. What is the default value of an element in a one-dimensional array of integers in Java?
+
+	a) 0
+	b) null
+	c) -1
+	d) 0.0
+
+
+3. How do you initialize a one-dimensional array with the values {1, 2, 3, 4, 5} in Java?
+
+	a) int[] arr = {1, 2, 3, 4, 5};
+	b) int arr[] = new int[]{1, 2, 3, 4, 5};
+	c) int arr[] = new int(5);
+	d) Both a and b
+
+
+4. What is the length of an array in Java?
+
+	a) The number of elements it can hold
+	b) The number of elements currently stored
+	c) The maximum index of the array
+	d) The total memory allocated to the array
+
+	
+5. Which method is used to get the length of a one-dimensional array?
+
+	a) arr.size()
+	b) arr.length()
+	c) arr.getLength()
+	d) arr.length
+
+
+6. What will be the output of the following code?
+
+
+	int[] arr = new int[3];
+	arr[0] = 10;
+	arr[1] = 20;
+	System.out.println(arr[2]);
+
+	a) 10
+	b) 20
+	c) 0
+	d) null
+
+
+7. How do you access the third element of a one-dimensional array arr?
+
+	a) arr[2]
+	b) arr[3]
+	c) arr[1]
+	d) arr[0]
+
+
+8. What is the result of the following code?
+
+
+
+	int[] arr = new int[5];
+	arr[0] = 1;
+	arr[1] = 2;
+	arr[2] = 3;
+	System.out.println(arr[1] + arr[2]);
+
+	a) 5
+	b) 6
+	c) 3
+	d) 2
+
+
+9. What will happen if you try to access an index that is out of bounds in a one-dimensional array?
+
+	a) The program will continue execution without any effect
+	b) A NullPointerException will be thrown
+	c) A ArrayIndexOutOfBoundsException will be thrown
+	d) The value will be set to null
+
+
+10. How do you create and initialize a one-dimensional array of size 4 with values 10, 20, 30, 40?
+
+	a) int[] arr = {10, 20, 30, 40};
+	b) int[] arr = new int[4]{10, 20, 30, 40};
+	c) int arr[] = new int[]{10, 20, 30, 40};
+	d) Both a and c
+
+
+ND Arrays 
+------------
+1. How do you declare a two-dimensional array of integers in Java?
+
+	a) int arr[][];
+	b) int[] arr[];
+	c) int[][] arr;
+	d) Both a and c
+
+
+2. Which of the following correctly initializes a 2D array with values { {1, 2}, {3, 4} }?
+
+	a) int[][] arr = { {1, 2}, {3, 4} };
+	b) int arr[][] = new int[][] { {1, 2}, {3, 4} };
+	c) int arr[] = { {1, 2}, {3, 4} };
+	d) Both a and b
+
+
+3. What is the output of the following code?
+
+
+	int[][] arr = new int[2][3];
+	arr[0][0] = 1;
+	arr[1][1] = 5;
+	System.out.println(arr[0][0] + arr[1][1]);
+
+	a) 6
+	b) 5
+	c) 1
+	d) 0
+
+
+4. What is the default value of an element in a 2D integer array?
+
+	a) 0
+	b) null
+	c) -1
+	d) 0.0
+
+
+5. How do you access the element in the second row and third column of a 2D array arr?
+
+	a) arr[2][3]
+	b) arr[1][2]
+	c) arr[3][2]
+	d) arr[2][2]
+
+
+
+6. What is the output of the following code?
+
+
+
+	int[][] arr = new int[3][];
+	arr[0] = new int[2];
+	arr[1] = new int[3];
+	arr[2] = new int[1];
+	System.out.println(arr[1].length);
+
+	a) 3
+	b) 2
+	c) 1
+	d) 0
+
+
+7. Given the following code, what will be the result?
+
+	int[][] arr = { {1, 2}, {3, 4, 5} };
+	System.out.println(arr[1][2]);
+
+	a) 5
+	b) 4
+	c) 3
+	d) 2
+
+
+
+8. How can you determine the number of rows in a 2D array arr?
+
+	a) arr.getRows()
+	b) arr.length
+	c) arr[0].length
+	d) arr.size()
+
+
+9. What will be the output of the following code?
+
+
+	int[][] arr = new int[2][];
+	arr[0] = new int[3];
+	arr[1] = new int[2];
+	System.out.println(arr[0][0] + arr[1][1]);
+
+	a) 0
+	b) 1
+	c) 2
+	d) 3
+
+
+
+10. Which statement about Java multidimensional arrays is correct?
+
+	a) All rows in a 2D array must have the same number of columns.
+	b) A 2D array in Java is essentially an array of arrays.
+	c) The size of each row in a 2D array must be specified at the time of array creation.
+	d) A 2D array cannot have rows with varying lengths.
+
+
+conditional or control
+------------------------------
+Selection statements
+1.What will be the output of the following code?
+	int[] arr = {10, 20, 30, 40, 50};
+	int sum = 0;
+	for (int i = 0; i < arr.length; i++) {
+		if (arr[i] % 20 == 0) {
+			sum += arr[i];
+		} else {
+			sum -= arr[i];
+		}
+	}
+	System.out.println(sum);
+
+a)20
+b)- 30
+c)0
+d)-20
+
+2.What will be the result of the following code snippet?
+	int[] arr = {1, 2, 3, 4, 5};
+	int max = arr[0];
+	for (int i = 1; i < arr.length; i++) {
+		if (arr[i] > max) {
+			max = arr[i];
+		} else {
+			max = arr[0];
+		}
+	}
+	System.out.println(max);
+
+	a)5
+	b)4
+	c)3
+	d)1
+	
+3.Given the following code, what will be the output?
+	int[] arr = {5, 4, 3, 2, 1};
+	int count = 0;
+	for (int i = 0; i < arr.length; i++) {
+		if (arr[i] < arr.length) {
+			count++;
+		} 
+	}
+	System.out.println(count);
+	a)1
+	b)2
+	c)3
+	d)4
+	
+4.What will be the output of the following code snippet?
+	int[] arr = {1, 2, 3, 4, 5};
+	int result = 1;
+	for (int i = 0; i < arr.length; i++) {
+		if (arr[i] % 2 == 0) {
+			result *= arr[i];
+		} else {
+			result += arr[i];
+		} 
+	}
+	System.out.println(result);
+a)120
+b)25
+c)33
+d)105
+
+5.Consider the following code. What will be the output?
+	int[] arr = {2, 3, 5, 7, 11};
+	int sum = 0;
+	for (int i = 0; i < arr.length; i++) {
+		if (arr[i] % 2 == 0) {
+			sum += arr[i];
+		} else if (arr[i] % 3 == 0) {
+			sum += arr[i] * 2;
+		} else {
+			sum += arr[i] * 3;
+		}
+	}
+	System.out.println(sum);
+
+	a)77
+	b)75
+	c)80
+	d)85
+	
+6.What will be the result of the following code?
+	int[] arr = {4, 3, 2, 1, 0};
+	for (int i = 0; i < arr.length; i++) {
+		if (arr[i] % 2 == 0) {
+			System.out.print(arr[i] + " ");
+		} else {
+			System.out.print(arr[arr.length - 1 - i] + " ");
+		}
+	}
+
+	a)4 3 2 1 0
+	b)4 0 2 3 0
+	c)4 0 2 0 4
+	d)4 1 2 3 0
+	
+7.What will be the output of the following code?
+	int[] arr = {1, 2, 3, 4, 5};
+	int sumEven = 0;
+	int sumOdd = 0;
+	for (int i = 0; i < arr.length; i++) {
+		if (arr[i] % 2 == 0) {
+			sumEven += arr[i];
+		} else {
+			sumOdd += arr[i];
+		}
+	}
+	System.out.println(sumEven - sumOdd);
+
+	a)-3
+	b)-5
+	c)0
+	d)3
+
+
+8.What will be the output of the following code snippet?
+	int[] arr = {5, 10, 15, 20, 25};
+	int product = 1;
+	for (int i = 0; i < arr.length; i++) {
+		if (arr[i] % 5 == 0 && arr[i] % 2 == 0) {
+			product *= arr[i];
+		}
+	}
+	System.out.println(product);
+
+	a)50
+	b)200
+	c)2000
+	d)15000
+
+ACCESS MODIFIERS
+-----------------------------
+
+1.Which of the following access modifiers allows a class member to be accessed 
+				only within the same package?
+	A) public
+	B) private
+	C) protected
+	D) (no modifier)
+
+
+
+2. What is the default access level of a class member 
+			if no access modifier is specified?
+	A) public
+	B) private
+	C) protected
+	D) Package-private (default)
+
+
+3.Which access modifier would you use to make a class member 
+			accessible only within its own class?
+	A) public
+	B) private
+	C) protected
+	D) (no modifier)
+
+
+
+4.What is the result of trying to access a protected member of a class 
+			from a different package?
+	A) It can be accessed directly if the classes are in the same package.
+	B) It can be accessed directly if the classes are in a subclass in a different package.
+	C) It cannot be accessed from a different package.
+	D) It is always accessible from any package.
+
+   
+
+5.Which access modifier allows a class member to be accessible from any class 
+		in any package but not from outside the package if the member is non-static?
+	A) private
+	B) protected
+	C) public
+	D) (no modifier)
+
+
+
+6. In which situation would you use the protected access modifier for a class member?
+	A) To allow access only from the same class.
+	B) To allow access only from the same package.
+	C) To allow access from subclasses or classes in the same package.
+	D) To restrict access to the package and subclasses only.
+
+   
+
+7.What will happen if a private method is attempted to be accessed from a 
+			subclass in a different package?
+	A) The method can be accessed.
+	B) The method cannot be accessed.
+	C) The method can be accessed if it is static.
+	D) The method can be accessed using reflection.
+
+
+
+8.Which of the following statements about access modifiers is true?
+A) protected members can be accessed by any other class in the same package, 
+						regardless of subclassing.
+B) private members of a class can be accessed from subclasses in 
+								other packages if they are static.
+C) public members can be accessed from any class in any package.
+D) protected members can only be accessed within the same class.
+
+
+
+9.	Consider the following code snippet. 
+	What is the correct access level of the 
+	defaultMethod if it is defined without an access modifier in a class?
+	public class MyClass {
+		void defaultMethod() {
+			// method body
+		}
+	}
+
+    A) private
+    B) protected
+    C) public
+    D) Package-private (default)
+
+
+
+10. If a protected member is accessed from a non-subclass in a different package, 
+		which of the following statements is true?
+
+    A) The access is permitted if the member is a static field.
+    B) The access is permitted if the member is a static method.
+    C) The access is permitted if the member is non-static and accessed via reflection.
+    D) The access is not permitted regardless of the member type.
+
+
+
+NON ACCESS MODIFIERS
+-------------------------
+
+1. Which non-access modifier makes a method or field constant 
+				and unchangeable after initialization?
+	A) static
+	B) final
+	C) abstract
+	D) synchronized
+
+
+2.What is the purpose of the static modifier in Java?
+	A) To restrict access to the method or variable.
+	B) To ensure that a method or variable belongs to the class, 
+							rather than instances of the class.
+	C) To make a method or variable constant.
+	D) To enable synchronization for multithreading.
+
+
+3.Which non-access modifier indicates that a class cannot be instantiated 
+		and is used as a base for other classes?
+	A) final
+	B) abstract
+	C) static
+	D) transient
+
+    
+4.Which of the following modifiers is used to prevent a method 
+		from being overridden in a subclass?
+	A) static
+	B) abstract
+	C) final
+	D) synchronized
+
+5.What does the transient keyword do when applied to a field in a Java class?
+	A) It makes the field accessible only within the same package.
+	B) It prevents the field from being serialized.
+	C) It makes the field static.
+	D) It makes the field immutable.
+
+6.What is the purpose of the synchronized keyword in Java?
+	A) To ensure that a method is executed by only one thread at a time.
+	B) To make a method or field constant.
+	C) To indicate that a method cannot be overridden.
+	D) To indicate that a class cannot be instantiated.
+
+7.Which non-access modifier indicates that a method can be called 
+				without creating an instance of the class?
+	A) final
+	B) abstract
+	C) static
+	D) synchronized
+
+
+
+8.If a class is marked as abstract, which of the following is true?
+	A) The class can be instantiated but cannot be subclassed.
+	B) The class cannot be instantiated directly, but it can be subclassed.
+	C) The class can be instantiated and subclassed.
+	D) The class cannot be instantiated and cannot be subclassed.
+
+    
+
+
+9.What is the effect of marking a method as synchronized in Java?
+	A) It allows multiple threads to execute the method simultaneously.
+	B) It ensures that only one thread can execute the method 
+				at a time for a given object.
+	C) It prevents the method from being overridden.
+	D) It ensures that the method executes after the class is loaded.
+
+
+10.Which modifier is used to declare a class that cannot be extended?
+	A) static
+	B) final
+	C) abstract
+	D) transient
+
+
+METHODS IN JAVA 
+-------------------------
+1.What is the result of calling a method with a return type of int 
+			but without a return statement?
+	A) Compilation error
+	B) The method returns 0 by default.
+	C) The method returns null by default.
+	D) The method returns undefined.
+
+   
+
+2.Which of the following is true about method overloading in Java?
+A) Methods must have the same name and same parameter list to be overloaded.
+B) Methods must have different names to be overloaded.
+C) Methods must have the same name but different parameter lists to be overloaded.
+D) Methods must have different return types to be overloaded.
+
+
+3. What is the purpose of the this keyword in a method?
+	A) It refers to the current object instance.
+	B) It refers to the parent class instance.
+	C) It creates a new instance of the class.
+	D) It is used to return a value from the method.
+
+
+4.Which of the following statements about method overriding is true?
+A) The overridden method must have the same name, return type, and 
+					parameter list as the method in the superclass.
+B) The overriding method can have a different return type than the method 
+								in the superclass.
+C) The overridden method can have a different name but must have the 
+							same parameter list.
+D) The overriding method can only be static.
+
+   
+5.What will happen if you attempt to call a method that has a throws 
+			clause and the exception is not handled within the method?
+A) The method will compile and run without issues.
+B) The program will terminate with an exception.
+C) The method will compile but will cause a runtime error 
+			if the exception is thrown.
+D) The compiler will enforce that the exception is handled or 
+					declared in the calling method.
+
+
+6.Consider the following method declaration: 
+public int calculate(int x, int y) and the call calculate(5, 10). 
+What is the expected output if calculate is defined to 
+		return the sum of x and y?
+	A) 5
+	B) 10
+	C) 15
+	D) null
+
+7. What is the output of the following code snippet?
+	public class Test {
+		public static void main(String[] args) {
+			System.out.println(add(5, 10));
+		}
+		
+		public static int add(int a, int b) {
+			return a + b;
+		}
+		
+		public static int add(int a, int b, int c) {
+			return a + b + c;
+		}
+	}
+
+	A) 15
+	B) 20
+	C) Error: method add(int, int) is ambiguous
+	D) Error: method add(int, int, int) cannot be found
+
+
+
+8. In Java, what is the result of calling a method with a 
+variable number of arguments (varargs) from a method with a fixed number of arguments?
+
+    public class VarargsExample {
+        public static void main(String[] args) {
+            print(1, 2, 3);
+        }
+        
+        public static void print(int... numbers) {
+            for (int number : numbers) {
+                System.out.print(number + " ");
+            }
+        }
+        
+        public static void print(int a, int b) {
+            System.out.println(a + " " + b);
+        }
+    }
+
+    A) The print(int... numbers) method will be called.
+    B) The print(int a, int b) method will be called.
+    C) Compilation error due to ambiguity.
+    D) Runtime error due to method mismatch.
+
+
+	
+OOPS INTRO
+------------------
+1. Which of the following is NOT one of the four core principles of 
+				Object-Oriented Programming (OOP)?
+	A) Encapsulation
+	B) Inheritance
+	C) Polymorphism
+	D) Compilation
+
+
+
+2.What is the primary purpose of encapsulation in OOP?
+	A) To allow methods to be called on different types of objects.
+	B) To keep the data safe from outside interference and misuse.
+	C) To enable a class to inherit characteristics from another class.
+	D) To ensure that a method in a subclass overrides a method in its superclass.
+
+
+
+3.Which OOP principle allows a class to inherit fields and methods 
+			from another class?
+	A) Encapsulation
+	B) Inheritance
+	C) Polymorphism
+	D) Abstraction
+
+
+4.In OOP, what is a class used for?
+	A) To define a blueprint for objects.
+	B) To execute a sequence of instructions.
+	C) To handle errors and exceptions.
+	D) To manage the program’s flow control.
+
+
+
+5.Which of the following best describes polymorphism in OOP?
+A) Using multiple methods with the same name but different signatures.
+B) Hiding the internal state and requiring all interaction to be performed through an object's methods.
+C) Allowing a single method to perform different tasks based on the object calling it.
+D) Defining a common interface for different classes to implement.
+
+
+6.What is an abstract class in OOP?
+A) A class that cannot be instantiated and may contain abstract methods.
+B) A class that provides a complete implementation of all its methods.
+C) A class that can be instantiated but cannot be subclassed.
+D) A class that has a single method with an undefined behavior.
+
+
+
+7.In Java, what is the effect of declaring a method 
+			with the abstract keyword?
+	A) The method must be implemented by subclasses.
+	B) The method cannot be overridden by subclasses.
+	C) The method must be declared as static.
+	D) The method can be called directly without instantiating the class.
+
+
+8.Which keyword is used to define a method that is shared across 
+			all instances of a class in Java?
+	A) static
+	B) abstract
+	C) final
+	D) private
+
+
+9.What is the difference between an interface and an abstract class in Java?
+A) An interface can only contain abstract methods, 
+	whereas an abstract class can contain both abstract and concrete methods.
+B) An abstract class can be instantiated while an interface cannot.
+C) An interface allows multiple inheritance of method signatures, 
+			while an abstract class does not.
+D) An interface can have instance variables, while an abstract class cannot.
+
+		
+
+10.Consider the following code snippet. 
+		What will be the output when obj.show() is called?
+
+
+	class Parent {
+		int num = 10;
+		void show() {
+			System.out.println("Parent's show");
+		}
+	}
+
+	class Child extends Parent {
+		int num = 20;
+		void show() {
+			System.out.println("Child's show");
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Parent obj = new Child();
+			obj.show();
+			System.out.println(obj.num);
+		}
+	}
+
+    A) "Parent's show"
+    B) "Child's show"
+    C) Compilation error
+    D) Runtime error
+
+CLASS & OBJECTS
+-------------------------
+1. Which of the following class declarations is correct for defining a 
+		class named MyClass with a public access modifier?
+
+    A) public class MyClass { }
+    B) class public MyClass { }
+    C) MyClass public class { }
+    D) class MyClass public { }
+
+2. True or False: In Java, a class can have multiple constructors with different parameter lists.
+
+    A) True
+    B) False
+	
+3. True or False: The static keyword can be applied to both methods and variables within a class.
+
+    A) True
+    B) False
+
+4.Which of the following statements about object creation and access modifiers is true?
+    A) Private constructors can only be used within the same class.
+    B) Protected constructors can be used to create objects in any subclass, even in different packages.
+    C) Public constructors can only be used within the same package.
+    D) Default constructors are not allowed if any other constructors are defined
+
+5.Which of the following is true about the abstract keyword when used with a class?
+    A) An abstract class can be instantiated directly.
+    B) An abstract class cannot contain concrete methods.
+    C) An abstract class can contain both abstract and concrete methods.
+    D) An abstract class must have at least one abstract method.
+
+6. True or False: 
+	The synchronized keyword can be applied to instance methods but not to class methods.
+
+    A) True
+    B) False
+
+7. True or False: In Java, a static method can directly access instance variables of the class.
+
+    A) True
+    B) False
+
+
+INNER CLASSES
+--------------------
+1. What is the primary difference between a static nested class and a non-static inner class in Java?
+
+	A) A static nested class can access instance variables of the enclosing class, while a non-static inner class cannot.
+
+	B) A static nested class does not have a reference to an instance of the enclosing class, while a non-static inner class has an implicit reference.
+
+	C) A non-static inner class can have static members, while a static nested class cannot.
+
+	D) A static nested class can access private members of the enclosing class, while a non-static inner class cannot.
+
+
+2. Consider the following Java code snippet. What will be the result?
+
+
+	class Outer {
+		private String outerField = "Outer Field";
+
+		class Inner {
+			void display() {
+				System.out.println(outerField);
+			}
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Outer.Inner inner = new Outer().new Inner();
+			inner.display();
+		}
+	}
+
+	A) Compilation error
+
+	B) Outer Field
+
+	C) NullPointerException
+
+	D) No output
+
+
+	3. Which of the following statements is true about anonymous inner classes in Java?
+
+	A) Anonymous inner classes can extend any class or implement any interface.
+
+	B) Anonymous inner classes must have a constructor.
+
+	C) Anonymous inner classes are defined at the method level and can access the final local variables.
+
+	D) Anonymous inner classes can only be used to extend abstract classes.
+
+
+4. What will be the output of the following code?
+
+
+
+class Outer {
+		private int data = 30;
+
+		class Inner {
+			private int data = 20;
+
+			void display() {
+				System.out.println(this.data);
+				System.out.println(Outer.this.data);
+			}
+		}
+
+		public static void main(String[] args) {
+			Outer outer = new Outer();
+			Outer.Inner inner = outer.new Inner();
+			inner.display();
+		}
+	}
+
+	A) 20
+	30
+
+	B) 30
+	20
+
+	C) 20
+	20
+
+	D) 30
+	30
+
+
+5. Which of the following statements about local inner classes is true?
+
+	A) Local inner classes can access non-final local variables of the method where they are defined.
+
+	B) Local inner classes must be static.
+
+	C) Local inner classes cannot have static members.
+
+	D) Local inner classes can be accessed from outside their enclosing method.
+
+6. What will be the output of the following Java code?
+
+	class Outer {
+		static int x = 10;
+
+		static class StaticNested {
+			void display() {
+				System.out.println(x);
+			}
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Outer.StaticNested nested = new Outer.StaticNested();
+			nested.display();
+		}
+	}
+
+	A) 10
+
+	B) Compilation error
+
+	C) 0
+
+	D) No output
+
+7. What is the access level of an inner class if it is not explicitly specified?
+
+	A) public
+
+	B) protected
+
+	C) private
+
+	D) Package-private (default)
+
+
+8. In which scenarios can a member inner class be useful?
+
+	A) When the inner class is required to be static to be referenced from outside the outer class.
+
+	B) When the inner class needs access to the outer class's private members.
+
+	C) When the inner class is required to be anonymous and cannot have a name.
+
+	D) When the inner class needs to access non-static members of the outer class.
+
+
+9. What will be the output of the following Java code snippet?
+
+
+	class Outer {
+		private String message = "Outer";
+
+		class Inner {
+			String message = "Inner";
+
+			void display() {
+				System.out.println(message);
+			}
+		}
+
+		public static void main(String[] args) {
+			Outer outer = new Outer();
+			Outer.Inner inner = outer.new Inner();
+			inner.display();
+		}
+	}
+
+		A) Outer
+
+		B) Inner
+
+		C) Compilation error
+
+		D) No output
+
+
+10. Consider the following Java code. Which statement about the Anonymous class is correct?
+
+	class Outer {
+		void test() {
+			new Runnable() {
+				public void run() {
+					System.out.println("Anonymous class");
+				}
+			}.run();
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			new Outer().test();
+		}
+	}
+
+	A) The Anonymous class cannot access the run method directly.
+
+	B) The Anonymous class must implement at least one method from its interface or extend its superclass.
+
+	C) The Anonymous class can have multiple methods.
+
+	D) The Anonymous class can be instantiated only once.
+
+
+OTHER OOP's PRINICIPALS
+----------------------------
+1.Which of the following statements best describes low coupling in Java?
+	A) Low coupling occurs when classes are highly dependent on each other.
+	B) Low coupling is achieved when classes interact through well-defined interfaces or methods, minimizing dependencies.
+	C) Low coupling means that classes share a large amount of common data.
+	D) Low coupling is when classes use multiple inheritance to achieve functionality.
+
+2.Which of the following best describes high cohesion in Java?
+	A) High cohesion occurs when a class has multiple unrelated responsibilities.
+	B) High cohesion is achieved when a class is focused on a single responsibility or closely related set of responsibilities.
+	C) High cohesion means that a class has many public methods.
+	D) High cohesion implies that a class is dependent on many other classes.
+
+
+
+3.True or False: In Java, association represents a relationship between two classes where one class uses another class's functionality.
+	A) True
+	B) False
+
+
+
+4. Which type of association is typically used to describe a relationship where one class "uses" another class, but they are loosely connected?
+	A) Aggregation
+	B) Composition
+	C) Simple Association
+	D) Inheritance
+
+
+
+5.Which of the following is true about aggregation in Java?
+	A) Aggregation implies a strong relationship where the child cannot exist independently of the parent.
+	B) Aggregation represents a "has-a" relationship where the child can exist independently of the parent.
+	C) Aggregation indicates a deep connection where the child is created and destroyed with the parent.
+	D) Aggregation is used for inheritance purposes.
+
+6.In Java, what distinguishes composition from aggregation?
+        A) Composition implies a weaker relationship where the child can exist independently of the parent.
+        B) Composition implies a stronger relationship where the child is strictly dependent on the parent and cannot exist without it.
+        C) Composition is used to create instances of parent classes.
+        D) Composition refers to the use of multiple inheritance.
+
+7.Consider the following Java code snippet. What type of relationship is demonstrated between Library and Book classes?
+
+	class Book {
+		private String title;
+
+		public Book(String title) {
+			this.title = title;
+		}
+
+		public String getTitle() {
+			return title;
+		}
+	}
+
+	class Library {
+		private List<Book> books;
+
+		public Library() {
+			books = new ArrayList<>();
+		}
+
+		public void addBook(Book book) {
+			books.add(book);
+		}
+	}
+
+    A) Aggregation
+    B) Composition
+    C) Association
+    D) Inheritance
+
+CONSTRUCTORS IN JAVA 
+---------------------------
+1.Which of the following statements about constructors in Java is correct?
+	A) Constructors must have a return type.
+	B) Constructors can have any name other than the class name.
+	C) A constructor's name must be the same as the class name.
+	D) Constructors can be inherited from a superclass.
+
+
+
+2.Which access modifier can be used with a constructor to restrict its instantiation to within the same package?
+	A) public
+	B) private
+	C) protected
+	D) default (no modifier)
+
+
+3.True or False: A constructor defined with the private access modifier can be accessed from outside the class.
+	A) True
+	B) False
+
+
+4.Which of the following non-access modifiers can be used with a constructor to ensure it can only be invoked once per class instance?
+	A) static
+	B) final
+	C) synchronized
+	D) abstract
+
+
+5. True or False: The static keyword can be used with a constructor in Java.
+	A) True
+	B) False
+
+
+6. Given the following code snippet, which of the following statements is true?
+
+    class Sample {
+        int value;
+
+        Sample() {
+            this.value = 0;
+        }
+
+        Sample(int value) {
+            this.value = value;
+        }
+
+        void display() {
+            System.out.println(value);
+        }
+
+        public static void main(String[] args) {
+            Sample obj1 = new Sample();
+            Sample obj2 = new Sample(10);
+            obj1.display();
+            obj2.display();
+        }
+    }
+
+	A) The code will compile and run successfully, printing 0 and 10.
+	B) The code will compile but throw a runtime error.
+	C) The code will not compile due to errors in constructor definition.
+	D) The code will not compile because Sample(int value) is not allowed.
+
+
+7.Which of the following statements about constructors is false?
+	A) Constructors are invoked automatically when an object is created.
+	B) A constructor can call another constructor of the same class using this().
+	C) Constructors can call methods of the class before initializing fields.
+	D) Constructors cannot be abstract.
+
+
+8. Consider the following code snippet. What will be the output when new Test() is executed?
+
+
+	class Test {
+		Test() {
+			this(10);
+		}
+
+		Test(int a) {
+			System.out.println("Value: " + a);
+		}
+	}
+
+	public class Main {
+		public static void main(String[] args) {
+			new Test();
+		}
+	}
+
+    A) Compilation error
+    B) "Value: 0"
+    C) "Value: 10"
+    D) Runtime error
+
+9. Given the following code snippet, what will be the output?
+	class Demo {
+		static int count;
+
+		Demo() {
+			count++;
+			System.out.println("Count: " + count);
+		}
+
+		public static void main(String[] args) {
+			new Demo();
+			new Demo();
+			new Demo();
+		}
+	}
+	
+	A) Count: 1, Count: 2, Count: 3
+	B) Count: 1, Count: 1, Count: 1
+	C) Count: 1, Count: 2, Count: 2
+	D) Count: 0, Count: 1, Count: 2
+10. True or False: In Java, if a class has no explicit constructor, the compiler provides a default no-argument constructor.
+
+    A) True
+    B) False
+
+
+INHERITANCE IN JAVA 
+-----------------------------
+1.In Java, what is the primary purpose of inheritance?
+
+	a) To allow a class to access methods of another class
+	b) To enable code reusability and establish a relationship between classes
+	c) To improve the performance of Java applications
+	d) To provide data encapsulation and information hiding
+
+
+2.Which keyword is used to inherit the properties of a superclass in Java?
+
+a) include
+b) extend
+c) implements
+d) inherits
+
+    
+
+
+
+3.What type of inheritance is demonstrated by the following code snippet?
+		class A {
+			void methodA() { }
+		}
+
+		class B extends A {
+			void methodB() { }
+		}
+
+		class C extends B {
+			void methodC() { }
+		}
+
+		a) Single inheritance
+		b) Multiple inheritance
+		c) Multilevel inheritance
+		d) Hierarchical inheritance
+
+4.Which of the following is true about multiple inheritance in Java?
+
+	a) Java supports multiple inheritance directly through classes.
+	b) Multiple inheritance is achieved in Java through interfaces.
+	c) Multiple inheritance can be achieved using abstract classes.
+	d) Java supports multiple inheritance directly through abstract classes.
+
+
+
+5.Given the following code, which type of inheritance is being used?
+		interface I1 {
+			void method1();
+		}
+
+		interface I2 {
+			void method2();
+		}
+
+		class C implements I1, I2 {
+			public void method1() { }
+			public void method2() { }
+		}
+
+		a) Single inheritance
+		b) Multiple inheritance
+		c) Multilevel inheritance
+		d) Hierarchical inheritance
+
+
+
+6.In Java, if a superclass and a subclass have methods with the same name but different parameter lists, this is known as:
+
+    a) Method Overloading
+    b) Method Overriding
+    c) Constructor Overloading
+    d) Constructor Overriding
+
+   
+
+7. Given the following code, what will be the output when the main method is executed?
+
+		class Base {
+			void show() {
+				System.out.println("Base show");
+			}
+		}
+
+		class Derived extends Base {
+			void show() {
+				System.out.println("Derived show");
+			}
+			
+			void show(int x) {
+				System.out.println("Derived show with int");
+			}
+		}
+
+		public class Test {
+			public static void main(String[] args) {
+				Base b = new Derived();
+				b.show();
+				((Derived) b).show(10);
+			}
+		}
+
+	a) Base show; Derived show with int
+	b) Derived show; Derived show with int
+	c) Base show; Compilation error
+	d) Compilation error
+
+
+
+8. What will be the output of the following code snippet?
+
+	class A {
+		protected void display() {
+			System.out.println("Class A");
+		}
+	}
+
+	class B extends A {
+		private void display() {
+			System.out.println("Class B");
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			A a = new B();
+			a.display();
+		}
+	}
+
+	a) Class A
+	b) Class B
+	c) Compilation error
+	d) Runtime error
+
+
+
+9. Consider the following code. What will be the output?
+
+	class Parent {
+		String name = "Parent";
+		void display() {
+			System.out.println("Parent display");
+		}
+	}
+
+	class Child extends Parent {
+		String name = "Child";
+		void display() {
+			System.out.println("Child display");
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Parent p = new Child();
+			System.out.println(p.name);
+			p.display();
+		}
+	}
+
+	a) Parent; Child display
+	b) Child; Child display
+	c) Parent; Parent display
+	d) Parent; Child display
+
+
+
+10. Which of the following statements about super keyword usage in Java is correct?
+
+	a) super can be used to access private members of the superclass.
+	b) super can be used to call a method in the superclass that has been overridden in the subclass.
+	c) super can only be used in the constructor of the subclass.
+	d) super can be used to refer to static methods of the superclass.
+
+11.Which of the following members of a superclass are not inherited by a subclass in Java?
+
+a) Private methods
+b) Protected fields
+c) Public fields
+d) Default methods in an interface
+
+
+12. What happens when a subclass tries to access a private member of its superclass?
+
+a) The subclass can directly access the private member.
+b) The subclass can access the private member if it provides a public getter in the superclass.
+c) The subclass can access the private member if it is static.
+d) The subclass can access the private member through reflection.
+
+
+13. Given the following code snippet, what will be the result of the following line in the main method?
+
+	class Parent {
+		protected int num = 100;
+	}
+
+	class Child extends Parent {
+		int num = 200;
+	}
+
+	public class Example {      
+		public static void main(String args[]) {
+			Parent p = new Parent();
+			System.err.println(p.num);
+
+			Child c = new Child();
+			System.out.println(c.num);
+
+			Parent pc = new Child();
+			System.out.println(pc.num);
+		}
+	}
+	
+	a) 100 200 200
+	b) 100 200 100
+	c) Compilation error
+	d) Runtime error
+
+14. Consider the following code. What is the output of the main method?
+	class Base {
+		String str = "Base";
+		void show() {
+			System.out.println("Base show");
+		}
+	}
+
+	class Derived extends Base {
+		String str = "Derived";
+		void show() {
+			System.out.println("Derived show");
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Base b = new Derived();
+			System.out.println(b.str);
+			b.show();
+		}
+	}
+
+	a) Derived; Derived show
+	b) Base; Derived show
+	c) Base; Base show
+	d) Derived; Derived show
+
+
+THIS KEYWORD
+------------------
+1.Consider the following code snippet. What will be the output when the main method is executed?
+
+	class Test {
+		int num = 5;
+		
+		void display() {
+			System.out.println(this.num);
+		}
+		
+		static void staticMethod() {
+			Test t = new Test();
+			t.display();
+		}
+		
+		public static void main(String[] args) {
+			Test.staticMethod();
+		}
+	}	
+
+	a) 5
+	b) Compilation error
+	c) 0
+	d) Runtime error
+
+2. In which of the following scenarios is the this keyword not required in Java?
+
+	a) When accessing instance variables in an instance method
+	b) When calling another constructor in the same class
+	c) When passing the current object as an argument to another method
+	d) When referring to instance variables in a constructor
+
+
+
+3.What will be the output of the following code?
+
+	class Example {
+		Example() {
+			this(5);
+			System.out.println("No-arg constructor");
+		}
+		
+		Example(int x) {
+			System.out.println("Parameterized constructor: " + x);
+		}
+		
+		public static void main(String[] args) {
+			new Example();
+		}
+	}
+
+	a) Parameterized constructor: 5
+	No-arg constructor
+
+	b) No-arg constructor
+	Parameterized constructor: 5
+
+	c) Compilation error
+	d) Runtime error
+
+
+
+4. Consider the following code. What is the result of the following method call?
+	class Alpha {
+		int a = 1;
+		
+		void increment() {
+			this.a++;
+		}
+	}
+
+	class Beta extends Alpha {
+		int b = 2;
+		
+		void increment() {
+			super.increment();
+			this.b++;
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Beta beta = new Beta();
+			beta.increment();
+			System.out.println(beta.a + " " + beta.b);
+		}
+	}
+
+	a) 2 3
+	b) 1 3
+	c) 2 2
+	d) 1 2
+
+super keyword
+----------------------
+1.Given the following code, what will be the output when the main method is executed?
+	class Parent {
+		int x = 10;
+
+		void display() {
+			System.out.println("Parent display");
+		}
+	}
+
+	class Child extends Parent {
+		int x = 20;
+
+		void display() {
+			System.out.println("Child display");
+		}
+
+		void show() {
+			System.out.println(super.x);
+			super.display();
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Child c = new Child();
+			c.show();
+		}
+	}
+
+	a) 20
+	Child display
+	
+	b) 10
+	Parent display
+
+	c) 20
+	Child display
+
+	d) 10
+	Child display
+
+
+
+2.In Java, what is the purpose of using super to access methods of the superclass?
+
+a) To override methods in the superclass.
+b) To call methods in the superclass that have been overridden in the subclass.
+c) To define methods in the subclass with different signatures from the superclass methods.
+d) To access private methods in the superclass.
+
+
+3.Which of the following statements about super and inheritance is true?
+
+a) super can be used to access private members of the superclass.
+b) super can be used to access and override static members of the superclass.
+c) super is used to refer to the instance variables and methods of the superclass from the subclass.
+d) super can be used to access instance variables in the subclass that are shadowed by the superclass.
+
+
+4. What is the result of the following code?
+	class Base {
+		Base() {
+			System.out.println("Base no-arg constructor");
+		}
+
+		Base(int i) {
+			System.out.println("Base parameterized constructor with value: " + i);
+		}
+	}
+
+	class Derived extends Base {
+		Derived() {
+			this(10); // Calls Derived(int i) constructor
+			System.out.println("Derived no-arg constructor");
+		}
+
+		Derived(int i) {
+			super(i); // Calls Base(int i) constructor
+			System.out.println("Derived parameterized constructor with value: " + i);
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			new Derived();
+		}
+	}
+
+
+INTERFACES
+=====================
+1.Which of the following statements about default methods in Java interfaces 
+is true?
+
+A) Default methods can be overridden by the classes that implement the interface.
+B) Default methods can access private methods of the implementing class.
+C) Default methods can only be defined in abstract classes, not in interfaces.
+D) Default methods cannot have parameters.
+
+
+2.Which of the following is NOT a valid use of an interface in Java?
+
+    A) To provide a contract for what methods a class must implement.
+    B) To define methods that have a body and implementation.
+    C) To allow multiple inheritance of method implementations.
+    D) To create a type that can be used to refer to objects of classes 
+	that implement the interface.
+
+
+3.In Java, if a class implements an interface, which of the following is true 
+about the interface’s static methods?
+
+A) Static methods in interfaces can be overridden by the implementing class.
+B) Static methods in interfaces can only be accessed using the interface name, not the implementing class.
+C) Static methods in interfaces are inherited by the implementing class.
+D) Static methods in interfaces can be accessed through the instance of the class.
+
+
+4.Which of the following statements about defining an interface in Java is correct?
+
+    A) An interface can have instance variables.
+    B) All methods in an interface are implicitly abstract, and they must be public.
+    C) Interfaces can have constructors to initialize their state.
+    D) An interface can extend multiple other interfaces.
+
+
+5.Which of the following is true about interface methods in Java?
+
+    A) Interface methods can have any access modifier.
+    B) Interface methods are implicitly public and abstract unless 
+			they are default or static methods.
+    C) Interface methods must have a body, and they cannot be abstract.
+    D) Interface methods can be protected.
+
+6.What is the correct syntax for declaring an interface that extends 
+			another interface?
+
+    A) interface A extends B { }
+    B) class A implements B { }
+    C) interface A extends B, C { }
+    D) interface A implements B { }
+
+
+7.Which of the following is NOT allowed in an interface?
+
+    A) Declaring a constant (public, static, final)
+    B) Declaring an abstract method
+    C) Declaring a method with a body (if not default or static)
+    D) Defining a static method with a body
+
+8.If a class implements two interfaces that have conflicting default methods, 
+			what must the class do?
+
+A) The class must provide its own implementation of the conflicting method.
+B) The class can choose to ignore the conflicting method and 
+			use the default method from either interface.
+C) The class must throw a compilation error, as conflicting methods cannot be resolved.
+D) The class must use reflection to resolve the conflicting methods.
+
+
+
+ABSTRACTION IN JAVA
+--------------------------
+1. In Java, which of the following statements correctly defines abstraction 
+			in the context of abstract classes and interfaces?
+
+A) Abstraction is achieved only through abstract classes, 
+		and interfaces are used for implementation.
+B) Abstraction allows you to define methods in an abstract class or 
+		interface without providing implementation details.
+C) Abstraction can only be achieved through interfaces, not abstract classes.
+D) Abstract methods in abstract classes are not required to be 
+		implemented by subclasses.
+
+
+2.Which of the following is true about abstract classes in Java?
+
+A) An abstract class can be instantiated directly if it contains no abstract methods.
+B) An abstract class can have both abstract and non-abstract methods.
+C) All methods in an abstract class must be abstract.
+D) Abstract classes cannot have constructors.
+
+
+3.Which statement about Java interfaces and abstract classes is true?
+
+A) Interfaces cannot have any methods with a body, 
+	while abstract classes can have methods with or without a body.
+B) Abstract classes cannot have static methods, while interfaces can.
+C) Abstract classes can extend multiple other abstract classes, 
+		while interfaces cannot.
+D) Interfaces can contain instance variables, while abstract classes cannot.
+
+
+4.What happens if a concrete class does not implement all abstract methods 
+		from its abstract superclass?
+
+    A) The class will compile, but it will throw a runtime error.
+    B) The class will not compile and will result in a compilation error.
+    C) The class can be instantiated, but the abstract methods remain unimplemented.
+    D) The class must declare itself as abstract to compile.
+
+
+5.Which of the following is true about abstract classes and interfaces with respect to constructors?
+
+    A) Abstract classes can have constructors, but interfaces cannot.
+    B) Both abstract classes and interfaces can have constructors.
+    C) Constructors in interfaces must be defined as public.
+    D) Abstract classes cannot have constructors if they contain abstract methods.
+
+6.Which of the following correctly describes the behavior of abstract classes 
+			with regard to method visibility?
+
+A) Abstract methods in an abstract class can have any access modifier except private.
+B) Abstract methods must be public, but non-abstract methods can be private.
+C) All abstract methods must be protected to be overridden in concrete subclasses.
+D) Abstract methods must be public and cannot be protected.
+
+
+
+7.Which statement about abstract classes and interfaces is correct?
+
+A) An abstract class can implement multiple interfaces, 
+		but an interface can extend only one abstract class.
+B) An abstract class can implement methods from an interface, 
+			but an interface cannot implement methods from an abstract class.
+C) Abstract classes can extend other abstract classes and provide implementation, 
+		while interfaces cannot extend other interfaces.
+D) Abstract classes can be instantiated if they contain at least one abstract method.
+
+
+8.Which of the following is a valid declaration for an abstract method in Java?
+
+    A) abstract void method();
+    B) abstract void method() { }
+    C) void abstract method();
+    D) abstract public void method();
+
+
+9.Which of the following is correct for declaring an abstract class?
+
+    A) class AbstractClass { abstract void method(); }
+    B) abstract class AbstractClass { void method(); }
+    C) abstract class AbstractClass { abstract void method(); }
+    D) abstract class AbstractClass { abstract public void method() { } }
+
+
+10.Which code snippet correctly defines an interface with only abstract methods?
+
+A) interface MyInterface { void method1(); void method2(); }
+B) interface MyInterface { abstract void method1(); abstract void method2(); }
+C) interface MyInterface { void method1() { } void method2() { } }
+D) interface MyInterface { void method1(); abstract void method2(); }
+
+
+11.Which statement is correct about abstract methods in abstract classes?
+
+    A) They must be public.
+    B) They can be private.
+    C) They must have a method body.
+    D) They can be protected or public.
+
+
+POLYMORPHISM
+-----------------
+1.Which of the following statements about polymorphism in Java is true?
+
+    A) Polymorphism allows a variable to hold objects of different types at runtime.
+    B) Polymorphism requires that a method signature must be the same across all overridden methods in derived classes.
+    C) Polymorphism in Java is achieved exclusively through method overloading.
+    D) Polymorphism can only be achieved through inheritance, not through interfaces.
+
+
+2.What is the output of the following Java code snippet?
+	class A {
+		void display() {
+			System.out.println("A");
+		}
+	}
+
+	class B extends A {
+		void display() {
+			System.out.println("B");
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			A obj = new B();
+			obj.display();
+		}
+	}
+
+    A) A
+    B) B
+    C) Compilation error
+    D) Runtime error
+
+
+
+3. Consider the following code snippet. Which of the following statements about the output of the code is correct?
+
+	class Parent {
+		void method() {
+			System.out.println("Parent");
+		}
+	}
+
+	class Child extends Parent {
+		void method() {
+			System.out.println("Child");
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Parent p = new Child();
+			p.method();
+		}
+	}
+
+    A) The output will be "Parent".
+    B) The output will be "Child".
+    C) The code will not compile because of method overriding.
+    D) The code will not compile because of a type mismatch.
+
+
+
+4.What will be the output of the following Java program?
+
+	class Animal {
+		void makeSound() {
+			System.out.println("Animal sound");
+		}
+	}
+
+	class Dog extends Animal {
+		void makeSound() {
+			System.out.println("Bark");
+		}
+	}
+
+	class Cat extends Animal {
+		void makeSound() {
+			System.out.println("Meow");
+		}
+	}
+
+	public class Test {
+		public static void main(String[] args) {
+			Animal a;
+			a = new Dog();
+			a.makeSound();
+			a = new Cat();
+			a.makeSound();
+		}
+	}
+
+    A) Animal sound
+    Bark
+    Meow
+    B) Bark
+    Meow
+    C) Bark
+    Bark
+    D) Animal sound
+    Animal sound
+
+
+
+5.Which concept in Java allows you to use a superclass reference to refer to a subclass object?
+
+    A) Method overloading
+    B) Method overriding
+    C) Dynamic method dispatch
+    D) Constructor chaining
+
+
+6. In the context of polymorphism, what is true about method hiding?
+
+    A) Method hiding occurs when a subclass defines a method with the same name as a method in its superclass, but with a different return type.
+    B) Method hiding occurs when a subclass defines a static method with the same name as a static method in its superclass.
+    C) Method hiding occurs only when methods in different classes have the same name and parameter list.
+    D) Method hiding is the same as method overriding in terms of runtime behavior.
+
+7. In the context of polymorphism, what is the primary difference between method overloading and method overriding?
+
+    A) Method overloading is resolved at runtime while method overriding is resolved at compile time.
+    B) Method overloading occurs in the same class while method overriding occurs in different classes.
+    C) Method overloading requires method signatures to be different, while method overriding requires method signatures to be the same.
+    D) Method overloading can only be applied to static methods, while method overriding can only be applied to instance methods.
+
+8.Which of the following scenarios will result in a compile-time error due to method overloading in Java?
+
+    A) Methods with the same name but different return types.
+    B) Methods with the same name but different parameter lists.
+    C) Methods with the same name, same parameter lists, but different access modifiers.
+    D) Methods with the same name, same parameter lists, but different exceptions declared in the throws clause.
+
+
+9.Which of the following is NOT a valid reason for method overloading in Java?
+
+    A) To achieve compile-time polymorphism.
+    B) To provide multiple implementations for a method with different parameters.
+    C) To allow methods with the same name to have different return types.
+    D) To enhance code readability and maintainability by having methods with similar functionality.
+
+
+10.What will be the output of the following Java code snippet?
+
+
+	class OverloadTest {
+		void method(String s) {
+			System.out.println("String");
+		}
+		
+		void method(Object o) {
+			System.out.println("Object");
+		}
+		
+		public static void main(String[] args) {
+			OverloadTest ot = new OverloadTest();
+			ot.method(null);
+		}
+	}
+
+    A) String
+    B) Object
+    C) Compilation error
+    D) Runtime error
+
+
+
+11. In which of the following cases does method overloading not occur in Java?
+
+    A) Changing the order of parameters.
+    B) Changing the number of parameters.
+    C) Changing the return type only.
+    D) Changing the type of parameters.
+
+12.Which of the following method signatures represents a valid overloaded method?
+
+    A) void method(int x, String y);
+    B) void method(String y, int x);
+    C) void method(int x);
+    D) void method(int x, int y);
+
+13.Which of the following statements is true about method overriding in Java?
+
+    A) Overriding allows a subclass to provide a specific implementation of a method that is already defined in its superclass.
+    B) Overriding can occur between methods in the same class.
+    C) An overridden method must have the same return type as the method in the superclass, but it can have different parameter lists.
+    D) The private methods in the superclass can be overridden in the subclass.
+	
+14. What will be the result if a subclass method tries to override a method in the superclass with a different return type?
+
+    A) Compilation error
+    B) The subclass method will override the superclass method if the return type is a subclass of the original return type.
+    C) The method in the subclass will be considered a new method, not an override.
+    D) The method in the subclass will override the superclass method, but with different behavior.
+
+15. Which of the following is NOT a characteristic of method overriding in Java?
+
+    A) The method in the subclass must have the same name, return type, and parameters as the method in the superclass.
+    B) Overriding methods can have different access levels than their superclass methods.
+    C) The method in the subclass can throw fewer or no exceptions than the method in the superclass.
+    D) Overriding allows the subclass to provide a different implementation for the method.
+
+
+
+EXCEPTIONAL HANDLING 
+-----------------------------
+Error vs Exception
+---------------------
+
+1. Which of the following statements is true regarding the Error and Exception classes in Java?
+
+	A) Errors are recoverable conditions that an application can handle, while Exceptions are generally unrecoverable and should be caught by the application.
+
+	B) Errors are subclasses of Throwable, whereas Exceptions are not directly related to Throwable.
+
+	C) Errors are usually related to the Java runtime environment and are not intended to be caught by application code, while Exceptions are used to handle application-specific issues.
+
+	D) Both Errors and Exceptions are intended to be caught and handled by the application code to maintain smooth operation.
+
+2.What is the primary difference between Error and Exception when handling exceptions in Java?
+
+	A) Errors are checked at compile-time, while Exceptions are checked at runtime.
+
+	B) Exceptions can be caught and handled, but Errors generally represent serious issues that are not meant to be caught or handled by the application.
+
+	C) Errors are meant for application-specific conditions, whereas Exceptions are used for JVM-specific conditions.
+
+	D) Both Errors and Exceptions are handled in exactly the same way using try-catch blocks.
+
+3.Which of the following Error classes in Java is most likely to be encountered if the JVM is out of memory?
+
+	A) OutOfMemoryError
+
+	B) StackOverflowError
+
+	C) VirtualMachineError
+
+	D) AssertionError
+
+4. Given the following code snippet, what will be the output if an IOException occurs during file operations?
+
+	try {
+		// Some file operations
+	} catch (Exception e) {
+		System.out.println("Caught Exception: " + e.getClass().getSimpleName());
+	} catch (Error e) {
+		System.out.println("Caught Error: " + e.getClass().getSimpleName());
+	}
+
+	A) Caught Exception: IOException
+
+	B) Caught Error: IOException
+
+	C) Caught Exception: Exception
+
+	D) Caught Error: Exception
+
+5.In Java, which of the following scenarios is most appropriate for throwing an Error rather than an Exception?
+
+	A) A method encounters an illegal argument and needs to signal the caller to correct it.
+
+	B) A program runs out of memory and cannot continue.
+
+	C) A method fails to find a file that is required for normal operation.
+
+	D) An application attempts to divide a number by zero.
+
+6. Which of the following is an example of an unchecked exception in Java?
+
+	A) IOException
+
+	B) FileNotFoundException
+
+	C) ArrayIndexOutOfBoundsException
+
+	D) ClassNotFoundException
+
+7. Which of the following conditions would most likely cause a StackOverflowError in Java?
+
+	A) Allocating a large array in memory.
+
+	B) Recursively calling a method with no base case, leading to infinite recursion.
+
+	C) Attempting to open a file that does not exist.
+
+	D) Trying to access an invalid index of an array.
+
+8. Which of the following statements about Error and Exception handling in Java is correct?
+
+	A) Errors and Exceptions both inherit from Throwable, but Errors are intended for programmatic handling, while Exceptions are not.
+
+	B) Exceptions include both checked and unchecked exceptions, whereas Errors are always unchecked.
+
+	C) You can handle Errors with a catch block, but it is not a good practice to do so, as Errors are usually indicative of serious problems that cannot be recovered from.
+
+	D) Exceptions can only be caught if they are checked exceptions, while Errors cannot be caught at all.
+
+
+Checked vs Unchecked Exceptions 
+---------------------------------
+1.Which of the following statements correctly distinguishes between checked and unchecked exceptions in Java?
+
+	A) Checked exceptions are those that inherit from RuntimeException, whereas unchecked exceptions inherit from Exception.
+
+	B) Checked exceptions must be either caught or declared in the method’s throws clause, while unchecked exceptions do not need to be explicitly handled.
+
+	C) Unchecked exceptions must be declared in the method’s throws clause, whereas checked exceptions do not need to be handled explicitly.
+
+	D) Both checked and unchecked exceptions must be caught or declared in the throws clause.
+
+2. Given the following code snippet, which statement accurately describes the behavior of the IOException in the readFile method?
+	public void readFile(String fileName) throws IOException {
+		// code that may throw IOException
+	}
+	
+	A) IOException is a checked exception, so the method must either catch it or declare it in the throws clause.
+
+	B) IOException is an unchecked exception, so it does not need to be declared in the throws clause.
+
+	C) IOException is both checked and unchecked, so it must be handled in both ways.
+
+	D) The method does not need to declare IOException in the throws clause if it is caught within the method.
+
+
+3. Which of the following scenarios will result in a compilation error due to exception handling rules in Java?
+
+	A) A method that declares FileNotFoundException in its throws clause but does not catch it.
+
+	B) A method that catches ArithmeticException but does not declare it in the throws clause.
+
+	C) A method that calls another method which throws IOException but does not handle or declare IOException.
+
+	D) A method that catches NullPointerException and does not declare it in the throws clause.
+
+4. Consider the following code snippet. Which of the following statements is true regarding the exception handling in this code?
+	public void processData() {
+		try {
+			// code that may throw IOException
+		} catch (RuntimeException e) {
+			// handle RuntimeException
+		}
+	}
+	
+	A) IOException can be caught by the catch (RuntimeException e) block because it is a subclass of RuntimeException.
+
+	B) The code will compile successfully, but IOException is not caught and will cause a compile time error.
+
+	C) The code will compile, and IOException will be caught and handled by the catch (RuntimeException e) block.
+
+	D) The code will result in a compilation error because IOException is not a subclass of RuntimeException.
+
+5. Which of the following statements about the Java exception handling mechanism is correct?
+
+	A) A method can only throw one checked exception at a time.
+
+	B) A checked exception can be thrown from a method, but it must be handled within the method or declared in the throws clause.
+
+	C) Unchecked exceptions must be caught or declared in the throws clause, similar to checked exceptions.
+
+	D) A method that throws unchecked exceptions does not need to declare them in its throws clause, but the caller should still handle them.
+
+
+
+JAVA EXCEPTION HIERARCHY
+------------------------------
+1.Which of the following statements accurately describes the relationship between Exception and RuntimeException in the Java exception hierarchy?
+
+	A) RuntimeException is a direct subclass of Exception and is considered a checked exception.
+
+	B) Exception is a direct subclass of RuntimeException, and all its subclasses are checked exceptions.
+
+	C) RuntimeException is a subclass of Exception and is considered an unchecked exception.
+
+	D) Both Exception and RuntimeException are direct subclasses of Throwable, with Exception being unchecked and RuntimeException being checked.
+
+2.Which class in the Java exception hierarchy serves as the base class for all exceptions that are not errors or runtime exceptions?
+
+	A) Throwable
+
+	B) Exception
+
+	C) RuntimeException
+
+	D) Error
+
+3.In the context of the Java exception hierarchy, which of the following statements is true about IOException and FileNotFoundException?
+
+	A) FileNotFoundException is a subclass of IOException, and both are checked exceptions.
+
+	B) IOException is a subclass of FileNotFoundException, and both are unchecked exceptions.
+
+	C) IOException is an unchecked exception, while FileNotFoundException is a checked exception.
+
+	D) Both IOException and FileNotFoundException are direct subclasses of RuntimeException.
+
+4.Given the following class hierarchy, which of the following exceptions is a direct subclass of IOException?
+
+	class IOException extends Exception {}
+	class FileNotFoundException extends IOException {}
+	class SQLException extends Exception {}
+
+	A) SQLException
+
+	B) FileNotFoundException
+
+	C) Exception
+
+	D) IOException is the only exception in the hierarchy provided.
+
+5.Which of the following statements is true regarding the Error class in the Java exception hierarchy?
+
+	A) The Error class is used for errors that are recoverable and should be caught by the application code.
+
+	B) The Error class is a direct subclass of Exception and is typically used for application-specific errors.
+
+	C) The Error class is a direct subclass of Throwable and represents serious problems that are not intended to be caught by application code.
+
+	D) The Error class is used for runtime exceptions that are checked at compile time.
+	
+	
+
+TRY & CATCH block
+------------------------
+1. What will be the output of the following code snippet if an ArithmeticException is thrown?
+
+	public static void main(String[] args) {
+		try {
+			int result = 10 / 0;  // ArithmeticException
+		} catch (ArithmeticException e) {
+			System.out.println("Arithmetic Exception occurred");
+		} catch (Exception e) {
+			System.out.println("Exception occurred");
+		} finally {
+			System.out.println("Finally block executed");
+		}
+	}
+
+	A) Arithmetic Exception occurred followed by Finally block executed
+
+	B) Exception occurred followed by Finally block executed
+
+	C) Arithmetic Exception occurred without executing the Finally block
+
+	D) The program will terminate with an ArithmeticException without executing the Finally block
+
+
+2. In the following code snippet, which exception will be caught by the catch block?
+
+	public static void main(String[] args) {
+		try {
+			throw new IOException("IO Error");
+		} catch (IOException | SQLException e) {
+			System.out.println("Caught: " + e.getClass().getSimpleName());
+		} catch (Exception e) {
+			System.out.println("Caught Exception");
+		}
+	}
+
+	A) Caught: IOException
+
+	B) Caught Exception
+
+	C) Caught: SQLException
+
+	D) The code will not compile due to a compilation error.
+
+
+3. What is the result of executing the following code, which contains a catch block with a subclass exception type and a finally block?
+
+	public static void main(String[] args) {
+		try {
+			throw new NumberFormatException("Invalid number");
+		} catch (RuntimeException e) {
+			System.out.println("Caught RuntimeException");
+		} finally {
+			System.out.println("Finally block executed");
+		}
+	}
+
+	A) Caught RuntimeException followed by Finally block executed
+
+	B) Finally block executed followed by Caught RuntimeException
+
+	C) Caught RuntimeException without executing the Finally block
+
+	D) The code will terminate with a NumberFormatException without executing the Finally block
+
+	
+4. Consider the following code snippet. What will be printed if a NullPointerException is thrown?
+
+	public static void main(String[] args) {
+		try {
+			String str = null;
+			str.length();
+		} catch (Exception e) {
+			System.out.println("Caught Exception");
+		} finally {
+			System.out.println("Finally block executed");
+		}
+	}
+
+	A) Caught Exception followed by Finally block executed
+
+	B) Finally block executed followed by Caught Exception
+
+	C) Caught NullPointerException followed by Finally block executed
+
+	D) The program will terminate with a NullPointerException without executing the Finally block
+
+5. In the context of nested try-catch blocks, which of the following statements is correct?
+
+	A) An exception thrown in an inner try block can be caught by an outer catch block if the inner try block does not have a matching catch block.
+
+	B) An exception thrown in an outer try block can be caught by an inner catch block if the inner try block does not have a matching catch block.
+
+	C) An exception thrown in an inner try block is not handled by the outer catch block if the inner try block has its own catch block.
+
+	D) The outer catch block will never handle exceptions thrown in inner try blocks.
+	
+	
+	
+NESTED TRY 
+---------------------
+1. Given the following code snippet, which of the following statements accurately 
+	describes the behavior when an exception is thrown in the inner try block?
+
+	public static void main(String[] args) {
+		try {
+			try {
+				throw new ArithmeticException("Inner exception");
+			} catch (ArithmeticException e) {
+				System.out.println("Inner catch: " + e.getMessage());
+				throw new RuntimeException("Exception rethrown from inner catch");
+			}
+		} catch (RuntimeException e) {
+			System.out.println("Outer catch: " + e.getMessage());
+		}
+	}
+
+	A) Inner catch: Inner exception followed by Outer catch: Exception rethrown from inner catch
+
+	B) Inner catch: Inner exception without an outer catch block being executed
+
+	C) Outer catch: Exception rethrown from inner catch without executing the inner catch block
+
+	D) The program will terminate with RuntimeException without executing any catch blocks
+
+
+2.Consider the following code. What will be the output if an ArrayIndexOutOfBoundsException is thrown?
+
+	public static void main(String[] args) {
+		try {
+			try {
+				int[] arr = new int[2];
+				arr[3] = 10;
+			} catch (ArrayIndexOutOfBoundsException e) {
+				System.out.println("Inner catch");
+				throw new NullPointerException("Null pointer from inner catch");
+			}
+		} catch (NullPointerException e) {
+			System.out.println("Outer catch: " + e.getMessage());
+		}
+	}
+
+	A) Inner catch followed by Outer catch: Null pointer from inner catch
+
+	B) Inner catch without executing the outer catch block
+
+	C) ArrayIndexOutOfBoundsException followed by Outer catch: Null pointer from inner catch
+
+	D) The program will terminate with an ArrayIndexOutOfBoundsException without executing the outer catch block
+
+
+3. What happens if an exception is thrown in the finally block of a nested try-catch structure?
+
+	public static void main(String[] args) {
+		try {
+			try {
+				System.out.println("Inner try");
+			} finally {
+				throw new IllegalStateException("Exception in finally");
+			}
+		} catch (Exception e) {
+			System.out.println("Caught: " + e.getMessage());
+		}
+	}
+
+	A) The IllegalStateException will be caught by the outer catch block, and Caught: Exception in finally will be printed.
+
+	B) The IllegalStateException will not be caught, and the program will terminate with this exception.
+
+	C) The IllegalStateException will be caught by the inner catch block.
+
+	D) The finally block will not be executed due to the exception.
+
+
+4. Given the following code, what will be the output if an IOException is thrown in the outer try block?
+
+	public static void main(String[] args) {
+		try {
+			try {
+				throw new IOException("Outer exception");
+			} catch (IOException e) {
+				System.out.println("Inner catch: " + e.getMessage());
+				throw new NumberFormatException("Exception from inner catch");
+			}
+		} catch (NumberFormatException e) {
+			System.out.println("Outer catch: " + e.getMessage());
+		}
+	}
+
+	A) Inner catch: Outer exception followed by Outer catch: Exception from inner catch
+
+	B) Inner catch: Outer exception without executing the outer catch block
+
+	C) Outer catch: Exception from inner catch without executing the inner catch block
+
+	D) The program will terminate with an IOException without executing the inner catch block
+
+
+5. What will be the output of the following code snippet if an ArithmeticException is thrown?
+
+	public static void main(String[] args) {
+		try {
+			try {
+				int result = 10 / 0;  // Throws ArithmeticException
+			} catch (ArithmeticException e) {
+				System.out.println("Inner catch: " + e.getMessage());
+				throw new IllegalArgumentException("Exception from inner catch");
+			} finally {
+				System.out.println("Inner finally");
+			}
+		} catch (IllegalArgumentException e) {
+			System.out.println("Outer catch: " + e.getMessage());
+		} finally {
+			System.out.println("Outer finally");
+		}
+	}
+
+	A) Inner catch: / by zero followed by Inner finally and then Outer catch: Exception from inner catch and Outer finally
+
+	B) Inner catch: / by zero followed by Inner finally and then Outer finally
+
+	C) Inner catch: / by zero followed by Outer catch: Exception from inner catch and Outer finally
+
+	D) The program will terminate with an IllegalArgumentException without executing the Outer finally block
+	
+	
+FINALLY BLOCK
+----------------------
+
+1. Given the following code snippet, what will be the output if an exception is thrown in the try block?
+
+	public static void main(String[] args) {
+		try {
+			System.out.println("In try block");
+			throw new RuntimeException("Exception in try");
+		} finally {
+			System.out.println("In finally block");
+		}
+	}
+
+	A) In try block followed by In finally block
+
+	B) In try block without executing the finally block
+
+	C) Exception in try followed by In finally block
+
+	D) The program will terminate with RuntimeException without executing the finally block
+
+
+2. What happens if an exception is thrown in the finally block of the following code?
+
+	public static void main(String[] args) {
+		try {
+			System.out.println("In try block");
+			throw new RuntimeException("Exception in try");
+		} finally {
+			System.out.println("In finally block");
+			throw new RuntimeException("Exception in finally");
+		}
+	}
+
+	A) The RuntimeException thrown in the finally block will be caught by an outer catch block if present.
+
+	B) The RuntimeException thrown in the finally block will replace the exception thrown in the try block.
+
+	C) The RuntimeException thrown in the finally block will be ignored, and the exception from the try block will be propagated.
+
+	D) The program will terminate with the RuntimeException from the finally block, and the finally block will not be executed.
+
+
+3. Given the following code, what will be printed if the finally block contains a return statement?
+
+	public static void main(String[] args) {
+		try {
+			System.out.println("In try block");
+			return;
+		} finally {
+			System.out.println("In finally block");
+		}
+	}
+
+	A) In try block followed by In finally block
+
+	B) In finally block only
+
+	C) In try block only
+
+	D) The program will not compile due to a compilation error.
+
+
+4. Consider the following code snippet. What is the result when the try block executes normally and the finally block contains code that throws an exception?
+
+	public static void main(String[] args) {
+		try {
+			System.out.println("In try block");
+		} finally {
+			System.out.println("In finally block");
+			throw new RuntimeException("Exception in finally");
+		}
+	}
+
+	A) In try block followed by In finally block, then the program terminates with RuntimeException.
+
+	B) In try block followed by the finally block not being executed.
+
+	C) In try block without executing the finally block.
+
+	D) The RuntimeException thrown in the finally block is caught by an outer catch block if present.
+
+
+5. What will be the output of the following code if a Throwable is thrown in the try block and another Throwable is thrown in the finally block?
+
+    public static void main(String[] args) {
+        try {
+            System.out.println("In try block");
+            throw new Error("Error in try");
+        } finally {
+            System.out.println("In finally block");
+            throw new Error("Error in finally");
+        }
+    }
+
+    A) In try block followed by In finally block, then the program terminates with Error in finally.
+
+    B) In try block followed by the program terminating with Error in try, without executing the finally block.
+
+    C) In finally block followed by the program terminating with Error in finally.
+
+    D) The Error thrown in the finally block will be ignored, and the Error from the try block will be propagated.
+
+
+CUSTOM EXCEPTIONS
+-----------------------
+1.Which of the following statements is true regarding the creation of a custom exception in Java?
+
+	A) A custom exception must always extend RuntimeException to be considered a checked exception.
+
+	B) Custom exceptions can extend either Exception or RuntimeException depending on whether they should be checked or unchecked.
+
+	C) Custom exceptions must extend Throwable directly to be valid.
+
+	D) Custom exceptions are not necessary in Java, and it is recommended to use only standard exceptions.
+
+
+2. Given the following custom exception class, which of the following code snippets correctly throws and catches this exception?
+
+	public class MyCustomException extends Exception {
+		public MyCustomException(String message) {
+			super(message);
+		}
+	}
+
+
+	public static void main(String[] args) {
+		try {
+			throw new MyCustomException("Custom exception occurred");
+		} catch (MyCustomException e) {
+			System.out.println("Caught: " + e.getMessage());
+		}
+	}
+
+	A) Caught: Custom exception occurred
+
+	B) Custom exception occurred without a Caught message
+
+	C) The code will not compile due to a compilation error.
+
+	D) The program will terminate with MyCustomException without executing any catch blocks.
+
+
+3. Consider the following code snippet. What will be the output if processData() throws a DataProcessingException?
+
+	public class DataProcessingException extends Exception {
+		public DataProcessingException(String message) {
+			super(message);
+		}
+	}
+
+	public static void processData() throws DataProcessingException {
+		throw new DataProcessingException("Data processing failed");
+	}
+
+	public static void main(String[] args) {
+		try {
+			processData();
+		} catch (DataProcessingException e) {
+			System.out.println("Exception caught: " + e.getMessage());
+		}
+	}
+
+	A) Exception caught: Data processing failed
+
+	B) Data processing failed without a Exception caught message
+
+	C) The code will not compile due to a missing throws clause.
+
+	D) The program will terminate with a DataProcessingException without executing the catch block.
+
+
+4. What happens if a custom exception is used to handle an error but the catch block does not catch it? Consider the following code:
+
+	public class CustomException extends RuntimeException {
+		public CustomException(String message) {
+			super(message);
+		}
+	}
+
+	public static void main(String[] args) {
+		try {
+			throw new CustomException("Custom runtime exception");
+		} catch (Exception e) {
+			System.out.println("Caught exception: " + e.getMessage());
+		}
+	}
+
+	A) Caught exception: Custom runtime exception
+
+	B) The program will terminate with CustomException without executing the catch block.
+
+	C) The CustomException will be caught by the catch (Exception e) block.
+
+	D) The code will not compile due to a type mismatch in the catch block.
+
+
+5. Given the following custom exception classes, which statement correctly describes their usage?
+
+	public class BaseException extends Exception {
+		public BaseException(String message) {
+			super(message);
+		}
+	}
+
+	public class DerivedException extends BaseException {
+		public DerivedException(String message) {
+			super(message);
+		}
+	}
+
+	public static void main(String[] args) {
+		try {
+			throw new DerivedException("Derived exception occurred");
+		} catch (BaseException e) {
+			System.out.println("Caught base exception: " + e.getMessage());
+		}
+	}
+
+	A) Caught base exception: Derived exception occurred
+
+	B) Derived exception occurred without a Caught base exception message
+
+	C) The code will not compile due to an incompatible catch block.
+
+	D) The program will terminate with DerivedException without executing the catch block.
+	
+
+
+THROW EXCEPTION
+------------------------
+
+1. Given the following code snippet, what will be the output if processValue throws an IllegalArgumentException?
+
+	public class CustomExceptionDemo {
+		public static void processValue(int value) {
+			if (value < 0) {
+				throw new IllegalArgumentException("Negative value not allowed");
+			}
+			System.out.println("Value is: " + value);
+		}
+
+		public static void main(String[] args) {
+			try {
+				processValue(-1);
+			} catch (IllegalArgumentException e) {
+				System.out.println("Caught: " + e.getMessage());
+			}
+		}
+	}
+
+	A) Value is: -1
+
+	B) Caught: Negative value not allowed
+
+	C) The program will terminate with IllegalArgumentException without executing the catch block.
+
+	D) The code will not compile due to the throw statement.
+
+
+2.What will be the result of the following code if calculate throws a CustomException and the catch block is not able to catch it?
+
+	public class CustomException extends Exception {
+		public CustomException(String message) {
+			super(message);
+		}
+	}
+
+	public class ExceptionThrowDemo {
+		public static void calculate() throws CustomException {
+			throw new CustomException("Calculation error");
+		}
+
+		public static void main(String[] args) {
+			try {
+				calculate();
+			} catch (Exception e) {
+				System.out.println("Caught: " + e.getMessage());
+			}
+		}
+	}
+
+	A) Caught: Calculation error
+
+	B) The program will terminate with CustomException without executing the catch block.
+
+	C) The code will not compile due to the throws clause in calculate.
+
+	D) Calculation error will be printed without the Caught: prefix.
+
+
+3. Consider the following code. What will be the output if throwException throws a RuntimeException?
+
+	public class ThrowExceptionDemo {
+		public static void throwException() {
+			throw new RuntimeException("Runtime exception thrown");
+		}
+
+		public static void main(String[] args) {
+			try {
+				throwException();
+			} finally {
+				System.out.println("Finally block executed");
+			}
+		}
+	}
+
+	A) Runtime exception thrown followed by Finally block executed
+
+	B) Finally block executed without the Runtime exception thrown message
+
+	C) Runtime exception thrown without executing the finally block
+
+	D) The program will terminate with RuntimeException without executing the finally block
+
+
+4. What is the behavior of the following code snippet when processData throws a FileNotFoundException?
+
+	import java.io.FileNotFoundException;
+
+	public class FileOperationDemo {
+		public static void processData() throws FileNotFoundException {
+			throw new FileNotFoundException("File not found");
+		}
+
+		public static void main(String[] args) {
+			try {
+				processData();
+			} catch (FileNotFoundException e) {
+				System.out.println("Caught: " + e.getMessage());
+			} catch (Exception e) {
+				System.out.println("Caught general exception");
+			}
+		}
+	}
+
+	A) Caught: File not found
+
+	B) Caught general exception
+
+	C) The code will not compile due to a missing throws clause in processData.
+
+	D) The program will terminate with FileNotFoundException without executing any catch blocks.
+
+
+5.In the following code, what will be the output if an IOException is thrown from readFile?
+
+	import java.io.IOException;
+
+	public class FileReaderDemo {
+		public static void readFile() throws IOException {
+			throw new IOException("IO error occurred");
+		}
+
+		public static void main(String[] args) {
+			try {
+				readFile();
+			} finally {
+				System.out.println("Clean-up actions performed");
+			}
+		}
+	}
+
+	A) IO error occurred followed by Clean-up actions performed
+
+	B) Clean-up actions performed without the IO error occurred message
+
+	C) IO error occurred without executing the finally block
+
+	D) The program will terminate with IOException without executing the finally block
+	
+	
+
+EXCEPTION PROPAGATION
+-----------------------------
+1.Which statement best describes the concept of exception propagation in Java?
+
+	A) Exception propagation refers to the process of automatically retrying a failed operation until it succeeds.
+
+	B) Exception propagation is the mechanism by which an exception thrown in a method is passed to the method's caller, and then potentially further up the call stack until it is caught.
+
+	C) Exception propagation is a technique used to log exceptions to a file system for later debugging.
+
+	D) Exception propagation involves converting a checked exception into an unchecked exception to bypass compilation errors.
+	
+2. In Java, how does the throws keyword affect exception propagation in a method declaration?
+
+	A) The throws keyword allows a method to handle exceptions internally without requiring a try-catch block.
+
+	B) The throws keyword indicates that a method can throw an exception, and this exception must be handled or declared by the calling method.
+
+	C) The throws keyword automatically handles exceptions by retrying the operation until it succeeds.
+
+	D) The throws keyword changes a checked exception into an unchecked exception.
+
+3. How does the Java runtime handle exceptions when a try block in a method throws an exception but the method does not have a catch block?
+
+	A) The Java runtime will handle the exception internally and will not propagate it further.
+
+	B) If there is no catch block within the method, the exception is propagated to the calling method. If the calling method also does not handle the exception, it continues to propagate up the call stack.
+
+	C) The Java runtime will convert the exception into a generic RuntimeException and throw it.
+
+	D) The exception will be handled by a global exception handler that prints the stack trace to the console.
+
+4. Which of the following is true about the finally block in relation to exception propagation?
+
+	A) The finally block is only executed if an exception is thrown and not if the method completes normally.
+
+	B) The finally block is executed whether or not an exception is thrown, and it executes after the try block and any catch blocks.
+
+	C) The finally block will suppress any exception thrown in the try block and prevent it from propagating.
+
+	D) The finally block is executed only if an exception is not thrown.
+
+
+5. Given the following code, what will be the output if calculate throws an ArithmeticException?
+
+	public class ExceptionPropagationDemo {
+		public static void calculate() {
+			int result = 10 / 0; // Throws ArithmeticException
+		}
+
+		public static void process() {
+			calculate();
+		}
+
+		public static void main(String[] args) {
+			try {
+				process();
+			} catch (ArithmeticException e) {
+				System.out.println("Caught: " + e.getMessage());
+			}
+		}
+	}
+
+	A) Caught: / by zero
+
+	B) Caught: ArithmeticException
+
+	C) The program will terminate with an ArithmeticException without executing the catch block.
+
+	D) Caught: / by zero followed by termination of the program with ArithmeticException.
+
+
+6. Consider the following code. What is the behavior if an exception is thrown in methodB and is propagated through methodA?
+
+	public class PropagationTest {
+		public static void methodA() throws Exception {
+			methodB();
+		}
+
+		public static void methodB() throws Exception {
+			throw new Exception("Exception in methodB");
+		}
+
+		public static void main(String[] args) {
+			try {
+				methodA();
+			} catch (Exception e) {
+				System.out.println("Caught in main: " + e.getMessage());
+			}
+		}
+	}
+
+	A) Caught in main: Exception in methodB
+
+	B) The program will terminate with Exception in methodB without executing the catch block.
+
+	C) Caught in main: Exception in methodA
+
+	D) The code will not compile due to an incompatible throws clause.
+	
+
+7. What will be the output of the following code if an IOException is thrown in readFile?
+
+	import java.io.IOException;
+
+	public class FileDemo {
+		public static void readFile() throws IOException {
+			throw new IOException("File not found");
+		}
+
+		public static void processFile() throws IOException {
+			readFile();
+		}
+
+		public static void main(String[] args) {
+			try {
+				processFile();
+			} catch (IOException e) {
+				System.out.println("Caught: " + e.getMessage());
+			}
+		}
+	}
+
+	A) Caught: File not found
+
+	B) The program will terminate with an IOException without executing the catch block.
+
+	C) File not found will be printed without the Caught: prefix.
+
+	D) The code will not compile due to a missing throws clause in processFile.
+
+
+THROWS KEYWORD
+--------------------
+
+1.What is the purpose of the throws keyword in a method signature?
+
+	A) To indicate that the method handles exceptions internally and does not need to declare any exceptions.
+
+	B) To declare that the method might throw one or more exceptions, which must be handled or declared by the calling method.
+
+	C) To convert checked exceptions into unchecked exceptions automatically.
+
+	D) To suppress any exceptions thrown in the method and prevent them from propagating.
+
+2.Given the following code snippet, what will be the output if performOperation throws an IOException?
+
+	import java.io.IOException;
+
+	public class ThrowsKeywordDemo {
+		public static void performOperation() throws IOException {
+			throw new IOException("Operation failed");
+		}
+
+		public static void main(String[] args) {
+			try {
+				performOperation();
+			} catch (IOException e) {
+				System.out.println("Caught: " + e.getMessage());
+			}
+		}
+	}
+
+	A) Caught: Operation failed
+
+	B) The code will not compile due to a missing throws clause in performOperation.
+
+	C) Operation failed will be printed without the Caught: prefix.
+
+	D) The program will terminate with an IOException without executing the catch block.
+
+
+3.What happens if a method with a throws clause does not handle an exception and is called from another method that also does not handle the exception?
+
+	A) The exception is caught and handled by the Java runtime automatically.
+
+	B) The exception propagates up the call stack, and if it reaches the top level without being caught, it results in program termination.
+
+	C) The exception is converted into a runtime exception and handled by the JVM.
+
+	D) The compiler automatically handles the exception and ensures the program does not terminate.
+
+4.Which of the following statements is true regarding using the throws keyword with multiple exceptions?
+
+	A) You can use the throws keyword to declare multiple exceptions in a comma-separated list.
+
+	B) The throws keyword only supports declaring a single exception type at a time.
+
+	C) Declaring multiple exceptions with throws will automatically convert them into a single exception type.
+
+	D) The throws keyword can only be used with unchecked exceptions and not with checked exceptions.
+
+
+5.Consider the following code. What will be the output if processData throws an IOException and main does not handle the exception?
+
+	import java.io.IOException;
+
+	public class ThrowsExample {
+		public static void processData() throws IOException {
+			throw new IOException("Data processing error");
+		}
+
+		public static void main(String[] args) {
+			processData();
+		}
+	}
+
+	A) The program will terminate with IOException: Data processing error.
+
+	B) The IOException will be caught by the Java runtime and handled automatically.
+
+	C) The code will not compile due to a missing throws clause in processData.
+
+	D) The exception will be converted into an unchecked exception and handled by the JVM.
+	
+	
+THROW VS THROWS
+-------------------
+
+1.What is the primary difference between the throw and throws keywords in Java?
+
+	A) throw is used to declare that a method can throw an exception, while throws is used to actually throw an exception.
+
+	B) throw is used to throw an exception manually, while throws is used in a method signature to declare that the method might throw an exception.
+
+	C) throw is used to propagate exceptions up the call stack, while throws is used to suppress exceptions.
+
+	D) throw and throws are interchangeable keywords with identical functionality in Java.
+
+
+2.Given the following code snippet, what will happen if processData throws an IOException?
+
+import java.io.IOException;
+
+	public class ThrowVsThrowsDemo {
+		public static void throwException() throws IOException {
+			throw new IOException("Manual IOException");
+		}
+
+		public static void processData() {
+			try {
+				throwException();
+			} catch (IOException e) {
+				System.out.println("Caught: " + e.getMessage());
+			}
+		}
+
+		public static void main(String[] args) {
+			processData();
+		}
+	}
+
+	A) Caught: Manual IOException
+
+	B) The program will terminate with IOException: Manual IOException without executing the catch block.
+
+	C) The code will not compile due to a missing throws clause in throwException.
+
+	D) The IOException thrown in throwException will not be caught and will cause the program to terminate.
+
+
+3.Which of the following statements is true about using throw and throws in method declarations?
+
+	A) throw can be used in the method signature to declare that a method throws an exception, while throws is used to actually throw an exception.
+
+	B) throws is used in the method signature to declare that the method can throw one or more exceptions, while throw is used within the method body to throw an exception.
+
+	C) Both throw and throws can be used interchangeably within method declarations to throw exceptions.
+
+	D) throw is used to declare checked exceptions in a method signature, and throws is used to handle unchecked exceptions.
+
+
+4.In the following code, what is the behavior if generateError throws an ArithmeticException and handleError does not declare it using throws?
+
+	public class ThrowVsThrowsExample {
+		public static void generateError() {
+			throw new ArithmeticException("Arithmetic error");
+		}
+
+		public static void handleError() {
+			generateError();
+		}
+
+		public static void main(String[] args) {
+			handleError();
+		}
+	}
+
+	A) The ArithmeticException thrown in generateError will be caught and handled automatically.
+
+	B) The program will terminate with ArithmeticException: Arithmetic error.
+
+	C) The code will not compile due to the missing throws clause in handleError.
+
+	D) handleError will automatically handle ArithmeticException because it is an unchecked exception.
+
+
+5.What will be the output of the following code snippet if doWork throws a FileNotFoundException?
+
+	import java.io.FileNotFoundException;
+
+	public class ThrowVsThrowsDemo {
+		public static void doWork() throws FileNotFoundException {
+			throw new FileNotFoundException("File not found");
+		}
+
+		public static void main(String[] args) {
+			try {
+				doWork();
+			} catch (Exception e) {
+				System.out.println("Caught: " + e.getMessage());
+			}
+		}
+	}
+
+	A) Caught: File not found
+
+	B) The program will terminate with FileNotFoundException: File not found.
+
+	C) The FileNotFoundException will be caught and handled automatically as it is declared with throws.
+
+	D) The code will not compile due to a missing throws clause in doWork.
