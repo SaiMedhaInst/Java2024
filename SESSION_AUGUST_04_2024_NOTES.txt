@@ -399,6 +399,7 @@ Methods:
 		int age = 25;
 		String name = "John";
 		System.out.printf("Name: %s, Age: %d%n", name, age); // Output: Name: John, Age: 25
+		System.out.println("Name: " + name + ", Age: " + age);
 	Format Specifiers:
     %s for strings
     %d for integers
@@ -422,7 +423,8 @@ Logger: For more advanced logging needs, especially in larger applications.
 - Java array can also be used as a static field, a local variable, or a method parameter
 - The size of an array must be specified by int or short value and not long.
 - Every array type implements the interfaces Cloneable and java.io.Serializable.
-- The size of the array cannot be altered(once initialized). However, an array reference can be made to point to another array
+- The size of the array cannot be altered(once initialized). 
+	However, an array reference can be made to point to another array
 - A method can accept array as paramter and return array as value [ return must be array ] 
 
 - Arrays are pass by value or reference In JAVA?
@@ -440,13 +442,14 @@ PROPERTIES:
 - We can pass array as a parameter
 - we can declared Anonymous array
 - we can return an array from function.
-- The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException , [if index is invalid]
+- The Java Virtual Machine (JVM) throws an ArrayIndexOutOfBoundsException , 
+	when we try to access [if index is invalid]
 Array base address:
 	- The address of the first array element is called the array base address.
 	- Each element will occupy the memory space required to accommodate the values for its type, i.e.;
 	- Depending on the data type of the elements, 1, 4, or 8 bytes of memory are allocated for each element
 
-- Reference Variable: address of the data  
+- Reference Variable will store address of the data  
 
 example: 
 	int[] numbers; 
@@ -568,4 +571,21 @@ example:
 		=> If we clone of a  N dimensional array, it creates the shallow copy which means it copies the references
 		
 
+
+
+QUESTIONS
+-------------------
+- What is Comparator and Comparable interfaces?
+	Comparable: 
+		- it is natural order sorting 
+		- int compareTo(T o) -> negative, zero, postive 
+	Comparator:
+		- it is used for custom sorting 
+		- int compare(T o1, T o2) -> return negative, zero, positive 
+		- boolean equals(Object obj) 
+
+- What are Wrapper Classes and It's Importance?
+- What is Cloneable and Serializable Interfaces?
+
+		
 
