@@ -21,7 +21,8 @@ TYPES OF STATEMENTS:
 2. CONTROL STATEMENTS.
 	
     Flow of Execution of the program is decided based on control expression value.
-    If TRUE , some block will be executed . If False some other block will be executed.
+    If TRUE , some block will be executed. 
+	If False some other block will be executed.
 	
 		int age = 26;
 		if (age>=18){
@@ -32,7 +33,8 @@ TYPES OF STATEMENTS:
 		}
 
 3. LOOPING STATEMENTS.
-	The Flow of the program is a process of repeative statements or iterations to do particular task.
+	The Flow of the program is a process of repeative statements or 
+	iterations to do particular task.
 	
 
 CONTROL STATEMENTS.
@@ -49,6 +51,7 @@ CONTROL STATEMENTS.
     Use switch to specify many alternative blocks of code to be executed
 
 1. if Statement: Executes a block of code if a specified condition evaluates to true.
+	
 	if (condition) {
 		// Code to execute if condition is true
 	}
@@ -87,15 +90,15 @@ CONTROL STATEMENTS.
 SWITCH CASE/STATEMENT
 ----------------------
 	
-    - Instead of writing many if..else statements, you can use the switch statement.
-    - The switch statement selects one of many code blocks to be executed:
-    - The Java switch expression must be of byte, short, int, long (with its Wrapper type), enums and string.
-    - The case values must be unique. In case of duplicate value, it renders compile-time error.
-    - The case value must be of switch expression type only. 
-	- The case value must be literal or constant. It doesn't allow variables.
-	- default statement is used as the last statement in a switch block, it does not need a break
-	- break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.
-	- If we skip break statement , all true cases will be printed.
+- Instead of writing many if..else statements, you can use the switch statement.
+- The switch statement selects one of many code blocks to be executed:
+- The Java switch expression must be of byte, short, int, long (with its Wrapper type), enums and string.
+- The case values must be unique. In case of duplicate value, it renders compile-time error.
+- The case value must be of switch expression type only. 
+- The case value must be literal or constant. It doesn't allow variables.
+- default statement is used as the last statement in a switch block, it does not need a break
+- break can save a lot of execution time because it "ignores" the execution of all the rest of the code in the switch block.
+- If we skip break statement , all true cases will be printed.
 
 syntax:
 	switch (expression) {
@@ -137,7 +140,8 @@ NESTED CONDITIONAL STATEMENTS.
 							LOOPS IN JAVA 
 				#################################################
 				
-- In computer programming, a loop is a sequence of instructions that is continually repeated until a certain condition is reached.
+- In computer programming, a loop is a sequence of instructions that is continually repeated 
+	until a certain condition is reached.
 - In Java we have 3 loops 
 		- for loop 
 			=> Used to iterate part of program several times. 
@@ -161,6 +165,7 @@ for loop:
 	- condition must be boolean either true or false
 	
 	Try this:
+	
 		for(int i=0, j=1; i<=10 && j<=10; i+=2, j+=2) {
             System.out.println("i = " + i + ", j = " + j);
         }
@@ -169,6 +174,16 @@ for loop:
             System.out.println("infinitive loop");  
         } 
         
+Questions:
+	- patterns 
+	- find the largest num
+	- find the second largest num
+	- find the factorial
+		n = 3
+		1 * 2 * 3 = 6
+	- find the whether num is prime or not 
+	- generate fibonacci series 
+		0 1 1 2 3 5 8 
 while loop:
 -----------------    
         while (condition) {

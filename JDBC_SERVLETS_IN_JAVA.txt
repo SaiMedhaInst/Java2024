@@ -1,0 +1,258 @@
+
+		----------------------------------------------------------------------
+									Java JDBC
+		----------------------------------------------------------------------
+- JDBC stands for Java Database Connectivity.
+- JDBC is a Java API to connect and execute the query with the database.
+- It is a part of JavaSE (Java Standard Edition).
+- JDBC API uses JDBC drivers to connect with the database.
+- JDBC provides a standard interface for Java applications to connect to a wide range of 
+	relational databases, execute SQL queries, and retrieve results.
+
+Key Components of JDBC:
+-----------------------------
+1. JDBC Drivers
+	- These are Java classes that implement the JDBC API 
+	- And handle communication between Java applications and the database
+	- There are Four Types.
+		Type 1: JDBC-ODBC Bridge Driver (deprecated)
+		Type 2: Native-API Driver
+		Type 3: Network Protocol Driver
+		Type 4: Thin Driver (pure Java driver)
+
+2. DriverManager: 
+	 - This class manages a list of database drivers. 
+	 - It is used to establish a connection to the database by selecting an appropriate driver.
+
+3. Connection: 
+	- Represents a session with a specific database. 
+	- It is used to create Statement, PreparedStatement, and CallableStatement objects to execute SQL queries.
+
+4. Statement: 
+	- Used to execute SQL queries against the database. There are three types:
+		- Statement: For executing simple SQL queries.
+		- PreparedStatement: For executing precompiled SQL queries with parameters, which helps prevent SQL injection and improves performance.
+		- CallableStatement: For executing stored procedures.
+
+5. ResultSet: 
+	- Represents the result set of a query. 
+	- It provides methods to iterate through the results and retrieve data.
+	
+6. SQLException: 
+	- Handles any SQL errors that occur during database interaction.
+	
+
+Importance of JDBC in Java:
+	- Database Connectivity
+	- Ease of Use
+	- Portability
+	- Performance
+	- Integration
+	- Transaction Management
+	
+	
+What is API?
+--------------------
+
+- API stands for Application Programming Interface
+- It is a document that contains a specification/description of all the features of a product or software.
+- It represents classes and interfaces that software programs can follow to communicate with each other.
+- An API can be created for applications, libraries, operating systems, etc.
+Ex: We can use JDBC API to access tabular data stored in any relational database
+
+- The current version of JDBC is 4.3.
+- The java.sql package contains classes and interfaces for JDBC API.
+- A list of popular interfaces of JDBC API are
+    Driver interface
+    Connection interface
+    Statement interface
+    PreparedStatement interface
+    CallableStatement interface
+    ResultSet interface
+    ResultSetMetaData interface
+    DatabaseMetaData interface
+    RowSet interface
+
+- A list of popular classes of JDBC API are
+    DriverManager class
+    Blob class
+    Clob class
+    Types class
+
+
+Types of Drivers : 
+-------------------
+- JDBC Driver is a software component that enables java application to interact with the database.
+
+
+Type 1: JDBC-ODBC Bridge Driver:
+	- It uses the JDBC-ODBC bridge to convert JDBC calls into ODBC (Open Database Connectivity) calls. 
+	- This type of driver relies on an ODBC driver to communicate with the database.
+	- Deprecated as of Java 8 and removed in Java 9
+	- CONS
+		- Limited portability
+		- The ODBC driver needs to be installed on the client machine.
+		- Performance degraded
+
+
+Type 2: Native-API Driver (Partially Java Driver)
+	- Type 2 drivers convert JDBC calls into database-specific native API calls. 
+	- They require native libraries specific to the database.
+	- Better performance than Type 1 
+	- CONS: 
+		- Less portable
+		- Native driver needs to be installed on the each client machine.
+		- Vendor client library needs to be installed on client machine.
+
+
+Type 3: Network Protocol Driver (Middleware Driver)
+	- Type 3 drivers use a middleware server to translate JDBC calls into database-specific calls. 
+	- The middleware server (application server) communicates with the database.
+	- The driver communicates with a middleware server using a network protocol, which then interacts with the database.
+	- Better performance than Type 1 due to centralized driver management 
+	- CONS: 
+		- Network support is required on client machine
+		- Maintenance of Network Protocol driver becomes costly
+
+Type 4: Thin Driver (Pure Java Driver)
+	- Type 4 drivers are written entirely in Java and communicate directly with the database using database-specific protocols
+	- They do not require any native code or middleware.
+	- High Performance , Portable 
+	- The most commonly used type of driver for modern Java application
+	
+
+Driver Type		  	Description								Performance								Portability											Usage
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+Type 1				JDBC-ODBC Bridge Driver						Slow								Limited (requires ODBC)								Deprecated; historically used for legacy databases
+Type 2				Native-API Driver (Partially Java)			Better than Type 1					Less portable (requires native libraries)			High performance scenarios with available native libraries
+Type 3				Network Protocol Driver (Middleware)		Good, but with network latency		More portable (centralized driver)					Centralized driver management for multiple databases
+Type 4				Thin Driver (Pure Java)						Best								Highly portable (pure Java)							Most commonly used for modern Java applications
+	
+
+Example:
+- JDBC drivers are usually provided by third-party vendors or open-source projects 
+- Must be explicitly included in your project's classpath. 
+- This means we need to add the appropriate driver JAR file for your database (e.g., MySQL, PostgreSQL, Oracle) 
+	- MySQL: we would use the MySQL Connector/J driver.
+	- PostgreSQL: we would use the PostgreSQL JDBC driver.
+	- Oracle: we would use the Oracle JDBC driver.
+	
+
+Java Database Connectivity with 5 Steps
+-------------------------------------------
+1. Load the JDBC Driver:
+	- Before we can connect to a database, we need to load the JDBC driver that is specific to your database. 
+	- This driver is a library that handles the communication between Java application and the database.
+	- Since JDBC 4.0, explicitly registering the driver is optional.
+    - We just need to put vender's Jar in the classpath, and then JDBC driver manager can detect and load the driver automatically.
+
+	ex: Class.forName("com.mysql.cj.jdbc.Driver"); // For MySQL
+		Class.forName("oracle.jdbc.driver.OracleDriver");
+		Class.forName("org.postgresql.Driver");
+
+2. Establish a Connection: 
+	- Next, we need to establish a connection to the database using the DriverManager.getConnection() method. 
+	- This requires a JDBC URL, which specifies the location of the database, and credentials (username and password).
+	
+Methods:
+	1) public static Connection getConnection(String url)throws SQLException  
+	2) public static Connection getConnection(String url,String name,String password)  throws SQLException
+
+Example: 
+	String url = "jdbc:mysql://localhost:3306/mydatabase";
+	String user = "root";
+	String password = "password";
+	Connection connection = DriverManager.getConnection(url, user, password);
+
+3. Create a Statement: 
+	- Once we have a connection, we use it to create a Statement object. 
+	- This object is used to execute SQL queries. 
+	- We can create a Statement, PreparedStatement, or CallableStatement depending on needs.
+
+Example:
+	
+	Statement statement = connection.createStatement();
+
+4. Execute Queries:
+
+- With the Statement object, we can execute SQL queries using methods 
+	- executeQuery() for SELECT queries 
+	- executeUpdate() for INSERT, UPDATE, and DELETE queries.
+- These Queries will return resultset which contains databae retrieve data.
+
+	
+Example:
+	// For SELECT queries
+	ResultSet resultSet = statement.executeQuery("SELECT * FROM users");
+
+	// For INSERT, UPDATE, DELETE queries
+	int rowsAffected = statement.executeUpdate("INSERT INTO users (name, email) VALUES ('John Doe', 'john@example.com')");
+
+
+5. Process Results and Clean Up:
+	- After executing a query, if we performed a SELECT operation, we need to process the ResultSet returned. 
+	- For other operations, we should handle the number of affected rows. 
+	- Finally, it’s important to close the ResultSet, Statement, and Connection to free up resources.
+	
+	
+Example:
+	// Processing the ResultSet
+	while (resultSet.next()) {
+		int id = resultSet.getInt("id");
+		String name = resultSet.getString("name");
+		String email = resultSet.getString("email");
+		System.out.println(id + ": " + name + " (" + email + ")");
+	}
+
+	// Close resources
+	resultSet.close();
+	statement.close();
+	connection.close();
+
+
+Example Program:
+	
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+public class JDBCExample {
+    public static void main(String[] args) {
+        Connection connection = null;
+        Statement statement = null;
+        ResultSet resultSet = null;
+
+        try {
+            // Step 1: Load the JDBC driver (optional for modern drivers)
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            // Step 2: Establish a connection
+            String url = "jdbc:mysql://localhost:3306/mydatabase";
+            String user = "root";
+            String password = "password";
+            connection = DriverManager.getConnection(url, user, password);
+
+            // Step 3: Create a statement
+            statement = connection.createStatement();
+
+            // Step 4: Execute a query
+            resultSet = statement.executeQuery("SELECT * FROM users");
+
+            // Step 5: Process results and clean up
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                System.out.println(id + ": " + name + " (" + email + ")");
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+			if (resultSet != null) resultSet.close();
+			if (statement != null) statement.close();
+			if (connection != null) connection.close();
+        }
+    }
+}
+

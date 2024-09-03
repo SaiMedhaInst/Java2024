@@ -1,6 +1,7 @@
 import java.util.List;
 import java.util.Arrays;
 import java.util.Comparator;
+import java.util.Arrays;
 
 public class ArrayExample {
     public static void main(String[] args) {
@@ -59,6 +60,57 @@ public class ArrayExample {
         ageList.sort(Comparator.reverseOrder());
         System.out.println(ageList);
 
+        System.out.println("***** ND Arrays *******");
+
+        // ND arrays 
+        int[][] matrix = new int[3][4];
+        int [][]matrix1 = new int[3][4];
+        int matrix2[][] = new int[3][4];
+        int []matrix3[] = new int[3][4];
+        int[][] matrix4 = new int[3][]; // Jagged array 
+
+        // Invalid 
+        // rowSize is mandatory, columnSize is optional 
+        // int[][] matrix5 = new int[][4];
+
+        // using Literal
+        int[][] mat = { {1, 2, 3}, {4, 5, 6}, {7, 8} , {11, 12, 13, 14, 15}};
+        System.out.println(mat.length); // num of rows
+        System.out.println(mat[3].length); // nums of columns
+        System.out.println(mat[3][2]);
+
+        // Jagged Arrays 
+        int arr[][] = new int[3][];  
+		arr[0] = new int[3];  
+		arr[1] = new int[4];  
+		arr[2] = new int[2]; 
+
+
+
+        // check Arrays are passed by value or reference 
+        float salaries[] = {10.5f, 12.4f, 15.3f, 7.7f};
+        testArray(salaries);
+        System.out.println(Arrays.toString(salaries)); // print the array in a single line
+
+
+        // 1D array cloning : deep copy
+        float cloneSalaries[] = salaries.clone();
+
+        salaries[1] = 30.5f; 
+
+        System.out.println("1D Original Array " + Arrays.toString(salaries));
+        System.out.println("1D Clonned Array " + Arrays.toString(cloneSalaries));
+
+        // ND cloning : swallow copy
+        int[][] matClone = mat.clone();
+        mat[0][0] = 1729;
+        System.out.println("ND Original Array " + Arrays.toString(mat[0]));
+        System.out.println("ND Clonned Array " + Arrays.toString(matClone[0]));
     
+    }
+
+    public static void testArray(float arr[]) {
+        arr[0] = 20.5f;
+        System.out.println(Arrays.toString(arr));
     }
 }
