@@ -24,7 +24,7 @@ public class LoopExamples {
         }
 
         // example -5 
-        // declaration of two variable should be done at done, inside or outside loop
+        // declaration of two variable should be done at once, inside or outside loop
     /*   
         int i;
         for(i=0, int j=1; i<=10 && j<=10; i+=2, j+=2) {

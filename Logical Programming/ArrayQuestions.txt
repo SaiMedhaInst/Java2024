@@ -1,0 +1,65 @@
+Basic Questions
+	Sum of Array Elements:
+		Write a loop to calculate the sum of all elements in an integer array.
+	
+	Find Maximum Value:
+		Given an array of integers, write a loop to find the maximum value.
+	
+	Find Minimum Value:
+		Given an array of integers, write a loop to find the minimum value.
+	
+	Count Even Numbers:
+		Write a loop to count how many even numbers are in an array.
+	
+	Reverse Array:
+		Write a loop to reverse the order of elements in an array.
+
+Intermediate Questions
+
+	Find the Index of a Value:
+		Write a loop to find the index of a given value in an array. Return -1 if the value is not found.
+	
+	Array of Squares:
+		Given an array of integers, create a new array where each element is the square of the corresponding element in the original array.
+	
+	Remove Duplicates:
+		Write a loop to remove duplicate values from an array, and store the result in a new array.
+	
+	Shift Elements:	
+		Write a loop to shift all elements of an array to the right by one position. The last element should wrap around to the first position.
+	
+	Merge Two Arrays:
+		Write a loop to merge two arrays into a single array, maintaining the order of elements from the original arrays.
+
+Advanced Questions
+
+	Rotate Array:
+		Write a loop to rotate the elements of an array by k positions to the right.
+	
+	Find Second Largest Element:
+		Write a loop to find the second largest element in an array.
+	
+	Sort Array (Bubble Sort):
+	Implement a simple bubble sort algorithm to sort an array in ascending order.
+	
+	Matrix Transposition:
+		Given a 2D matrix, write a loop to transpose it (swap rows with columns).
+	
+	Array Intersection:
+		Given two arrays, write a loop to find the common elements between them.
+	
+	Two Sum Problem:
+		Given an array of integers and a target sum, write a loop to find two distinct elements in the array that add up to the target sum.
+	
+	Longest Increasing Subsequence:
+		Write a loop to find the length of the longest increasing subsequence in an array.
+	
+	Frequency Count:
+		Write a loop to count the frequency of each element in an array and store the counts in a dictionary or another array.
+	
+	Kth Largest Element:
+		Write a loop to find the kth largest element in an unsorted array.
+	
+	Partition Array:
+		Given an array and a value, partition the array so that all elements less than the given value come before elements greater than or equal to the value.
+
