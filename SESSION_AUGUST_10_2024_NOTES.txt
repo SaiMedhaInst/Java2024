@@ -176,14 +176,17 @@ for loop:
         
 Questions:
 	- patterns 
-	- find the largest num
-	- find the second largest num
-	- find the factorial
+	- find the largest num : O(n)
+	- find the second largest num : O(n)
+	- find the factorial : O(n)
 		n = 3
 		1 * 2 * 3 = 6
-	- find the whether num is prime or not 
-	- generate fibonacci series 
+	- find the whether num is prime or not : O(n), find the optimized?
+	- generate fibonacci series : O(n)
 		0 1 1 2 3 5 8 
+	- Linear Search (searching sorted and unsorted) : O(n)
+	- Binary Search (searching in sorted data) : O(logN)
+	
 while loop:
 -----------------    
         while (condition) {
@@ -244,7 +247,8 @@ Nested Loops:
     - nested while loop 
     - nested do while loop 
     = nested for each 
-    
+- for ONE iteration of outer loop, INNER LOOP will execute all it's iterations 
+
 example:
         String[] tasks = {"Task1", "Task2", "Task3", "Task4"};
         String[] servers = {"Server1", "Server2"};
@@ -374,6 +378,17 @@ Types of Methods:
         else   
             System.out.println(num+" is odd");  
     }
+	
+Static Methods:
+	- declared with static keyword
+	- bounded to class rather than object
+	- we call directly with classname 
+	
+Instance Methods:
+	- no need to declare static keyword
+	- bounded to object/instance
+	- we have to must call with object name only 
+	
 
 observations
 ---------------------
