@@ -568,7 +568,7 @@ example:
 	- Java array implements the Cloneable interface,
 	- we can create the clone of the Java array. 
 		=> If we clone of a 1D array, it creates the deep copy of the Java array, means it will copy the actual value.
-		=> If we clone of a  N dimensional array, it creates the shallow copy which means it copies the references
+		=> If we clone of a N dimensional array, it creates the shallow copy which means it copies the references
 		
 
 

@@ -168,7 +168,7 @@ Example:	Thread.sleep(1000); // Thread enters Timed Waiting state for 1 second
 
 Example:
 
-	Thread thread = new Thread(() -> {});
+	Thread thread = new Thread(() -> {}); # Thread(Runnable)
 	thread.start();
 	// After thread execution completes, it enters Terminated state
 

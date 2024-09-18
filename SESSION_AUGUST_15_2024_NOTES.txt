@@ -57,9 +57,9 @@ COMPILE:
 	javac -d . Simple.java
 
 	different directory
-		javac -d "C:\Users\akraj\Desktop\Java_2024_Training" Simple.java
-		Java -cp "C:\Users\akraj\Desktop\Java_2024_Training" com.example.Simple     
-		
+	javac -d "C:\Users\akraj\Desktop\Java_2024_Training" Simple.java
+	java -cp "C:\Users\akraj\Desktop\Java_2024_Training" com.example.Simple     
+	
 RUNNING:
 -----------------
 	java com.example.Simple 

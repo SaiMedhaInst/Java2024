@@ -252,6 +252,8 @@ Example:
 		  System.out.println("ArrayIndexOutOfBounds Exception occurs");
 		} catch (Exception e) {
 		  System.out.println("Parent Exception occurs");
+		} catch(Error error) {
+			System.out.println("handled Error");
 		}
 		System.out.println("rest of the code");
 	  }
@@ -269,11 +271,13 @@ NESTED TRY CATCH BLOCK
 
 Outer try-catch Block: 
  - This block wraps a section of code that may throw exceptions. 
- - If an exception occurs within this block, it can be caught and handled by the corresponding catch block.
+ - If an exception occurs within this block, 
+	it can be caught and handled by the corresponding catch block.
 
 Inner try-catch Block: 
 - This block is placed inside the outer try block and handles exceptions that occur within its own scope. 
-- Exceptions thrown in the inner try block are not propagated to the outer catch block unless explicitly rethrown.
+- Exceptions thrown in the inner try block are 
+	not propagated to the outer catch block unless explicitly rethrown.
 	
 Example:
 	public class NestedTryCatchExample {
@@ -316,7 +320,8 @@ When to Use Finally Block?
 -> Logging: To perform logging or other actions that must happen regardless of whether an exception was thrown.
 
 
-**Note**: If you don't handle the exception, before terminating the program, JVM executes finally block (if any).
+**Note**: If you don't handle the exception, 
+		before terminating the program, JVM executes finally block (if any).
 
 
 Syntax:
@@ -360,7 +365,8 @@ public class FinallyExample {
 	it will override any return statement from the try or catch blocks.
 	
 **Exception in Finally:**
-- If an exception occurs in the finally block, it will override any exception that was thrown in the try block.
+- If an exception occurs in the finally block, 
+	it will override any exception that was thrown in the try block.
 
 Example-1:
 
@@ -432,9 +438,9 @@ public class StudentNotFoundException extends RuntimeException {
     }
 }
 
-							--------------------------------------------
-											THROW EXCEPTION
-							--------------------------------------------
+				--------------------------------------------
+								THROW EXCEPTION
+				--------------------------------------------
 						
 - throw keyword is used to throw an exception explicitly.
 - We can throw either checked or unchecked exceptions in Java by throw keyword. 
@@ -494,7 +500,9 @@ public class Validator {
     public void validateAge(int age) throws InvalidAgeException {
         if (age < 0) {
             throw new InvalidAgeException("Age cannot be negative: " + age);
-        }
+        } else {
+			System.out.println("Valid Age ");
+		}
     }
 }
 
@@ -599,14 +607,15 @@ Example:
 		}
 	}
 
-Rule: If we are calling a method that declares an exception, we must either caught or declare the exception.
+Rule: If we are calling a method that declares an exception, 
+		we must either caught or declare the exception.
 
 Case 1: Handle Exception Using try-catch block
 -------
 	import java.io.*;
 	class Test {
 		void m1() throws IOException {
-			throw new IOException("device error");
+			System.out.println("inside m1 () method");
 		}
 	}
 	public class Example {
@@ -738,7 +747,8 @@ Example:
 2. IF THE SUPERCLASS METHOD DECLARES AN EXCEPTION
 
 - If the superclass method declares an exception, 
-	subclass overridden method can declare same, subclass exception or no exception 
+	subclass overridden method can declare same, 
+	subclass exception or no exception 
 	But cannot declare parent exception.
 	
 Example1: Same type of exceptions
@@ -821,9 +831,8 @@ Example-5
 	}    
 		  
 	class Child extends Parent{    
-
 		void msg() throws ArithmeticException {    
-		  System.out.println("Child msg method with ArithmeticException declaration ");   
+		  System.out.println("Child msg method with Arithmetic Exception declaration ");   
 		}
 	}
 

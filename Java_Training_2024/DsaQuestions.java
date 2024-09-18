@@ -37,18 +37,16 @@ public class DsaQuestions {
     }
 
     private static void twoSumProblem(int arr[], int target) {
-        // Method-1: Bruteforce method : iterate using two loops 
-        // Time complexity: o(n^2)
+        // Method-1: Bruteforce method : iterate using two loops , Time complexity: o(n^2)
         for(int i = 0; i < arr.length; i++) {
-            for (int j = i+1; j<arr.length; j++) {
+            for (int j = i+1; j < arr.length; j++) {
                 if (arr[i] + arr[j] == target) {
                     System.out.printf("target:%d found at indices: (%d, %d)\n" , target, i,j);
                 }
             }
         }
 
-        // Method-2: using Hashing {2: 0, 7:1, 11:2, 15:3}
-        // Time complexity: O(n)
+        // Method-2: using Hashing, Time complexity: O(n)
         HashMap<Integer, Integer> numToIndex = new HashMap<>();
         for (int i = 0; i < arr.length; i++) {
             int complement = target - arr[i]; //  target - num

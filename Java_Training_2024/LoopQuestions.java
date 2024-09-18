@@ -82,21 +82,11 @@ public class LoopQuestions {
         // Prime number : A number having only 2 factors i.e one and itself , 
         // ex: 7: (1*7) (7*1) -> Prime
         // 6: (1*6) (2*3) (3*2) (6*1) -> Not Prime 
-        long num = 10;
-        int fc=0;
-        long start = System.currentTimeMillis();
-        for(long i = 1; i<=num; i++) {
-            if(num%i == 0) { // if it is factor, remainder will be zero
-                fc++;
-            }
-        }
-        if (fc == 2)
-            System.out.printf("num: %d is Prime\n", num);
-        else    
-             System.out.printf("num: %d is not Prime\n", num);
+        checkPrimeNumberNativeApproach();
 
-        System.out.println("Time taken: " + (System.currentTimeMillis() - start));
-
+        int N = 18;
+        boolean isPrime = checkPrimeNumberOptimizedApproach(N);
+        System.out.println(N + " is Prime: " + isPrime);
 
         // While Loop 
         System.out.println("******** While Loop Examples ********");
@@ -111,7 +101,7 @@ public class LoopQuestions {
 
         // example-2
         int x = 1;
-        int N = 10;
+        N = 10;
         sum = 0;
         while (x <= N) {
             sum = sum + x;
@@ -215,6 +205,38 @@ public class LoopQuestions {
 
     
     
+    private static boolean checkPrimeNumberOptimizedApproach(int N) {
+        if (N<=1) 
+            return false;
+        for(int i = 2; i <= Math.sqrt(N); i++) {
+            if (N%i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+
+
+    private static void checkPrimeNumberNativeApproach() {
+        long num = 10;
+        int fc=0;
+        long start = System.currentTimeMillis();
+        for(long i = 1; i<=num; i++) {
+            if(num%i == 0) { // if it is factor, remainder will be zero
+                fc++;
+            }
+        }
+        if (fc == 2)
+            System.out.printf("num: %d is Prime\n", num);
+        else    
+             System.out.printf("num: %d is not Prime\n", num);
+
+        System.out.println("Time taken: " + (System.currentTimeMillis() - start));
+    }
+
+
+
     private static void findLargestNumber(int[] arr) {  // method declaration
         int largest = Integer.MIN_VALUE; // -2147483648
         for(int i=0; i<arr.length; i++) {

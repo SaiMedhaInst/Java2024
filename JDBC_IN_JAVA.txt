@@ -356,6 +356,21 @@ Other Methods:
 	ex: DatabaseMetaData metaData = conn.getMetaData();
 
 
+### Connection Interface Fields
+
+TRANSACTION_NONE: No transaction is supported, and it is indicated by this constant.
+
+TRANSACTION_READ_COMMITTED: It is a constant which shows that the dirty reads are not allowed. 
+	However, phantom reads and non-repeatable reads can occur.
+
+TRANSACTION_READ_UNCOMMITTED: It is a constant which shows that dirty reads, non-repeatable reads, 
+	and phantom reads can occur.
+
+TRANSACTION_REPEATABLE_READ: It is a constant which shows that the non-repeatable reads and dirty reads are not allowed. However, phantom reads and can occurr.
+
+TRANSACTION_SERIALIZABLE: It is a constant which shows that the non-repeatable reads, dirty reads as well as the phantom reads are not allowed.
+
+
 	=======================================================================================================================
 												Statement interface
 	=======================================================================================================================

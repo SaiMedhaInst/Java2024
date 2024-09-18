@@ -434,7 +434,7 @@ Different Programming paradigms:
      
      
 Prinicipals:
-    Class: Class is specification or blueprint for the class
+    Class: Class is specification or blueprint for the object
     Object: Object is a run-time entity.
     Encapsulation: Bundles data and methods into a class and restricts access.
     Inheritance: Allows classes to inherit properties and methods from other classes.
@@ -447,7 +447,7 @@ CLASS
 ------------
 - Class is a user-defined data type which defines its properties and its functions.
 - Class is the only logical representation of the data
-- Class is specification or blueprint for the class
+- Class is specification or blueprint for the object
 - we use class keyword to declare classes in java
 - A class in Java can contain:
     Fields
@@ -472,9 +472,9 @@ OBJECT
 - An object can represent a person, place or any other item. 
 - An object can operate on both data members and member functions.
 - An object has three characteristics
-        - State
-        - Behaviour 
-        - Identity 
+        - State defined by variables
+        - Behaviour defined by methods
+        - Identity defined by unqiue code(hashcode)
     ex: Pen is an object. 
         Its name is Reynolds; color is white, known as its state. 
         It is used to write, so writing is its behavior.
@@ -509,15 +509,25 @@ Syntax:
         }
     }
 
+Terminologies
+-----------------------
+variables == Fields == Data members == attributes
+methods == member functions
+object == instance 
 
-3 Ways to initialize an object attributes:
-    1.  By reference variable
-    2.  By method (setters, getters) 
-    3.  By constructor
+3 Ways to initialize an instance/object attributes:
+    1. By constructor
+    2. By method (setters, getters) 
+    3. By reference variable (only if access modifier is non private)
 
 Try this:
     What are the different ways to create an object in Java?
-    
+	Declare Student class with required Fields and Method 
+	Declare Bank class with following Fields
+		branchName, accountNumber, currentBalance, typeOfAccount
+		Methods:
+			displayUserInfo(), getCurrentBalance(), deposit(double amt), withdraw(double amt)
+			
 Anonymous object:
     - Anonymous simply means nameless. 
     - An object which has no reference is known as an anonymous object. 
