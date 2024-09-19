@@ -67,7 +67,7 @@ public class OOPsExamples {
 
 
         // Mobile object creation
-        Mobile realme = new Mobile(); // JVM will provide default no args constructor, if no constructor is defined
+        Mobile realme = new Mobile(); // JVM will provide default no args constructor, if no constructor is defined in the class
         System.out.println(realme.name);
         System.out.println(realme.model);
         System.out.println(realme.price);
