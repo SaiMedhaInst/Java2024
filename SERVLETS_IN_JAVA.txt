@@ -1,3 +1,78 @@
 		----------------------------------------------------------------------
 									Servlets In Java
 		----------------------------------------------------------------------
+
+- Servlets are a fundamental component of Java's web technology stack, part of Java EE (Enterprise Edition).
+- Servlet technology is used to create a web application (resides at server side and generates a dynamic web page).
+- Servlet technology is robust and scalable because of java language.
+- Before Servlet, CGI (Common Gateway Interface) scripting language was common as a server-side programming language.
+
+### What is Servlets?
+- Java Programs that run on web server, handling requests and response clients.
+- Servlet is an API that provides many interfaces and classes including documentation.
+- Servlet is an interface that must be implemented for creating any Servlet.
+- Servlet is a web component that is deployed on the server to create a dynamic web page
+
+### What is CGI (Common Gateway Interface):
+- CGI technology enables the web server to call an external program and pass HTTP request information to the external program to process the request. 
+- For each request, it starts a new process
+- CONS:
+    If the number of clients increases, it takes more time for sending the response.
+    For each request, it starts a process, and the web server is limited to start processes.
+    It uses platform dependent language e.g. C, C++, perl.
+- PROS of Servlet:
+    The web container creates threads for handling the multiple requests to the Servlet.
+    Threads have many benefits over the Processes such as they share a common memory area, lightweight, cost of communication between the threads are low
+
+
+### Web Terminology
+1. Client-Server Architecture:
+	- A framework where client devices (like PCs or smartphones) request services or resources from a centralized server. 
+	- The server processes these requests and sends back responses, enabling efficient resource management and communication.
+
+2. Webpage: 
+	- A single document on the internet that can be displayed in a web browser. 
+	- It typically contains content like text, images, and links and is defined by HTML (HyperText Markup Language).
+
+3. Website: Static vs Dynamic:
+	- Static Website: Contains fixed content that remains the same unless manually updated. 
+		-> Pages are often HTML files served directly.
+    - Dynamic Website: Generates content dynamically based on user input or data from a database.
+		-> allowing for real-time updates and interactivity.
+
+4. How a Website Works
+	- When a user enters a URL, their browser sends an HTTP request to a web server. 
+	- The server processes the request, retrieves the necessary files or data, and sends back an HTTP response. 
+	- The browser then renders the content, allowing the user to interact with the site.
+
+5. URL (Uniform Resource Locator): 
+	- The specific address used to access a resource on the internet (e.g., https://www.example.com/page).
+	- Domain Name: 
+		A user-friendly address that maps to an IP address, helping users navigate the web without remembering numerical addresses.
+
+6. HTTP & HTTPS
+    HTTP (HyperText Transfer Protocol): 
+		- A protocol for transferring data on the web, but without encryption, making it vulnerable to interception.
+    HTTPS (HTTP Secure): 
+		- An encrypted version of HTTP, using SSL/TLS to secure data exchanges, ensuring privacy and integrity.
+		
+7. HTTP Request Methods:
+	Different methods used to communicate with a web server:
+		GET: Request data from the server.
+		POST: Submit data to be processed by the server.
+		PUT: Update existing data on the server.
+		DELETE: Remove data from the server.
+	
+8. Content Type
+	- Specifies the type of data being sent or received in an HTTP transaction.
+	- Indicated in headers (e.g., text/html for HTML content or application/json for JSON data). 
+	- This helps browsers and servers understand how to handle the content.
+
+9. Server: Application Server vs Web Server
+    Web Server: 
+		- Focuses on serving static content (like HTML pages) and handling HTTP requests/responses. 
+		- Examples: Apache and Nginx.
+    Application Server: 
+		- Manages dynamic content and application logic, often interacting with databases and providing complex functionalities. 
+		- Examples Tomcat and JBoss.
+	

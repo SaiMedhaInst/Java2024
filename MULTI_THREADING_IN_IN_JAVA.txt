@@ -95,7 +95,7 @@ Constructors:
 
 Methods:
 - Thread Creation and Control: start(), run(), sleep(long millis), interrupt(), join().
-- Thread Information: getId(), getName(), setName(String name), getState(), isAlive(), currentThread(),
+- Thread Information: getId(), getName(), getState(), setName(String name), isAlive(), currentThread(),
 - Thread Priority: setPriority(int priority), getPriority().
 - Synchronization and Communication: wait(), notify(), notifyAll() [Object class methods]
 - Deprecated Methods: stop(), suspend(), resume(), checkAccess().
@@ -143,8 +143,8 @@ In Java, a thread always exists in any one of the following states. These states
 - This could be due to waiting for a lock or some other resource.
 
 Example:
-	synchronized (lock) {
-		// Thread could be blocked waiting for a lock on 'lock'
+	synchronized (resource) {
+		// Thread could be blocked waiting for a lock on 'resource'
 	}
 
 4.Waiting:
@@ -186,29 +186,34 @@ Terminated: The thread has completed its task and is no longer running.
 Example:
 
 public class ThreadLifeCycleExample {
+	private static Object resource = new Object();
+	
     public static void main(String[] args) throws InterruptedException {
         Thread thread = new Thread(() -> {
             try {
                 // Waiting state
-                synchronized (this) {
-                    wait(); // Thread enters Waiting state
+                synchronized (resource) {
+                    System.out.println(Thread.currentThread() + " is going to WAIT state.");
+                    resource.wait(); // Thread enters Waiting state
                 }
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
-        });
+        });									
 
         System.out.println("State after creation: " + thread.getState()); // New
 
         thread.start(); // Moves to Runnable state
         System.out.println("State after start: " + thread.getState()); // Runnable
+    
 
         // Simulate waiting for the thread to become blocked or waiting
         Thread.sleep(500);
         System.out.println("State while waiting: " + thread.getState()); // Waiting or Blocked
 
-        synchronized (thread) {
-            thread.notify(); // Notify the thread
+        synchronized (resource) {
+            System.out.println(Thread.currentThread() + " is notifying");
+            resource.notify(); // Notify the thread
         }
 
         thread.join(); // Wait for the thread to finish
@@ -230,18 +235,19 @@ public class ThreadLifeCycleExample {
 - Extend the Thread Class: Create a new class that extends the Thread class.
 - Override the run() Method: Implement the run() method in your class. 
 							 This method contains the code that will be executed by the thread.
-- Create an Instance and Start the Thread: Instantiate your custom thread class and call the start() method to begin execution.
+- Create an Instance and Start the Thread: 
+			- Instantiate your custom thread class and call the start() method to begin execution.
 
 Example:
 
-					// Step 1: Extend the Thread class
+	// Step 1: Extend the Thread class
 	public class MyThread extends Thread {
 		
 		// Step 2: Override the run() method
 		@Override
 		public void run() {
-			for (int i = 0; i < 5; i++) {
-				System.out.println("Thread is running: " + i);
+			for (int i = 1; i <= 5; i++) {
+				System.out.println(Thread.currentThread().getName() + " Is Executing Task: " + i);
 			}
 		}
 	}
@@ -270,8 +276,8 @@ Example:
 		// Step 2: Override the run() method
 		@Override
 		public void run() {
-			for (int i = 0; i < 5; i++) {
-				System.out.println("Runnable thread is running: " + i);
+			for (int i = 1; i <= 5; i++) {
+				System.out.println(Thread.currentThread().getName() + " Is Executing Task: " + i);
 			}
 		}
 	}
@@ -348,8 +354,25 @@ Example:
 TRY THESE ?
 
 1.Can we call Thread.sleep() on main thread?
-2.Can we call a start() method twice?
+2.Can we call a start() method of a Thread twice?
 3.Can we call directly run() method? If yes what's behaviour.
+
+Example:
+
+class MyThread extends Thread {
+    public void run() {
+        System.out.println("Running in thread: " + Thread.currentThread().getName());
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        MyThread thread = new MyThread();
+        thread.run(); // Calls run() directly
+        System.out.println("Back in main thread: " + Thread.currentThread().getName());
+    }
+}
+
 
 **NOTE**: When the sleeping time is negative throws the IllegalArguementException.
 
@@ -364,11 +387,11 @@ TRY THESE ?
 		so we should not assume that join will wait exactly as long as we specify.
 
 
-What join() Does:
+What join() Does? 
 
 - Wait for Completion: When we call the join() method on a thread, the thread that calls join() will pause and wait 
 	until the thread on which join() was called finishes its task.
-- Synchronization: It helps synchronize threads, ensuring that a certain piece of code doesn’t execute until another thread has completed its wor
+- Synchronization: It helps synchronize threads, ensuring that a certain piece of code doesn’t execute until another thread has completed its work.
 
 Syntax:
 		public final void join() throws InterruptedException  
@@ -393,30 +416,36 @@ Example:
 
 	public class Example {
 		public static void main(String[] args) {
-		  ThreadJoin th1 = new ThreadJoin();  
-		  ThreadJoin th2 = new ThreadJoin();  
-		  ThreadJoin th3 = new ThreadJoin(); 
+		  ThreadJoin t1 = new ThreadJoin();  
+		  ThreadJoin t2 = new ThreadJoin();  
+		  ThreadJoin t3 = new ThreadJoin(); 
 		   
-		  th1.start();  
+		  t1.start();  
 		  try {  
 				System.out.println("The current thread: "+ Thread.currentThread().getName());
-			th1.join();  
+				t1.join();  
 		  } catch(Exception e) {  
 			e.printStackTrace(); 
 		  }  
 	   
-		  th2.start();
+		  t2.start();
 		  try {  
 				System.out.println("The current thread: " + Thread.currentThread().getName());  
-			th2.join();  
+				t2.join();  
 			} catch(Exception e) { 
 			  e.printStackTrace();
 			} 
 
-		  th3.start();  
+		  t3.start();  
 		}
 	}
 
+
+Explanation:
+	Thread Creation: Three threads (t1, t2, and t3) are created.
+	Thread Start: th1 is started first.
+	Join Method: The main thread calls th1.join(), which means the main thread will wait until t1 completes its execution.
+	Subsequent Threads: After t1 finishes, t2 and t3 are started.
 
 join(long miliseconds) Method
 ----------------------------------
@@ -740,7 +769,8 @@ Types of Synchronization:
 	- Process Synchronization
 	- Thread Synchronization
 
-Thread Synchronization There are two types of thread synchronization mutual exclusive and inter-thread communication.
+### Thread Synchronization:
+	There are two types of thread synchronization mutual exclusive and inter-thread communication.
 
 1.Mutual Exclusive
 - Mutual Exclusive helps keep threads from interfering with one another while sharing data
