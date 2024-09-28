@@ -48,6 +48,7 @@ class ConcreteClass {
 
 abstract class Bank {
     public abstract double rateOfInterest(); // can only be defined only inside abstract class
+    public abstract double fixedDepositRateOfInterest();
     public String operation() {  // non abstract method
         return "Offers both saving and current account operations";
     }
@@ -57,9 +58,13 @@ class SBI extends Bank {
     public double rateOfInterest() {
         return 9.2;
     }
+
+    public double fixedDepositRateOfInterest() {
+        return 6.6;
+    }
 }
 
-class HDFC extends Bank {
+abstract class HDFC extends Bank {
     public double rateOfInterest() {
         return 8.65;
     }
@@ -69,6 +74,12 @@ class HDFC extends Bank {
     }
 }
 
+
+class HDFCFinance extends HDFC {
+    public double fixedDepositRateOfInterest() {
+        return 6.8;
+    }
+}
 
 interface MobileI {
     // constants : public static final 
@@ -99,8 +110,64 @@ class SamSung implements MobileI {
 
 }
 
+enum Day {
+    SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
+}
 
-public class OOPsExamples2 {
+
+class OuterClass {
+    private String outerField = "John"; // instance 
+    private static long num = 101822; // static
+
+    // Member Inner Class: has access to all instance fields
+    public class InnerClass {
+        public void display() {
+            System.out.println("Inner class accessing outer field: " + outerField);
+        }
+    }
+
+    // Static Nested Class: has access to all static fields
+    public static class StaticNestedClass {
+        public void display() {
+            System.out.println("Static nested class accessing outer field: " + num);
+        }
+    }
+
+    public void method() {
+        // Method Local Inner Class: object creation should happen within method only
+        class LocalInnerClass {
+            public void display() {
+                System.out.println("Local inner class.");
+            }
+        }
+        LocalInnerClass local = new LocalInnerClass();
+        local.display();
+      }
+    }
+
+
+class Singleton {
+    private static Singleton instance;
+
+    private Singleton() {
+        // private constructor to prevent instantiation
+    }
+
+    public static Singleton getInstance() {
+        if (instance == null) {
+            instance = new Singleton();
+        }
+        return instance;
+    }
+}
+
+class Devara {
+    public Devara(String name) {
+        System.out.println(name);
+    }
+}
+    
+final class OOPsExamples2 {
     public static void main(String[] args) {
         // regular way of creating object
         Student s1 = new Student();
@@ -120,7 +187,11 @@ public class OOPsExamples2 {
         // Bank sbi = new Bank(); // cannot be instantiated
 
         Bank sbi = new SBI(); // object of child class storing parent class reference variable.
-        Bank hdfc = new HDFC();
+        System.out.println(sbi.rateOfInterest());
+        System.out.println(sbi.fixedDepositRateOfInterest());
+        System.out.println(sbi.operation());
+
+        HDFC hdfc = new HDFCFinance();
         System.out.println(sbi.rateOfInterest());
         System.out.println(hdfc.rateOfInterest());
 
@@ -132,7 +203,29 @@ public class OOPsExamples2 {
         System.out.println(MobileI.YEAR);
         System.out.println(sam.model());
 
+        // Enum 
+        Day d = Day.MONDAY;
+        System.out.println(d);
 
+        // Member Inner class
+        OuterClass oc = new OuterClass(); // outer class object creation
+        OuterClass.InnerClass ic = oc.new InnerClass();
+        ic.display();
+
+        // Static Inner class 
+        OuterClass.StaticNestedClass sic = new OuterClass.StaticNestedClass();
+        sic.display();
+
+
+        // Singleton class 
+        Singleton so1 = Singleton.getInstance();
+        Singleton so2 = Singleton.getInstance();
+        Singleton so3 = Singleton.getInstance();
+        System.out.println(so1);
+        System.out.println(so2);
+        System.out.println(so3);
+
+        //Devara d1 = new Devara();
 
     }
 }

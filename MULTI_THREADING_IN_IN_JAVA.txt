@@ -95,7 +95,8 @@ Constructors:
 
 Methods:
 - Thread Creation and Control: start(), run(), sleep(long millis), interrupt(), join().
-- Thread Information: getId(), getName(), getState(), setName(String name), isAlive(), currentThread(),
+- Thread Information: getId(), getName(), getState(), setName(String name), isAlive(), 
+			currentThread(),
 - Thread Priority: setPriority(int priority), getPriority().
 - Synchronization and Communication: wait(), notify(), notifyAll() [Object class methods]
 - Deprecated Methods: stop(), suspend(), resume(), checkAccess().
@@ -187,7 +188,6 @@ Example:
 
 public class ThreadLifeCycleExample {
 	private static Object resource = new Object();
-	
     public static void main(String[] args) throws InterruptedException {
         Thread thread = new Thread(() -> {
             try {
@@ -202,12 +202,10 @@ public class ThreadLifeCycleExample {
         });									
 
         System.out.println("State after creation: " + thread.getState()); // New
-
         thread.start(); // Moves to Runnable state
         System.out.println("State after start: " + thread.getState()); // Runnable
-    
-
-        // Simulate waiting for the thread to become blocked or waiting
+        
+		// Simulate waiting for the thread to become blocked or waiting
         Thread.sleep(500);
         System.out.println("State while waiting: " + thread.getState()); // Waiting or Blocked
 
@@ -354,8 +352,11 @@ Example:
 TRY THESE ?
 
 1.Can we call Thread.sleep() on main thread?
-2.Can we call a start() method of a Thread twice?
+2.Can we call a start() method of a Thread twice? 
+	// we can't restart existing thread
 3.Can we call directly run() method? If yes what's behaviour.
+	// new thread will be not created, it will in current thread context 
+	
 
 Example:
 
@@ -374,7 +375,8 @@ public class Main {
 }
 
 
-**NOTE**: When the sleeping time is negative throws the IllegalArguementException.
+**NOTE**: When the sleeping time is negative 
+		throws the IllegalArguementException.
 
 
 					--------------------------------------------------------
@@ -389,14 +391,16 @@ public class Main {
 
 What join() Does? 
 
-- Wait for Completion: When we call the join() method on a thread, the thread that calls join() will pause and wait 
+- Wait for Completion: When we call the join() method on a thread, 
+	the thread that calls join() will pause and wait 
 	until the thread on which join() was called finishes its task.
-- Synchronization: It helps synchronize threads, ensuring that a certain piece of code doesn’t execute until another thread has completed its work.
+- Synchronization: It helps synchronize threads, ensuring that a certain piece of code
+	doesn’t execute until another thread has completed its work.
 
 Syntax:
-		public final void join() throws InterruptedException  
-		public final synchronized void join(long millis) throws InterruptedException,
-		public final synchronized void join(long millis, int nanos) throws InterruptedException,
+	public final void join() throws InterruptedException  
+	public final synchronized void join(long millis) throws InterruptedException,
+	public final synchronized void join(long millis, int nanos) throws InterruptedException,
 		
 Example:
 
@@ -422,7 +426,8 @@ Example:
 		   
 		  t1.start();  
 		  try {  
-				System.out.println("The current thread: "+ Thread.currentThread().getName());
+				System.out.println("The current thread: "+ 
+							Thread.currentThread().getName());
 				t1.join();  
 		  } catch(Exception e) {  
 			e.printStackTrace(); 
@@ -430,7 +435,8 @@ Example:
 	   
 		  t2.start();
 		  try {  
-				System.out.println("The current thread: " + Thread.currentThread().getName());  
+				System.out.println("The current thread: " + 
+						Thread.currentThread().getName());  
 				t2.join();  
 			} catch(Exception e) { 
 			  e.printStackTrace();
@@ -443,8 +449,9 @@ Example:
 
 Explanation:
 	Thread Creation: Three threads (t1, t2, and t3) are created.
-	Thread Start: th1 is started first.
-	Join Method: The main thread calls th1.join(), which means the main thread will wait until t1 completes its execution.
+	Thread Start: t1 is started first.
+	Join Method: The main thread calls t1.join(), 
+		which means the main thread will wait until t1 completes its execution.
 	Subsequent Threads: After t1 finishes, t2 and t3 are started.
 
 join(long miliseconds) Method
@@ -569,8 +576,10 @@ class Task implements Runnable {
 public class ExceptionExample {
     public static void main(String[] args) {
         // Create threads with different priorities
-        Thread highPriorityThread = new Thread(new Task("High Priority"), "High Priority Thread");
-        Thread lowPriorityThread = new Thread(new Task("Low Priority"), "Low Priority Thread");
+        Thread highPriorityThread = 
+					new Thread(new Task("High Priority"), "High Priority Thread");
+        Thread lowPriorityThread = 
+					new Thread(new Task("Low Priority"), "Low Priority Thread");
 
         // Set priorities
         highPriorityThread.setPriority(Thread.MAX_PRIORITY); // Priority 10
@@ -753,7 +762,8 @@ Example:
 												SYNCHRONIZATION IN JAVA
 						----------------------------------------------------------------------------
 
-- In Java, synchronization is a mechanism used to control access to shared resources by multiple threads to prevent data inconsistency and ensure thread safety.
+- In Java, synchronization is a mechanism used to control access to shared resources 
+		by multiple threads to prevent data inconsistency and ensure thread safety.
 - When multiple threads access and modify shared data concurrently, synchronization is essential to avoid conflicts and ensure that data remains consistent.
 
 Why Synchronization is Needed?
@@ -779,8 +789,6 @@ Types of Synchronization:
     c)Static synchronization.
 
 2.Cooperation (Inter-thread communication in java)
-
-
 -> Each object in Java has a monitor lock (also known as a mutex or monitor). 
 -> When a thread wants to execute a synchronized block of code, it must acquire the monitor lock associated with that object.
 
@@ -788,8 +796,8 @@ a)Synchronized method
 -----------------------------
 - If we declare any method as synchronized, it is known as synchronized method.
 - Synchronized method is used to lock an object for any shared resource.
-- When a thread invokes a synchronized method, it automatically acquires the lock for that object 
-	and releases it when the thread completes its task.
+- When a thread invokes a synchronized method, 
+	it automatically acquires the lock for that object and releases it when the thread completes its task.
 
 
 	class Table {

@@ -522,6 +522,11 @@ object == instance
 
 Try this:
     1.What are the different ways to create an object in Java?
+		using new keyword
+		using clone() method 
+		using deserialization
+		using newInstance
+		
 	2.Declare Student class with required Fields and Methods 
 	3.Declare Bank class with following Fields
 		branchName, accountNumber, currentBalance, typeOfAccount
@@ -566,7 +571,10 @@ Types of Classes:
     - A reference type in Java that can contain only constants, method signatures, default methods, static methods, and nested types. 
     - Interfaces cannot contain instance fields or constructors.
     - Defines a contract that classes can implement
-    
+    - By Default 
+	constant will be:  public static final 
+	methods: public abstract
+		
     public interface Drawable {
         void draw(); // Abstract method
 
@@ -583,12 +591,13 @@ Types of Classes:
     public enum Day {
         SUNDAY, MONDAY, TUESDAY, WEDNESDAY, THURSDAY, FRIDAY, SATURDAY
     }
+	- Can enum contains Instance variable, Constructor, methods? 
+	
 
 5.Inner Class:
     - A class defined within another class.
 Member Inner Class: 
-	Non-static inner class that has 
-	access to all members of the outer class.
+	Non-static inner class that has access to all members of the outer class.
 	
 	=> OuterClass.InnerClass oc = new OuterClass.new InnerClass() 
 	
@@ -830,6 +839,11 @@ Inner Classes:
         strictfp: Ensures floating-point calculations adhere to the IEEE 754 standard.
  
 Interfaces:
+	constants: public static final 
+	methods: public abstract void 
+	JAVA 8, JAVA9: default methods, static methods, private methods
+	
+	
     public, default 
     abstract, default, static, strictfp, private 
 	
@@ -849,7 +863,8 @@ Enums:
 		when class doesn't have any constructors declared.
 
 NOTE: It is not necessary to write a constructor for a class. 
-    It's because java compiler creates a default constructor (constructor with no-arguments) if your class doesn’t have any.
+    It's because java compiler creates a default constructor (constructor with no-arguments) 
+	if your class doesn’t have any.
     
 => How Constructors are Different From Methods in Java?   
     
@@ -860,6 +875,25 @@ NOTE: It is not necessary to write a constructor for a class.
 - Constructors are called only once at the time of Object creation 
     while method(s) can be called any number of times.
 
+
+class Hello{
+	// is it Valid?
+	public void Hello() {
+		System.out.println("hello constructor 1")
+	}
+	
+	// is it Valid?
+	public Hello() {
+		System.out.println("hello constructor 2");
+		return;
+	}
+	
+	// is it Valid?
+	public Hello() {
+		System.out.println("hello constructor 3")
+		return this;
+	}
+}
 Example:
     
     import java.io.*;
@@ -868,7 +902,9 @@ Example:
         String name = "ram";
         int rollNumber = 172972625;
         
-        Student() { super(); } // No args 
+        Student() { // No args 
+			super(); 
+		} 
         
         public static void main(String[] args)
         {
@@ -877,26 +913,31 @@ Example:
     }
 => The first line of a constructor is a call to super() 
 	or this(), (a call to a constructor of a super-class or an overloaded constructor),
-=> Every class in java is the subclass of a class object even if we don’t say extends object in our class definitio
+=> Every class in java is the subclass of a class Object even if we don’t say extends object in our class definitio
 
 RULES FOR WRITING CONSTRUCTORS
 ------------------------------------
 1.The constructor(s) of a class must have the same name as the class name in which it resides.
 
-2.A constructor in Java can not be abstract, final, static, or synchronized.
+2.A constructor in Java can not be 
+	abstract, final, static, or synchronized, volatile, transient, strictfp, native
 
 3.Access modifiers can be used in constructor declaration to control its access
     i.e which other class can call the constructor.
+	
+	
+**NOTE**: we can use all access modifiers for constructor
 
 TYPES OF CONSTRUCTORS IN JAVA
 ------------------------------------
 
-1. Default Constructor:
+### 1. Default Constructor:
 - A constructor that has no parameters and no body is known as default the constructor.
 - A default constructor is invisible.
+- JVM will create the default constructor, if a class doesn't have any. 
 
-2. No-argument constructor:
 
+### 2. No-argument constructor:
 - A constructor that has no parameter is known as the No-argument or Zero argument constructor.
 - If we don’t define a constructor in a class, then the compiler creates a constructor(with no arguments and empty body) for the class.
 - And if we write a constructor with arguments or no arguments then the compiler does not create a default constructor.
@@ -918,7 +959,7 @@ ex:
         }
     }
 
-3. Parameterized Constructor:
+### 3. Parameterized Constructor:
 - A constructor that has parameters is known as parameterized constructor.
 - If we want to initialize fields of the class with our own values, then use a parameterized constructor.
 
@@ -961,6 +1002,14 @@ Ex:
             System.out.println(	"Constructor with one argument : "
                 + "Long : " + id);
         }
+		
+		Simple(int a, long b) {
+			System.out.println("int, long constructor: " + (a+b));
+		}
+		
+		Simple(long a, int b) {
+			System.out.println("long, int constructor: " + (a+b));
+		}
     }
 
     class Test {
@@ -968,5 +1017,7 @@ Ex:
             Simple s1 = new Simple("Kumar"); // first 
             Simple s2 = new Simple("Avan", 26); // second
             Simple s3 = new Simple(325614567); // third
+			
+			Simple s4 = new Simple(10,20);
         }
     }
