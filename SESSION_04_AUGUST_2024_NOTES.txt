@@ -15,7 +15,7 @@ Class:
     A class is a group of objects which have common properties.
     It is a template or blueprint from which objects are created.
 
-Sub Class/Child Class:
+Sub Class/Child Class/ Derived Class:
     Subclass is a class which inherits the other class.
     It is also called a derived class, extended class, or child class.
 
@@ -40,9 +40,9 @@ example:
 	
 Try this?
 ---------------------
-    Can we extend more than one class at the same time? no
-	Can we implement more than one interface at a time? yes
-	Can A interface extends multiple interfaces at a time? yes
+    Can we extend more than one class at the same time? No
+	Can we implement more than one interface at a time? YES
+	Can an interface extends multiple interfaces at a time? YES
 	
 
 
@@ -150,19 +150,24 @@ example-2
 			myAnimal.makeSound();  // Calls Cat's makeSound() method
 		}
 	}
-- A parent class reference variable can hold child class objects 
+- A parent class/ Interfac e/Abstract class reference variable can hold child class objects. 
 - A child class reference variables cannot hold parent class objects 
 
 
-Types of Inheritance:
+##Types of Inheritance:
 1. Single Inheritance: A subclass inherits from a single superclass.
+
 2. Multilevel Inheritance: A class inherits from a superclass, and 
 	then another class inherits from that subclass.
+
 3. Hierarchical Inheritance: 
 	Multiple subclasses inherit from a single superclass.
+
 4.Multiple Inheritance (through Interfaces): 
 	Java does not support multiple inheritance of classes to avoid complexity and ambiguity. 
 	However, a class can implement multiple interfaces.
+
+5. Hybrid Inheritance: It's combination of one or more inheritances.
 	
 	
 1. Single Inheritance
@@ -195,6 +200,7 @@ ex:
 		}
 	}
 
+	
 2. Multilevel Inheritance:
 - A class inherits from another class, which in turn inherits from another class. 
 - This creates a chain of inheritance.
@@ -270,7 +276,7 @@ ex:
 4. Multiple Inheritance (via Interfaces):
 - Java does not support multiple inheritance of classes but allows a class to implement multiple interfaces. 
 - This is a form of multiple inheritance where a class can inherit from more than one source, but only through interfaces.
-
+- Java doesn't support because of ambiguity problem [ Diamond problem]
 example:
 	interface Drivable {
 		void drive();
@@ -310,19 +316,51 @@ Hierarchical Inheritance:
 Multiple Inheritance (Interfaces): 
 	A class implements multiple interfaces (e.g., FlyingCar implements Drivable and Flyable).
 
+-  Single : -> extends
+	Employee -> Company 
+	Bahubali 2 -> Bahubali 1
+	Refrigerator  -> Appliance
+	Fruit -> Food 
+	SmartPhone -> Device 
+	FullTimeEmployee -> Employee
+	
+- Multilevel:
+	Colony -> Village -> Mandal -> District -> State -> Country
+	Dog -> Mammal -> Animal 
+	Laptopm -> Computer -> ElectronicDevice 
+	EBook -> Book -> Item 
+	
+- Hierarchical:
+	Reserved Bank
+		- SBI, HDFC, ICICI, KOTAK 
+	MobileBrands 
+		- Samsung, Apple, Realme, Motorola 
+	Exam:
+		TSEMACET, TSPGECT, TSECET, TSICET
+		
+- Multiple:
+		PhysicalEducationTeacher --> Teacher, SportCoach 
+		SmartCameraPhone -> Camera, Phone 
+		EletricLuxuryCar -> ElectricCar, LuxuryCar
+		LeadSoftwareEngineer -> SoftwareEngineer, ProjectManager
+		
+		
+		
 
 WHAT ALL ARE INHERITABLE FROM SUPERCLASS TO SUBCLASS 
 =============================================================
 1. Fields
 
-Inherited: Subclasses inherit all non-private fields from the superclass. 
-		Protected and public fields are directly accessible in the subclass.
+Inherited: 
+	Subclasses inherit all non-private fields from the superclass. 
+	Protected and public fields are directly accessible in the subclass.
 Not Inherited: 
 	Private fields are not directly accessible in the subclass. 
 	They are encapsulated within the superclass.
 
 2. Instance Methods
-Inherited: Subclasses inherit all non-private instance methods from the superclass. 
+Inherited: 
+	Subclasses inherit all non-private instance methods from the superclass. 
 	Protected and public instance methods are accessible and can be overridden in the subclass.
 Not Inherited: 
 	Private instance methods are not accessible directly in the subclass
@@ -340,7 +378,7 @@ Not Inherited:
  -Each class has its own instance blocks that run when an instance of that class is created. 
  -However, if a superclass has an instance block, it executes before the subclass’s instance block when creating an object of the subclass.
  
-5. Static Blocks
+5. Static Blocks:
     Not Inherited:  Static initialization blocks are not inherited. 
 	- They are executed when the class is first loaded
 	- And each class has its own static blocks which are executed in the order they appear. 
@@ -352,6 +390,7 @@ Not Inherited:
 		They are shared among all instances of the class.
 	Hiding: A subclass can hide a superclass’s static field by declaring 
 			a static field with the same name
+
 7. Constructors:
 	Inherited: No, constructors are not inherited.
 	Calling Superclass Constructor: Subclasses can call a superclass constructor using super().
@@ -364,6 +403,15 @@ Summary
 	Static Blocks: Not inherited; executed when the class is loaded, 
 			superclass blocks execute before subclass blocks.
 			
+		
+- Method overriding vs Method Hiding.
+	- Method overriding: If same instance methods is defined in parent, child with different body
+	- Method Hiding: if same static method is defined in parent, child with different body.
+	- Method overriding is resolved at runtime, based on runtime object 
+	- Method Hiding is resolved at compile, based on reference variable
+	
+
+
 ###########################################################
 			this keyword in JAVA 
 ###########################################################
@@ -424,7 +472,8 @@ Example:
 ###########################################################
 - The super keyword in Java is used to refer to the 
 		immediate superclass of the current object.
-- It provides a way to access superclass members (fields, methods, and constructors) that are hidden or overridden in the subclass.
+- It provides a way to access superclass members (fields, methods, and constructors) 
+	that are hidden or overridden in the subclass.
 - super is used to refer super-class’s instance as well as static members.
 
 Uses of the super Keyword

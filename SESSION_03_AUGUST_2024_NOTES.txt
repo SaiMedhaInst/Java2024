@@ -511,7 +511,7 @@ Syntax:
 
 Terminologies
 -----------------------
-variables == Fields == Data members == attributes
+Variables == Fields == Data members == attributes
 methods == member functions
 object == instance 
 
