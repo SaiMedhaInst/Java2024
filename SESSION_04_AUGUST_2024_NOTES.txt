@@ -512,13 +512,13 @@ Summary:
 - Invoking Superclass Methods: 
 	To ensure that the superclass version of an overridden method is executed.
 	
-				#############################################
-							INTERFACE IN JAVA
-				###############################################
+			##########################################################################################
+												INTERFACE IN JAVA
+			##########################################################################################
 - An interface in Java is a reference type, similar to a class.
 - It can contain only 
 	constants
-	method signatures
+	method signatures / abstract methods
 	default methods
 	static methods and nested types
 - An interface in Java is a blueprint of a class. (provide contract of methods to be implemented)
@@ -550,11 +550,11 @@ interface <interface_name>{
 
 **NOTE**:
 	The Java compiler adds public and abstract keywords before the interface method. 
-	And it adds public, static and final keywords before data members.
+	And it adds public, static and final keywords before data members/fields.
 	
 Example-1:
 	interface Bank{  
-		float rateOfInterest();  
+		float rateOfInterest(); 
 	}  
 
 	class SBI implements Bank{  
@@ -672,7 +672,7 @@ Java 9 Private Methods:
 -------------------------------
 - Private methods in interfaces allow for encapsulation of common code that should not be exposed to implementing classes. 
 - They help avoid code duplication within default methods.
-- Code Organization: Private methods enable better organization of code within an interfac
+- Code Organization: Private methods enable better organization of code within an interface
 
 Example:
 	interface Vehicle {
@@ -711,9 +711,9 @@ Private Methods:
 	
 	
 	
-###########################################################
-		ABSTRACTION IN JAVA
-############################################################
+			###########################################################
+					ABSTRACTION IN JAVA
+			############################################################
 - Abstraction in Java is a fundamental concept in object-oriented programming 
 - It helps to manage complexity by hiding the implementation details of an object and exposing only the essential features. 
 - It allows you to focus on what an object does instead of how it does it. 
@@ -839,7 +839,7 @@ Try this?
 
 
 		############################################################
-					POLYMORPHISM IN JAVA
+							POLYMORPHISM IN JAVA
 		#############################################################
 		
 - Polymorphism in Java is a concept by which we can perform a single action in different ways.
