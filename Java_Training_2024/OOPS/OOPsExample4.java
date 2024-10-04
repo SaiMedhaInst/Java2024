@@ -5,6 +5,10 @@ interface Bank{
     default void processUpiPayment() {
         System.out.println("processing upi payments");
     }
+
+    public static double interestCalculation(int amt) {
+        return amt > 100000 ? 5.6 : 4.2;
+    }
 }  
 
 class SBI implements Bank{  

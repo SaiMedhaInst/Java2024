@@ -711,9 +711,9 @@ Private Methods:
 	
 	
 	
-			###########################################################
-					ABSTRACTION IN JAVA
-			############################################################
+			##########################################################################
+										ABSTRACTION IN JAVA
+			############################################################################
 - Abstraction in Java is a fundamental concept in object-oriented programming 
 - It helps to manage complexity by hiding the implementation details of an object and exposing only the essential features. 
 - It allows you to focus on what an object does instead of how it does it. 
@@ -736,11 +736,11 @@ ABSTRACT CLASS & METHODS
 - It can have final methods which will force the subclass not to change the body of the method.
 - Abstract methods can be non-private(no access modifier, protected, public)
  and non-abstract methods can be private.
-- Implementation class overriden method must be higher visibility access modifier.
+- Implementation class overriden method must be higher visibility access modifier or same.
 
 
 	abstract class Animal {
-		abstract void makeSound();
+		public abstract void makeSound();
 	
 		void eat() {
 			System.out.println("This animal eats food.");
@@ -776,13 +776,13 @@ ABSTRACT CLASS & METHODS
 	}
 
 NOTE:	
-	- Can an abstract class can have Zero or more abstract methods?
-	- When the constructor of the abstract class will executed/invoked?
+	- Can an abstract class can have Zero or more abstract methods? YES
+	- When the constructor of the abstract class will executed/invoked? during child class object instantiation
 	
 INTERFACES
 ---------------------------------
 - Interface is blueprint for class specification.
-- Interface defines contract of methods to be implemented by class 
+- Interface defines contract of methods to be implemented by sub classes. 
 - Interfaces will contains till JAVA7
 	public static final constants 
 	public abstract methods 
@@ -952,6 +952,7 @@ TRY THIS?
 	class ExampleTest{  
 		public static void main(String[] args){
 			System.out.println("main with String[]");
+			
 		}  
 		public static void main(String args){
 			System.out.println("main with String");

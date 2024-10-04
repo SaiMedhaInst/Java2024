@@ -1,6 +1,6 @@
-########################################
-		PACKAGES IN JAVA
-########################################
+							########################################
+									PACKAGES IN JAVA
+							########################################
 - In Java, packages are used to group related classes and interfaces into namespaces, helping to organize and manage your code more effectively. 
 - Packages provide a way to 
 	- avoid naming conflicts
