@@ -1016,6 +1016,7 @@ Example 2: Promotion with Different Types
 			Test test = new Test();
 			test.display(5, 10.5);   // Calls display(int, double)
 			test.display(10.5, 5);   // Calls display(double, int)
+			
 			test.display(5, 10);    
 			
 			test.sum(20,20);
@@ -1070,7 +1071,7 @@ Example:
 	
 
 TRY THIS?
-    Can we override static method? yes, it is method hiding 
+    Can we override static method? yes, it is METHOD HIDING 
     Can we override java main method? // yes 
 
 Covariant Return Type:
@@ -1082,7 +1083,7 @@ Covariant Return Type:
 	return type declared in the superclass method.
 
 - Before Java5, it was not possible to override any method by changing the return type.
-- Applicable only to Non-Primitive.
+- Applicable only to Non-Primitive [Reference Types, Classes, Interfaces, Arrays, Enums].
 - When to Use Covariant Return Types ?
 	Enhanced Flexibility: Provide more flexibility and specificity in method implementations.
     Method Chaining: Often used in fluent APIs to allow method chaining and more expressive code.
@@ -1236,7 +1237,7 @@ Dynamic binding:
 
 INSTANCE INITIALIZER BLOCK
 ============================================
-- Instance Initializer block is used to initialize the instance data member. 
+- Instance Initializer block is used to initialize the instance data memberS. 
 It run each time when object of the class is created.
 - There are three places in java where you can perform operations:
     method
@@ -1377,7 +1378,7 @@ Example:
 	}
 
 	TRY THIS?
-	
+	----------------------
 	class Test extends StringBuffer {
 		// Implementation  
 	}

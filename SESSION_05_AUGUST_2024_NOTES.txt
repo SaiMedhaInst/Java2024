@@ -11,9 +11,10 @@
     - built-in package
     - user-defined package
 	
-- To create a package, you use the package keyword at the very beginning of your Java source file.
+- To create a package, you use the "package" keyword at the very beginning of your Java source file.
 
 - java is the base package for all sub packages
+
 - Popular Packages 
 	- java.lang
 		-- Object: The root class from which all other classes derive. 
@@ -50,6 +51,12 @@ Example:
 			System.out.println("Hello from Simple!");
 		}
 	}
+
+
+Example: 
+www.in.bookmyshow.com - Domain 
+com.bookmyshow.in - package name (reverse of domain name)
+
 
 COMPILE:
 -----------------
