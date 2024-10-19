@@ -1,7 +1,8 @@
 							########################################
 									PACKAGES IN JAVA
 							########################################
-- In Java, packages are used to group related classes and interfaces into namespaces, helping to organize and manage your code more effectively. 
+- In Java, packages are used to group related classes and interfaces into namespaces, helping to organize 
+	and manage your code more effectively. 
 - Packages provide a way to 
 	- avoid naming conflicts
 	- control access
@@ -34,13 +35,14 @@
 		PushbackInputStream, PushbackReader
 		CharArrayReader, CharArrayWriter
 		StringReader, StringWriter
+		
 	- java.util
 		- Scanner
-		- List (interface)
-		- Set (interface)
 		- Map (interface)
 		- Collections (utility class)
 		- Arrays (utility class)
+		- List (interface)
+		- Set (interface)
 
 Example:
 	// File: src/com/example/Simple.java
@@ -58,13 +60,17 @@ www.in.bookmyshow.com - Domain
 com.bookmyshow.in - package name (reverse of domain name)
 
 
+www.geeksforgeeks.org - Domain 
+org.geeksforgeeks - Package name 
+
+
 COMPILE:
 -----------------
 	javac -d directory javafilename
 	javac -d . Simple.java
 
 	different directory
-	javac -d "C:\Users\akraj\Desktop\Java_2024_Training" Simple.java
+	javac -d "C:\Users\akraj\Desktop\TestJava" Simple.java
 	java -cp "C:\Users\akraj\Desktop\Java_2024_Training" com.example.Simple     
 	
 RUNNING:
@@ -102,6 +108,7 @@ Example:
  we can use the fully qualified name to resolve ambiguities.
  
 	import java.sql.Date;
+	//import java.util.Date;
 
 	public class Example {
 		public static void main(String[] args) {
@@ -131,6 +138,153 @@ Example:
 	}
 
 
+
+Questions:
+-----------------
+- What is build tool in JAVA?
+
+	A build tool in Java is a software program that automates the process of 
+		building, compiling, testing, and packaging Java applications. 
+	Build tools streamline the development process, reducing manual effort and minimizing errors.
+
+	###Popular Java Build Tools:
+		1. Maven: Apache Maven is a widely-used build tool for Java projects. 
+			It provides a standardized project structure, dependency management, and plugins for various tasks.
+
+		2. Gradle: Gradle is another popular build tool for Java, known for its flexibility, performance, and ease of use. 
+			It supports multi-module projects and provides a Groovy-based DSL.
+
+		3. Ant: Apache Ant is a veteran build tool for Java, using XML-based build scripts. 
+			While still widely used, it's less popular than Maven and Gradle.
+
+	##Key Features of Build Tools:
+
+		1. Compilation: Compiling Java source code into bytecode.
+		2. Dependency Management: Managing external libraries and dependencies.
+		3. Testing: Running unit tests, integration tests, and other test suites.
+		4. Packaging: Creating JAR, WAR, or EAR files for deployment.
+		5. Deployment: Deploying applications to servers or containers.
+
+	###Benefits of Using Build Tools:
+
+		1. Automation: Automate repetitive tasks, reducing manual effort.
+		2. Consistency: Ensure consistent builds across different environments.
+		3. Reusability: Reuse build scripts and configurations.
+		4. Scalability: Handle large, complex projects with ease.
+		5. Integration: Integrate with CI/CD pipelines and other tools.
+
+	###Other Notable Build Tools:
+
+		1. Buildr: A build tool focused on simplicity and ease of use.
+		2. Gant: A Groovy-based build tool, similar to Ant.
+		3. JBake: A build tool for Java-based static site generators.
+
+
+	Consider factors like:
+
+		1. Project size and complexity
+		2. Team experience and expertise
+		3. Required features and plugins
+		4. Integration with existing tools and workflows
+
+	
+- What is maven, it's usage, commands and how to create maven project?
+
+	###Maven Overview
+
+	Apache Maven is a build automation tool for Java projects, designed to simplify the build, test, and deployment process. 
+	Maven provides:
+
+		1. Project management
+		2. Dependency management
+		3. Build automation
+		4. Reporting
+		5. Release management
+
+	###Maven Usage
+
+		Maven is commonly used for:
+
+		1. Building and packaging Java applications
+		2. Managing dependencies
+		3. Running tests
+		4. Generating reports
+		5. Deploying applications
+
+	###Maven Commands
+	=> Build Commands
+
+		1. mvn clean - Deletes the target directory
+		2. mvn compile - Compiles Java source files
+		3. mvn package - Packages the project into a JAR/WAR file
+		4. mvn install - Installs the project in the local repository
+		5. mvn deploy - Deploys the project to a remote repository
+
+	=> Dependency Commands
+
+		1. mvn dependency:analyze - Analyzes project dependencies
+		2. mvn dependency:tree - Displays dependency tree
+		3. mvn dependency:list - Lists project dependencies
+
+	=> Test Commands
+
+		1. mvn test - Runs unit tests
+		2. mvn integration-test - Runs integration tests
+
+	=> Other Commands
+
+		1. mvn site - Generates project documentation
+		2. mvn eclipse:eclipse - Generates Eclipse project files
+		3. mvn idea:idea - Generates IntelliJ IDEA project files
+
+	### Creating a Maven Project
+
+	==> Using Maven Archetype
+
+		1. Open a terminal/command prompt
+		2. Run mvn archetype:generate
+		3. Choose an archetype (e.g., maven-archetype-quickstart)
+		4. Provide group ID, artifact ID, and version
+		5. Maven will create a new project structure
+
+	=> Using IDE
+
+		1. Eclipse: File > New > Maven Project
+		2. IntelliJ IDEA: File > New > Project > Maven
+		3. NetBeans: File > New Project > Maven Project
+
+	## Manual Project Structure
+
+	Create the following directories:
+
+		- src/main/java (Java source files)
+		- src/main/resources (resource files)
+		- src/test/java (test source files)
+		- pom.xml (project configuration file)
+
+	Basic pom.xml File
+
+		<project xmlns="(link unavailable)"
+			 xmlns:xsi="(link unavailable)"
+			 xsi:schemaLocation="(link unavailable)
+			 (link unavailable)">
+		  <groupId>com.example</groupId>
+		  <artifactId>myproject</artifactId>
+		  <version>1.0</version>
+		  <packaging>jar</packaging>
+		</project>
+
+	### Maven Benefits
+
+		1. Simplifies build and deployment process
+		2. Manages dependencies efficiently
+		3. Provides standardized project structure
+		4. Integrates with popular IDEs and CI tools
+		5. Large community and extensive documentation
+
+
+- What is gradle, it's usage, commands and how to create gradle project?
+
 EXPLORING IO PACKAGE
 -------------------------
 - The java.io package in Java provides classes and interfaces for system input and output through data streams, serialization, and the file system. 
@@ -143,6 +297,7 @@ Classes and Interfaces:
 - Key Methods:
     exists(): Checks if the file or directory exists.
     createNewFile(): Creates a new file.
+	mkdir(): creates directory
     delete(): Deletes the file or directory.
     length(): Returns the size of the file.
     listFiles(): Lists files and directories in a directory.
@@ -448,3 +603,54 @@ Example:
         int primitiveInt = wrapperInt; // Autounboxing
 
         System.out.println("Primitive int: " + primitiveInt);
+
+
+
+###################
+
+Project Title: Library Management System
+Overview
+
+The Library Management System (LMS) will manage book inventories, user registrations, and borrowing transactions. 
+This project will utilize various OOP concepts to organize and manage data effectively.
+OOP Concepts Covered
+
+    Classes and Objects			
+        Define classes for Book, User, and Library.
+        Create objects of these classes to manage the data.
+
+    Encapsulation
+        Use private variables and public getter/setter methods to control access to data.
+        Ensure that sensitive data (like user passwords) is protected.
+
+    Inheritance
+        Create a base class User and derived classes Member and Librarian.
+        Implement shared behaviors in the User class and specific behaviors in the derived classes.
+
+    Polymorphism
+        Implement method overriding for Member and Librarian classes.
+        Use interfaces for actions like Borrowable to allow different types of books (e.g., EBook, AudioBook) to be borrowed.
+
+    Abstraction
+        Use abstract classes and interfaces to define common functionalities without exposing details.
+        Create an interface Manageable for library management operations.		
+
+LibraryManagementSystem
+│
+├── src
+│   ├── com.onlinelibrary
+│   │   ├── models
+│   │   │   ├── Book.java
+│   │   │   ├── User.java
+│   │   │   ├── Member.java
+│   │   │   ├── Librarian.java
+│   │   │   ├── EBook.java
+│   │   │   ├── AudioBook.java
+│   │   │   └── Borrowable.java
+│   │   ├── services
+│   │   │   ├── Library.java
+│   │   │   ├── LibraryService.java
+│   │   │   └── Manageable.java
+│   │   └── Main.java
+│
+└── README.md
