@@ -1,2 +1,3 @@
-Chat GPT is developed 12 using LLM models. 
-Its core part 98 is GPT Engine implemented using Python.
+Hello this file created by kumar on 19-10-2024.
+Hello, BufferedWriter!
+Reading this with BufferedReader.

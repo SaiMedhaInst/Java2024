@@ -1,8 +1,10 @@
 package FilesIO;
 
+import java.io.BufferedInputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 
 public class FileStreamExample {
@@ -17,9 +19,21 @@ public class FileStreamExample {
 
         int ch;
         while ((ch = fis.read()) != -1) {
-            if (Character.isDigit(ch))
-                System.out.print((char)ch);
+            System.out.print((char)ch);
         }
+        //System.out.println(fis.read());
+        //fis.close();
 
+        System.out.println("******************************");
+        // Write the data 
+        FileOutputStream fos = new FileOutputStream(file, true);
+        //fos.write(new byte[] {65, 66,67,68,97,98,99,100}); 
+        fos.write("\nHello Surya, Welcome".getBytes());
+        fos.close();
+
+
+        // BufferedInputStream
+        BufferedInputStream bis = new BufferedInputStream(fis);
+        System.out.println((char)bis.read());
     }
 }
