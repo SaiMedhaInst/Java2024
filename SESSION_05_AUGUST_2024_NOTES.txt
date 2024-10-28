@@ -71,7 +71,7 @@ COMPILE:
 
 	different directory
 	javac -d "C:\Users\akraj\Desktop\TestJava" Simple.java
-	java -cp "C:\Users\akraj\Desktop\Java_2024_Training" com.example.Simple     
+	java -cp "C:\Users\akraj\Desktop\TestJava" com.example.Simple     
 	
 RUNNING:
 -----------------
@@ -532,9 +532,9 @@ THREAD-SAFE CLASSES:
     ConcurrentSkipListSet
     ConcurrentLinkedQueue
 
-######################################	
-		WRAPPER CLASSES
-######################################
+						######################################	
+								WRAPPER CLASSES
+						######################################
 - In Java, wrapper classes are used to wrap primitive data types into objects.
 - This allows primitives to be treated as objects, 
 	which is useful for working with collections that can only store objects, such as ArrayList or HashMap. 
