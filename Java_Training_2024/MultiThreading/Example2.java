@@ -8,6 +8,12 @@ class MyThread extends Thread {
     public void run() {
         for (int i = 1; i <= 5; i++) {
             System.out.println(Thread.currentThread().getName() + " Is Executing Task: " + i);
+            try {
+                Thread.sleep(1000); // current executing thread will sleep for 1sec
+            } catch(InterruptedException ex) {
+                System.out.println("Thread is Interrupted : " + ex.getMessage());
+            }
+            
         }
     }
 }
@@ -26,17 +32,17 @@ class MasterThread extends Calculator implements Runnable {
 public class Example2 {
     public static void main(String[] args) {
         // 1st way
-        // MyThread mth1 = new MyThread("customT1"); // Thread()
-        // mth1.start();
+        MyThread mth1 = new MyThread("customT1"); // Thread()
+        mth1.start();
 
-        // MyThread mth2 = new MyThread("customT2"); 
-        // mth2.start();
+        MyThread mth2 = new MyThread("customT2"); 
+        mth2.start();
 
         // 2nd way 
-        MasterThread mt = new MasterThread();
-        Thread masterThread = new Thread(mt);
-        masterThread.start();
+        // MasterThread mt = new MasterThread();
+        // Thread masterThread = new Thread(mt);
+        // masterThread.start();
 
-        System.out.println(mt.add(10, 20));
+        // System.out.println(mt.add(10, 20));
     }
 }

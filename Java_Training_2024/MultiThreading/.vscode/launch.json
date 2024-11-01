@@ -1,0 +1,45 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "ThreadPoolExample",
+      "request": "launch",
+      "mainClass": "ThreadPoolExample",
+      "projectName": "MultiThreading_d6ea87e3"
+    },
+    {
+      "type": "java",
+      "name": "Example5",
+      "request": "launch",
+      "mainClass": "Example5",
+      "projectName": "MultiThreading_d6ea87e3"
+    },
+    {
+      "type": "java",
+      "name": "Example4",
+      "request": "launch",
+      "mainClass": "Example4",
+      "projectName": "MultiThreading_d6ea87e3"
+    },
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "externalConsole": true,
+      "cwd": "c:/Users/akraj/Downloads",
+      "program": "c:/Users/akraj/Downloads/build/Debug/outDebug",
+      "MIMode": "gdb",
+      "miDebuggerPath": "gdb",
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}
