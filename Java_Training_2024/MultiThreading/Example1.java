@@ -1,6 +1,8 @@
 public class Example1 {
     public static void main(String[] args) {
-        Thread t1 = new Thread(() -> System.out.println("thread is executing..")); //NEW 
+        Runnable run = () -> System.out.println("Run Method Body...");
+
+        Thread t1 = new Thread(run); //NEW | new Thread(Runnable target)
         System.out.println(t1.getState());
         t1.start();
         System.out.println(t1.getState());

@@ -3,6 +3,34 @@
   "configurations": [
     {
       "type": "java",
+      "name": "DeadlockDemo",
+      "request": "launch",
+      "mainClass": "DeadlockDemo",
+      "projectName": "MultiThreading_d6ea87e3"
+    },
+    {
+      "type": "java",
+      "name": "ConnectionManager",
+      "request": "launch",
+      "mainClass": "ConnectionManager",
+      "projectName": "MultiThreading_d6ea87e3"
+    },
+    {
+      "type": "java",
+      "name": "SynchronizationBlockExample",
+      "request": "launch",
+      "mainClass": "SynchronizationBlockExample",
+      "projectName": "MultiThreading_d6ea87e3"
+    },
+    {
+      "type": "java",
+      "name": "Example6",
+      "request": "launch",
+      "mainClass": "Example6",
+      "projectName": "MultiThreading_d6ea87e3"
+    },
+    {
+      "type": "java",
       "name": "ThreadPoolExample",
       "request": "launch",
       "mainClass": "ThreadPoolExample",

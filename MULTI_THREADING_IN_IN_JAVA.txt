@@ -10,7 +10,7 @@ TASK
 
 SINGLE TASKING
 ---------------------
--  Single tasking is an approach where a system or process performs one task at a time. 
+- Single tasking is an approach where a system or process performs one task at a time. 
 - It cannot switch between tasks until the current task is completed.
 
 ex: A simple calculator program that performs one calculation at a time.
@@ -67,7 +67,8 @@ Summary
     Single Tasking: Performing one task at a time.
     Multi-Tasking: Handling multiple tasks simultaneously by switching between them.
     Multi-Processing: Using multiple processors to execute multiple processes concurrently.
-    Multi-Threading: Using multiple threads within a single process to execute concurrently, sharing the same memory space.
+    Multi-Threading: Using multiple threads within a single process to execute concurrently, 
+		sharing the same memory space.
 	
 
 							-------------------------------------------
@@ -318,7 +319,7 @@ If a thread has a higher priority, it means that thread has got a better chance 
 - Pause or Delay: Thread.sleep() makes the current thread (the one that called the method) "sleep" or "pause"
 	for a certain number of milliseconds. This means it temporarily stops doing anything.
 - Thread.sleep() belongs to the Thread class. It’s a static method
-- Thread.sleep() can throw an InterruptedException
+- Thread.sleep() can throw an InterruptedException(checked exception)
 
 Why Use Thread.sleep()?
 	- Creating Delays: Useful for adding delays or waiting periods in a program.
@@ -355,7 +356,7 @@ TRY THESE ?
 2.Can we call a start() method of a Thread twice? 
 	// we can't restart existing thread
 3.Can we call directly run() method? If yes what's behaviour.
-	// new thread will be not created, it will in current thread context 
+	// new thread will be not created, it will in current thread context [main]
 	
 
 Example:
@@ -406,7 +407,7 @@ Example:
 
 	class ThreadJoin extends Thread {
 	  public void run() {
-		for (int task = 1; task <= 2; task++) {
+		for (int task = 1; task <= 5; task++) {
 		  try {
 			Thread.sleep(500);
 			System.out.println("Thread " + Thread.currentThread().getName() + ", executing TASK - " + task);
@@ -524,7 +525,7 @@ Example:
 			
 			ut1.setName("Test Thread-1");
 			ut1.start();
-			ut2.start();
+			ut2.start(); 
 		}
 	}
 
@@ -629,7 +630,7 @@ Example:
 			}
 
 			System.out.println("Main thread is done. Exiting the application.");
-		}
+		} 	
 	}
 
 	class Task implements Runnable {
@@ -654,7 +655,7 @@ Example:
 - Instead of creating a new thread each time a task needs to be executed, a thread pool reuses existing threads
 
 Key Concepts of a Java Thread Pool:
-- Reusable Threads: 
+- Reusable Threads
 - Task Queue
 - Fixed Number of Threads
 - Managed Execution
@@ -764,7 +765,8 @@ Example:
 
 - In Java, synchronization is a mechanism used to control access to shared resources 
 		by multiple threads to prevent data inconsistency and ensure thread safety.
-- When multiple threads access and modify shared data concurrently, synchronization is essential to avoid conflicts and ensure that data remains consistent.
+- When multiple threads access and modify shared data concurrently, synchronization is essential to avoid conflicts 
+	and ensure that data remains consistent.
 
 Why Synchronization is Needed?
 
