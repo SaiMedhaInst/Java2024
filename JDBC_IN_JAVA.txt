@@ -730,3 +730,124 @@ public class DataBaseMetaDataExample {
 		 } catch(Exception e){ System.out.println(e);}  
      } 
 }
+
+
+
+QUESTIONS:
+-------------------
+1. Which of the following statements accurately describes Java JDBC?
+
+	A) JDBC is a platform-dependent API used for database connectivity in Java applications.
+	B) JDBC is a set of Java interfaces and classes that allow Java applications to interact with various databases.
+	C) JDBC is primarily used for creating user interfaces in Java applications.
+	D) JDBC is a standalone programming language designed for database management.
+
+2. Which of the following is NOT a core component of the JDBC API?
+
+	A) DriverManager
+	B) Connection
+	C) Statement
+	D) Compiler
+
+3.What role does the DriverManager class play in JDBC?
+
+	A) It provides methods for executing SQL queries.
+	B) It manages a list of database drivers and establishes connections to databases.
+	C) It creates and manages SQL databases.
+	D) It processes the results returned by SQL queries.
+
+4. Which interface is used to execute SQL queries and retrieve results in JDBC?
+
+	A) Connection
+	B) ResultSet
+	C) Statement
+	D) PreparedStatement
+
+5. What is the primary advantage of using PreparedStatement over Statement in JDBC?
+
+	A) PreparedStatement allows for more complex SQL queries.
+	B) PreparedStatement is easier to implement than Statement.
+	C) PreparedStatement improves performance by pre-compiling SQL statements and allows for parameterized queries.
+	D) PreparedStatement is limited to read-only operations.
+
+6. Which of the following types of JDBC drivers is known as a Type 1 driver?
+	A) Thin Driver
+	B) ODBC Bridge Driver
+	C) Native-API Driver
+	D) Type 4 Driver
+
+7.What distinguishes a Type 4 JDBC driver?
+	A) It requires native database client libraries to function.
+	B) It converts JDBC calls directly into database-specific protocol calls.
+	C) It uses ODBC to connect to databases.
+	D) It is platform-dependent.
+	
+8.Which of the following is NOT a characteristic of a Type 2 JDBC driver?
+	A) It requires native libraries for the database.
+	B) It offers better performance than Type 1 drivers.
+	C) It is written in Java and C.
+	D) It is platform-independent.
+
+9. Which of the following statements is true regarding the use of JDBC drivers?
+
+	A) Only one type of JDBC driver can be used in a single application.
+	B) Type 3 JDBC drivers convert JDBC calls to a middleware protocol before sending them to the database.
+	C) Type 4 JDBC drivers are dependent on the underlying database software.
+	D) JDBC drivers are typically written in C++ for performance reasons.
+
+10. Which method of the DriverManager class is used to establish a connection to a database?
+
+	A) getConnection()
+	B) createConnection()
+	C) openConnection()
+	D) connectToDatabase()
+
+11.Which of the following methods is NOT part of the Statement interface in JDBC?
+
+	A) executeQuery()
+	B) executeUpdate()
+	C) prepareStatement()
+	D) execute()
+	
+12. Which of the following is a key difference between the Statement and PreparedStatement interfaces in JDBC?
+
+	A) Statement allows for parameterized queries while PreparedStatement does not.
+	B) PreparedStatement is less efficient for executing static SQL statements compared to Statement.
+	C) PreparedStatement pre-compiles SQL queries for better performance, while Statement does not.
+	D) There is no difference; both interfaces serve the same purpose
+
+13. Which of the following statements about the ResultSet interface is true?
+
+	A) ResultSet allows for executing SQL statements directly.
+	B) ResultSet provides methods for navigating through the result set and retrieving data.
+	C) ResultSet can only contain a single row of data at a time.
+	D) ResultSet is used to prepare SQL statements before execution.
+
+14. Which method is used to move the cursor to the first row of a ResultSet?
+
+	A) first()
+	B) moveToFirst()
+	C) next()
+	D) previous()
+	
+15.Which of the following methods is used to set a parameter in a PreparedStatement?
+
+	A) setParameter()
+	B) addParameter()
+	C) bindParameter()
+	D) setXXX()
+	
+16.What will happen if you try to access a ResultSet after it has been closed?
+
+	A) It will automatically refresh the ResultSet with the latest data.
+	B) It will throw an SQLException indicating that the ResultSet is closed.
+	C) It will still return the last accessed row.
+	D) It will throw a NullPointerException
+	
+17. What is the purpose of the DatabaseMetaData interface in JDBC?
+
+	A) To execute SQL queries and manage transactions.
+	B) To provide information about the database as a whole, including its structure and capabilities.
+	C) To manage the ResultSet for executing complex queries.
+	D) To handle connection pooling and resource management.
+
