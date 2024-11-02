@@ -1,0 +1,578 @@
+		----------------------------------------------------------------------
+									Applets In Java
+		----------------------------------------------------------------------
+		
+TYPES OF APPLICATIONS:
+-------------------------
+1.Standalone Application: 
+	This is an independent program that can run on its own, producing output via a user interface or console. 
+	Any Java class with a main method qualifies as a mini standalone application. 
+	Examples include VLC Media Player and Adobe Photoshop.
+
+2.Enterprise Application: 
+	A complex and scalable software platform used in business environments, designed to integrate and support all business functions. 
+	Examples include SAP, Salesforce, and Oracle ORM.
+
+3.Web Application: 
+	This is an application stored on a remote server and accessed through a web browser. 
+	It includes various functionalities like online forms, shopping carts, social media, and email.
+	
+
+What is APPLET?
+---------------------
+Introduction: 
+	An applet is a Java program designed to be embedded in a web page, running client-side within a web browser. 
+	It is included using the APPLET or OBJECT tag and hosted on a web server, enhancing website interactivity and entertainment.
+
+Advantages:
+    Reduced Response Time: Operates on the client side, leading to faster performance.
+    Security: Offers a secure environment.
+    Cross-Platform Compatibility: Can run on various operating systems, including Linux, Windows, and macOS.
+
+Drawbacks:
+    Browser Plugin Required: Users need a specific plugin to execute applets in their browsers.
+
+Notes:
+    Applets rely on GUI support from AWT (Abstract Window Toolkit) and Swing.
+    All applets are subclasses of the java.applet.Applet class and are not standalone; they execute within a browser or an applet viewer.
+    Execution does not start with the main() method, and output is generated using AWT methods like drawString(), not System.out.println().
+
+Hierarchy of Applet:
+----------------------
+	Object 
+		|
+	Component 
+		--------|- Button 
+				|- Label 
+				|- CheckBox
+				|- List 
+				|- Choice
+				|- Container 
+				-----------------
+				|				|	
+			Window 			  Panel 
+				|				|
+		    |--------|		Applet 	
+			Frame   Dialog
+			
+- Applet class extends Panel. Panel class extends Container which is the subclass of Component.
+
+
+LIFE CYCLE OF APPLETS:
+---------------------------
+1. Initialization (init())
+    This method is called when the applet is first loaded into memory.
+    It is used to set up initial parameters, allocate resources, and perform any setup tasks required before the applet starts.
+    This method is called only once during the applet’s life cycle.
+	
+2. Start (start())
+    Invoked after init(), this method is called when the applet becomes visible on the web page or when the user navigates back to a page containing the applet.
+    It is used to start any processes that should run while the applet is active, such as animations or threads.
+    This method can be called multiple times, for example, when a user returns to a page containing the applet.
+	
+
+The life cycle of an applet in Java consists of a series of stages, each defined by specific methods that the applet can override. Understanding this life cycle is essential for managing an applet's behavior effectively. Here are the key stages and the corresponding methods involved:
+
+1.Initialization (init())
+    Called once when the applet is loaded into memory.
+    Sets up initial parameters and allocates resources.
+
+2.Start (start())
+    Invoked after init() when the applet becomes visible.
+    Starts processes like animations; can be called multiple times.
+
+3.Paint (paint(Graphics g))
+    Called when the applet needs to be redrawn (e.g., display, resize).
+    Responsible for rendering graphics using the provided Graphics object.
+
+4.Stop (stop())
+    Called when the user leaves the applet’s page.
+    Pauses ongoing processes that should not run when not visible.
+
+5.Destroy (destroy())
+    Invoked before the applet is removed from memory.
+    Performs cleanup tasks, such as releasing resources.
+
+Summary of Applet Life Cycle Methods:
+    init(): Initialization tasks (called once).
+    start(): Start or resume operations (called multiple times).
+    paint(Graphics g): Render graphics and update display.
+    stop(): Pause operations when not visible.
+    destroy(): Cleanup before removal from memory.
+	
+
+Examples:
+	import java.applet.Applet;
+	import java.awt.Graphics;
+
+	public class SimpleApplet extends Applet {
+		public void init() {
+			// Initialization code
+			System.out.println("Applet Initialized");
+		}
+
+		public void start() {
+			// Start code
+			System.out.println("Applet Started");
+		}
+
+		public void paint(Graphics g) {
+			g.drawString("Hello, Applet!", 20, 20);
+		}
+
+		public void stop() {
+			// Stop code
+			System.out.println("Applet Stopped");
+		}
+
+		public void destroy() {
+			// Cleanup code
+			System.out.println("Applet Destroyed");
+		}
+	}
+
+
+## NOTE
+=> Java Plug-in software is responsible to manage the life cycle of an applet
+=> Java applet is deprecated, which means it’s no longer recommended for use and may be removed in future versions of the language.
+
+
+HOW TO RUN AN APPLET?
+--------------------------------
+    required java version : <=JDK version 1.8 (JAVA 8) 
+	There are two ways to run an applet
+		1) By html file.
+		2) By appletViewer tool (for testing purpose).
+
+1) By html file
+//First.java  
+import java.applet.Applet;  
+import java.awt.Graphics;  
+public class First extends Applet{  
+    public void paint(Graphics g){  
+        g.drawString("welcome",150,150);  
+    } 
+}  
+
+//myapplet.html
+<html>  
+	<body>  
+		<applet code="First.class" width="300" height="300">  
+		</applet>  
+	</body>  
+</html>  
+
+2) By appletViewer tool:
+
+import java.awt.*;
+import java.applet.*;
+public class DemoApplet extends Applet{
+	String msg="";
+	public void init(){
+		msg="Hello Students";
+	}
+	public void start(){
+		msg=msg+",Welcome to Applets Session";
+	}
+	public void paint(Graphics g){
+		g.drawString(msg,20,20);
+	}
+}
+/*
+<applet code="DemoApplet" width=300 height=100>
+</applet>
+*/
+
+=> compiling: javac DemoApplet.java 
+=> running: appletviewer DemoApplet.java
+
+
+Displaying Graphics in Applets:
+--------------------------------
+
+- The java.awt.Graphics class provides various methods for graphics programming in applets. 
+Key methods include:
+    drawString(String str, int x, int y): Draws the specified string at the given coordinates.
+    drawRect(int x, int y, int width, int height): Draws a rectangle with specified dimensions.
+    fillRect(int x, int y, int width, int height): Fills a rectangle with the default color.
+    drawOval(int x, int y, int width, int height): Draws an oval within the specified bounds.
+    fillOval(int x, int y, int width, int height): Fills an oval with the default color.
+    drawLine(int x1, int y1, int x2, int y2): Draws a line between two points.
+    drawImage(Image img, int x, int y, ImageObserver observer): Draws the specified image at the given coordinates.
+    drawArc(int x, int y, int width, int height, int startAngle, int arcAngle): Draws a circular or elliptical arc.
+    fillArc(int x, int y, int width, int height, int startAngle, int arcAngle): Fills a circular or elliptical arc.
+    setColor(Color c): Sets the current drawing color.
+    setFont(Font font): Sets the current font for text.
+	
+	
+QUESTIONS:
+-------------
+
+1.Which of the following statements accurately describes the primary purpose of a Java applet? 
+	A) A standalone application that runs directly on the operating system.
+	B) A small program designed to be embedded in a web page to enhance user interactivity.
+	C) A server-side application that handles database transactions.
+	D) A command-line utility for compiling Java programs.
+
+2.In the context of Java applets, what is the role of the Applet class? 
+	A) It provides methods for server-side programming.
+	B) It serves as the base class for creating applets with graphical user interfaces.
+	C) It is used exclusively for database connectivity in web applications.
+	D) It defines the structure for creating standalone applications.
+
+3.Which of the following methods is called only once during the life cycle of an applet? 
+	A) start()
+	B) paint(Graphics g)
+	C) init()
+	D) stop()
+
+4.What must be present in a web browser for Java applets to run effectively? 
+	A) An updated version of the Java Runtime Environment (JRE)
+	B) A local server to host the applet
+	C) A specific Java compiler
+	D) An alternative programming language plugin
+
+5.Which of the following is a limitation of Java applets compared to modern web technologies? 
+	A) Applets can run on any platform without compatibility issues.
+	B) Applets require a security sandbox, limiting their access to system resources.
+	C) Applets are easier to implement than JavaScript.
+	D) Applets are not dependent on browser capabilities.
+
+
+6.Which of the following methods is invoked immediately after the init() method in an applet's life cycle? 
+	A) destroy()
+	B) start()
+	C) paint(Graphics g)
+	D) stop()
+
+7.In the applet life cycle, which method is responsible for rendering graphics on the applet's display? 
+	A) init()
+	B) start()
+	C) paint(Graphics g)
+	D) stop()
+
+8.What is the primary purpose of the stop() method in the applet life cycle? 
+	A) To initialize applet resources.
+	B) To release resources and cleanup tasks before the applet is destroyed.
+	C) To pause ongoing operations when the applet is not visible.
+	D) To redraw the applet whenever it is resized.
+
+9.Which of the following statements is true about the paint(Graphics g) method in the applet life cycle? 
+	A) It is invoked only once when the applet is initialized.
+	B) It can be called multiple times, such as when the applet is resized.
+	C) It is used for resource allocation.
+	D) It does not allow for dynamic drawing and must use static graphics.
+
+
+10.Which of these functions is called to display the output of an applet?
+	A) display()
+	B) paint()
+	C) displayApplet()
+	D) PrintApplet()
+
+11.Which of these methods can be used to output a string in an applet?
+	A) display()
+	B) print()
+	C) drawString()
+	D) transient()
+
+12.Which of these methods is a part of Abstract Window Toolkit (AWT) ?
+	A) display()
+	B) paint()
+	C) drawString()
+	D) transient()
+
+
+			---------------------------------------------------------------------------------
+												Java AWT
+			---------------------------------------------------------------------------------
+
+Java AWT (Abstract Window Toolkit) is an API for developing GUI or window-based applications in Java.
+Platform Dependence: AWT components are platform-dependent and appear according to the operating system's interface.
+Resource Usage: AWT is considered heavyweight; its components utilize resources from the underlying OS.
+Components: The java.awt package includes classes for various components like TextField, Label, TextArea, RadioButton, CheckBox, Choice, and List.
+
+Why AWT is Platform Dependent:
+    Native Calls: AWT calls native platform subroutines to create components, leading to different appearances across platforms.
+    Look and Feel: For example, a GUI with AWT components will look like a Windows application on Windows and a Mac application on macOS.
+    Platform Variation: Different operating systems have unique native components, resulting in varied presentations for the same AWT application.
+	
+Java AWT Hierarchy:
+----------------------------
+    java.awt.Component:
+        The base class for all AWT components.
+        Provides the basic functionality for all GUI components, such as handling events and rendering.
+
+    java.awt.Container:
+        A subclass of Component, it can contain other components.
+        Common containers include Panel, Frame, and Dialog.
+
+    java.awt.Container Subclasses:
+        java.awt.Panel: A generic container used to group components.
+        java.awt.Frame: A top-level window with a title and border.
+        java.awt.Dialog: A pop-up window for user interaction.
+
+    Component Classes:
+        Button: Represents a clickable button.
+        Label: Displays a non-editable text.
+        TextField: A single-line input field.
+        TextArea: A multi-line input field.
+        CheckBox: A toggle button representing a boolean choice.
+        RadioButton: A button in a group allowing a single selection.
+        List: Displays a list of items for selection.
+
+    Specialized Components:
+        Menu: A drop-down menu containing multiple options.
+        Scrollbar: A component for scrolling through content.
+
+Summary of AWT Hierarchy
+    Component: Base for all GUI elements.
+    Container: Can hold other components (e.g., Panel, Frame).
+    Components: Various GUI elements like buttons, labels, text fields, etc.
+	
+Methods:
+    public void add(Component c)
+    public void setSize(int width,int height)
+    public void setLayout(LayoutManager m)
+    public void setVisible(boolean status)
+	
+	
+To create simple AWT exampleclass, we need a frame. There are two ways to create a GUI using Frame in AWT.
+    1)By extending Frame class (inheritance)
+		-> Direct access to Frame methods and properties.
+		-> Allows for overriding methods for customized behavior.
+		
+    2)By creating the object of Frame class (association)
+		-> Provides flexibility to create different frame instances.
+		-> Maintains a clear separation of concerns, as the GUI logic is decoupled from the frame implementation.
+
+1) By extending Frame class (inheritance):
+
+	import java.awt.*;
+
+	public class MyFrame extends Frame {
+		public MyFrame() {
+			// Set frame properties
+			setTitle("My AWT Frame");
+			setSize(400, 300);
+			setVisible(true);
+		}
+		
+		public static void main(String[] args) {
+			new MyFrame(); // Create an instance of MyFrame
+		}
+	}
+
+2. By Creating an Object of Frame Class (Association):
+	import java.awt.*;
+
+	public class MyFrameExample {
+		public MyFrameExample() {
+			Frame frame = new Frame(); // Create a Frame object
+			
+			// Set frame properties
+			frame.setTitle("My AWT Frame");
+			frame.setSize(400, 300);
+			frame.setVisible(true);
+		}
+		
+		public static void main(String[] args) {
+			new MyFrameExample(); // Create an instance of MyFrameExample
+		}
+	}
+
+
+				------------------------------------------------------------
+							Event and Listener in Java Event Handling	
+				------------------------------------------------------------
+1. Event:
+- An event in Java is an action or occurrence recognized by the application. 
+- Events can arise from user interactions or system-generated actions. 
+- Common types of events include:
+	1.ActionEvent: Represents action events, such as button clicks or menu selections.
+	2.AdjustmentEvent: Generated by components like scrollbars and spinners when their value changes.
+	3.ComponentEvent: Represents changes in the state of a component, such as resizing or moving.
+	4.ContainerEvent: Indicates a change in the components contained within a container.
+	5.FocusEvent: Represents changes in component focus (gaining or losing focus).
+	6.KeyEvent: Generated by keyboard actions, such as key presses and releases.
+	7.MouseEvent: Represents mouse actions, including clicks, movements, and drags.
+	8.MouseWheelEvent: Generated by mouse wheel movements.
+	9.PaintEvent: Indicates that a component needs to be repainted.
+	10.TextEvent: Represents text changes in text components.
+	11.WindowEvent: Represents window-specific actions, like opening, closing, or activating a window.
+
+- When an event occurs, it creates an event object containing details about the event, such as its source and type.
+
+2.Listener:
+- A listener in Java is an interface that defines methods to handle specific types of events. 
+- When an event occurs, the associated listener's method is invoked to respond to that event. 
+- Key listener interfaces include:
+	1.ActionListener: Handles action events (e.g., button clicks).
+	2.AdjustmentListener: Handles adjustment events (e.g., scrollbar changes).
+	3.ComponentListener: Handles component events (e.g., resizing or moving components).
+	4.ContainerListener: Handles events related to components being added or removed from a container.
+	5.FocusListener: Handles focus events (e.g., gaining or losing focus).
+	6.KeyListener: Handles keyboard events (e.g., key presses).
+	7.MouseListener: Handles mouse events (e.g., mouse clicks, entering/exiting components).
+	8.MouseMotionListener: Handles mouse movement events (e.g., dragging and moving).
+	9.MouseWheelListener: Handles mouse wheel movement events.
+	10.TextListener: Handles text change events in text components.
+	11.WindowListener: Handles window events (e.g., window opening, closing, or iconifying).
+	
+				------------------------------------------------------------
+									LayoutManagers	
+				------------------------------------------------------------
+- LayoutManagers are used to arrange components in a specific manner within a GUI.
+- Functionality: They control the positioning and size of components in user interfaces.
+- Interface: LayoutManager is an interface implemented by all layout manager classes.
+- Common Layout Manager Classes:
+    java.awt.BorderLayout
+    java.awt.FlowLayout
+    java.awt.GridLayout
+    java.awt.CardLayout
+    java.awt.GridBagLayout
+    javax.swing.BoxLayout
+    javax.swing.GroupLayout
+    javax.swing.ScrollPaneLayout
+    javax.swing.SpringLayout
+
+1.FlowLayout:
+	Arranges components in a left-to-right flow, wrapping to the next line when the container's edge is reached.
+	Ideal for simple layouts with components of varying sizes.
+
+2.BorderLayout:
+	Divides the container into five regions: North, South, East, West, and Center.
+	Components added to specific regions occupy all available space in that region.
+	Useful for creating complex layouts with distinct areas.
+
+3.GridLayout:
+	Arranges components in a grid of specified rows and columns.
+	Each component takes up equal space, making it suitable for uniform layouts.
+
+4.GridBagLayout:
+	A more flexible and complex layout manager that allows components to span multiple rows and columns.
+	Provides fine control over component placement and resizing, making it ideal for complex interfaces.
+
+5.BoxLayout:
+	Arranges components either vertically or horizontally in a single line.
+	Allows for precise control over the alignment and spacing of components.
+
+6.CardLayout:
+	Allows for multiple components to occupy the same space, with only one component visible at a time.
+	Useful for creating tabbed interfaces or wizard-like steps.
+
+
+To summarize:
+    Default Layout for Frame/Dialog: BorderLayout
+    Default Layout for JPanel: FlowLayout
+
+QUESTIONS 
+-----------------
+1. Which of the following statements accurately describes AWT?
+	A) AWT is a lightweight GUI toolkit that provides platform-independent components.
+	B) AWT is a set of Java libraries for creating server-side applications.
+	C) AWT components are platform-dependent and are rendered using the native GUI of the operating system.
+	D) AWT is exclusively used for mobile application development.
+
+2. Which of the following is a characteristic of AWT components?
+
+	A) They are all heavyweight components.
+	B) They are exclusively based on the Java Virtual Machine.
+	C) They are automatically adjusted to fit the screen size.
+	D) They are completely independent of the operating system.
+
+3. Which of the following AWT components can be embedded in a web page as an applet?
+	A) Frame
+	B) Dialog
+	C) Button
+	D) Canvas
+
+4.In the AWT hierarchy, which of the following classes is a direct subclass of the Container class?
+
+	A) Button
+	B) Label
+	C) Frame
+	D) Canvas
+
+5.Which of the following components cannot contain other components in the AWT hierarchy?
+
+A) Panel
+B) Frame
+C) Button
+D) Dialog
+
+6. In the AWT component hierarchy, which class is an abstract class specifically designed for creating GUI components that can be drawn on the screen?
+
+	A) Button
+	B) Component
+	C) Canvas
+	D) Pane
+
+7. Which of the following AWT event classes is used to detect changes in a component's state, such as resizing or moving?
+
+	A) ActionEvent
+	B) ComponentEvent
+	C) FocusEvent
+	D) MouseEvent
+
+8. What method must be implemented when creating an ActionListener for a button in AWT?
+
+	A) actionPerformed(ActionEvent e)
+	B) actionEvent(ActionEvent e)
+	C) handleAction(ActionEvent e)
+	D) performAction(ActionEvent e)
+	
+9. In AWT, which event is generated when a user interacts with a scrollbar component?
+
+	A) AdjustmentEvent
+	B) ActionEvent
+	C) ComponentEvent
+	D) MouseEvent
+
+10. Which AWT event listener would you use to handle events related to changes in the selection of items in a list?
+
+	A) ActionListener
+	B) ItemListener
+	C) ListSelectionListener
+	D) SelectionListener
+	
+11. What is the primary purpose of the AdjustmentListener interface in AWT?
+
+	A) To handle keyboard events.
+	B) To respond to changes in the value of scrollbars and spinners.
+	C) To manage focus events for components.
+	D) To track mouse movement across the component.
+
+12. When implementing the KeyListener interface, which two methods must be defined?
+
+	A) keyPressed(KeyEvent e), keyReleased(KeyEvent e)
+	B) keyDown(KeyEvent e), keyUp(KeyEvent e)
+	C) keyTyped(KeyEvent e), keyReleased(KeyEvent e)
+	D) keyPressed(KeyEvent e), keyTyped(KeyEvent e)
+	
+13.Which layout manager allows components to span multiple rows and columns, providing the most flexibility in component arrangement?
+
+	A) FlowLayout
+	B) GridLayout
+	C) GridBagLayout
+	D) BorderLayout
+
+14. In which layout manager are components arranged in a single row, wrapping to the next line when the container's edge is reached?
+
+	A) BorderLayout
+	B) FlowLayout
+	C) BoxLayout
+	D) CardLayout
+
+15. Which layout manager is best suited for creating a tabbed interface where only one component is visible at a time?
+
+	A) BoxLayout
+	B) FlowLayout
+	C) CardLayout
+	D) GridLayout
+
+16. Which package provides AWT classes in Java?
+	A) java.awt
+	B) java.swing
+	C) java.io
+	D) java.net

@@ -1,0 +1,524 @@
+													COLLECTIONS FRAMEWORK
+			------------------------------------------------------------------------------------
+## Need of Collection. 
+###################################
+Arrays:
+----------------
+- Indexed collection of a fixed number of homogeneous data elements.
+- Main advantage: Representing multiple values with a single variable, improving code reusability.
+- Limitations:
+	=> Fixed size: Cannot be increased or decreased after creation.
+	=> Homogeneous data: Can only hold elements of the same type.
+
+	// Array Example
+	Student[] s = new Student[10000];
+	s[0] = new Student(); // Correct
+	s[1] = new Customer(); // Wrong (type mismatch)
+
+
+Object Arrays:
+----------------------
+- Can hold elements of different types, but still have the limitations of fixed size and lack of built-in methods
+
+	// Object Array Example
+	Object[] o = new Object[10000];
+	o[0] = new Student();
+	o[1] = new Customer();
+	
+- Arrays are not flexible enough for many data management tasks.
+- Arrays are not built on standard data structures, it lacks readymade methods for many operations (insert,delete,search,update).
+
+Advantages of Collections over Arrays:
+-----------------------------------------------
+Dynamic Size: 
+	Collections can grow or shrink as needed, unlike arrays which have a fixed size.
+Homogeneous and Heterogeneous Elements: 
+	Collections can hold both elements of the same type and different types, while arrays can only hold elements of the same type.
+Built-in Methods: 
+	Collections provide readymade methods for various operations, such as adding, removing, searching, sorting, and iterating. 
+	This simplifies development and reduces the need for writing custom code.
+	
+	
+### Difference between Arrays and Collections:
+-----------------------------------------------
+Arrays:
+
+ 1.Fixed Size: Arrays have a fixed size, which means you need to specify the size when you create them. You cannot change the size later.
+ 2.Memory Usage: Arrays are not recommended for large datasets as they can consume a lot of memory.
+ 3.Performance: Arrays can be faster for simple operations like accessing elements by index, but they can be slower for complex operations like searching and sorting.
+ 4.Homogeneous Data Types: Arrays can only hold elements of the same data type.
+ 5.No Underlying Data Structure: Arrays do not have an underlying data structure, so they do not provide built-in methods for common operations like searching, sorting, and iterating.
+ 6.Primitive and Object Types: Arrays can hold both primitive data types (like int, double, boolean) and object types (like String, Integer, etc.).
+
+Collections:
+ 1.Growable Size: Collections are dynamic in size, which means you can add or remove elements as needed.
+ 2.Memory Usage: Collections are generally more memory-efficient than arrays, especially for large datasets.
+ 3.Performance: Collections can be slower than arrays for simple operations like accessing elements by index, but they can be faster for complex operations like searching and sorting.
+ 4.Homogeneous and Heterogeneous Elements: Collections can hold both elements of the same data type and different data types.
+ 5.Underlying Data Structure: Collections are built on top of various data structures like linked lists, trees, and hash tables, which provide built-in methods for common operations.
+ 6.Object Types Only: Collections can only hold objects, not primitive data types. However, you can use wrapper classes (like Integer, Double, Boolean) to store primitive values in collections.
+ 
+ 
+
+### What is Collection?
+-------------------------
+- A collection is a data structure that allows us to group multiple objects together under a single entity.
+- If we want to represent a group of individual objects as a single entity then we should go for Collection.
+
+What is Collection Framework?
+-----------------------------------
+- It defines several classes and interfaces which can be used a group of objects as single entity.
+
+Java:
+
+	Collection: A general term for data structures that hold multiple elements.
+	Collection Framework: A built-in library in Java that provides various implementations of collections like ArrayList, LinkedList, HashSet, HashMap, etc.
+
+C++:
+
+	Container: A similar concept to collections in Java, used to store and manage elements.
+	STL (Standard Template Library): A library in C++ that provides a rich set of container classes like vector, list, deque, set, map, etc.
+	
+	
+## 9-Key Interfaces of Collection Framework
+---------------------------------------------------
+1) Collection
+- A group of individual objects represented as a single entity.
+- Defines common methods applicable to any collection object.
+- Root Interface: The collection interface serves as the foundation for the entire Collection Framework.
+- Concrete Class Implementation: No concrete class directly implements the Collection interface.
+
+Collection (the interface) and Collections (the utility class):
+--------------------------------------------------------------------
+Collection (Interface):
+
+	Represents a group of individual objects as a single entity.
+	Defines common methods for manipulating collections.
+
+Collections (Utility Class):
+	Located in the java.util package.
+	Provides utility methods for various operations on collection objects, such as sorting, searching, and more.
+	
+2)List
+- List is a child interface of Collection.
+- It represents a group of objects where:
+	- Duplicates are allowed.
+	- Insertion order is preserved.
+	
+3)Set
+- Set is a child interface of Collection.
+- It represents a group of objects where:
+	Duplicates are not allowed.
+	Insertion order is not preserved.
+	
+4)SortedSet 
+- SortedSet is a child interface of Set.
+- It represents a group of objects where:
+	Duplicates are not allowed.
+	Objects are inserted according to a specific sorting order.
+	
+5)NavigableSet
+- NavigableSet is a child interface of SortedSet that provides additional methods for navigating through the set, such as finding elements based on their relative positions.
+
+6)Queue
+- Queue is a child interface of Collection.
+- It represents a group of objects that follow a First-In-First-Out (FIFO) order.
+- It's used to store objects before processing them, ensuring they are processed in the order they were added.
+     Example: Storing email IDs before sending them to maintain the order of delivery.
+Note:
+ - All the above interfaces (Collection, List, Set, SortedSet, NavigableSet, and Queue) are meant for representing a group of individual objects.   
+ - If we want to represent a group of objects as key-value pairs, then we should go for the Map Interface.   
+
+
+7) Map
+- Map is not a child interface of Collection.
+- It represents a group of objects as key-value pairs.
+- Both keys and values are objects.
+- Duplicate keys are not allowed, but duplicate values are. 
+
+Example:
+
+	Roll No  Name
+	101      Durga
+	102      Ravi
+	103      Venkat
+	
+	
+8)SortedMap
+-SortedMap is a child interface of Map.
+-It represents a group of key-value pairs where the keys are sorted in a specific order.
+
+9)NavigableMap
+-NavigableMap is a child interface of SortedMap.
+-It provides several utility methods for navigation purposes, allowing you to efficiently navigate through the map's entries.
+
+
+## Overview of Collection framework
+	https://i.imgur.com/SctIBSz.png
+	https://i.imgur.com/u6v3V70.png
+	
+## Methods
+---------------------
+1. Collection Interface
+----------------------------
+	1.boolean add(Object o);
+	2.boolean addAll(Collection<? extends E> c);
+	3.boolean remove(Object o);
+	4.boolean removeAll(Collection<?> c);
+	5.boolean retainAll(Collection<?> c);
+	6.void clear();   
+
+	7.boolean contains(Object o);
+	8.boolean containsAll(Collection<?> c);
+	9.boolean isEmpty();
+	10.int size();
+	11.Object[] toArray();   
+
+	12.<T> T[] toArray(T[] a);
+	13.Iterator<E> iterator();
+	
+2. List Interface
+-----------------
+List Interface Specific Methods:
+	1.void add(int index, Object o): 
+		Inserts the specified element at the specified position in this list.
+	2.boolean addAll(int index, Collection c): 
+		Inserts all of the elements in the specified collection into this list, starting at the specified position.   
+	3.Object get(int index): 
+		Returns the element at the specified position in this list.
+	4.Object remove(int index): 
+		Removes the element at the specified position in this list.   
+	5.Object set(int index, Object new): 
+		Replaces the element at the specified position in this list with the specified element.
+	6.int indexOf(Object o): 
+		Returns the index of the first occurrence of the specified element in this list, or -1 if this list does not contain the element.   
+	7.int lastIndexOf(Object o): 
+		Returns the index of the last occurrence of the specified element in this list, or -1 if this list does not contain the element.   
+	8.ListIterator listIterator(): 
+		Returns a list iterator over the elements in this list (in proper sequence)
+		
+
+i) ArrayList
+-----------------
+ArrayList Characteristics:
+
+- Underlying Data Structure: Resizable Array or Growable Array. 
+- Duplicates Allowed: You can add multiple identical elements to an ArrayList.
+- Insertion Order Preserved: Elements are stored in the order they are added to the list.
+- Heterogeneous Objects Allowed: You can store objects of different data types in an ArrayList.
+- Null Insertion Possible: You can add null values to an ArrayList.
+
+ArrayList Constructors:
+	a) ArrayList al = new ArrayList():
+	ex: ArrayList<String> al = new ArrayList<>();
+		Creates an empty ArrayList object with a default initial capacity of 10.
+		When the ArrayList reaches its maximum capacity, a new ArrayList is created with a larger capacity, calculated as (currentCapacity * 3/2) + 1.
+	
+	b) ArrayList al = new ArrayList(int capacity);
+	c) ArrayList al = new ArrayList(Collection c); 
+	
+Methods:
+--------------
+1) Add Elements:
+    add(E e)
+    add(int index, E element)
+    addAll(Collection<? extends E> c)
+    addAll(int index, Collection<? extends E> c)
+
+2) Remove Elements:
+    remove(Object o)
+    remove(int index)
+    removeAll(Collection<?> c)
+    retainAll(Collection<?> c)
+
+3) Access Elements:
+    get(int index)
+    indexOf(Object o)
+    lastIndexOf(Object o)
+
+4) Modify Elements:
+    set(int index, E element)
+
+5) Size and Capacity:
+    size()
+    isEmpty()
+    trimToSize()
+
+6) Clear the List & Contains :
+    clear()
+	contains(Object o)
+
+7) Sublist:
+    subList(int fromIndex, int toIndex)
+
+8) Iterators:
+    iterator()
+    listIterator()
+    listIterator(int index)
+
+
+    
+	
+Example:
+import java.util.ArrayList;
+
+public class ArrayListExample {
+    public static void main(String[] args) {
+		
+        // Creating an empty ArrayList   
+        ArrayList<String> fruits = new ArrayList<>();
+
+        // Adding elements to the ArrayList
+        fruits.add("Apple");
+        fruits.add("Banana");
+        fruits.add("Orange");
+
+        // Accessing elements   
+        System.out.println("Second fruit: " + fruits.get(1));
+
+        // Removing an element
+        fruits.remove("Banana");
+
+        // Iterating over the ArrayList
+        for (String fruit : fruits) {
+            System.out.println(fruit);
+        }
+
+        // Using iterator
+        for (Iterator<String> iterator = fruits.iterator(); iterator.hasNext();) {
+            String fruit = iterator.next();
+            System.out.println(fruit);
+        }
+
+        // Checking if an element exists
+        if (fruits.contains("Apple")) {
+            System.out.println("Apple is present");
+        }
+
+        // Getting the size of the ArrayList
+        System.out.println("Size of the ArrayList: " + fruits.size());
+
+        // Clearing the ArrayList
+        fruits.clear();
+        System.out.println("ArrayList after clearing: " + fruits);
+    }
+}
+
+
+ii) LinkedList
+----------------------
+- The LinkedList class in Java is a part of the Java Collections Framework and implements the List interface
+- Allows to store and manipulate data in a linked list structure
+
+Constructors:
+	a) LinkedList<Type> list = new LinkedList<>();
+	b) LinkedList<Type> list = new LinkedList<>(Collection<? extends Type> c);
+
+Methods:
+	addFirst(E e): Inserts the specified element at the beginning of this list.
+	addLast(E e): Appends the specified element to the end of this list.   
+	getFirst(): Returns the first element in this list.
+	getLast(): Returns the last element in this list.
+	removeFirst(): Removes and returns the first element from this list.
+	removeLast(): Removes and returns the last element from this list.   
+	pollFirst(): Removes and returns the first element from this list, or null if this list is empty.
+	pollLast(): Removes and returns the last element from this list, or null if this list is empty.
+	peekFirst(): Returns the first element in this list, or null if this list is empty.
+	peekLast(): Returns the last element in this list, or null if this list is empty.
+
+Example:
+
+import java.util.LinkedList;
+
+public class LinkedListMethodsExample {
+    public static void main(String[] args) {
+        LinkedList<String> cities = new LinkedList<>();
+
+        // Adding elements
+        cities.add("New York");
+        cities.add("Los Angeles");
+        cities.addFirst("Chicago");
+        cities.addLast("San Francisco");
+        
+        // Display the list
+        System.out.println("Cities: " + cities);
+
+        // Accessing elements
+        String firstCity = cities.getFirst();
+        String lastCity = cities.getLast();
+        System.out.println("First city: " + firstCity);
+        System.out.println("Last city: " + lastCity);
+
+        // Modifying an element
+        cities.set(1, "Houston"); // Replace "Los Angeles" with "Houston"
+        System.out.println("After modification: " + cities);
+
+        // Removing elements
+        cities.remove("Chicago");
+        cities.removeLast(); // Remove "San Francisco"
+        System.out.println("After removal: " + cities);
+
+        // Size of the list
+        System.out.println("Size of the list: " + cities.size());
+
+        // Checking if the list contains an element
+        System.out.println("Contains 'Houston'? " + cities.contains("Houston"));
+
+        // Clearing the list
+        cities.clear();
+        System.out.println("After clearing: " + cities);
+        System.out.println("Is the list empty? " + cities.isEmpty());
+    }
+}
+
+
+Important Points:
+-------------------------
+- LinkedList offers constant-time performance for add and remove operations at both ends (i.e., addFirst, addLast, removeFirst, removeLast).
+- Each element in a LinkedList stores references to both the next and previous elements, which can lead to higher memory consumption compared to an ArrayList
+- LinkedList allows null elements, meaning you can add null values to the list.
+- LinkedList is not synchronized.
+- The LinkedList class also implements the Deque interface, which means it can be used as a double-ended queue
+- LinkedList is a doubly linked list, meaning each node points to both the next and previous nodes, allowing for efficient bidirectional traversal.
+
+
+iii) Vector:
+---------------------
+- The Vector class in Java is part of the Java Collections Framework and implements the List interface.
+- It is similar to ArrayList, but it is synchronized, making it suitable for use in a multi-threaded environment.
+
+Constructors:
+	a) Vector<Type> vector = new Vector<>();
+	b) Vector<Type> vector = new Vector<>(int initialCapacity);
+	c) Vector<Type> vector = new Vector<>(int initialCapacity, int capacityIncrement);
+	d) Vector<Type> vector = new Vector<>(Collection<? extends Type> c);
+
+Methods:
+Capacity Methods:
+    capacity(): Returns the current capacity of the vector.
+    ensureCapacity(int minCapacity): Ensures that the vector can hold at least the specified number of elements.
+
+Synchronized Methods:
+    Most methods are synchronized, meaning they are thread-safe. This includes methods like add, remove, get, and set.
+
+Element Access:
+    firstElement(): Returns the first element of the vector.
+    lastElement(): Returns the last element of the vector.
+    setElementAt(E obj, int index): Sets the component at the specified index to the specified object.
+	
+Example:
+
+import java.util.Vector;
+
+public class VectorEmployeeIDExample {
+    public static void main(String[] args) {
+        // Creating a Vector to store Integer employee IDs
+        Vector<Integer> employeeIDs = new Vector<>();
+
+        // Adding employee IDs to the Vector
+        employeeIDs.add(101);
+        employeeIDs.add(102);
+        employeeIDs.add(103);
+        employeeIDs.add(1, 104); // Inserting 104 at index 1
+
+        // Displaying the Vector of Employee IDs
+        System.out.println("Employee IDs: " + employeeIDs);
+
+        // Accessing the first and last employee IDs
+        Integer firstID = employeeIDs.firstElement();
+        Integer lastID = employeeIDs.lastElement();
+        System.out.println("First Employee ID: " + firstID);
+        System.out.println("Last Employee ID: " + lastID);
+
+        // Modifying an employee ID
+        employeeIDs.set(2, 105); // Replace the ID at index 2 (103) with 105
+        System.out.println("After modification: " + employeeIDs);
+
+        // Removing an employee ID
+        employeeIDs.remove(Integer.valueOf(101)); // Remove the employee ID 101
+        System.out.println("After removing Employee ID 101: " + employeeIDs);
+
+        // Checking the current capacity of the Vector
+        System.out.println("Current capacity of the Vector: " + employeeIDs.capacity());
+
+        // Iterating through the Vector
+        System.out.println("All Employee IDs in the Vector:");
+        for (Integer id : employeeIDs) {
+            System.out.println(id);
+        }
+
+        // Clearing the Vector
+        employeeIDs.clear();
+        System.out.println("After clearing the Vector: " + employeeIDs);
+        System.out.println("Is the Vector empty? " + employeeIDs.isEmpty());
+    }
+}
+
+iv) Stack: 
+- The Stack class in Java is part of the Java Collections Framework and extends the Vector class, implementing a last-in, first-out (LIFO) data structure.
+
+Constructors:
+	a) Stack<Type> stack = new Stack<>();
+	b) Stack<Type> stack = new Stack<>(Collection<? extends Type> c);
+
+Methods:
+
+1.Push:
+    push(E item): Pushes an item onto the top of the stack.
+
+2.Pop:
+    pop(): Removes the object at the top of the stack and returns that object.
+
+3.Peek:
+    peek(): Looks at the object at the top of the stack without removing it.
+
+4.Search:
+    search(Object o): Returns the 1-based position where the specified object is on the stack. Returns -1 if the object is not found.
+
+5.Empty Check:
+    empty(): Tests if the stack is empty.
+	
+	
+Example:
+import java.util.Stack;
+
+public class StackExample {
+    public static void main(String[] args) {
+        // Creating a Stack to store Integer objects
+        Stack<Integer> stack = new Stack<>();
+
+        // Pushing elements onto the stack
+        stack.push(1);
+        stack.push(2);
+        stack.push(3);
+        System.out.println("Stack after pushing elements: " + stack);
+
+        // Peeking the top element
+        Integer topElement = stack.peek();
+        System.out.println("Top element (peek): " + topElement);
+
+        // Popping elements from the stack
+        Integer poppedElement = stack.pop();
+        System.out.println("Popped element: " + poppedElement);
+        System.out.println("Stack after popping: " + stack);
+
+        // Searching for an element
+        int position = stack.search(2);
+        System.out.println("Position of element '2' in stack: " + position);
+
+        // Checking if the stack is empty
+        boolean isEmpty = stack.empty();
+        System.out.println("Is the stack empty? " + isEmpty);
+
+        // Clearing the stack
+        stack.clear();
+        System.out.println("Stack after clearing: " + stack);
+        System.out.println("Is the stack empty? " + stack.empty());
+    }
+}
+
+
+Important Points:
+- LIFO Structure
+- Synchronized
+- Legacy Class
