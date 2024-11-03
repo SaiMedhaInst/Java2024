@@ -60,18 +60,7 @@ Hierarchy of Applet:
 
 LIFE CYCLE OF APPLETS:
 ---------------------------
-1. Initialization (init())
-    This method is called when the applet is first loaded into memory.
-    It is used to set up initial parameters, allocate resources, and perform any setup tasks required before the applet starts.
-    This method is called only once during the applet’s life cycle.
-	
-2. Start (start())
-    Invoked after init(), this method is called when the applet becomes visible on the web page or when the user navigates back to a page containing the applet.
-    It is used to start any processes that should run while the applet is active, such as animations or threads.
-    This method can be called multiple times, for example, when a user returns to a page containing the applet.
-	
-
-The life cycle of an applet in Java consists of a series of stages, each defined by specific methods that the applet can override. Understanding this life cycle is essential for managing an applet's behavior effectively. Here are the key stages and the corresponding methods involved:
+- The life cycle of an applet in Java consists of a series of stages, each defined by specific methods that the applet can override. 
 
 1.Initialization (init())
     Called once when the applet is loaded into memory.
@@ -164,24 +153,24 @@ public class First extends Applet{
 
 2) By appletViewer tool:
 
-import java.awt.*;
-import java.applet.*;
-public class DemoApplet extends Applet{
-	String msg="";
-	public void init(){
-		msg="Hello Students";
+	import java.awt.*;
+	import java.applet.*;
+	public class DemoApplet extends Applet{
+		String msg="";
+		public void init(){
+			msg="Hello Students";
+		}
+		public void start(){
+			msg=msg+",Welcome to Applets Session";
+		}
+		public void paint(Graphics g){
+			g.drawString(msg,20,20);
+		}
 	}
-	public void start(){
-		msg=msg+",Welcome to Applets Session";
-	}
-	public void paint(Graphics g){
-		g.drawString(msg,20,20);
-	}
-}
-/*
-<applet code="DemoApplet" width=300 height=100>
-</applet>
-*/
+	/*
+	<applet code="DemoApplet" width=300 height=100>
+	</applet>
+	*/
 
 => compiling: javac DemoApplet.java 
 => running: appletviewer DemoApplet.java

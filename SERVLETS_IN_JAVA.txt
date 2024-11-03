@@ -271,7 +271,7 @@ ServletRequest and ServletResponse:
 	
 
 			-----------------------------------------------------------------
-							Servlet Interface
+							GenericServlet Class
 			-----------------------------------------------------------------
 - GenericServlet class implements Servlet, ServletConfig and Serializable interfaces.
 - It is an abstract class in the Java Servlet API that simplifies the creation of servlets by providing a standard implementation of the Servlet interface.
@@ -418,9 +418,9 @@ Example:
 	}
 
 
--------------------------------------------------------------------------
-			ServletRequest & Servlet Response Interface
--------------------------------------------------------------------------
+				-------------------------------------------------------------------------
+							ServletRequest & Servlet Response Interface
+				-------------------------------------------------------------------------
 ### ServletRequest Interface:
 - The ServletRequest interface provides methods to retrieve information about the request made by a client. 
 - It represents the client's request to a servlet.
@@ -819,3 +819,322 @@ ex: 	<%-- This is a JSP comment --%>
 	
 => Taglib directive: used to define a tag library that defines many tags.
 	ex: <%@ taglib uri="uriofthetaglibrary" prefix="prefixoftaglibrary" %>  
+	
+	
+	
+QUESTIONS:
+-------------------
+1. Which of the following statements accurately describes a Java Servlet?
+
+	A) A Servlet is a Java class that handles requests and responses in a web application.
+
+	B) A Servlet is a lightweight server-side component that only generates HTML content.
+
+	C) A Servlet runs in a standalone Java application and does not require a web server.
+
+	D) A Servlet is primarily used for client-side processing in web applications.
+	
+
+2. In the context of web applications, what does the term "deployment descriptor" refer to?
+
+	A) A configuration file that defines the servlet's parameters and mappings.
+
+	B) A Java class that contains the main method to start the web application.
+
+	C) An HTML file that describes the web application's user interface.
+
+	D) A database schema that outlines the data structure for the application.
+
+3. What is the role of the HttpServletRequest object in a servlet?
+
+	A) It represents the response sent back to the client.
+
+	B) It encapsulates the request made by the client to the server, containing data such as parameters and headers.
+
+	C) It is used to define the servlet's lifecycle.
+
+	D) It manages the session attributes of the client.
+
+4. What is the primary function of the client-server architecture?
+
+	A) To serve static HTML pages only.
+
+	B) To allow client devices to request services or resources from a centralized server.
+
+	C) To store all data locally on client devices.
+
+	D) To encrypt all data transfers between the client and server.
+	
+5.Which HTTP request method is used to submit data to be processed by the server?
+
+	A) GET
+
+	B) POST
+
+	C) PUT
+
+	D) DELETE
+	
+6, What is the main difference between a web server and an application server?
+
+	A) A web server serves dynamic content while an application server serves static content.
+
+	B) A web server manages databases while an application server does not.
+
+	C) A web server focuses on serving static content and handling HTTP requests, whereas an application server manages dynamic content and application logic.
+
+	D) A web server can handle encrypted requests, but an application server cannot.
+
+7. Which of the following methods is called first when a servlet is loaded into memory by the servlet container?
+
+	A) service()
+
+	B) init()
+
+	C) destroy()
+
+	D) doGet()
+
+8.What is the purpose of the service() method in a Java Servlet?
+
+	A) It initializes the servlet and prepares it for requests.
+
+	B) It processes requests from clients and generates responses.
+
+	C) It cleans up resources before the servlet is destroyed.
+
+	D) It handles only GET requests sent to the servlet.
+
+9. What happens if a servlet is called for the first time while the servlet container is already running?
+
+	A) The servlet will throw an exception.
+
+	B) The servlet's init() method will be called before processing the request.
+
+	C) The servlet's destroy() method will be invoked.
+
+	D) The servlet will not be loaded into memory.
+	
+10. Which method must be implemented by any class that directly implements the Servlet interface?
+
+	A) init()
+
+	B) service()
+
+	C) destroy()
+
+	D) all of the above
+	
+	
+11. What is the role of the ServletConfig interface in a servlet?
+
+	A) It allows a servlet to communicate with the servlet container and retrieve initialization parameters.
+
+	B) It defines the request-response mechanism for the servlet.
+
+	C) It provides access to session management features.
+
+	D) It is used to manage the lifecycle of servlets.
+	
+12. Which of the following statements about the ServletRequest interface is true?
+
+	A) It is used to send a response back to the client.
+
+	B) It allows the servlet to read client data, such as parameters and attributes.
+
+	C) It defines methods for managing the servlet's lifecycle.
+
+	D) It is optional for servlet implementation.
+
+13. What is the primary purpose of the GenericServlet class in Java?
+
+	A) To provide a framework for handling HTTP-specific requests.
+
+	B) To simplify the development of servlets by providing default implementations for the Servlet interface methods.
+
+	C) To serve static content directly to clients.
+
+	D) To manage session data across multiple requests.
+	
+14. Which method must be overridden when extending the GenericServlet class?
+
+	A) doGet()
+
+	B) service()
+
+	C) init()
+
+	D) destroy()
+	
+	
+15. Which of the following classes can be directly subclassed from GenericServlet?
+
+	A) HttpServlet
+
+	B) JSPServlet
+
+	C) Any Java class that implements the Servlet interface
+
+	D) Any class that requires direct HTTP handling
+
+16. What is the primary advantage of extending the HttpServlet class instead of implementing the Servlet interface directly?
+
+	A) It provides a simple way to handle sessions.
+
+	B) It automatically handles various HTTP request methods without needing to implement them manually.
+
+	C) It reduces the amount of code needed for error handling.
+
+	D) It allows for more complex URL mapping.
+	
+	
+17. When the doGet() method is called in an HttpServlet, what type of parameter is passed to it to retrieve client request data?
+
+	A) HttpServletRequest
+
+	B) ServletRequest
+
+	C) Request
+
+	D) HttpServletResponse
+	
+18. Which of the following is true regarding the HttpServletResponse parameter in methods like doGet() and doPost()?
+
+	A) It is used to read data sent from the client.
+
+	B) It is used to control the HTTP response sent back to the client.
+
+	C) It automatically serializes objects for transmission over the network.
+
+	D) It cannot be modified once it is created.
+	
+19. Which method of the ServletRequest interface allows you to retrieve the value of a specific request parameter?
+
+	A) getParameterNames()
+
+	B) getParameter()
+
+	C) getAttribute()
+
+	D) getContentType()
+	
+20. In the context of the ServletResponse interface, what does the setContentType(String type) method do?
+
+	A) It sets the character encoding of the response.
+
+	B) It determines how the client should handle the response data.
+
+	C) It specifies the URL to redirect the client to.
+
+	D) It adds a header to the response.
+	
+21. Which of the following methods from the ServletResponse interface is used to obtain the output stream for binary data?
+
+	A) getWriter()
+
+	B) getOutputStream()
+
+	C) getContentLength()
+
+	D) getCharacterEncoding()
+	
+22. What type of object does the getAttribute(String name) method of ServletRequest return?
+
+	A) A String containing the parameter value.
+
+	B) An Object representing the requested attribute.
+
+	C) An array of Strings representing all parameters.
+
+	D) A byte array containing binary data.
+	
+23. When a servlet wants to send a JSON response, which content type should be set in the ServletResponse?
+
+	A) text/html
+
+	B) application/json
+
+	C) text/plain
+
+	D) application/xml
+	
+24.What is the primary purpose of the RequestDispatcher interface in Java Servlets?
+
+	A) To manage the lifecycle of servlets.
+
+	B) To forward requests and responses between servlets or resources.
+
+	C) To establish a connection to the database.
+
+	D) To handle client sessions.
+	
+25.Which method of the RequestDispatcher interface is used to forward a request from one servlet to another?
+
+	A) include()
+
+	B) forward()
+
+	C) dispatch()
+
+	D) redirect()
+	
+26.Which of the following statements is true regarding the include() method of the RequestDispatcher?
+
+	A) It permanently changes the client's URL to the included resource.
+
+	B) It allows data to be shared between the included resource and the calling servlet.
+
+	C) It can only include resources that are servlets.
+
+	D) It cannot access any attributes set in the original request.
+	
+27. How can you obtain a RequestDispatcher object in a servlet?
+
+	A) By calling ServletContext.getRequestDispatcher(String path).
+
+	B) By instantiating a new RequestDispatcher object.
+
+	C) By calling HttpServletRequest.getDispatcher(String path).
+
+	D) By using the RequestDispatcherFactory.
+	
+28. What is the primary purpose of the ServletConfig interface in a Java Servlet?
+
+	A) To provide a way for servlets to communicate with the servlet container.
+
+	B) To hold initialization parameters specific to a servlet.
+
+	C) To manage the overall lifecycle of the servlet context.
+
+	D) To access shared application-wide resources.
+	
+29. Which method of the ServletContext interface allows a servlet to access application-wide initialization parameters?
+
+	A) getInitParameter()
+
+	B) getServletConfig()
+
+	C) getAttribute()
+
+	D) getServletContext()
+	
+30. How does ServletContext differ from ServletConfig?
+
+	A) ServletContext is used for instance-level configuration, while ServletConfig is for application-level configuration.
+
+	B) ServletContext provides access to shared data across the entire application, while ServletConfig is specific to a single servlet.
+
+	C) ServletConfig is used for session management, while ServletContext is for request handling.
+
+	D) There is no difference; they are interchangeable.
+	
+
+31. Which method would you use to store an attribute in the ServletContext?
+
+	A) setInitParameter()
+
+	B) setAttribute()
+
+	C) addAttribute()
+
+	D) updateContext()
